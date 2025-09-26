@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlce6rwtjimmm"]
+
+[ext_resource type="Script" uid="uid://dvjuxp1chph5b" path="res://units/base_unit/base_unit.gd" id="1_ct6mi"]
+[ext_resource type="Texture2D" uid="uid://n6bp87bbe5pj" path="res://placeholderbase.png" id="1_q00he"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_ct6mi")
+
+[node name="Visual" type="Sprite2D" parent="."]
+texture = ExtResource("1_q00he")
