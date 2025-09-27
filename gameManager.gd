@@ -37,5 +37,25 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 	print()
 	print("TICK             ")
 	
+	units.shuffle()
+	var UnitsBySpeed = []
 	for E in units:
-		E.tick(secondsPerTick)
+		UnitsBySpeed.append({"unit":E,"speed":E.speed})
+	
+	UnitsBySpeed.sort_custom(sortSpeed)
+	
+	for E in UnitsBySpeed:
+		var unit : BaseUnit = E["unit"]
+		
+		if not is_instance_valid(unit):
+			continue
+		if unit.hp <= 0:
+			unit.die()
+			continue
+		
+		
+		
+		unit.tick(secondsPerTick)
+
+func sortSpeed(a, b):
+	return a.get("speed",0) < b.get("speed",0)

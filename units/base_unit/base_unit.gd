@@ -13,7 +13,7 @@ class_name BaseUnit
 @export var hp : int = 100
 @export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
 @export var damage : int = 15
-
+@export var speed : float = 1 ## Refers to the amount of attacks it will do per tick. This is also used to decide which unit moves first
 
 
 
@@ -27,6 +27,9 @@ var directions = [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP_
 var visualPosition : Vector2 = Vector2(0,0) ## This defines where the visuals for the unit are. Updated every frame
 var timePerTick : float = 0.5 ## The amount of time between ticks. This value gets updated every tick
 var maxHP : int = hp ##The max HP of a unit
+
+var _hideNextTick = false
+var _is_dying = false
 
 func _ready() -> void:
 	visualPosition = board.map_to_local(board_position)
@@ -48,16 +51,22 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 		Target = NearestEnemy()
 	
 	
+	
+	
 	if Target:
-		var dist = board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(Target.board_position.x,Target.board_position.y,0))
-		if dist <= range: 
-			# ATTACK STATE
-			attack(Target)
-			print("i attack")
-		else:
-			# MOVE STATE
-			pathfind_and_move(Target.board_position)
-			print("i move")
+		if Target.hp <= 0:
+			Target = NearestEnemy()
+			
+		if Target and Target.hp > 0:
+			var dist = board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(Target.board_position.x,Target.board_position.y,0))
+			if dist <= range: 
+				# ATTACK STATE
+				attack(Target)
+				print("i attack")
+			else:
+				# MOVE STATE
+				pathfind_and_move(Target.board_position)
+				print("i move")
 	
 	visualPosition = board.map_to_local(board_position)
 
@@ -68,6 +77,8 @@ func attack(target : BaseUnit): ## Runs when the unit tries to attack a target
 
 func onHit(damageToTake,attacker : BaseUnit = null): ## Runs when the unit gets hit
 	hp -= damageToTake
+	if hp <= 0:
+		die()
 
 func attackAnim(): ## Plays for the attack animation
 	animPlayer.stop()
@@ -130,7 +141,11 @@ func moveAngle(angle : int): ## This function defines moving to a neighboring ti
 	board_position = board.get_neighbor_cell(board_position,angle)
 
 func die(): ## This function is called when the unit dies
-	gameManagerObject.units.erase(self)
+	if _is_dying:
+		return
+	_is_dying = true
+	if gameManagerObject:
+		gameManagerObject.units.erase(self)
 	visible = false
 	queue_free()
 

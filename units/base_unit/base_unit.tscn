@@ -77,12 +77,12 @@ animPlayer = NodePath("anim")
 texture = ExtResource("1_q00he")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VisualHolder"]
-offset_left = -11.0
+offset_left = -9.0
 offset_top = -12.0
-offset_right = 53.0
+offset_right = 55.0
 offset_bottom = 4.0
-scale = Vector2(0.336007, 0.336007)
-value = 83.0
+scale = Vector2(0.273443, 0.3169)
+value = 100.0
 texture_progress = ExtResource("3_oey5r")
 
 [node name="anim" type="AnimationPlayer" parent="."]
