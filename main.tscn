@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=8 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://buj6ft1vvdf2f" path="res://addons/hexagon_tilemaplayer/hexagon_tilemaplayer.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://dhkx2sepdquww" path="res://sfx/CardDraw.mp3" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -28,3 +30,12 @@ tile_set = SubResource("TileSet_h2yge")
 script = ExtResource("3_h2yge")
 pathfinding_enabled = true
 metadata/_custom_type_script = "uid://buj6ft1vvdf2f"
+
+[node name="Metronome" parent="." node_paths=PackedStringArray("timer") instance=ExtResource("4_1bvp3")]
+position = Vector2(20, 22)
+timer = NodePath("../Timer")
+maxangle = 110
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lquwl")
+pitch_scale = 1.83

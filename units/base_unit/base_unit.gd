@@ -6,12 +6,15 @@ class_name BaseUnit
 @export var board : HexagonTileMapLayer = null ## Defines the board that the unit is playing on
 @export var team : int = 0 ## Defines the team that the unit is on
 @export var board_position : Vector2i = Vector2i(0,0) ## Defines the point on the board that the unit is at
+@export var animPlayer : AnimationPlayer 
 
 @export_category("Battle Stats")
 
 @export var hp : int = 100
 @export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
 @export var damage : int = 15
+
+
 
 
 var gameManagerObject : gameManager ## The game manager (wow)
@@ -38,9 +41,10 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 	
 	if hp <= 0:
 		die()
+		return
 	
 	
-	if gameManagerObject and !Target:
+	if gameManagerObject:
 		Target = NearestEnemy()
 	
 	
@@ -49,14 +53,16 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 		if dist <= range: 
 			# ATTACK STATE
 			attack(Target)
+			print("i attack")
 		else:
 			# MOVE STATE
 			pathfind_and_move(Target.board_position)
+			print("i move")
 	
 	visualPosition = board.map_to_local(board_position)
 
 func attack(target : BaseUnit): ## Runs when the unit tries to attack a target
-	onHit(damage,self)
+	target.onHit(damage,self)
 	attackAnim()
 	
 
@@ -64,9 +70,9 @@ func onHit(damageToTake,attacker : BaseUnit = null): ## Runs when the unit gets 
 	hp -= damageToTake
 
 func attackAnim(): ## Plays for the attack animation
-	$anim.stop()
-	$anim.speed_scale = 1 / timePerTick
-	$anim.play("attack")
+	animPlayer.stop()
+	animPlayer.speed_scale = 1 / timePerTick
+	animPlayer.play("attack")
 
 func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to pathfind towards the enemy, then moves accordingly. 
 	if targetPosition == null:
@@ -125,6 +131,7 @@ func moveAngle(angle : int): ## This function defines moving to a neighboring ti
 
 func die(): ## This function is called when the unit dies
 	gameManagerObject.units.erase(self)
+	visible = false
 	queue_free()
 
 func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit

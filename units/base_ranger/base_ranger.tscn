@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxsmriwppix3k"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_q6r5i"]
+[ext_resource type="Texture2D" uid="uid://cx1j2hio7pd4e" path="res://ui/MetronomeBG.png" id="2_65nh0"]
+[ext_resource type="Script" uid="uid://djh1oxwrnytgf" path="res://units/base_ranger/base_ranger.gd" id="2_uklsn"]
+
+[sub_resource type="Curve2D" id="Curve2D_65nh0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1629.46, -1034.58)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_uklsn"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualHolder/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wrr8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualHolder/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crgo8"]
+_data = {
+&"RESET": SubResource("Animation_wrr8k"),
+&"attack": SubResource("Animation_uklsn")
+}
+
+[node name="Unit" node_paths=PackedStringArray("animPlayer") instance=ExtResource("1_q6r5i")]
+script = ExtResource("2_uklsn")
+animPlayer = NodePath("anim2")
+range = 3
+
+[node name="Path2D" type="Path2D" parent="VisualHolder" index="2"]
+scale = Vector2(0.0251618, 0.0251311)
+curve = SubResource("Curve2D_65nh0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
+rotation = -0.565702
+
+[node name="Projectile" type="Sprite2D" parent="VisualHolder/Path2D/PathFollow2D" index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_65nh0")
+
+[node name="anim2" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_crgo8")
+}

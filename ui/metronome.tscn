@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c28224rc6p5um"]
+
+[ext_resource type="Script" uid="uid://b82t5mb4rd3hl" path="res://ui/metronome.gd" id="1_ypeor"]
+[ext_resource type="Texture2D" uid="uid://cx1j2hio7pd4e" path="res://ui/MetronomeBG.png" id="2_icj7h"]
+[ext_resource type="Texture2D" uid="uid://bcqhbt2ohs0xa" path="res://ui/MetronomeHand.png" id="3_5u0yj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdajx"]
+atlas = ExtResource("2_icj7h")
+region = Rect2(0, 63, 96, 33)
+
+[node name="Metronome" type="Node2D" node_paths=PackedStringArray("hammer")]
+script = ExtResource("1_ypeor")
+hammer = NodePath("Hammer")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.427083, 0.427083)
+texture = ExtResource("2_icj7h")
+
+[node name="Hammer" type="Sprite2D" parent="."]
+position = Vector2(-0.2, 8.05)
+scale = Vector2(0.427083, 0.427083)
+texture = ExtResource("3_5u0yj")
+offset = Vector2(0, -16)
+
+[node name="Foreground" type="Sprite2D" parent="."]
+position = Vector2(0, 13.435)
+scale = Vector2(0.427083, 0.427083)
+texture = SubResource("AtlasTexture_sdajx")

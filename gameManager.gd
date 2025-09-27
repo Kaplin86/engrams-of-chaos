@@ -13,8 +13,8 @@ func _ready() -> void:
 	tickTimer.timeout.connect(tick)
 	tickTimer.start()
 	
-	for E in range(5):
-		spawnUnit("base_unit",Vector2i(E * 2 + 2,1))
+	for E in range(4):
+		spawnUnit("base_ranger",Vector2i(E * 2 + 2,1))
 	
 	for E in range(5):
 		spawnUnit("base_unit",Vector2i(E * 2 + 2,18),2)
@@ -36,5 +36,6 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function
 	print()
 	print("TICK             ")
+	
 	for E in units:
 		E.tick(secondsPerTick)
