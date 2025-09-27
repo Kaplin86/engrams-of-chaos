@@ -74,13 +74,16 @@ _data = {
 [node name="Unit" instance=ExtResource("1_q6r5i")]
 script = ExtResource("2_uklsn")
 range = 3
-speed = 0.9
+speed = 0.5
+defense = 0
 
 [node name="Path2D" type="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_65nh0")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
+position = Vector2(88, 104)
 rotation = 0.868539
+progress = 136.235
 
 [node name="Projectile" type="Sprite2D" parent="VisualHolder/Path2D/PathFollow2D" index="0"]
 visible = false

@@ -6,16 +6,16 @@ class_name BaseUnit
 @export var board : HexagonTileMapLayer = null ## Defines the board that the unit is playing on
 @export var team : int = 0 ## Defines the team that the unit is on
 @export var board_position : Vector2i = Vector2i(0,0) ## Defines the point on the board that the unit is at
-@export var animPlayer : AnimationPlayer 
+@export var animPlayer : AnimationPlayer ## The animation player node that controls all animations for the unit
 
 @export_category("Battle Stats")
 
-@export var hp : int = 100
+@export var hp : int = 100 ## The units current hp, maxhp is set to this at runtime.
 @export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
-@export var damage : int = 15
+@export var damage : int = 15 ## The damage the unit attepts to do every attack
 @export var speed : float = 1 ## Refers to the amount of attacks it will do per tick. This is also used to decide which unit moves first
-
-
+@export var mana : int = 0 ## Determines the max mana of the user. If its 0, this unit is unable to cast spells
+@export var defense : int = 1 ## When taking a hit, subtract this amount from the attack
 
 var gameManagerObject : gameManager ## The game manager (wow)
 
@@ -23,10 +23,13 @@ var type = "base_unit" ## This string refers to the filename of the unit, and is
 var Target : BaseUnit ## Current Targeted unit
 
 
-var directions = [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE,TileSet.CELL_NEIGHBOR_LEFT_SIDE]
+var directions := [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE,TileSet.CELL_NEIGHBOR_LEFT_SIDE] ## A array that contains all hexagonal directions
 var visualPosition : Vector2 = Vector2(0,0) ## This defines where the visuals for the unit are. Updated every frame
 var timePerTick : float = 0.5 ## The amount of time between ticks. This value gets updated every tick
 var maxHP : int = hp ##The max HP of a unit
+var maxMana : int = mana ##The max HP of a unit
+
+var attackCharge : float = 0 ## The units attack charge serves as a way to know how many times the unit attacks during their tick. Every attack decreases it by 1.
 
 var _hideNextTick = false
 var _is_dying = false
@@ -61,8 +64,15 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 			var dist = board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(Target.board_position.x,Target.board_position.y,0))
 			if dist <= range: 
 				# ATTACK STATE
-				attack(Target)
-				print("i attack")
+				
+				if mana >= maxMana and maxMana != 0:
+					# Spell Cast
+					castSpell(Target)
+				else:
+					# Normal attack
+					var hitcount = calculateAttackHits()
+					attack(Target, hitcount)
+					print("i attack with hitcounts of ", hitcount)
 			else:
 				# MOVE STATE
 				pathfind_and_move(Target.board_position)
@@ -70,19 +80,42 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 	
 	visualPosition = board.map_to_local(board_position)
 
-func attack(target : BaseUnit): ## Runs when the unit tries to attack a target
+func calculateAttackHits() -> int: ## Calculates how many attack hits the unit does this tick
+	attackCharge += speed
+	var Hits = 0
+	while attackCharge >= 1:
+		attackCharge -= 1
+		Hits += 1
+	return Hits
+
+func castSpell(target):
+	pass
+
+func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries to attack a target
+	if HitCount == 0:
+		return
 	target.onHit(damage,self)
-	attackAnim()
+	attackAnim(HitCount)
 	
+	if HitCount > 1:
+		animPlayer.animation_finished.connect(
+			Callable(self, "_on_attack_anim_finished").bind(target, HitCount - 1),CONNECT_ONE_SHOT)
+
+func _on_attack_anim_finished(animname,target, remainingHits):
+	if target and target.hp > 0:
+		attack(target, remainingHits)
 
 func onHit(damageToTake,attacker : BaseUnit = null): ## Runs when the unit gets hit
-	hp -= damageToTake
+	var damageWithDefense = damageToTake - defense
+	if damageWithDefense <= 0:
+		damageWithDefense = 1
+	hp -= damageWithDefense
 	if hp <= 0:
 		die()
 
-func attackAnim(): ## Plays for the attack animation
+func attackAnim(hitcount : int = 1): ## Plays for the attack animation
 	animPlayer.stop()
-	animPlayer.speed_scale = 1 / timePerTick
+	animPlayer.speed_scale = 1 / timePerTick * hitcount
 	animPlayer.play("attack")
 
 func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to pathfind towards the enemy, then moves accordingly. 

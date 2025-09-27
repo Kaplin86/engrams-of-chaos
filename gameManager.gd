@@ -8,16 +8,21 @@ class_name gameManager
 @export var board : HexagonTileMapLayer ## The board the game is happening on
 
 
+
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
 	tickTimer.start()
 	
-	for E in range(4):
+	seed(1)
+	
+	for E in range(3):
 		spawnUnit("base_ranger",Vector2i(E * 2 + 2,1))
 	
 	for E in range(5):
 		spawnUnit("base_unit",Vector2i(E * 2 + 2,18),2)
+	
+	
 
 
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
