@@ -14,16 +14,16 @@ func _ready() -> void:
 	tickTimer.timeout.connect(tick)
 	tickTimer.start()
 	
-	seed(1)
+	seed(2)
 	
 	for E in range(3):
-		spawnUnit("base_ranger",Vector2i(E * 2 + 2,1))
+		spawnUnit("pepper",Vector2i(E * 2 + 2,1))
+	spawnUnit("chicken_wing",Vector2i(1 * 2 + 2,2))
 	
 	for E in range(5):
-		spawnUnit("base_unit",Vector2i(E * 2 + 2,18),2)
+		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,18),2)
 	
 	
-
 
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
 	if board:
@@ -41,6 +41,8 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function
 	print()
 	print("TICK             ")
+	
+	$AudioStreamPlayer.play()
 	
 	units.shuffle()
 	var UnitsBySpeed = []

@@ -1,7 +1,7 @@
 extends Node2D
 class_name BaseUnit
 
-## A base unit that can move across the board
+## A base unit that can move across the board, attack, and cast spells
 
 @export var board : HexagonTileMapLayer = null ## Defines the board that the unit is playing on
 @export var team : int = 0 ## Defines the team that the unit is on
@@ -14,7 +14,7 @@ class_name BaseUnit
 @export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
 @export var damage : int = 15 ## The damage the unit attepts to do every attack
 @export var speed : float = 1 ## Refers to the amount of attacks it will do per tick. This is also used to decide which unit moves first
-@export var mana : int = 0 ## Determines the max mana of the user. If its 0, this unit is unable to cast spells
+@export var maxMana : int = 0 ## Determines the max mana of the user. If its 0, this unit is unable to cast spells
 @export var defense : int = 1 ## When taking a hit, subtract this amount from the attack
 
 var gameManagerObject : gameManager ## The game manager (wow)
@@ -27,7 +27,7 @@ var directions := [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP
 var visualPosition : Vector2 = Vector2(0,0) ## This defines where the visuals for the unit are. Updated every frame
 var timePerTick : float = 0.5 ## The amount of time between ticks. This value gets updated every tick
 var maxHP : int = hp ##The max HP of a unit
-var maxMana : int = mana ##The max HP of a unit
+var mana : int = maxMana ##The current mana of the unit
 
 var attackCharge : float = 0 ## The units attack charge serves as a way to know how many times the unit attacks during their tick. Every attack decreases it by 1.
 
@@ -39,11 +39,18 @@ func _ready() -> void:
 	if team == 1:
 		modulate = Color(1,0,0)
 	
-	$VisualHolder/TextureProgressBar.max_value = maxHP
+	$VisualHolder/HealthBar.max_value = maxHP
+	$VisualHolder/ManaBar.max_value = maxMana
 	
+	if maxMana == 0:
+		$VisualHolder/ManaBar.visible = false
+	
+	mana = 0
 
 func tick(time_per_tick : float): ## This is ran every ingame tick.
 	timePerTick = time_per_tick
+	
+	$VisualHolder/ManaBar.value = mana
 	
 	if hp <= 0:
 		die()
@@ -64,7 +71,7 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 			var dist = board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(Target.board_position.x,Target.board_position.y,0))
 			if dist <= range: 
 				# ATTACK STATE
-				
+
 				if mana >= maxMana and maxMana != 0:
 					# Spell Cast
 					castSpell(Target)
@@ -72,11 +79,11 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 					# Normal attack
 					var hitcount = calculateAttackHits()
 					attack(Target, hitcount)
-					print("i attack with hitcounts of ", hitcount)
+				
+				$VisualHolder/ManaBar.value = mana
 			else:
 				# MOVE STATE
 				pathfind_and_move(Target.board_position)
-				print("i move")
 	
 	visualPosition = board.map_to_local(board_position)
 
@@ -96,6 +103,9 @@ func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries 
 		return
 	target.onHit(damage,self)
 	attackAnim(HitCount)
+	if maxMana != 0:
+		
+		mana += 20
 	
 	if HitCount > 1:
 		animPlayer.animation_finished.connect(
@@ -202,4 +212,5 @@ func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 func _process(delta: float) -> void:
 	$VisualHolder.global_position.x += (visualPosition.x - $VisualHolder.global_position.x) * 0.5 * 0.3 * ((1 / 0.016) * delta)
 	$VisualHolder.global_position.y += (visualPosition.y - $VisualHolder.global_position.y) * 0.5 * 0.3 * ((1 / 0.016) * delta)
-	$VisualHolder/TextureProgressBar.value = hp
+	$VisualHolder/HealthBar.value = hp
+	
