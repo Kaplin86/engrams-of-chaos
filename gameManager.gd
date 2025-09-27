@@ -12,14 +12,13 @@ func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
 	tickTimer.start()
-	spawnUnit("base_unit",Vector2i(7,2),2)
-	spawnUnit("base_unit",Vector2i(7,1),2)
-	spawnUnit("base_unit",Vector2i(7,18))
-	spawnUnit("base_unit",Vector2i(8,18))
-	spawnUnit("base_unit",Vector2i(5,18))
-	spawnUnit("base_unit",Vector2i(6,18))
 	
+	for E in range(5):
+		spawnUnit("base_unit",Vector2i(E * 2 + 2,1))
 	
+	for E in range(5):
+		spawnUnit("base_unit",Vector2i(E * 2 + 2,18),2)
+
 
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
 	if board:
@@ -35,5 +34,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		return FAILED
 
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function
+	print()
+	print("TICK             ")
 	for E in units:
 		E.tick(secondsPerTick)
