@@ -3,11 +3,11 @@ class_name BaseUnit
 
 ## A base unit that can move across the board
 
-@export var board : TileMapLayer = null ## Defines the board that the unit is playing on
+@export var board : HexagonTileMapLayer = null ## Defines the board that the unit is playing on
 @export var team : int = 0 ## Defines the team that the unit is on
 @export var board_position : Vector2i = Vector2i(0,0) ## Defines the point on the board that the unit is at
 
-@export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
+@export var range : int = 3 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
 
 var gameManagerObject : gameManager ## The game manager (wow)
 
@@ -37,34 +37,32 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 
 func pathfind_and_move(targetPosition : Vector2i):
 	if targetPosition:
-		var WantedDirections = directions.duplicate() # For pathfinding, rather than finding where we want to go, we remove where we dont want to go :D
-		if targetPosition.y > board_position.y:
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_RIGHT_SIDE)
-		elif targetPosition.y < board_position.y:
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE)
-			if targetPosition.y == board_position.y - 1:
-				if targetPosition.x > board_position.x:
-					pass
-				elif targetPosition.x < board_position.x:
-					pass
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_RIGHT_SIDE)
-		elif targetPosition.y == board_position.y:
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE)
-			WantedDirections.erase(TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE)
 		
-		move(WantedDirections.pick_random())
+		
+		var PositionOfEnemy = board.map_to_local(targetPosition)
+		var MyPosition = board.map_to_local(board_position)
+		if MyPosition.distance_to(PositionOfEnemy) <= range * board.tile_set.tile_size.x:
+			return
+		
+		# Use it with AStar2D methods
+		var start_id = board.pathfinding_get_point_id(board_position)
+		var end_id = board.pathfinding_get_point_id(targetPosition)
+		var path = board.astar.get_id_path(start_id, end_id)
+		
+		var FoundPosition = board.cube_to_map(board.get_closest_cell_from_local(board.astar.get_point_position(path[1])))
+		print(FoundPosition, " vs ", board_position)
+		
+		movePosition(Vector2i(FoundPosition.x,FoundPosition.y))
+		
+		
 	else:
 		return
 	
 
-func move(angle : int): ## This function defines moving to a neighboring tile on the board. Goes clockwise, 0 being top-left side and 5 being left side
+func movePosition(newPos : Vector2i):
+	board_position = newPos
+
+func moveAngle(angle : int): ## This function defines moving to a neighboring tile on the board. Goes clockwise, 0 being top-left side and 5 being left side
 	board_position = board.get_neighbor_cell(board_position,angle)
 
 func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
@@ -73,11 +71,12 @@ func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 	var TargetOfThinking = null 
 	for E in Units:
 		if E.team != team:
-			var PositionOfEnemy = board.map_to_local(E.board_position)
-			var MyPosition = board.map_to_local(board_position)
-			if MyPosition.distance_to(PositionOfEnemy) < TargetDistance:
-				TargetDistance = MyPosition.distance_to(PositionOfEnemy)
+			var Dist =  board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(E.board_position.x,E.board_position.y,0))
+			if Dist < TargetDistance:
+				TargetDistance = Dist
 				TargetOfThinking = E
+	
+	
 	if TargetOfThinking:
 		return TargetOfThinking
 	else:
