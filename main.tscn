@@ -38,7 +38,8 @@ pitch_scale = 1.83
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_7mycd")]
+[node name="UI" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("5_7mycd")]
+timer = NodePath("../../Timer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 120)

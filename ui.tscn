@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=6 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
 [ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="2_m6e0p"]
+[ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="3_27fn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27fn8"]
 size = Vector2(426, 403)
 
 [node name="UI" type="Node2D"]
+script = ExtResource("1_nltto")
 
 [node name="Metronome" parent="." instance=ExtResource("1_fyqef")]
 position = Vector2(48, 49)
@@ -35,30 +38,33 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="BG"]
+layout_mode = 0
 offset_left = 504.0
 offset_top = 1.0
 offset_right = 719.0
-offset_bottom = 220.0
+offset_bottom = 297.0
 color = Color(0.0204741, 0.183244, 0.295557, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="BG/ColorRect"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 212.0
-offset_bottom = 216.0
+offset_bottom = 293.0
 color = Color(0.0420501, 0.266058, 0.41735, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="BG"]
+layout_mode = 0
 offset_left = 621.0
 offset_top = 30.0
 offset_right = 716.0
 offset_bottom = 33.0
 
 [node name="UnitSelectedImage" type="TextureRect" parent="."]
-offset_left = 581.0
-offset_top = 40.0
-offset_right = 715.0
-offset_bottom = 164.0
+offset_left = 569.0
+offset_top = 37.0
+offset_right = 703.0
+offset_bottom = 161.0
 texture = ExtResource("2_m6e0p")
 expand_mode = 1
 stretch_mode = 5
@@ -71,8 +77,35 @@ offset_bottom = 29.0
 text = "THE UNIT"
 horizontal_alignment = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Description" type="Label" parent="."]
+offset_left = 509.0
+offset_top = 215.0
+offset_right = 713.0
+offset_bottom = 290.0
+text = "Every time this unit attacks, it's spead increases by 2%"
+autowrap_mode = 2
+
+[node name="Synergies" type="VBoxContainer" parent="."]
+anchors_preset = -1
 offset_left = 510.0
 offset_top = 29.0
-offset_right = 599.0
-offset_bottom = 188.0
+offset_right = 821.0
+offset_bottom = 340.0
+scale = Vector2(0.140266, 0.140266)
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Synergies"]
+layout_mode = 2
+texture = ExtResource("3_27fn8")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Synergies"]
+layout_mode = 2
+texture = ExtResource("3_27fn8")
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="Synergies"]
+layout_mode = 2
+texture = ExtResource("3_27fn8")
+stretch_mode = 4
