@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhd30a58q2u7d"]
+
+[ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="1_w1xyo"]
+
+[node name="SynergyRect" type="ColorRect"]
+custom_minimum_size = Vector2(94, 44.7)
+offset_left = 33.0
+offset_top = 438.0
+offset_right = 127.0
+offset_bottom = 482.7
+color = Color(0.229112, 0.229112, 0.229112, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 1.0
+offset_right = 94.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 26
+text = "x 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(21, 22)
+scale = Vector2(0.117145, 0.117145)
+texture = ExtResource("1_w1xyo")

@@ -2,6 +2,7 @@ extends Node2D
 var CurrentState = "BoardUnit"
 var boardPosition : Vector2i
 var unitTarget : BaseUnit
+var synergyPoint = 0
 
 @export var main : gameManager
 @export var ui : Node2D
@@ -21,6 +22,21 @@ func _process(delta: float) -> void:
 			else:
 				changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) + 1])
 		unitTarget.modulate = Color(3,3,3)
+		if Input.is_action_just_pressed("ui_down"):
+			CurrentState = "SynergyView"
+			unitTarget.modulate = Color(1,1,1)
+	elif CurrentState == "SynergyView":
+		var synergyList = ui.synergyList
+		
+		if Input.is_action_just_pressed("ui_left"):
+			synergyPoint -= 1
+			synergyPoint = wrap(synergyPoint,0,synergyList.size())
+		elif Input.is_action_just_pressed("ui_right"):
+			synergyPoint += 1
+			synergyPoint = wrap(synergyPoint,0,synergyList.size())
+		
+		var selectedSynergy = synergyList[synergyPoint]
+		ui.highlightSynergy(selectedSynergy)
 
 func getunitsSortedToX():
 	var newUnitsList = main.units.duplicate()

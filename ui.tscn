@@ -184,50 +184,10 @@ position = Vector2(13, 23)
 scale = Vector2(0.126565, 0.126565)
 texture = ExtResource("7_waa4j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-color = Color(0.229112, 0.229112, 0.229112, 1)
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 1.0
-offset_right = 94.0
-offset_bottom = 43.0
-text = "SPICY"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Spicy" type="Sprite2D" parent="ColorRect"]
-position = Vector2(21, 22)
-scale = Vector2(0.117145, 0.117145)
-texture = ExtResource("3_27fn8")
-
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)
 offset_left = 33.0
 offset_top = 438.0
 offset_right = 551.0
 offset_bottom = 531.0
-
-[node name="ColorRect2" type="ColorRect" parent="SynergyHolder"]
-custom_minimum_size = Vector2(94, 44.7)
-layout_mode = 2
-color = Color(0.229112, 0.229112, 0.229112, 1)
-
-[node name="Label" type="Label" parent="SynergyHolder/ColorRect2"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 1.0
-offset_right = 94.0
-offset_bottom = 43.0
-theme_override_font_sizes/font_size = 26
-text = "x 3"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Spicy" type="Sprite2D" parent="SynergyHolder/ColorRect2"]
-position = Vector2(21, 22)
-scale = Vector2(0.117145, 0.117145)
-texture = ExtResource("3_27fn8")
+columns = 5

@@ -1,5 +1,7 @@
 extends Node
 
+var synergyTypes = ["spicy","umami"]
+
 var synergyUnitJson : Dictionary = {}
 
 func _ready() -> void:

@@ -24,7 +24,7 @@ func _ready() -> void:
 		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,14),2)
 	spawnUnit("pepper",Vector2i(1 * 2 + 2,13),2)
 	
-	print(calculatesynergies(2))
+	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 
 func calculatesynergies(team:int):
 	var synergy = []
@@ -35,7 +35,7 @@ func calculatesynergies(team:int):
 				unitscounted.append(E.type)
 				synergy += DatastoreHolder.synergyUnitJson[E.type]
 	
-	var newsynergyStore = {}
+	var newsynergyStore := {}
 	for C in synergy:
 		if newsynergyStore.has(C):
 			newsynergyStore[C] += 1
@@ -43,6 +43,8 @@ func calculatesynergies(team:int):
 			newsynergyStore[C] = 1
 	
 	return newsynergyStore
+
+
 
 
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
