@@ -63,15 +63,6 @@ offset_top = 30.0
 offset_right = 716.0
 offset_bottom = 33.0
 
-[node name="UnitSelectedImage" type="TextureRect" parent="."]
-offset_left = 569.0
-offset_top = 37.0
-offset_right = 703.0
-offset_bottom = 161.0
-texture = ExtResource("2_m6e0p")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="Name" type="Label" parent="."]
 offset_left = 509.0
 offset_top = 5.0
@@ -81,7 +72,49 @@ text = "UNIT"
 horizontal_alignment = 2
 uppercase = true
 
-[node name="Description" type="Label" parent="."]
+[node name="SynergyUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Description" type="RichTextLabel" parent="SynergyUI"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 36.0
+offset_right = 715.0
+offset_bottom = 292.0
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "Units of this synergy get an attack increase at the start of the round.
+
+[b] 2 Units -  5% Increase [/b]
+
+4 Units -  10% Increase
+
+6 Units -  15% Increase"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SynergyIcon" type="TextureRect" parent="SynergyUI"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 5.0
+offset_right = 820.0
+offset_bottom = 316.0
+scale = Vector2(0.107959, 0.107959)
+texture = ExtResource("3_27fn8")
+stretch_mode = 4
+
+[node name="UnitUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Description" type="Label" parent="UnitUI"]
+layout_mode = 0
 offset_left = 509.0
 offset_top = 215.0
 offset_right = 713.0
@@ -89,13 +122,15 @@ offset_bottom = 290.0
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="UnitUI"]
+layout_mode = 0
 offset_left = 510.0
 offset_top = 161.551
 offset_right = 821.0
 offset_bottom = 161.551
 
-[node name="Synergies" type="VBoxContainer" parent="."]
+[node name="Synergies" type="VBoxContainer" parent="UnitUI"]
+layout_mode = 0
 offset_left = 510.0
 offset_top = 29.0
 offset_right = 821.0
@@ -104,22 +139,23 @@ scale = Vector2(0.140266, 0.140266)
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Synergies"]
+[node name="TextureRect" type="TextureRect" parent="UnitUI/Synergies"]
 layout_mode = 2
 texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="Synergies"]
+[node name="TextureRect2" type="TextureRect" parent="UnitUI/Synergies"]
 layout_mode = 2
 texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="Synergies"]
+[node name="TextureRect3" type="TextureRect" parent="UnitUI/Synergies"]
 layout_mode = 2
 texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
-[node name="Damage" type="Label" parent="."]
+[node name="Damage" type="Label" parent="UnitUI"]
+layout_mode = 0
 offset_left = 535.0
 offset_top = 175.0
 offset_right = 562.0
@@ -127,7 +163,7 @@ offset_bottom = 207.0
 theme_override_font_sizes/font_size = 23
 text = "32"
 
-[node name="ColorRect" type="ColorRect" parent="Damage"]
+[node name="ColorRect" type="ColorRect" parent="UnitUI/Damage"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = -6.0
@@ -135,13 +171,14 @@ offset_right = 29.0
 offset_bottom = 38.0
 color = Color(0, 0, 0, 0.121569)
 
-[node name="Sword" type="Sprite2D" parent="Damage/ColorRect"]
+[node name="Sword" type="Sprite2D" parent="UnitUI/Damage/ColorRect"]
 position = Vector2(14, 22)
 rotation = 0.147564
 scale = Vector2(0.196108, 0.196108)
 texture = ExtResource("5_ibotj")
 
-[node name="Defense" type="Label" parent="."]
+[node name="Defense" type="Label" parent="UnitUI"]
+layout_mode = 0
 offset_left = 604.0
 offset_top = 175.0
 offset_right = 631.0
@@ -149,7 +186,7 @@ offset_bottom = 207.0
 theme_override_font_sizes/font_size = 23
 text = "32"
 
-[node name="ColorRect" type="ColorRect" parent="Defense"]
+[node name="ColorRect" type="ColorRect" parent="UnitUI/Defense"]
 layout_mode = 0
 offset_left = -28.0
 offset_top = -6.0
@@ -157,13 +194,14 @@ offset_right = 29.0
 offset_bottom = 38.0
 color = Color(0, 0, 0, 0.121569)
 
-[node name="Sword" type="Sprite2D" parent="Defense/ColorRect"]
+[node name="Sword" type="Sprite2D" parent="UnitUI/Defense/ColorRect"]
 position = Vector2(14.68, 22)
 rotation = -0.0045938
 scale = Vector2(0.177106, 0.177106)
 texture = ExtResource("6_y4yjw")
 
-[node name="Health" type="Label" parent="."]
+[node name="Health" type="Label" parent="UnitUI"]
+layout_mode = 0
 offset_left = 669.0
 offset_top = 175.0
 offset_right = 708.0
@@ -171,7 +209,7 @@ offset_bottom = 207.0
 theme_override_font_sizes/font_size = 23
 text = "100"
 
-[node name="ColorRect" type="ColorRect" parent="Health"]
+[node name="ColorRect" type="ColorRect" parent="UnitUI/Health"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = -6.0
@@ -179,10 +217,20 @@ offset_right = 43.0
 offset_bottom = 38.0
 color = Color(0, 0, 0, 0.121569)
 
-[node name="Sword" type="Sprite2D" parent="Health/ColorRect"]
+[node name="Sword" type="Sprite2D" parent="UnitUI/Health/ColorRect"]
 position = Vector2(13, 23)
 scale = Vector2(0.126565, 0.126565)
 texture = ExtResource("7_waa4j")
+
+[node name="UnitSelectedImage" type="TextureRect" parent="UnitUI"]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 37.0
+offset_right = 703.0
+offset_bottom = 161.0
+texture = ExtResource("2_m6e0p")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)

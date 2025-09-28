@@ -12,8 +12,10 @@ func _process(delta: float) -> void:
 		return
 	if CurrentState == "BoardUnit":
 		var NewUnitList = getunitsSortedToX()
+		
 		if unitTarget == null:
 			unitTarget = NewUnitList[0]
+		else:
 			ui.viewUnit(unitTarget)
 		if Input.is_action_just_pressed("ui_left"):
 			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
@@ -35,6 +37,11 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("ui_right"):
 			synergyPoint += 1
 			synergyPoint = wrap(synergyPoint,0,synergyList.size())
+		elif Input.is_action_just_pressed("ui_up"):
+			unitTarget = null
+			CurrentState = "BoardUnit"
+			ui.highlightSynergy("")
+			return
 		
 		var selectedSynergy = synergyList[synergyPoint]
 		ui.highlightSynergy(selectedSynergy)

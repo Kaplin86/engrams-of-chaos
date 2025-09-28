@@ -24,10 +24,10 @@ func _ready() -> void:
 	
 	for E in range(5):
 		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,14),2)
-	#spawnUnit("pepper",Vector2i(1 * 2 + 2,13),2)
+	spawnUnit("pepper",Vector2i(1 * 2 + 2,13),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
-	startFight()
+	#startFight()
 
 func startFight():
 	tickTimer.start()

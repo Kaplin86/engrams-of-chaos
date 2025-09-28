@@ -14,3 +14,41 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 						E.damage += ceil(E.damage * 0.10)
 					elif level > 1:
 						E.damage += ceil(E.damage * 0.05)
+
+
+
+func get_description(level) -> String:
+	if level >= 6:
+		return "Units of this synergy get an attack increase at the start of the round.
+
+2 Units -  5% Increase
+
+4 Units -  10% Increase
+
+[b]6 Units -  15% Increase[/b]"
+
+
+	elif level >= 4:
+		return "Units of this synergy get an attack increase at the start of the round.
+
+2 Units -  5% Increase
+
+[b]4 Units -  10% Increase[/b]
+
+6 Units -  15% Increase"
+	elif level > 1:
+		return "Units of this synergy get an attack increase at the start of the round.
+
+[b]2 Units -  5% Increase[/b]
+
+4 Units -  10% Increase
+
+6 Units -  15% Increase"
+	else:
+		return "Units of this synergy get an attack increase at the start of the round.
+
+2 Units -  5% Increase
+
+4 Units -  10% Increase
+
+6 Units -  15% Increase"

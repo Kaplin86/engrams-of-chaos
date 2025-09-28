@@ -6,28 +6,30 @@ func _ready() -> void:
 var synergyRectScene = preload("res://ui/synergy_rect.tscn")
 
 func viewUnit(unit : BaseUnit):
-	$Damage.text = str(unit.damage)
-	$Defense.text = str(unit.defense)
-	$Health.text = str(unit.maxHP)
-	$UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
-	$Description.text = unit.description
+	$UnitUI.visible = true
+	$SynergyUI.visible = false
+	
+	$UnitUI/Damage.text = str(unit.damage)
+	$UnitUI/Defense.text = str(unit.defense)
+	$UnitUI/Health.text = str(unit.hp)
+	$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
+	$UnitUI/Description.text = unit.description
 	
 	if unit.team != 2:
 		$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
 		$Name.text = unit.type.replace("_"," ")
 	
-	for E in $Synergies.get_children():
+	for E in $UnitUI/Synergies.get_children():
 		E.queue_free()
 	
 	for E in DatastoreHolder.synergyUnitJson[unit.type]:
 		var NewImage = TextureRect.new()
 		NewImage.texture = load("res://ui/elements/"+E+".svg")
-		$Synergies.add_child(NewImage)
+		$UnitUI/Synergies.add_child(NewImage)
 	
 	
-	
-	
+
 
 
 var visualizesynergyholder
@@ -52,7 +54,17 @@ func sortSynergy(a, b):
 	return visualizesynergyholder[a] > visualizesynergyholder[b]
 
 func highlightSynergy(synergyname : String):
-	for E in $SynergyHolder.get_children():
-		E.modulate = Color(1,1,1)
-		if E.name == synergyname:
-			E.modulate = Color(3,3,3)
+	if synergyname == "":
+		for E in $SynergyHolder.get_children():
+			E.modulate = Color(1,1,1)
+	else:
+		for E in $SynergyHolder.get_children():
+			E.modulate = Color(1,1,1)
+			if E.name == synergyname:
+				E.modulate = Color(3,3,3)
+		var NewObject : BaseSynergy = load("res://synergyScripts/"+synergyname+".gd").new()
+		var Description = NewObject.get_description($"../..".calculatesynergies(2)[synergyname])
+		$UnitUI.visible = false
+		$SynergyUI.visible = true
+		$SynergyUI/Description.text = Description
+		$Name.text = synergyname + " SYNERGY"

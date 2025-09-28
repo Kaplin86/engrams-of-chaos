@@ -31,6 +31,7 @@ var maxHP : int = hp ##The max HP of a unit
 var mana : int = maxMana ##The current mana of the unit
 
 var attackCharge : float = 0 ## The units attack charge serves as a way to know how many times the unit attacks during their tick. Every attack decreases it by 1.
+var trueDamagePercentage : float = 0 ## The percentage of true damage this unit afflicts at the current moment.
 
 var _hideNextTick = false
 var _is_dying = false
@@ -103,7 +104,7 @@ func castSpell(target):
 func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries to attack a target
 	if HitCount == 0:
 		return
-	target.onHit(damage,self)
+	target.onHit(damage,self, trueDamagePercentage)
 	attackAnim(HitCount)
 	if maxMana != 0:
 		
@@ -117,11 +118,17 @@ func _on_attack_anim_finished(animname,target, remainingHits):
 	if target and target.hp > 0:
 		attack(target, remainingHits)
 
-func onHit(damageToTake,attacker : BaseUnit = null): ## Runs when the unit gets hit
-	var damageWithDefense = damageToTake - defense
+func onHit(damageToTake,attacker : BaseUnit = null, truedamagePercent : float = 0): ## Runs when the unit gets hit
+	var trueDamage = damageToTake * truedamagePercent
+	var normalDamage = damageToTake * (1.0 - truedamagePercent)
+	
+	var damageWithDefense = normalDamage - defense
 	if damageWithDefense <= 0:
 		damageWithDefense = 1
-	hp -= damageWithDefense
+	
+	var totaldamage = trueDamage + damageWithDefense
+	
+	hp -= totaldamage
 	if hp <= 0:
 		die()
 
