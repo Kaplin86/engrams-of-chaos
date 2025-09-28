@@ -45,7 +45,5 @@ timer = NodePath("../../Timer")
 position = Vector2(160, 120)
 zoom = Vector2(2.25, 2.25)
 
-[node name="CursorHandler" type="Node2D" parent="." node_paths=PackedStringArray("main", "ui")]
+[node name="CursorHandler" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
-main = NodePath("..")
-ui = NodePath("../CanvasLayer/UI")

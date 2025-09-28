@@ -12,7 +12,7 @@ class_name gameManager
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
-	tickTimer.start()
+	#tickTimer.start()
 	
 	seed(2)
 	
@@ -21,7 +21,7 @@ func _ready() -> void:
 	spawnUnit("chicken_wing",Vector2i(1 * 2 + 2,2))
 	
 	for E in range(5):
-		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,18),2)
+		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,14),2)
 	
 	
 
@@ -37,12 +37,19 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		return OK
 	else:
 		return FAILED
+var beat = 3 ## The current metronome beat we are on
 
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function
 	print()
 	print("TICK             ")
 	
 	$AudioStreamPlayer.play()
+	beat += 1
+	if beat ==4:
+		beat = 0
+		$AudioStreamPlayer.pitch_scale = 1.2 + (randf() * 0.05)
+	else:
+		$AudioStreamPlayer.pitch_scale = 1 + (randf() * 0.01)
 	
 	units.shuffle()
 	var UnitsBySpeed = []
