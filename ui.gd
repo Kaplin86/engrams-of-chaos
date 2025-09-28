@@ -24,6 +24,10 @@ func viewUnit(unit : BaseUnit):
 		var NewImage = TextureRect.new()
 		NewImage.texture = load("res://ui/elements/"+E+".svg")
 		$Synergies.add_child(NewImage)
+	
+	
+	
+	
 
 
 var visualizesynergyholder

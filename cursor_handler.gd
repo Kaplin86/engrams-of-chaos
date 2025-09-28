@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 		var NewUnitList = getunitsSortedToX()
 		if unitTarget == null:
 			unitTarget = NewUnitList[0]
+			ui.viewUnit(unitTarget)
 		if Input.is_action_just_pressed("ui_left"):
 			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
 		if Input.is_action_just_pressed("ui_right"):
