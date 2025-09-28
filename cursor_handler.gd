@@ -10,17 +10,26 @@ func _process(delta: float) -> void:
 	if !main:
 		return
 	if CurrentState == "BoardUnit":
+		var NewUnitList = getunitsSortedToX()
 		if unitTarget == null:
-			unitTarget = main.units[0]
+			unitTarget = NewUnitList[0]
 		if Input.is_action_just_pressed("ui_left"):
-			changeUnitSelect(main.units[main.units.find(unitTarget) - 1])
+			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
 		if Input.is_action_just_pressed("ui_right"):
-			if main.units.find(unitTarget) + 1 >= main.units.size():
-				changeUnitSelect(main.units[0])
+			if NewUnitList.find(unitTarget) + 1 >= NewUnitList.size():
+				changeUnitSelect(NewUnitList[0])
 			else:
-				changeUnitSelect(main.units[main.units.find(unitTarget) + 1])
-		unitTarget.modulate = Color(2,2,2)
+				changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) + 1])
+		unitTarget.modulate = Color(3,3,3)
 
+func getunitsSortedToX():
+	var newUnitsList = main.units.duplicate()
+	newUnitsList.sort_custom(sortX)
+	return newUnitsList
+
+
+func sortX(a, b):
+	return a.get_child(0).global_position.x < b.get_child(0).global_position.x
 
 func changeUnitSelect(newUnit : BaseUnit):
 	unitTarget.modulate = Color(1,1,1)

@@ -15,6 +15,10 @@ run/main_scene="uid://5nme2qseus3n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DatastoreHolder="*res://datastoreHolder.gd"
+
 [display]
 
 window/size/viewport_width=720

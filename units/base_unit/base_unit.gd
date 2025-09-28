@@ -7,6 +7,7 @@ class_name BaseUnit
 @export var team : int = 0 ## Defines the team that the unit is on
 @export var board_position : Vector2i = Vector2i(0,0) ## Defines the point on the board that the unit is at
 @export var animPlayer : AnimationPlayer ## The animation player node that controls all animations for the unit
+@export var description : String = ""
 
 @export_category("Battle Stats")
 
@@ -19,7 +20,7 @@ class_name BaseUnit
 
 var gameManagerObject : gameManager ## The game manager (wow)
 
-var type = "base_unit" ## This string refers to the filename of the unit, and is to be overwritten.
+@export var type = "base_unit" ## This string refers to the filename of the unit, and is to be overwritten.
 var Target : BaseUnit ## Current Targeted unit
 
 

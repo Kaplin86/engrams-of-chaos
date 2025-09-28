@@ -6,10 +6,12 @@
 
 [node name="Unit" instance=ExtResource("1_1srwl")]
 script = ExtResource("2_xaqd2")
+description = "Every time this unit attacks, it's attack speed increases by 2%"
 hp = 90
 damage = 8
 speed = 1.5
 defense = 5
+type = "pepper"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_orle5")
