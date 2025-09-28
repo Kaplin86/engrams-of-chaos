@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0fa1fcw3ggsp"]
+
+[ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="2_m6e0p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27fn8"]
+size = Vector2(426, 403)
+
+[node name="UI" type="Node2D"]
+
+[node name="Metronome" parent="." instance=ExtResource("1_fyqef")]
+position = Vector2(48, 49)
+scale = Vector2(2.47025, 2.47025)
+maxangle = 110
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(75, 23)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+position = Vector2(501, 426)
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(75, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(213, 201.5)
+shape = SubResource("RectangleShape2D_27fn8")
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="BG"]
+offset_left = 504.0
+offset_top = 1.0
+offset_right = 719.0
+offset_bottom = 220.0
+color = Color(0.0204741, 0.183244, 0.295557, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BG/ColorRect"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 212.0
+offset_bottom = 216.0
+color = Color(0.0420501, 0.266058, 0.41735, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BG"]
+offset_left = 621.0
+offset_top = 30.0
+offset_right = 716.0
+offset_bottom = 33.0
+
+[node name="UnitSelectedImage" type="TextureRect" parent="."]
+offset_left = 581.0
+offset_top = 40.0
+offset_right = 715.0
+offset_bottom = 164.0
+texture = ExtResource("2_m6e0p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="."]
+offset_left = 563.0
+offset_top = 5.0
+offset_right = 715.0
+offset_bottom = 29.0
+text = "THE UNIT"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 510.0
+offset_top = 29.0
+offset_right = 599.0
+offset_bottom = 188.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlce6rwtjimmm"]
 
 [ext_resource type="Script" uid="uid://dvjuxp1chph5b" path="res://units/base_unit/base_unit.gd" id="1_ct6mi"]
-[ext_resource type="Texture2D" uid="uid://n6bp87bbe5pj" path="res://placeholderbase.png" id="1_q00he"]
+[ext_resource type="Texture2D" uid="uid://kqqdc7241f6u" path="res://units/chicken_wing/chicken_wing.svg" id="2_bsofo"]
 [ext_resource type="Texture2D" uid="uid://cmcaga1uq6fht" path="res://ui/HurtCube.png" id="3_p7025"]
 [ext_resource type="Texture2D" uid="uid://ddhcml1bc4ja4" path="res://ui/HealthCube.png" id="4_bsofo"]
 [ext_resource type="Texture2D" uid="uid://c2yoa86djxsvx" path="res://ui/WhiteCube.png" id="5_bsofo"]
@@ -76,8 +76,8 @@ animPlayer = NodePath("anim")
 [node name="YetAnotherHolder" type="Node2D" parent="VisualHolder"]
 
 [node name="Visual" type="Sprite2D" parent="VisualHolder/YetAnotherHolder"]
-y_sort_enabled = true
-texture = ExtResource("1_q00he")
+scale = Vector2(0.078877, 0.078877)
+texture = ExtResource("2_bsofo")
 
 [node name="ManaBar" type="TextureProgressBar" parent="VisualHolder"]
 offset_left = -7.0

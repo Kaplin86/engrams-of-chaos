@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://buj6ft1vvdf2f" path="res://addons/hexagon_tilemaplayer/hexagon_tilemaplayer.gd" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b0fa1fcw3ggsp" path="res://ui.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dhkx2sepdquww" path="res://sfx/CardDraw.mp3" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
@@ -38,10 +38,16 @@ pitch_scale = 1.83
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Metronome" parent="CanvasLayer" node_paths=PackedStringArray("timer") instance=ExtResource("4_1bvp3")]
-position = Vector2(20, 22)
-timer = NodePath("../../Timer")
-maxangle = 110
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_7mycd")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(160, 120)
+zoom = Vector2(2.25, 2.25)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 2.0
+offset_right = 719.0
+offset_bottom = 541.0

@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chpve31vivq54"]
+[gd_scene load_steps=3 format=3 uid="uid://chpve31vivq54"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_hu18j"]
 [ext_resource type="Script" uid="uid://mvegqdfw6dgu" path="res://units/chicken_wing/chicken_wing.gd" id="2_8aaqf"]
-[ext_resource type="Texture2D" uid="uid://d28rxc0ut22uf" path="res://units/chicken_wing/chicken_wing.png" id="3_vc3k3"]
 
 [node name="Unit" instance=ExtResource("1_hu18j")]
 script = ExtResource("2_8aaqf")
 maxMana = 60
 defense = 4
-
-[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
-texture = ExtResource("3_vc3k3")

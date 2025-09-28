@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cve8dew2yuvst"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_1srwl"]
-[ext_resource type="Texture2D" uid="uid://gfd5k588d8qe" path="res://units/pepper/pepper.png" id="2_sd8iw"]
 [ext_resource type="Script" uid="uid://c25wh4nmphvro" path="res://units/pepper/pepper.gd" id="2_xaqd2"]
+[ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="3_orle5"]
 
 [node name="Unit" instance=ExtResource("1_1srwl")]
 script = ExtResource("2_xaqd2")
@@ -12,5 +12,4 @@ speed = 1.5
 defense = 5
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_sd8iw")
+texture = ExtResource("3_orle5")

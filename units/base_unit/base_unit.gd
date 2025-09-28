@@ -78,6 +78,7 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 				else:
 					# Normal attack
 					var hitcount = calculateAttackHits()
+					animPlayer.speed_scale = 1 / timePerTick * hitcount
 					attack(Target, hitcount)
 				
 				$VisualHolder/ManaBar.value = mana
@@ -125,7 +126,6 @@ func onHit(damageToTake,attacker : BaseUnit = null): ## Runs when the unit gets 
 
 func attackAnim(hitcount : int = 1): ## Plays for the attack animation
 	animPlayer.stop()
-	animPlayer.speed_scale = 1 / timePerTick * hitcount
 	animPlayer.play("attack")
 
 func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to pathfind towards the enemy, then moves accordingly. 
