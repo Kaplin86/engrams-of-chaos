@@ -98,7 +98,7 @@ func calculateAttackHits() -> int: ## Calculates how many attack hits the unit d
 		Hits += 1
 	return Hits
 
-func castSpell(target):
+func castSpell(target): ## When the unit reaches max mana, it casts this spell instead of attacking.
 	pass
 
 func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries to attack a target
@@ -107,8 +107,9 @@ func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries 
 	target.onHit(damage,self, trueDamagePercentage)
 	attackAnim(HitCount)
 	if maxMana != 0:
-		
 		mana += 20
+	
+	gameManagerObject.unitAttack(self)
 	
 	if HitCount > 1:
 		animPlayer.animation_finished.connect(
@@ -127,7 +128,7 @@ func onHit(damageToTake,attacker : BaseUnit = null, truedamagePercent : float = 
 		damageWithDefense = 1
 	
 	var totaldamage = trueDamage + damageWithDefense
-	
+	gameManagerObject.unitOnHit(self)
 	hp -= totaldamage
 	if hp <= 0:
 		die()
@@ -198,6 +199,7 @@ func die(): ## This function is called when the unit dies
 	if gameManagerObject:
 		gameManagerObject.units.erase(self)
 	visible = false
+	gameManagerObject.unitDeath(duplicate(15))
 	queue_free()
 
 func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit

@@ -21,7 +21,7 @@ sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("tickTimer", "board")]
 script = ExtResource("1_1bvp3")
 tickTimer = NodePath("Timer")
-secondsPerTick = 0.8
+secondsPerTick = 0.6
 board = NodePath("HexagonTileMapLayer")
 
 [node name="Timer" type="Timer" parent="."]

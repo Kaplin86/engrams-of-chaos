@@ -1,5 +1,5 @@
 extends Node2D
-var CurrentState = "BoardUnit"
+var CurrentState = "StartPause"
 var boardPosition : Vector2i
 var unitTarget : BaseUnit
 var synergyPoint = 0
@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	
 	
 	elif CurrentState == "StartPause":
-		
+		ui.showTutorial(main.currentWave)
 		ui.highlightStartPause()
 		if Input.is_action_just_pressed("ui_up"):
 			ui.highlightStartPause(true)

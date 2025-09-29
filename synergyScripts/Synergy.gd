@@ -17,3 +17,5 @@ func get_description(level) -> String: ## This function should return the in-tex
 	return "BaseSynergy. Does NOTHING"
 func get_filename() -> String: ## This function returns the string name for this resource
 	return get_script().resource_path.get_file().get_basename()
+func unitDeath(team : int,level,unit : BaseUnit): ## This fires when a unit on a team dies
+	pass

@@ -2,12 +2,16 @@ extends Node2D
 @export var timer : Timer
 func _ready() -> void:
 	$Metronome.timer = timer
+	
+	await get_tree().create_timer(8).timeout
+	$DEARPLAYTESTERS.visible = false
 
 var synergyRectScene = preload("res://ui/synergy_rect.tscn")
 
 func viewUnit(unit : BaseUnit):
 	$UnitUI.visible = true
 	$SynergyUI.visible = false
+	$Tutorial.visible = false
 	
 	$UnitUI/Damage.text = str(unit.damage)
 	$UnitUI/Defense.text = str(unit.defense)
@@ -66,6 +70,7 @@ func highlightSynergy(synergyname : String):
 		var Description = NewObject.get_description($"../..".calculatesynergies(2)[synergyname])
 		$UnitUI.visible = false
 		$SynergyUI.visible = true
+		$Tutorial.visible = false
 		$SynergyUI/Description.text = Description
 		$Name.text = synergyname + " SYNERGY"
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
@@ -100,3 +105,9 @@ Z to select
 ↓ - Unit Selection
 Z to select
 "
+
+func showTutorial(roundnumber):
+	$Tutorial.visible = true
+	$UnitUI.visible = false
+	$SynergyUI.visible = false
+	$Name.text = "Current Wave: "+  str(roundnumber)

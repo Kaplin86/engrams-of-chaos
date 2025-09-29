@@ -78,6 +78,7 @@ horizontal_alignment = 2
 uppercase = true
 
 [node name="SynergyUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -237,6 +238,25 @@ texture = ExtResource("2_m6e0p")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Tutorial" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 35.0
+offset_right = 715.0
+offset_bottom = 293.0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Howdy! Im the tutorial fella! Well, temperary. 
+The 'game' currently has one actual action, that being hitting the start round button.
+The controls will help too.
+In the future, you will be able to do normal autobattler things like moving units, and getting engrams to make more food-themed units"
+
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)
 offset_left = 14.0
@@ -354,3 +374,13 @@ W to select
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DEARPLAYTESTERS" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 179.0
+offset_right = 498.0
+offset_bottom = 254.0
+theme_override_constants/outline_size = 9
+text = "DEAR PLAYTESTER, THIS GAME AT ITS CURRENT POINT 
+IS MORE OF A TECHDEMO RATHER THAN A GAME.
+PLEASE KEEP THIS IN MIND. ALSO THERE IS AUDIO."
