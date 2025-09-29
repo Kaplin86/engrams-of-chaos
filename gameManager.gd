@@ -16,6 +16,9 @@ var battleState := "preround" ## This string reports what state the game is in. 
 var gameFinished := false ## When this is true, next tick will restart the board
 var battleLoadout : Array = [] ## A duplication of units made at the start of each round
 
+var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
+var engramInventory : Dictionary = {}
+
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
@@ -174,6 +177,19 @@ func endRound(): ## This is called when the round ends
 	currentWave += 1
 	generateEnemyTeam()
 	
+	var newengrams = []
+	
+	for E in round(currentWave * 1.5):
+		newengrams.append(currentAvailableEngrams.pick_random())
+		var NewIcon = Sprite2D.new()
+		NewIcon.texture = load("res://ui/elements/"+newengrams[-1]+".svg")
+		NewIcon.scale = Vector2(0.055,0.055)
+		NewIcon.position.x = randi_range(41,160)
+		NewIcon.position.y = randi_range(21,175.0)
+		var newtween = create_tween().bind_node(NewIcon)
+		newtween.tween_interval(1)
+		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 160,NewIcon.position.y),2)
+		newtween.tween_callback(NewIcon.queue_free)
 
 
 func sortSpeed(a, b): ## Function to sort the speed of units

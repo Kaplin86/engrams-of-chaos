@@ -202,6 +202,10 @@ func die(): ## This function is called when the unit dies
 	gameManagerObject.unitDeath(duplicate(15))
 	queue_free()
 
+func heal(amount):
+	hp += amount
+	hp = clamp(hp,-999,maxHP)
+
 func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 	var Units = gameManagerObject.units
 	var TargetDistance = 99999
@@ -223,4 +227,4 @@ func _process(delta: float) -> void:
 	$VisualHolder.global_position.x += (visualPosition.x - $VisualHolder.global_position.x) * 0.5 * 0.3 * ((1 / 0.016) * delta)
 	$VisualHolder.global_position.y += (visualPosition.y - $VisualHolder.global_position.y) * 0.5 * 0.3 * ((1 / 0.016) * delta)
 	$VisualHolder/HealthBar.value = hp
-	
+	$VisualHolder/HealthBar.max_value = maxHP
