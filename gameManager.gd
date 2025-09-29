@@ -9,7 +9,9 @@ class_name gameManager
 
 var currentSynergyObjects : Array[BaseSynergy] = [] ## The current synergy resources that are inplay
 var teamSynergyStore : Dictionary = {}
-var doneFirstTick = false ## This gives wether the game has had its first tick yet
+var doneFirstTick := false ## This gives wether the game has had its first tick yet
+
+var battleState := "preround" ## This string reports what state the game is in. If its 'preround', the user is able to move units around and craft new units. If its 'round', then ticks will be happening (or pausable)
 
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
@@ -139,3 +141,15 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 
 func sortSpeed(a, b):
 	return a.get("speed",0) < b.get("speed",0)
+
+
+
+
+func startButtonHit():
+	if battleState == "preround":
+		battleState = "round"
+		tickTimer.start()
+		$CanvasLayer/UI.textUpdateStartButton("Pause")
+	elif battleState == "round":
+		tickTimer.paused = !tickTimer.paused
+		$CanvasLayer/UI.textUpdateStartButton("Resume")

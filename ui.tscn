@@ -49,11 +49,16 @@ offset_bottom = 297.0
 color = Color(0.0204741, 0.183244, 0.295557, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="BG/ColorRect"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 212.0
-offset_bottom = 293.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.0420501, 0.266058, 0.41735, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="BG"]
@@ -234,8 +239,118 @@ stretch_mode = 5
 
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)
-offset_left = 33.0
-offset_top = 438.0
-offset_right = 551.0
-offset_bottom = 531.0
+offset_left = 14.0
+offset_top = 433.0
+offset_right = 500.0
+offset_bottom = 573.0
 columns = 5
+
+[node name="GameManagingButtons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="ColorRect" parent="GameManagingButtons"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 300.0
+offset_right = 717.0
+offset_bottom = 538.0
+color = Color(0.0196078, 0.184314, 0.294118, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GameManagingButtons/BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.266667, 0.415686, 1)
+
+[node name="Pause_Resume" type="ColorRect" parent="GameManagingButtons"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 307.0
+offset_right = 712.0
+offset_bottom = 364.0
+color = Color(0.389287, 0.389287, 0.389286, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Pause_Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.125)
+
+[node name="Label" type="Label" parent="GameManagingButtons/Pause_Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Start Round"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause_Resume2" type="ColorRect" parent="GameManagingButtons"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 368.0
+offset_right = 712.0
+offset_bottom = 425.0
+color = Color(0.389287, 0.389287, 0.389286, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Pause_Resume2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.125)
+
+[node name="Label" type="Label" parent="GameManagingButtons/Pause_Resume2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Craft Units"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameManagingButtons"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 428.0
+offset_right = 713.0
+offset_bottom = 534.0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[b]Controls[/b]
+W - Select Start
+A and S - Choose
+S - Select Synergy
+W to select
+"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -68,3 +68,35 @@ func highlightSynergy(synergyname : String):
 		$SynergyUI.visible = true
 		$SynergyUI/Description.text = Description
 		$Name.text = synergyname + " SYNERGY"
+		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
+
+func highlightStartPause(disable = false):
+	if !disable:
+		$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
+	else:
+		$GameManagingButtons/Pause_Resume.color = Color("636363")
+
+func textUpdateStartButton(newtext : String):
+	$GameManagingButtons/Pause_Resume/Label.text = newtext
+
+func currentControlState(currentstate : String):
+	if currentstate == "BoardUnit":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+↑ - Button Selection
+←/→ - Choose Unit
+↓ - Synergy Selection
+Z to select
+"
+	elif currentstate == "SynergyView":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+↑ - Unit Selection
+←/→ - Choose synergy
+↓ - Button Selection
+"
+	elif currentstate == "StartPause":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+↑ - Synergy Selection
+←/→ - Choose Button
+↓ - Unit Selection
+Z to select
+"

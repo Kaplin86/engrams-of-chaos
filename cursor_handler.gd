@@ -10,6 +10,8 @@ var synergyPoint = 0
 func _process(delta: float) -> void:
 	if !main:
 		return
+	
+	
 	if CurrentState == "BoardUnit":
 		var NewUnitList = getunitsSortedToX()
 		
@@ -27,7 +29,13 @@ func _process(delta: float) -> void:
 		unitTarget.modulate = Color(3,3,3)
 		if Input.is_action_just_pressed("ui_down"):
 			CurrentState = "SynergyView"
+			synergyPoint = 0
 			unitTarget.modulate = Color(1,1,1)
+		if Input.is_action_just_pressed("ui_up"):
+			CurrentState = "StartPause"
+			unitTarget.modulate = Color(1,1,1)
+	
+	
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
 		
@@ -42,9 +50,31 @@ func _process(delta: float) -> void:
 			CurrentState = "BoardUnit"
 			ui.highlightSynergy("")
 			return
+		elif Input.is_action_just_pressed("ui_down"):
+			CurrentState = "StartPause"
+			ui.highlightSynergy("")
+			return
 		
 		var selectedSynergy = synergyList[synergyPoint]
 		ui.highlightSynergy(selectedSynergy)
+	
+	
+	
+	elif CurrentState == "StartPause":
+		
+		ui.highlightStartPause()
+		if Input.is_action_just_pressed("ui_up"):
+			ui.highlightStartPause(true)
+			CurrentState = "SynergyView"
+			synergyPoint = 0
+		elif Input.is_action_just_pressed("ui_down"):
+			ui.highlightStartPause(true)
+			CurrentState = "BoardUnit"
+			unitTarget = null
+		if Input.is_action_just_pressed("confirm"):
+			main.startButtonHit()
+	
+	ui.currentControlState(CurrentState)
 
 func getunitsSortedToX():
 	var newUnitsList = main.units.duplicate()
