@@ -75,11 +75,23 @@ func highlightSynergy(synergyname : String):
 		$Name.text = synergyname + " SYNERGY"
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
 
-func highlightStartPause(disable = false):
+func highlightStartPause(craft = false, disable = false):
+	
 	if !disable:
-		$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
+		if !craft:
+			$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
+			$GameManagingButtons/Craft.color =  Color("636363")
+		else:
+			$GameManagingButtons/Craft.color =  Color("b2b2b2")
+			$GameManagingButtons/Pause_Resume.color =  Color("636363")
 	else:
 		$GameManagingButtons/Pause_Resume.color = Color("636363")
+		$GameManagingButtons/Craft.color = Color("636363")
+
+func showCraftingUi():
+	var coolTween = create_tween()
+	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,1),0.3)
+	
 
 func textUpdateStartButton(newtext : String):
 	$GameManagingButtons/Pause_Resume/Label.text = newtext
@@ -87,22 +99,22 @@ func textUpdateStartButton(newtext : String):
 func currentControlState(currentstate : String):
 	if currentstate == "BoardUnit":
 		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-↑ - Button Selection
-←/→ - Choose Unit
-↓ - Synergy Selection
+W - Button Selection
+A/D - Choose Unit
+S - Synergy Selection
 Z to select
 "
 	elif currentstate == "SynergyView":
 		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-↑ - Unit Selection
-←/→ - Choose synergy
-↓ - Button Selection
+W - Unit Selection
+A/D - Choose synergy
+S - Button Selection
 "
 	elif currentstate == "StartPause":
 		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-↑ - Synergy Selection
-←/→ - Choose Button
-↓ - Unit Selection
+W - Synergy Selection
+A/D - Choose Button
+S - Unit Selection
 Z to select
 "
 

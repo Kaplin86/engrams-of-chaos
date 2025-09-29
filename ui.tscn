@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=13 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
@@ -7,9 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="5_ibotj"]
 [ext_resource type="Texture2D" uid="uid://cs01ii7jihxxb" path="res://ui/shield.svg" id="6_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dv72pvgsxfxlw" path="res://ui/heart.svg" id="7_waa4j"]
+[ext_resource type="Texture2D" uid="uid://cnx2kjhktsjrm" path="res://ui/neuron.svg" id="8_ok7cu"]
+[ext_resource type="Texture2D" uid="uid://c82ggqbuxptul" path="res://ui/elements/umami.svg" id="8_waa4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27fn8"]
 size = Vector2(426, 403)
+
+[sub_resource type="Gradient" id="Gradient_ok7cu"]
+colors = PackedColorArray(0.690196, 0.576471, 1, 1, 1, 0.4, 0.4, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_irxef"]
+gradient = SubResource("Gradient_ok7cu")
+fill_from = Vector2(0.264957, 0.136752)
+fill_to = Vector2(0.863248, 0.34188)
 
 [node name="UI" type="Node2D"]
 script = ExtResource("1_nltto")
@@ -325,7 +335,7 @@ text = "Start Round"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Pause_Resume2" type="ColorRect" parent="GameManagingButtons"]
+[node name="Craft" type="ColorRect" parent="GameManagingButtons"]
 layout_mode = 0
 offset_left = 513.0
 offset_top = 368.0
@@ -333,7 +343,7 @@ offset_right = 712.0
 offset_bottom = 425.0
 color = Color(0.389287, 0.389287, 0.389286, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Pause_Resume2"]
+[node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Craft"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -346,7 +356,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.125)
 
-[node name="Label" type="Label" parent="GameManagingButtons/Pause_Resume2"]
+[node name="Label" type="Label" parent="GameManagingButtons/Craft"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,6 +369,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GameManagingButtons"]
+z_index = 8
+z_as_relative = false
 layout_mode = 0
 offset_left = 511.0
 offset_top = 428.0
@@ -384,3 +396,47 @@ theme_override_constants/outline_size = 9
 text = "DEAR PLAYTESTER, THIS GAME AT ITS CURRENT POINT 
 IS MORE OF A TECHDEMO RATHER THAN A GAME.
 PLEASE KEEP THIS IN MIND. ALSO THERE IS AUDIO."
+
+[node name="CraftingUI" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -3.0
+offset_top = -10.0
+offset_right = 723.0
+offset_bottom = 543.0
+texture = SubResource("GradientTexture2D_irxef")
+
+[node name="CraftingUI2" type="ColorRect" parent="CraftingUI"]
+offset_left = 517.0
+offset_top = 436.0
+offset_right = 731.0
+offset_bottom = 552.0
+color = Color(0.0431373, 0.266667, 0.415686, 1)
+
+[node name="LeftNeuron" type="Sprite2D" parent="CraftingUI"]
+position = Vector2(144, 177)
+rotation = 1.06949
+scale = Vector2(0.371, 0.371)
+texture = ExtResource("8_ok7cu")
+offset = Vector2(215.633, -10.6415)
+
+[node name="RightNeuron" type="Sprite2D" parent="CraftingUI"]
+position = Vector2(612, 233)
+rotation = -2.07171
+scale = Vector2(0.371, 0.371)
+texture = ExtResource("8_ok7cu")
+offset = Vector2(215.633, -10.6415)
+
+[node name="LeftElement" type="Sprite2D" parent="CraftingUI"]
+visible = false
+position = Vector2(145, 176)
+scale = Vector2(0.370549, 0.370549)
+texture = ExtResource("8_waa4j")
+
+[node name="RightElement" type="Sprite2D" parent="CraftingUI"]
+visible = false
+position = Vector2(611, 234)
+scale = Vector2(0.370549, 0.370549)
+texture = ExtResource("3_27fn8")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(375.406, 206.629)

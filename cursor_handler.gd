@@ -3,6 +3,7 @@ var CurrentState = "StartPause"
 var boardPosition : Vector2i
 var unitTarget : BaseUnit
 var synergyPoint = 0
+var buttonPoint = "start"
 
 @export var main : gameManager
 @export var ui : Node2D
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 			unitTarget.modulate = Color(1,1,1)
 		if Input.is_action_just_pressed("ui_up"):
 			CurrentState = "StartPause"
+			buttonPoint = "start"
 			unitTarget.modulate = Color(1,1,1)
 	
 	
@@ -52,6 +54,8 @@ func _process(delta: float) -> void:
 			return
 		elif Input.is_action_just_pressed("ui_down"):
 			CurrentState = "StartPause"
+			buttonPoint = "start"
+			
 			ui.highlightSynergy("")
 			return
 		
@@ -61,18 +65,33 @@ func _process(delta: float) -> void:
 	
 	
 	elif CurrentState == "StartPause":
+		
 		ui.showTutorial(main.currentWave)
-		ui.highlightStartPause()
-		if Input.is_action_just_pressed("ui_up"):
+		if buttonPoint == "start":
+			ui.highlightStartPause(false)
+		elif buttonPoint == "craft":
 			ui.highlightStartPause(true)
+		
+		
+		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+			if buttonPoint == "start":
+				buttonPoint = "craft"
+			elif buttonPoint == "craft":
+				buttonPoint = "start"
+		
+		if Input.is_action_just_pressed("ui_up"):
+			ui.highlightStartPause(false,true)
 			CurrentState = "SynergyView"
 			synergyPoint = 0
 		elif Input.is_action_just_pressed("ui_down"):
-			ui.highlightStartPause(true)
+			ui.highlightStartPause(false,true)
 			CurrentState = "BoardUnit"
 			unitTarget = null
 		if Input.is_action_just_pressed("confirm"):
-			main.startButtonHit()
+			if buttonPoint == "start":
+				main.startButtonHit()
+			elif buttonPoint == "craft":
+				ui.showCraftingUi()
 	
 	ui.currentControlState(CurrentState)
 

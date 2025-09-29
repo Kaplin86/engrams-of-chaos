@@ -186,10 +186,11 @@ func endRound(): ## This is called when the round ends
 		NewIcon.scale = Vector2(0.055,0.055)
 		NewIcon.position.x = randi_range(41,160)
 		NewIcon.position.y = randi_range(21,175.0)
-		var newtween = create_tween().bind_node(NewIcon)
+		var newtween = create_tween().bind_node(NewIcon).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_interval(1)
-		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 160,NewIcon.position.y),2)
+		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 300,NewIcon.position.y),2)
 		newtween.tween_callback(NewIcon.queue_free)
+		add_child(NewIcon)
 
 
 func sortSpeed(a, b): ## Function to sort the speed of units
@@ -249,4 +250,7 @@ func startButtonHit(): ## When a particular ui button is hit
 		
 	elif battleState == "round":
 		tickTimer.paused = !tickTimer.paused
-		$CanvasLayer/UI.textUpdateStartButton("Resume")
+		if tickTimer.paused:
+			$CanvasLayer/UI.textUpdateStartButton("Resume")
+		else:
+			$CanvasLayer/UI.textUpdateStartButton("Pause")
