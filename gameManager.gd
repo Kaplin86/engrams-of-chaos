@@ -17,7 +17,7 @@ var gameFinished := false ## When this is true, next tick will restart the board
 var battleLoadout : Array = [] ## A duplication of units made at the start of each round
 
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
-var engramInventory : Dictionary = {}
+var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
@@ -191,6 +191,12 @@ func endRound(): ## This is called when the round ends
 		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 300,NewIcon.position.y),2)
 		newtween.tween_callback(NewIcon.queue_free)
 		add_child(NewIcon)
+	
+	for E in newengrams:
+		if engramInventory.has(E):
+			engramInventory[E] += 1
+		else:
+			engramInventory[E] = 1
 
 
 func sortSpeed(a, b): ## Function to sort the speed of units

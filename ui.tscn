@@ -14,10 +14,12 @@
 size = Vector2(426, 403)
 
 [sub_resource type="Gradient" id="Gradient_ok7cu"]
-colors = PackedColorArray(0.690196, 0.576471, 1, 1, 1, 0.4, 0.4, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_irxef"]
 gradient = SubResource("Gradient_ok7cu")
+width = 128
+height = 128
 fill_from = Vector2(0.264957, 0.136752)
 fill_to = Vector2(0.863248, 0.34188)
 
@@ -398,7 +400,6 @@ IS MORE OF A TECHDEMO RATHER THAN A GAME.
 PLEASE KEEP THIS IN MIND. ALSO THERE IS AUDIO."
 
 [node name="CraftingUI" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 offset_left = -3.0
 offset_top = -10.0
 offset_right = 723.0
@@ -406,6 +407,7 @@ offset_bottom = 543.0
 texture = SubResource("GradientTexture2D_irxef")
 
 [node name="CraftingUI2" type="ColorRect" parent="CraftingUI"]
+layout_mode = 0
 offset_left = 517.0
 offset_top = 436.0
 offset_right = 731.0
@@ -427,16 +429,31 @@ texture = ExtResource("8_ok7cu")
 offset = Vector2(215.633, -10.6415)
 
 [node name="LeftElement" type="Sprite2D" parent="CraftingUI"]
-visible = false
 position = Vector2(145, 176)
 scale = Vector2(0.370549, 0.370549)
 texture = ExtResource("8_waa4j")
 
 [node name="RightElement" type="Sprite2D" parent="CraftingUI"]
-visible = false
 position = Vector2(611, 234)
 scale = Vector2(0.370549, 0.370549)
 texture = ExtResource("3_27fn8")
+
+[node name="SynergyHolder" type="GridContainer" parent="CraftingUI"]
+custom_minimum_size = Vector2(94, 42)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 433.0
+offset_right = 500.0
+offset_bottom = 573.0
+columns = 5
+
+[node name="Label" type="Label" parent="CraftingUI"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 408.0
+offset_right = 182.0
+offset_bottom = 431.0
+text = "ENGRAM INVENTORY:"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(375.406, 206.629)

@@ -1,7 +1,10 @@
 extends Node2D
+class_name uiManager
 @export var timer : Timer
 func _ready() -> void:
 	$Metronome.timer = timer
+	
+	$CraftingUI.modulate = Color(1,1,1,0)
 	
 	await get_tree().create_timer(8).timeout
 	$DEARPLAYTESTERS.visible = false
@@ -75,6 +78,16 @@ func highlightSynergy(synergyname : String):
 		$Name.text = synergyname + " SYNERGY"
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
 
+func modulateCraft(modulating):
+	$GameManagingButtons/Craft.modulate = modulating
+
+func highlightCrafting(synergyname : String):
+	for E in $CraftingUI/SynergyHolder.get_children():
+		E.modulate = Color(1,1,1)
+		if E.name == synergyname:
+			E.modulate = Color(3,3,3)
+
+
 func highlightStartPause(craft = false, disable = false):
 	
 	if !disable:
@@ -88,10 +101,20 @@ func highlightStartPause(craft = false, disable = false):
 		$GameManagingButtons/Pause_Resume.color = Color("636363")
 		$GameManagingButtons/Craft.color = Color("636363")
 
-func showCraftingUi():
+func showCraftingUi(inventory : Dictionary):
 	var coolTween = create_tween()
-	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,1),0.3)
 	
+	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,1),0.3)
+	for E in $CraftingUI/SynergyHolder.get_children():
+		E.queue_free()
+	
+	for E in inventory.keys():
+		var NewRect =synergyRectScene.instantiate()
+		NewRect.find_child("Image").texture = load("res://ui/elements/"+E+".svg")
+		NewRect.find_child("Label").text = "x " + str(inventory[E])
+		$CraftingUI/SynergyHolder.add_child(NewRect)
+		NewRect.name = E
+
 
 func textUpdateStartButton(newtext : String):
 	$GameManagingButtons/Pause_Resume/Label.text = newtext
@@ -117,6 +140,66 @@ A/D - Choose Button
 S - Unit Selection
 Z to select
 "
+	elif currentstate == "Crafting":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+A/D - Choose synergy
+S - Go Back
+Z - Add Synergy
+X - Remove Synergy
+"
+
+func getColorOfImage(texture : Texture2D):
+	var color := Vector3.ZERO
+	var texture_size := texture.get_size()
+	var image := texture.get_image()
+	
+	for y in range(0, texture_size.y):
+		for x in range(0, texture_size.x):
+			var pixel := image.get_pixel(x, y)
+			color += Vector3(pixel.r, pixel.g, pixel.b)
+			
+	color /= texture_size.x * texture_size.y
+
+	return Color(color.x, color.y, color.z)
+
+
+
+func updateCraftingUi(crafting : Array):
+	
+	var newTween = get_tree().create_tween()
+	
+	if crafting.size() == 0:
+		$CraftingUI/LeftElement.visible = false
+		$CraftingUI/RightElement.visible = false
+		
+		var tex : GradientTexture2D = $CraftingUI.texture
+		var getGradient : Gradient = tex.gradient
+		var newarray : PackedColorArray = PackedColorArray([Color(0,0,0),Color(0,0,0)])
+		newTween.tween_property(getGradient,"colors",newarray,0.5)
+		
+	elif crafting.size() == 1:
+		$CraftingUI/LeftElement.texture = load("res://ui/elements/"+crafting[0]+".svg")
+		$CraftingUI/LeftElement.visible = true
+		$CraftingUI/RightElement.visible = false
+		
+		var tex : GradientTexture2D = $CraftingUI.texture
+		var getGradient : Gradient = tex.gradient
+		
+		var newarray : PackedColorArray = PackedColorArray([getColorOfImage($CraftingUI/LeftElement.texture),Color(0,0,0)])
+		newTween.tween_property(getGradient,"colors",newarray,0.5)
+		
+		
+	elif crafting.size() == 2:
+		$CraftingUI/LeftElement.texture = load("res://ui/elements/"+crafting[0]+".svg")
+		$CraftingUI/RightElement.texture = load("res://ui/elements/"+crafting[1]+".svg")
+		$CraftingUI/LeftElement.visible = true
+		$CraftingUI/RightElement.visible = true
+		
+		var tex : GradientTexture2D = $CraftingUI.texture
+		var getGradient : Gradient = tex.gradient
+		
+		var newarray : PackedColorArray = PackedColorArray([getColorOfImage($CraftingUI/LeftElement.texture),getColorOfImage($CraftingUI/RightElement.texture)])
+		newTween.tween_property(getGradient,"colors",newarray,0.5)
 
 func showTutorial(roundnumber):
 	$Tutorial.visible = true

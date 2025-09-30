@@ -4,14 +4,19 @@ var boardPosition : Vector2i
 var unitTarget : BaseUnit
 var synergyPoint = 0
 var buttonPoint = "start"
+var craftingSelected = 0
 
 @export var main : gameManager
-@export var ui : Node2D
+@export var ui : uiManager
 
 func _process(delta: float) -> void:
 	if !main:
 		return
 	
+	if main.engramInventory.size() != 0:
+		ui.modulateCraft(Color(1,1,1,1))
+	else:
+		ui.modulateCraft(Color(0.1,0.1,0.1,1))
 	
 	if CurrentState == "BoardUnit":
 		var NewUnitList = getunitsSortedToX()
@@ -75,7 +80,8 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
 			if buttonPoint == "start":
-				buttonPoint = "craft"
+				if main.engramInventory.size() != 0:
+					buttonPoint = "craft"
 			elif buttonPoint == "craft":
 				buttonPoint = "start"
 		
@@ -91,9 +97,38 @@ func _process(delta: float) -> void:
 			if buttonPoint == "start":
 				main.startButtonHit()
 			elif buttonPoint == "craft":
-				ui.showCraftingUi()
+				ui.showCraftingUi(main.engramInventory)
+				craftingSelected = 0
+				currentCrafting = []
+				CurrentState = "Crafting"
+				ui.updateCraftingUi(currentCrafting)
+	elif CurrentState == "Crafting":
+		ui.highlightCrafting(main.engramInventory.keys()[craftingSelected])
+		if Input.is_action_just_pressed("ui_left"):
+			craftingSelected -= 1
+			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
+			ui.updateCraftingUi(currentCrafting)
+		elif Input.is_action_just_pressed("ui_right"):
+			craftingSelected += 1
+			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
+			ui.updateCraftingUi(currentCrafting)
+		elif Input.is_action_just_pressed("confirm"):
+			if currentCrafting.size() != 2:
+				if currentCrafting.has(main.engramInventory.keys()[craftingSelected]):
+					if main.engramInventory[main.engramInventory.keys()[craftingSelected]] != 1:
+						currentCrafting.append(main.engramInventory.keys()[craftingSelected])
+				else:
+					currentCrafting.append(main.engramInventory.keys()[craftingSelected])
+			ui.updateCraftingUi(currentCrafting)
+		elif Input.is_action_just_pressed("deny"):
+			currentCrafting.pop_back()
+			ui.updateCraftingUi(currentCrafting)
+		print(currentCrafting)
+		
 	
 	ui.currentControlState(CurrentState)
+
+var currentCrafting = []
 
 func getunitsSortedToX():
 	var newUnitsList = main.units.duplicate()
