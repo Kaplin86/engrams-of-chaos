@@ -11,7 +11,7 @@ class_name BaseUnit
 
 @export_category("Battle Stats")
 
-@export var hp : int = 100 ## The units current hp, maxhp is set to this at runtime.
+@export var maxHP : int = 100 ## The units current maxHP
 @export var range : int = 1 ## The range of the attacks that a unit has. Will stop 'range' tiles away from an enemy.
 @export var damage : int = 15 ## The damage the unit attepts to do every attack
 @export var speed : float = 1 ## Refers to the amount of attacks it will do per tick. This is also used to decide which unit moves first
@@ -27,7 +27,7 @@ var Target : BaseUnit ## Current Targeted unit
 var directions := [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE,TileSet.CELL_NEIGHBOR_LEFT_SIDE] ## A array that contains all hexagonal directions
 var visualPosition : Vector2 = Vector2(0,0) ## This defines where the visuals for the unit are. Updated every frame
 var timePerTick : float = 0.5 ## The amount of time between ticks. This value gets updated every tick
-var maxHP : int = hp ##The max HP of a unit
+var hp : int = maxHP ##The current hp of the unit
 var mana : int = maxMana ##The current mana of the unit
 
 var attackCharge : float = 0 ## The units attack charge serves as a way to know how many times the unit attacks during their tick. Every attack decreases it by 1.
@@ -47,7 +47,9 @@ func _ready() -> void:
 	if maxMana == 0:
 		$VisualHolder/ManaBar.visible = false
 	
+	
 	mana = 0
+	hp = maxHP
 
 func tick(time_per_tick : float): ## This is ran every ingame tick.
 	timePerTick = time_per_tick

@@ -1,4 +1,24 @@
 {
 	"pepper":["spicy","spicy"],
-	"chicken_wing":["spicy","umami"]
+	"chicken_wing":["spicy","umami"],
+	
+	"cake":["sweet","sweet"],
+	"bbq":["sweet","spicy"],
+	"pineapple":["sweet","sour"],
+	"chocolate":["sweet","bitter"],
+	"bacon":["sweet","umami"],
+	"caramel":["sweet","salty"],
+	"kimchi":["spicy","sour"],
+	"sauce":["spicy","bitter"],
+	"salt_and_pepper":["spicy","salty"],
+	"sour_belt":["sour","sour"],
+	"citrus":["sour","bitter"],
+	"onion":["sour","umami"],
+	"pickle":["sour","salty"],
+	"coffee":["bitter","bitter"],
+	"mushroom":["bitter","umami"],
+	"blue_cheese":["bitter","salty"],
+	"walnut":["umami","umami"],
+	"fish":["umami","salty"],
+	"salt_cube":["salty","salty"]
 }

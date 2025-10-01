@@ -101,10 +101,12 @@ func highlightStartPause(craft = false, disable = false):
 		$GameManagingButtons/Pause_Resume.color = Color("636363")
 		$GameManagingButtons/Craft.color = Color("636363")
 
-func showCraftingUi(inventory : Dictionary):
-	var coolTween = create_tween()
-	
-	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,1),0.3)
+func showCraftingUi(inventory : Dictionary,skiptween = false):
+	if !skiptween:
+		var coolTween = create_tween()
+		
+		coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,1),0.3)
+		$AnimationPlayer.speed_scale = 1
 	for E in $CraftingUI/SynergyHolder.get_children():
 		E.queue_free()
 	
@@ -114,7 +116,14 @@ func showCraftingUi(inventory : Dictionary):
 		NewRect.find_child("Label").text = "x " + str(inventory[E])
 		$CraftingUI/SynergyHolder.add_child(NewRect)
 		NewRect.name = E
+	
+	$CraftingUI/LeftElement.position = Vector2(145,176)
+	$CraftingUI/RightElement.position = Vector2(611,234)
 
+func hideCraftingUI():
+	var coolTween = create_tween()
+	
+	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,0),0.3)
 
 func textUpdateStartButton(newtext : String):
 	$GameManagingButtons/Pause_Resume/Label.text = newtext
@@ -145,6 +154,13 @@ Z to select
 A/D - Choose synergy
 S - Go Back
 Z - Add Synergy
+X - Remove Synergy
+"
+	elif currentstate == "CraftConfirm":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+A/D - Choose synergy
+S - Go Back
+Z - Confirm Fusion
 X - Remove Synergy
 "
 
@@ -206,3 +222,13 @@ func showTutorial(roundnumber):
 	$UnitUI.visible = false
 	$SynergyUI.visible = false
 	$Name.text = "Current Wave: "+  str(roundnumber)
+
+func runCraftAnim():
+	$AnimationPlayer.play("craft")
+	await $AnimationPlayer.animation_finished
+	craftAnimDone.emit()
+	$CraftingUI/LeftElement.position = Vector2(145,176)
+	$CraftingUI/RightElement.position = Vector2(611,234)
+	$AnimationPlayer.speed_scale += 0.1
+
+signal craftAnimDone

@@ -119,14 +119,39 @@ func _process(delta: float) -> void:
 						currentCrafting.append(main.engramInventory.keys()[craftingSelected])
 				else:
 					currentCrafting.append(main.engramInventory.keys()[craftingSelected])
-			ui.updateCraftingUi(currentCrafting)
+			
+				ui.updateCraftingUi(currentCrafting)
+			else:
+				craftingSelected = 0
+				
+				
+				for E in currentCrafting:
+					main.engramInventory[E] -= 1
+					if main.engramInventory[E] == 0:
+						main.engramInventory.erase(E)
+				ui.showCraftingUi(main.engramInventory,true)
+				var NewFusion = DatastoreHolder.getFusedUnit(currentCrafting[0],currentCrafting[1])
+				currentCrafting = []
+				CurrentState = "CraftingAnim"
+				ui.runCraftAnim()
+				await ui.craftAnimDone
+				CurrentState = "Crafting"
+				ui.updateCraftingUi(currentCrafting)
+			
 		elif Input.is_action_just_pressed("deny"):
 			currentCrafting.pop_back()
 			ui.updateCraftingUi(currentCrafting)
-		print(currentCrafting)
-		
+		elif Input.is_action_just_pressed("ui_down"):
+			ui.hideCraftingUI()
+			CurrentState = "StartPause"
+	elif CurrentState == "CraftingAnim":
+		print("h")
 	
-	ui.currentControlState(CurrentState)
+	
+	if currentCrafting.size() == 2:
+		ui.currentControlState("CraftConfirm")
+	else:
+		ui.currentControlState(CurrentState)
 
 var currentCrafting = []
 
