@@ -87,9 +87,28 @@ func calculatesynergies(team:int):
 	
 	return newsynergyStore
 
+func isPlayerBoardFull(): ## Checks if the tiles between 2,12 and 12,14 are full
+	var PositionDictionary = {}
+	for E in units:
+		PositionDictionary[E.board_position] = E
+	for E in range(11):
+		if PositionDictionary.has(Vector2i(E+2,13)) and PositionDictionary.has(Vector2i(E+2,12)) and PositionDictionary.has(Vector2i(E+2,14)):
+			pass
+		else:
+			return false
+	return true
 
-
-
+func getFirstOpenPlayerBoardPosition(): ## Gives the first open tile between 2,12 and 12,14. Meant to be used after a isPlayerBoardFull check
+	var PositionDictionary = {}
+	for E in units:
+		PositionDictionary[E.board_position] = E
+	for E in range(11):
+		if !PositionDictionary.has(Vector2i(E+2,12)):
+			return Vector2i(E+2,12)
+		elif !PositionDictionary.has(Vector2i(E+2,13)):
+			return Vector2i(E+2,13)
+		elif !PositionDictionary.has(Vector2i(E+2,14)):
+			return Vector2i(E+2,14)
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
 	if board:
 		if !FileAccess.file_exists("res://units/" + unitType + "/" + unitType + ".tscn"):

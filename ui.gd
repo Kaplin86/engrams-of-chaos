@@ -67,7 +67,7 @@ func highlightSynergy(synergyname : String):
 	else:
 		for E in $SynergyHolder.get_children():
 			E.modulate = Color(1,1,1)
-			if E.name == synergyname:
+			if remove_numbers_from_string(E.name) == synergyname:
 				E.modulate = Color(3,3,3)
 		var NewObject : BaseSynergy = load("res://synergyScripts/"+synergyname+".gd").new()
 		var Description = NewObject.get_description($"../..".calculatesynergies(2)[synergyname])
@@ -84,7 +84,7 @@ func modulateCraft(modulating):
 func highlightCrafting(synergyname : String):
 	for E in $CraftingUI/SynergyHolder.get_children():
 		E.modulate = Color(1,1,1)
-		if E.name == synergyname:
+		if remove_numbers_from_string(E.name) == synergyname:
 			E.modulate = Color(3,3,3)
 
 
@@ -232,3 +232,10 @@ func runCraftAnim():
 	$AnimationPlayer.speed_scale += 0.1
 
 signal craftAnimDone
+
+func remove_numbers_from_string(input_string: String) -> String:
+	var result_string = ""
+	for char in input_string:
+		if not char.is_valid_int():
+			result_string += char
+	return result_string

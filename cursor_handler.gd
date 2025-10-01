@@ -41,7 +41,32 @@ func _process(delta: float) -> void:
 			CurrentState = "StartPause"
 			buttonPoint = "start"
 			unitTarget.modulate = Color(1,1,1)
+		if Input.is_action_just_pressed("confirm") and unitTarget.team == 2:
+			CurrentState = "PickingUpUnit"
+			boardPosition = unitTarget.board_position
 	
+	elif CurrentState == "PickingUpUnit":
+		boardPosition.x = clamp(boardPosition.x,2,12)
+		boardPosition.y = clamp(boardPosition.y,12,15)
+		print(boardPosition.y)
+		unitTarget.board_position = boardPosition
+		unitTarget.visualPosition = main.board.map_to_local(boardPosition)
+		if Input.is_action_just_pressed("ui_up"):
+			boardPosition -= Vector2i(0,1)
+		if Input.is_action_just_pressed("ui_left"):
+			boardPosition -= Vector2i(1,0)
+		if Input.is_action_just_pressed("ui_down"):
+			boardPosition -= Vector2i(0,-1)
+		if Input.is_action_just_pressed("ui_right"):
+			boardPosition -= Vector2i(-1,0)
+		if Input.is_action_just_pressed("confirm"):
+			var ValidSpace = true
+			for E in main.units:
+				if E.board_position == boardPosition and E != unitTarget:
+					ValidSpace = false
+					break
+			if ValidSpace:
+				CurrentState = "BoardUnit"
 	
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
@@ -134,6 +159,10 @@ func _process(delta: float) -> void:
 				currentCrafting = []
 				CurrentState = "CraftingAnim"
 				ui.runCraftAnim()
+				
+				if !main.isPlayerBoardFull():
+					main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2)
+				
 				await ui.craftAnimDone
 				CurrentState = "Crafting"
 				ui.updateCraftingUi(currentCrafting)
