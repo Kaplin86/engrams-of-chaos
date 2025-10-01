@@ -31,6 +31,19 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/hexagon_tilemaplayer/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://units/bacon/": "red",
+"res://units/bbq/": "red",
+"res://units/cake/": "red",
+"res://units/caramel_cube/": "red",
+"res://units/kimchi/": "red",
+"res://units/onion/": "red",
+"res://units/salt_and_pepper/": "red",
+"res://units/sour_belt/": "red"
+}
+
 [importer_defaults]
 
 texture={

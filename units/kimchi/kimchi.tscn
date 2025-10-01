@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dydixvabyyupg"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_syohx"]
+[ext_resource type="Script" uid="uid://cshhj1vvnele" path="res://units/kimchi/kimchi.gd" id="2_abxll"]
+
+[node name="Unit" instance=ExtResource("1_syohx")]
+script = ExtResource("2_abxll")
+description = "ABILITY: Decrease the attack of every enemy  by 3"
+maxHP = 140
+damage = 7
+speed = 0.5
+maxMana = 130
+defense = 8
+type = "kimchi"

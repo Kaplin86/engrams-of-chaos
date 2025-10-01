@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwq807hay6abx"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_cgxi8"]
+[ext_resource type="Script" uid="uid://bul2ml6gi3bn6" path="res://units/sour_belt/sour_belt.gd" id="2_mql8i"]
+
+[node name="Unit" instance=ExtResource("1_cgxi8")]
+script = ExtResource("2_mql8i")
+description = "Every enemy this unit attacks looses 3 spell mana"
+maxHP = 95
+damage = 7
+speed = 1.5
+defense = 7
+type = "sour_belt"

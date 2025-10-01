@@ -100,7 +100,7 @@ func calculateAttackHits() -> int: ## Calculates how many attack hits the unit d
 		Hits += 1
 	return Hits
 
-func castSpell(target): ## When the unit reaches max mana, it casts this spell instead of attacking.
+func castSpell(target : BaseUnit): ## When the unit reaches max mana, it casts this spell instead of attacking.
 	pass
 
 func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries to attack a target

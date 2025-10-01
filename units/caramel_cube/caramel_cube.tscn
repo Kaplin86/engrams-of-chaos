@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://co6hxope3b0bu"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_rvae6"]
+[ext_resource type="Script" uid="uid://2nvhtkwl0btr" path="res://units/caramel_cube/caramel_cube.gd" id="2_k7ubr"]
+
+[node name="Unit" instance=ExtResource("1_rvae6")]
+script = ExtResource("2_k7ubr")
+description = "ABILITY: Heals all neighboring allies by 2x their defense"
+maxHP = 90
+damage = 7
+maxMana = 90
+defense = 9
+type = "caramel_cube"

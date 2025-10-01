@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://oaa74y2si8ns"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_i4u4s"]
+[ext_resource type="Script" uid="uid://d2p6pxkonwy0i" path="res://units/cake/cake.gd" id="2_d3h4j"]
+
+[node name="Unit" instance=ExtResource("1_i4u4s")]
+script = ExtResource("2_d3h4j")
+description = "ABILITY: Heals all neighboring allies by 15"
+maxHP = 90
+range = 3
+damage = 6
+maxMana = 70
+defense = 3
+type = "cake"

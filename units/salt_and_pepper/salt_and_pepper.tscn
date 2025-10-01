@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfqppn42psjq1"]
+
+[ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_8mhj6"]
+[ext_resource type="Script" uid="uid://dq50dot7jbk1q" path="res://units/salt_and_pepper/salt_and_pepper.gd" id="2_o4ftw"]
+
+[sub_resource type="Curve2D" id="Curve2D_o4ftw"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88, 104)
+}
+point_count = 2
+
+[node name="Unit" instance=ExtResource("1_8mhj6")]
+script = ExtResource("2_o4ftw")
+description = "ABILITY: This unit's attack and defense swap"
+maxHP = 110
+damage = 16
+speed = 1.0
+maxMana = 60
+defense = 4
+type = "salt_and_pepper"
+
+[node name="Path2D" parent="VisualHolder" index="2"]
+curve = SubResource("Curve2D_o4ftw")

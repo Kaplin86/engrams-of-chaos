@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckhvh74s3r3bk"]
+
+[ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_ip8x1"]
+[ext_resource type="Script" uid="uid://cann1on4xtxs1" path="res://units/bbq/bbq.gd" id="2_7wcqf"]
+
+[sub_resource type="Curve2D" id="Curve2D_7wcqf"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88, 104)
+}
+point_count = 2
+
+[node name="Unit" instance=ExtResource("1_ip8x1")]
+script = ExtResource("2_7wcqf")
+description = "This unit's damage is proportional to the unit's hp (max hp = 2x, half hp = 1x)"
+maxHP = 80
+range = 4
+damage = 7
+speed = 1.5
+defense = 4
+type = "bbq"
+
+[node name="Path2D" parent="VisualHolder" index="2"]
+curve = SubResource("Curve2D_7wcqf")
+
+[node name="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
+position = Vector2(88, 104)
