@@ -35,8 +35,11 @@ var mana : int = maxMana ##The current mana of the unit
 var attackCharge : float = 0 ## The units attack charge serves as a way to know how many times the unit attacks during their tick. Every attack decreases it by 1.
 var trueDamagePercentage : float = 0 ## The percentage of true damage this unit afflicts at the current moment.
 
+var jumpToEnemy := false ## When this is enabled, all movements will attempt to jump to the target rather than walk
+
 var _hideNextTick = false
 var _is_dying = false
+
 
 func _ready() -> void:
 	visualPosition = board.map_to_local(board_position)
@@ -91,9 +94,26 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 				$VisualHolder/ManaBar.value = mana
 			else:
 				# MOVE STATE
-				pathfind_and_move(Target.board_position)
+				if jumpToEnemy:
+					var jumpAttempt =attemptToJump(Target.board_position)
+					if jumpAttempt:
+						movePosition(jumpAttempt)
+				else:
+					pathfind_and_move(Target.board_position)
 	
 	visualPosition = board.map_to_local(board_position)
+
+func attemptToJump(targetPos : Vector2i): ## Tries to find a place to jump (aka any open neighboring cells of the target). If theres none it returns false.
+	var takenpositionArray = []
+	for unit in gameManagerObject.units:
+		if unit != self:
+			takenpositionArray.append(unit.board_position)
+	for E in directions:
+		var NeighborCell = board.get_neighbor_cell(targetPos,E)
+		if !takenpositionArray.has(NeighborCell):
+			return NeighborCell
+	return false
+
 
 func calculateAttackHits() -> int: ## Calculates how many attack hits the unit does this tick
 	attackCharge += speed

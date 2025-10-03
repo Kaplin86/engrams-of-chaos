@@ -39,6 +39,8 @@ folder_colors={
 "res://units/blue_cheese/": "red",
 "res://units/cake/": "red",
 "res://units/caramel_cube/": "red",
+"res://units/chocolate/": "red",
+"res://units/citrus/": "red",
 "res://units/fish/": "red",
 "res://units/kimchi/": "red",
 "res://units/mini_cheese/": "red",

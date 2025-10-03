@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgnnak8wyd30t"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_h3lli"]
+[ext_resource type="Script" uid="uid://bbwvld561ibnp" path="res://units/citrus/citrus.gd" id="2_tucbe"]
+
+[node name="Unit" instance=ExtResource("1_h3lli")]
+script = ExtResource("2_tucbe")
+description = "ABILITY: Target can no longer crit"
+maxHP = 95
+damage = 12
+maxMana = 60
+defense = 7
+type = "citrus"

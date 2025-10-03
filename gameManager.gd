@@ -29,8 +29,8 @@ func _ready() -> void:
 	generateEnemyTeam()
 	
 	for E in range(5):
-		spawnUnit("chicken_wing",Vector2i(E * 2 + 2,14),2)
-	spawnUnit("pepper",Vector2i(1 * 2 + 2,13),2)
+		spawnUnit("chocolate",Vector2i(E * 2 + 2,14),2)
+	spawnUnit("citrus",Vector2i(1 * 2 + 2,13),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -49,7 +49,11 @@ func generateEnemyTeam():
 		
 
 func startFight():
+	print("starting fightz")
+	doneFirstTick = false
 	tickTimer.start()
+	
+	
 	
 	currentSynergyObjects.clear()
 	var NeededSynergies = combine_arrays_unique(calculatesynergies(2).keys(),calculatesynergies(1).keys())
@@ -135,6 +139,7 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 		return
 	
 	if doneFirstTick == false:
+		print(currentSynergyObjects)
 		doneFirstTick = true
 		for E in currentSynergyObjects:
 			
@@ -142,6 +147,7 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 				E.firstTick(1,teamSynergyStore[1][E.get_filename()])
 			
 			if teamSynergyStore[2].has(E.get_filename()):
+				
 				E.firstTick(2,teamSynergyStore[2][E.get_filename()])
 	
 	for E in currentSynergyObjects:
@@ -271,7 +277,7 @@ func startButtonHit(): ## When a particular ui button is hit
 					"team": E.team
 				})
 		
-		tickTimer.start()
+		startFight()
 		$CanvasLayer/UI.textUpdateStartButton("Pause")
 		
 		
