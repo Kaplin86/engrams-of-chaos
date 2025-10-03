@@ -22,3 +22,6 @@ type = "salt_and_pepper"
 
 [node name="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_o4ftw")
+
+[node name="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
+position = Vector2(88, 104)

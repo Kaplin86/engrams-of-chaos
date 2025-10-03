@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bholww37mjoat"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ljlpl"]
+[ext_resource type="Script" uid="uid://boyc2ot0cgak6" path="res://units/salt_cube/salt_cube.gd" id="2_mfnvo"]
+
+[node name="Unit" instance=ExtResource("1_ljlpl")]
+script = ExtResource("2_mfnvo")
+description = "Every 3 ticks, gain 2 defense."
+maxHP = 70
+damage = 8
+defense = 10

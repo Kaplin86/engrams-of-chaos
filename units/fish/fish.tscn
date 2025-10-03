@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://xffvunyjbx4i"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_qenee"]
+[ext_resource type="Script" uid="uid://c4mhch1kino8u" path="res://units/fish/fish.gd" id="2_vui8s"]
+
+[node name="Unit" instance=ExtResource("1_qenee")]
+script = ExtResource("2_vui8s")
+description = "ABILITY: Attack the enemy with an attack that deals 3x damage"
+maxHP = 120
+damage = 8
+speed = 0.6
+maxMana = 80
+defense = 16
+type = "fish"

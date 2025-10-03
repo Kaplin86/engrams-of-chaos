@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw4etiehjbydl"]
+
+[ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_8gc5q"]
+[ext_resource type="Script" uid="uid://dybx7bamjajpe" path="res://units/pickle/pickle.gd" id="2_vnwu1"]
+
+[sub_resource type="Curve2D" id="Curve2D_vnwu1"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88, 104)
+}
+point_count = 2
+
+[node name="Unit" instance=ExtResource("1_8gc5q")]
+script = ExtResource("2_vnwu1")
+description = "ABILITY: This unit's target loses 7 defense"
+maxHP = 90
+damage = 13
+speed = 1.2
+maxMana = 80
+defense = 9
+type = "pickle"
+
+[node name="Path2D" parent="VisualHolder" index="2"]
+curve = SubResource("Curve2D_vnwu1")
+
+[node name="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
+position = Vector2(0, 0)
+progress = 0.0

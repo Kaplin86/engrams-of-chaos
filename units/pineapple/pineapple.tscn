@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ui0pmch6m0vx"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_godxd"]
+[ext_resource type="Script" uid="uid://ng1yslog6tnn" path="res://units/pineapple/pineapple.gd" id="2_d4y36"]
+
+[node name="Unit" instance=ExtResource("1_godxd")]
+script = ExtResource("2_d4y36")
+description = "Any enemies that attack this unit lose 5% of their attack speed"
+type = "pineapple"

@@ -23,6 +23,8 @@ var gameManagerObject : gameManager ## The game manager (wow)
 @export var type = "base_unit" ## This string refers to the filename of the unit, and is to be overwritten.
 var Target : BaseUnit ## Current Targeted unit
 
+var CritChance : float = 0.1 ## The crit chance of the unit (1 being 100%)
+var CritStrength : float = 2 ## The multiplier applied to an attack that crits
 
 var directions := [TileSet.CELL_NEIGHBOR_TOP_LEFT_SIDE,TileSet.CELL_NEIGHBOR_TOP_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_RIGHT_SIDE,TileSet.CELL_NEIGHBOR_BOTTOM_LEFT_SIDE,TileSet.CELL_NEIGHBOR_LEFT_SIDE] ## A array that contains all hexagonal directions
 var visualPosition : Vector2 = Vector2(0,0) ## This defines where the visuals for the unit are. Updated every frame
@@ -79,6 +81,7 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 				if mana >= maxMana and maxMana != 0:
 					# Spell Cast
 					castSpell(Target)
+					mana = 0
 				else:
 					# Normal attack
 					var hitcount = calculateAttackHits()
@@ -103,10 +106,19 @@ func calculateAttackHits() -> int: ## Calculates how many attack hits the unit d
 func castSpell(target : BaseUnit): ## When the unit reaches max mana, it casts this spell instead of attacking.
 	pass
 
+func getCritMultiplier() -> float: ## Gives Crit Multiplier. Could end up being 1. For the strength of the crit, see critStrength
+	if randf() <= CritChance:
+		return CritStrength
+	else:
+		return 1.0
+
+func calculateAttackDamage() -> float: ## Calculates the crit for the function
+	return damage * getCritMultiplier()
+
 func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries to attack a target
 	if HitCount == 0:
 		return
-	target.onHit(damage,self, trueDamagePercentage)
+	target.onHit(calculateAttackDamage(),self, trueDamagePercentage)
 	attackAnim(HitCount)
 	if maxMana != 0:
 		mana += 20

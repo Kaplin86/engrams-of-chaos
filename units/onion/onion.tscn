@@ -6,4 +6,7 @@
 [node name="Unit" instance=ExtResource("1_6yk75")]
 script = ExtResource("2_jrs8q")
 description = "When this attacks, heal 3% of the enemies defense"
+maxHP = 130
+speed = 0.5
+defense = 11
 type = "onion"

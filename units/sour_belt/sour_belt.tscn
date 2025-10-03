@@ -5,7 +5,7 @@
 
 [node name="Unit" instance=ExtResource("1_cgxi8")]
 script = ExtResource("2_mql8i")
-description = "Every enemy this unit attacks looses 3 spell mana"
+description = "Every enemy this unit attacks, target looses 3 spell mana"
 maxHP = 95
 damage = 7
 speed = 1.5

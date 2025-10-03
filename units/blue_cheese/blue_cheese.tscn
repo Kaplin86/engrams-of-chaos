@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4agk2d3fswas"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ycqdi"]
+[ext_resource type="Script" uid="uid://c2hw7t0j4xcs0" path="res://units/blue_cheese/blue_cheese.gd" id="2_gwc44"]
+
+[node name="Unit" instance=ExtResource("1_ycqdi")]
+script = ExtResource("2_gwc44")
+description = "When this unit dies, spawn a mini cheese where it died."
+maxHP = 85
+damage = 7
+defense = 4
+type = "blue_cheese"

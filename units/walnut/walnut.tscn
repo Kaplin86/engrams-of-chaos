@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1h5w6sfc1xg1"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_kfl5c"]
+[ext_resource type="Script" uid="uid://116tejplucbg" path="res://units/walnut/walnut.gd" id="2_m2ixk"]
+
+[node name="Unit" instance=ExtResource("1_kfl5c")]
+script = ExtResource("2_m2ixk")
+description = "When this unit attacks, it deals all its true damage again in another attack."
+maxHP = 80
+damage = 16
+speed = 1.25
+defense = 8
+type = "walnut"

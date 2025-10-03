@@ -36,12 +36,19 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 folder_colors={
 "res://units/bacon/": "red",
 "res://units/bbq/": "red",
+"res://units/blue_cheese/": "red",
 "res://units/cake/": "red",
 "res://units/caramel_cube/": "red",
+"res://units/fish/": "red",
 "res://units/kimchi/": "red",
+"res://units/mini_cheese/": "red",
 "res://units/onion/": "red",
+"res://units/pickle/": "red",
+"res://units/pineapple/": "red",
 "res://units/salt_and_pepper/": "red",
-"res://units/sour_belt/": "red"
+"res://units/salt_cube/": "red",
+"res://units/sour_belt/": "red",
+"res://units/walnut/": "red"
 }
 
 [importer_defaults]
