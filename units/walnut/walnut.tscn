@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1h5w6sfc1xg1"]
+[gd_scene load_steps=4 format=3 uid="uid://b1h5w6sfc1xg1"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_kfl5c"]
 [ext_resource type="Script" uid="uid://116tejplucbg" path="res://units/walnut/walnut.gd" id="2_m2ixk"]
+[ext_resource type="Texture2D" uid="uid://bpiegn7luw83d" path="res://units/blue_cheese/walnut.svg" id="3_on0ax"]
 
 [node name="Unit" instance=ExtResource("1_kfl5c")]
 script = ExtResource("2_m2ixk")
@@ -11,3 +12,6 @@ damage = 16
 speed = 1.25
 defense = 8
 type = "walnut"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_on0ax")

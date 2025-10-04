@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckhvh74s3r3bk"]
+[gd_scene load_steps=6 format=3 uid="uid://ckhvh74s3r3bk"]
 
 [ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_ip8x1"]
 [ext_resource type="Script" uid="uid://cann1on4xtxs1" path="res://units/bbq/bbq.gd" id="2_7wcqf"]
+[ext_resource type="Texture2D" uid="uid://c2dcygnbd7p0p" path="res://units/bbq/bbq.svg" id="3_mrx6x"]
+[ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="4_phj3d"]
 
 [sub_resource type="Curve2D" id="Curve2D_7wcqf"]
 resource_local_to_scene = true
@@ -20,8 +22,16 @@ speed = 1.5
 defense = 4
 type = "bbq"
 
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_mrx6x")
+
 [node name="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_7wcqf")
 
 [node name="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
-position = Vector2(88, 104)
+position = Vector2(19.0039, 22.4592)
+progress = 29.4268
+
+[node name="Projectile" parent="VisualHolder/Path2D/PathFollow2D" index="0"]
+modulate = Color(0.45098, 0, 0, 1)
+texture = ExtResource("4_phj3d")

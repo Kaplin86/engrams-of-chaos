@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dydixvabyyupg"]
+[gd_scene load_steps=4 format=3 uid="uid://dydixvabyyupg"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_syohx"]
 [ext_resource type="Script" uid="uid://cshhj1vvnele" path="res://units/kimchi/kimchi.gd" id="2_abxll"]
+[ext_resource type="Texture2D" uid="uid://djogsoy1v2lwa" path="res://units/kimchi/kimchi.svg" id="3_m2nxn"]
 
 [node name="Unit" instance=ExtResource("1_syohx")]
 script = ExtResource("2_abxll")
@@ -12,3 +13,6 @@ speed = 0.5
 maxMana = 130
 defense = 8
 type = "kimchi"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_m2nxn")

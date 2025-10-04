@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ew6wv88sawvo"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ppada"]
+[ext_resource type="Texture2D" uid="uid://cno85kagbqaft" path="res://units/sauce/sauce.svg" id="2_a6mop"]
+
+[node name="Unit" instance=ExtResource("1_ppada")]
+description = "Wants to see the world burn."
+maxHP = 90
+damage = 16
+defense = 8
+type = "sauce"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_a6mop")

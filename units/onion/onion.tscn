@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl7wrlirx3rxx"]
+[gd_scene load_steps=4 format=3 uid="uid://cl7wrlirx3rxx"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_6yk75"]
 [ext_resource type="Script" uid="uid://bbcdtmyhxiiub" path="res://units/onion/onion.gd" id="2_jrs8q"]
+[ext_resource type="Texture2D" uid="uid://ydsm4brwuld2" path="res://units/onion/onion.svg" id="3_g6jmh"]
 
 [node name="Unit" instance=ExtResource("1_6yk75")]
 script = ExtResource("2_jrs8q")
@@ -10,3 +11,6 @@ maxHP = 130
 speed = 0.5
 defense = 11
 type = "onion"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_g6jmh")

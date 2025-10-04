@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnpgf7428etdg"]
+[gd_scene load_steps=4 format=3 uid="uid://cnpgf7428etdg"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_1tehm"]
 [ext_resource type="Script" uid="uid://ceauu2ddyed2t" path="res://units/mini_cheese/mini_cheese.gd" id="2_l3n17"]
+[ext_resource type="Texture2D" uid="uid://dn6vrp5sawsdi" path="res://units/mini_cheese/mini_cheese.svg" id="3_ji5cq"]
 
 [node name="Unit" instance=ExtResource("1_1tehm")]
 script = ExtResource("2_l3n17")
@@ -10,3 +11,6 @@ maxHP = 10
 damage = 8
 speed = 5.0
 type = "mini_cheese"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_ji5cq")

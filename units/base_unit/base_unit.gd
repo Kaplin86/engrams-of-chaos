@@ -95,13 +95,17 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 			else:
 				# MOVE STATE
 				if jumpToEnemy:
-					var jumpAttempt =attemptToJump(Target.board_position)
+					var jumpAttempt = attemptToJump(Target.board_position)
 					if jumpAttempt:
-						movePosition(jumpAttempt)
+						jump(jumpAttempt)
 				else:
 					pathfind_and_move(Target.board_position)
 	
 	visualPosition = board.map_to_local(board_position)
+
+func abilityVisual(): ## This runs when the unit tries to animate its ability
+	animPlayer.stop()
+	animPlayer.play("ability")
 
 func attemptToJump(targetPos : Vector2i): ## Tries to find a place to jump (aka any open neighboring cells of the target). If theres none it returns false.
 	var takenpositionArray = []
@@ -114,6 +118,8 @@ func attemptToJump(targetPos : Vector2i): ## Tries to find a place to jump (aka 
 			return NeighborCell
 	return false
 
+func jump(target): ## This fires when the unit jumps to a target.
+	movePosition(target)
 
 func calculateAttackHits() -> int: ## Calculates how many attack hits the unit does this tick
 	attackCharge += speed

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfwi0v8mntx8r"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_jiwnd"]
+[ext_resource type="Texture2D" uid="uid://cu15ju1yo276" path="res://units/mushroom/mushroom.svg" id="2_ykv5e"]
+
+[node name="Unit" instance=ExtResource("1_jiwnd")]
+description = "A fun guy."
+maxHP = 110
+damage = 13
+defense = 11
+type = "mushroom"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_ykv5e")

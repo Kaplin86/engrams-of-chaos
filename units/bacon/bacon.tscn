@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs4g1ok4hqcy3"]
+[gd_scene load_steps=4 format=3 uid="uid://bs4g1ok4hqcy3"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_fmdpy"]
 [ext_resource type="Script" uid="uid://c06esiglmii81" path="res://units/bacon/bacon.gd" id="2_fh3gj"]
+[ext_resource type="Texture2D" uid="uid://dg113dh7w7xy5" path="res://units/bacon/bacon.svg" id="3_tk3rr"]
 
 [node name="Unit" instance=ExtResource("1_fmdpy")]
 script = ExtResource("2_fh3gj")
@@ -11,3 +12,6 @@ damage = 14
 maxMana = 100
 defense = 5
 type = "bacon"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_tk3rr")

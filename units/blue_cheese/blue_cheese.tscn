@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4agk2d3fswas"]
+[gd_scene load_steps=4 format=3 uid="uid://b4agk2d3fswas"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ycqdi"]
 [ext_resource type="Script" uid="uid://c2hw7t0j4xcs0" path="res://units/blue_cheese/blue_cheese.gd" id="2_gwc44"]
+[ext_resource type="Texture2D" uid="uid://df1d4cj2msle5" path="res://units/blue_cheese/blue_cheese.svg" id="3_a105a"]
 
 [node name="Unit" instance=ExtResource("1_ycqdi")]
 script = ExtResource("2_gwc44")
@@ -10,3 +11,6 @@ maxHP = 85
 damage = 7
 defense = 4
 type = "blue_cheese"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_a105a")

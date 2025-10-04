@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xffvunyjbx4i"]
+[gd_scene load_steps=4 format=3 uid="uid://xffvunyjbx4i"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_qenee"]
 [ext_resource type="Script" uid="uid://c4mhch1kino8u" path="res://units/fish/fish.gd" id="2_vui8s"]
+[ext_resource type="Texture2D" uid="uid://l70n8rv7f3lf" path="res://units/fish/fish.svg" id="3_vpvuw"]
 
 [node name="Unit" instance=ExtResource("1_qenee")]
 script = ExtResource("2_vui8s")
@@ -12,3 +13,6 @@ speed = 0.6
 maxMana = 80
 defense = 16
 type = "fish"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_vpvuw")

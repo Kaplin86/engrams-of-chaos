@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfu5t4wuo1grp"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_blgf8"]
+[ext_resource type="Script" uid="uid://b4q28vipd21bd" path="res://units/coffee/coffee.gd" id="2_b87tx"]
+[ext_resource type="Texture2D" uid="uid://b0hlg40m75lbp" path="res://units/coffee/coffee.svg" id="3_s2174"]
+
+[node name="Unit" instance=ExtResource("1_blgf8")]
+script = ExtResource("2_b87tx")
+description = "When this unit jumps, Increase crit chance by 10%"
+maxHP = 90
+damage = 14
+speed = 1.25
+defense = 7
+type = "coffee"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+scale = Vector2(0.059, 0.059)
+texture = ExtResource("3_s2174")

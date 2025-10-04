@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw4etiehjbydl"]
+[gd_scene load_steps=6 format=3 uid="uid://dw4etiehjbydl"]
 
 [ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_8gc5q"]
 [ext_resource type="Script" uid="uid://dybx7bamjajpe" path="res://units/pickle/pickle.gd" id="2_vnwu1"]
+[ext_resource type="Texture2D" uid="uid://l75hterbw0lt" path="res://units/pickle/pickle.svg" id="3_xfvhi"]
+[ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="4_g85oy"]
 
 [sub_resource type="Curve2D" id="Curve2D_vnwu1"]
 resource_local_to_scene = true
@@ -20,9 +22,16 @@ maxMana = 80
 defense = 9
 type = "pickle"
 
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_xfvhi")
+
 [node name="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_vnwu1")
 
 [node name="PathFollow2D" parent="VisualHolder/Path2D" index="0"]
-position = Vector2(0, 0)
-progress = 0.0
+position = Vector2(88, 104)
+progress = 136.235
+
+[node name="Projectile" parent="VisualHolder/Path2D/PathFollow2D" index="0"]
+modulate = Color(0.341176, 0.870588, 0.105882, 1)
+texture = ExtResource("4_g85oy")

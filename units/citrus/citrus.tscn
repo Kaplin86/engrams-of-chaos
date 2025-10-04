@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgnnak8wyd30t"]
+[gd_scene load_steps=4 format=3 uid="uid://dgnnak8wyd30t"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_h3lli"]
 [ext_resource type="Script" uid="uid://bbwvld561ibnp" path="res://units/citrus/citrus.gd" id="2_tucbe"]
+[ext_resource type="Texture2D" uid="uid://4y21de04yfik" path="res://units/citrus/citrus.svg" id="3_562ww"]
 
 [node name="Unit" instance=ExtResource("1_h3lli")]
 script = ExtResource("2_tucbe")
@@ -11,3 +12,6 @@ damage = 12
 maxMana = 60
 defense = 7
 type = "citrus"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_562ww")

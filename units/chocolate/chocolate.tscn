@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkcd7pe3ebfcd"]
+[gd_scene load_steps=4 format=3 uid="uid://dkcd7pe3ebfcd"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_tia8l"]
 [ext_resource type="Script" uid="uid://dp4ahcrruiubk" path="res://units/chocolate/chocolate.gd" id="2_8ks4v"]
+[ext_resource type="Texture2D" uid="uid://c1hj673piv0eq" path="res://units/chocolate/chocolate.svg" id="3_8ks4v"]
 
 [node name="Unit" instance=ExtResource("1_tia8l")]
 script = ExtResource("2_8ks4v")
 description = "ABILITY: Increase crit chance  all neighboring allies by 10%"
+damage = 12
+maxMana = 70
+defense = 8
 type = "chocolate"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_8ks4v")

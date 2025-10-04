@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwq807hay6abx"]
+[gd_scene load_steps=4 format=3 uid="uid://cwq807hay6abx"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_cgxi8"]
 [ext_resource type="Script" uid="uid://bul2ml6gi3bn6" path="res://units/sour_belt/sour_belt.gd" id="2_mql8i"]
+[ext_resource type="Texture2D" uid="uid://b5n1a0cfp22o" path="res://units/sour_belt/sour_belt.svg" id="3_s3txb"]
 
 [node name="Unit" instance=ExtResource("1_cgxi8")]
 script = ExtResource("2_mql8i")
@@ -11,3 +12,6 @@ damage = 7
 speed = 1.5
 defense = 7
 type = "sour_belt"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_s3txb")
