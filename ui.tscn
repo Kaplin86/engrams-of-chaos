@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=17 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="5_ibotj"]
 [ext_resource type="Texture2D" uid="uid://cs01ii7jihxxb" path="res://ui/shield.svg" id="6_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dv72pvgsxfxlw" path="res://ui/heart.svg" id="7_waa4j"]
+[ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="8_irxef"]
 [ext_resource type="Texture2D" uid="uid://cnx2kjhktsjrm" path="res://ui/neuron.svg" id="8_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://kqqdc7241f6u" path="res://units/chicken_wing/chicken_wing.svg" id="9_ok7cu"]
 
@@ -199,7 +200,6 @@ horizontal_alignment = 2
 uppercase = true
 
 [node name="SynergyUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -213,13 +213,13 @@ offset_right = 715.0
 offset_bottom = 292.0
 theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
-text = "Units of this synergy get an attack increase at the start of the round.
+text = "Units of this synergy jump to enemies and have increase crit chance.
 
-[b] 2 Units -  5% Increase [/b]
+[b]2 Units - Jump to enemy[/b]
 
-4 Units -  10% Increase
+4 Units - 5% Boost
 
-6 Units -  15% Increase"
+[b]6 Units - 10% Boost[/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -244,8 +244,11 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 509.0
 offset_top = 215.0
-offset_right = 713.0
-offset_bottom = 290.0
+offset_right = 653.0
+offset_bottom = 269.0
+scale = Vector2(1.4471, 1.4471)
+theme_override_fonts/font = ExtResource("8_irxef")
+theme_override_font_sizes/font_size = 8
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
 
@@ -360,6 +363,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Tutorial" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -441,7 +445,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("8_irxef")
+theme_override_font_sizes/font_size = 16
 text = "Start Round"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -474,7 +479,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("8_irxef")
+theme_override_font_sizes/font_size = 16
 text = "Craft Units"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -483,11 +489,12 @@ vertical_alignment = 1
 z_index = 8
 z_as_relative = false
 layout_mode = 0
-offset_left = 511.0
-offset_top = 428.0
-offset_right = 713.0
-offset_bottom = 534.0
-theme_override_font_sizes/normal_font_size = 14
+offset_left = 509.0
+offset_top = 426.0
+offset_right = 715.0
+offset_bottom = 537.0
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 19
 bbcode_enabled = true
 text = "[b]Controls[/b]
 W - Select Start
@@ -504,11 +511,9 @@ offset_top = 179.0
 offset_right = 498.0
 offset_bottom = 254.0
 theme_override_constants/outline_size = 9
-text = "DEAR PLAYTESTER, THIS GAME AT ITS CURRENT POINT 
-IS MORE OF A TECHDEMO RATHER THAN A GAME.
-PLEASE KEEP THIS IN MIND. ALSO THERE IS AUDIO."
 
 [node name="CraftingUI" type="TextureRect" parent="."]
+visible = false
 offset_left = -3.0
 offset_top = -10.0
 offset_right = 723.0
@@ -561,6 +566,7 @@ offset_left = 14.0
 offset_top = 408.0
 offset_right = 182.0
 offset_bottom = 431.0
+theme_override_fonts/font = ExtResource("8_irxef")
 text = "ENGRAM INVENTORY:"
 
 [node name="CraftedUnit" type="Sprite2D" parent="CraftingUI"]

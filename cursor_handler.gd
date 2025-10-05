@@ -158,7 +158,7 @@ func _process(delta: float) -> void:
 				var NewFusion = DatastoreHolder.getFusedUnit(currentCrafting[0],currentCrafting[1])
 				currentCrafting = []
 				CurrentState = "CraftingAnim"
-				ui.runCraftAnim()
+				ui.runCraftAnim(NewFusion)
 				
 				if !main.isPlayerBoardFull():
 					main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2)
@@ -174,7 +174,8 @@ func _process(delta: float) -> void:
 			ui.hideCraftingUI()
 			CurrentState = "StartPause"
 	elif CurrentState == "CraftingAnim":
-		print("h")
+		pass
+		#print("h")
 	
 	
 	if currentCrafting.size() == 2:

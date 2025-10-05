@@ -7,6 +7,8 @@ class_name gameManager
 @export var units : Array[BaseUnit] = [] ## The units on the board currently
 @export var board : HexagonTileMapLayer ## The board the game is happening on
 @export var currentWave = 1
+@export var defenseTuning = -1
+
 
 var currentSynergyObjects : Array[BaseSynergy] = [] ## The current synergy resources that are inplay
 var teamSynergyStore : Dictionary = {}
@@ -27,6 +29,19 @@ func _ready() -> void:
 	#seed(currentWave)
 	
 	generateEnemyTeam()
+	
+	
+	for E in DatastoreHolder.craftingUnitJson:
+		var GetStatBlock : BaseUnit = load("res://units/"+E+"/"+E+".tscn").instantiate()
+		print("UNIT NAME: ", E)
+		print("ATTACK:", GetStatBlock.damage)
+		print("HP:", GetStatBlock.maxHP)
+		print("DEFENSE:", GetStatBlock.defense)
+		print("RANGE:", GetStatBlock.range)
+		print("ATTACK SPEED:", GetStatBlock.speed)
+		print("MAX MANA:", GetStatBlock.maxMana)
+		print("ABILITY/FUNCTION:", GetStatBlock.description)
+		print()
 	
 	for E in range(5):
 		spawnUnit("chocolate",Vector2i(E * 2 + 2,14),2)
@@ -122,6 +137,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		NewUnit.board = board
 		NewUnit.gameManagerObject = self
 		NewUnit.team = team
+		NewUnit.defense += defenseTuning
 		add_child(NewUnit)
 		units.append(NewUnit)
 		return OK

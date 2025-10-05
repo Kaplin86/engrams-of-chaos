@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpiegn7luw83d"
-path="res://.godot/imported/walnut.svg-dff02412a21ed3c26c83d688345f23ad.ctex"
+uid="uid://bxn22ijp2i632"
+path="res://.godot/imported/walnut.svg-5bf99561a5c781f84c86a20b87d638fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/blue_cheese/walnut.svg"
-dest_files=["res://.godot/imported/walnut.svg-dff02412a21ed3c26c83d688345f23ad.ctex"]
+source_file="res://units/walnut/walnut.svg"
+dest_files=["res://.godot/imported/walnut.svg-5bf99561a5c781f84c86a20b87d638fe.ctex"]
 
 [params]
 

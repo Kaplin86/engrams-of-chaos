@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_kfl5c"]
 [ext_resource type="Script" uid="uid://116tejplucbg" path="res://units/walnut/walnut.gd" id="2_m2ixk"]
-[ext_resource type="Texture2D" uid="uid://bpiegn7luw83d" path="res://units/blue_cheese/walnut.svg" id="3_on0ax"]
+[ext_resource type="Texture2D" uid="uid://bxn22ijp2i632" path="res://units/walnut/walnut.svg" id="3_on0ax"]
 
 [node name="Unit" instance=ExtResource("1_kfl5c")]
 script = ExtResource("2_m2ixk")
 description = "When this unit attacks, it deals all its true damage again in another attack."
 maxHP = 80
-damage = 16
+damage = 12
 speed = 1.25
 defense = 8
 type = "walnut"

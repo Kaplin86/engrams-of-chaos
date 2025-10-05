@@ -11,7 +11,7 @@ maxHP = 120
 damage = 8
 speed = 0.6
 maxMana = 80
-defense = 16
+defense = 13
 type = "fish"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

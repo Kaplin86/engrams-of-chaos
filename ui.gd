@@ -5,7 +5,7 @@ func _ready() -> void:
 	$Metronome.timer = timer
 	
 	$CraftingUI.modulate = Color(1,1,1,0)
-	
+	$CraftingUI.visible = true
 	await get_tree().create_timer(8).timeout
 	$DEARPLAYTESTERS.visible = false
 
@@ -223,8 +223,9 @@ func showTutorial(roundnumber):
 	$SynergyUI.visible = false
 	$Name.text = "Current Wave: "+  str(roundnumber)
 
-func runCraftAnim():
+func runCraftAnim(NewFusion):
 	$AnimationPlayer.play("craft")
+	$CraftingUI/CraftedUnit.texture = load("res://units/"+NewFusion+"/"+NewFusion+".svg")
 	await $AnimationPlayer.animation_finished
 	craftAnimDone.emit()
 	$CraftingUI/LeftElement.position = Vector2(145,176)

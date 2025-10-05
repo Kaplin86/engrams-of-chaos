@@ -18,6 +18,11 @@ func _ready() -> void:
 
 func getFusedUnit(element1,element2):
 	for unit in craftingUnitJson:
-		if craftingUnitJson.get(unit,[]).has(element1):
-			if craftingUnitJson.get(unit,[]).has(element2):
+		print("Attempting craft of ", element1, element2, " checking ", unit)
+		var parseJson = craftingUnitJson.get(unit,[]).duplicate()
+		if parseJson.has(element1):
+			print(unit, " has element ", element1)
+			parseJson.erase(element1)
+			print("checking if unit has ", element2, " in ", parseJson)
+			if parseJson.has(element2):
 				return unit
