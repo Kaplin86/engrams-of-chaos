@@ -15,6 +15,13 @@ var disabledInputs = []
 signal FightButtonPressed
 signal CraftingButtonSelected
 signal CraftingButtonPressed
+signal CraftingAnimFinished
+signal ReturnFromCrafting
+signal WentToBoard
+signal PickUpUnit
+signal DroppedUnit
+signal SynergyView
+signal ButtonPanelTargeted
 
 func checkInputJustPressed(inputName):
 	if Input.is_action_just_pressed(inputName):
@@ -53,12 +60,15 @@ func _process(delta: float) -> void:
 			CurrentState = "SynergyView"
 			synergyPoint = 0
 			unitTarget.modulate = Color(1,1,1)
+			SynergyView.emit()
 		if checkInputJustPressed("ui_up"):
 			CurrentState = "StartPause"
 			buttonPoint = "start"
 			unitTarget.modulate = Color(1,1,1)
+			ButtonPanelTargeted.emit()
 		if checkInputJustPressed("confirm") and unitTarget.team == 2:
 			CurrentState = "PickingUpUnit"
+			PickUpUnit.emit()
 			boardPosition = unitTarget.board_position
 	
 	elif CurrentState == "PickingUpUnit":
@@ -83,6 +93,7 @@ func _process(delta: float) -> void:
 					break
 			if ValidSpace:
 				CurrentState = "BoardUnit"
+				DroppedUnit.emit()
 	
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
@@ -103,6 +114,7 @@ func _process(delta: float) -> void:
 			buttonPoint = "start"
 			
 			ui.highlightSynergy("")
+			ButtonPanelTargeted.emit()
 			return
 		
 		var selectedSynergy = synergyList[synergyPoint]
@@ -135,6 +147,7 @@ func _process(delta: float) -> void:
 			ui.highlightStartPause(false,true)
 			CurrentState = "BoardUnit"
 			unitTarget = null
+			WentToBoard.emit()
 		if checkInputJustPressed("confirm"):
 			if buttonPoint == "start":
 				main.startButtonHit()
@@ -185,6 +198,7 @@ func _process(delta: float) -> void:
 				await ui.craftAnimDone
 				CurrentState = "Crafting"
 				ui.updateCraftingUi(currentCrafting)
+				CraftingAnimFinished.emit()
 			
 		elif checkInputJustPressed("deny"):
 			currentCrafting.pop_back()
@@ -192,6 +206,8 @@ func _process(delta: float) -> void:
 		elif checkInputJustPressed("ui_down"):
 			ui.hideCraftingUI()
 			CurrentState = "StartPause"
+			ReturnFromCrafting.emit()
+			
 	elif CurrentState == "CraftingAnim":
 		pass
 		#print("h")

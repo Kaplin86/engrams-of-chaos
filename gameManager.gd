@@ -37,9 +37,7 @@ func _ready() -> void:
 	
 	
 	
-	for E in range(5):
-		spawnUnit("chocolate",Vector2i(E * 2 + 2,14),2)
-	spawnUnit("citrus",Vector2i(1 * 2 + 2,13),2)
+	spawnUnit("cake",Vector2i(7,14),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -98,7 +96,7 @@ func combine_arrays_unique(array1: Array, array2: Array) -> Array:
 	return combined_array
 
 
-func calculatesynergies(team:int):
+func calculatesynergies(team:int)-> Dictionary:
 	var synergy = []
 	var unitscounted = []
 	for E : BaseUnit in units:
