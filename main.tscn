@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=14 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="1_ig7tw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c4ta8iyc7vxqc" path="res://tutorial_pointer.gd" id="8_4c57u"]
 [ext_resource type="Texture2D" uid="uid://detkdq8rsjfqw" path="res://ui/burntToastSprites/burntToastBody.svg" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bsr8yvj7d6x3u" path="res://ui/burntToastSprites/Hand.svg" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://c2yoa86djxsvx" path="res://ui/WhiteCube.png" id="11_efxa6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -54,24 +55,51 @@ script = ExtResource("6_7mycd")
 main = NodePath("..")
 ui = NodePath("../CanvasLayer/UI")
 
-[node name="TutorialHandler" type="Node2D" parent="." node_paths=PackedStringArray("cursorHandler", "gameHandler")]
+[node name="TutorialHandler" type="Node2D" parent="." node_paths=PackedStringArray("cursorHandler", "gameHandler", "tutorialPointer")]
 script = ExtResource("7_272bh")
 cursorHandler = NodePath("../CursorHandler")
 gameHandler = NodePath("..")
+tutorialPointer = NodePath("../TutorialPointer")
 
 [node name="TutorialPointer" type="CanvasLayer" parent="."]
 script = ExtResource("8_4c57u")
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(328, -121)
+position = Vector2(49, 50)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
-scale = Vector2(0.177578, 0.177578)
+scale = Vector2(0.178, 0.178)
 texture = ExtResource("8_5vw27")
 
 [node name="Arm" type="Sprite2D" parent="TutorialPointer/Guy/BurntToastBody"]
 z_index = -1
 position = Vector2(-230.884, -11.2626)
-rotation = 3.37321
+rotation = 5.57104
 texture = ExtResource("9_kek77")
 offset = Vector2(-175.905, 13.305)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TutorialPointer/Guy"]
+self_modulate = Color(0, 0, 0, 0.357)
+custom_minimum_size = Vector2(175, 27)
+offset_left = 73.0
+offset_top = 7.0
+offset_right = 248.0
+offset_bottom = 34.0
+texture = ExtResource("11_efxa6")
+region_rect = Rect2(0.141285, 0.266888, 15.8439, 15.6758)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialPointer/Guy/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 6
+text = "Howdy! Im toasty! Toasty the toaster!
+Wowie! Aint this swell!"
+scroll_active = false
+visible_characters = 17
+visible_ratio = 0.278689

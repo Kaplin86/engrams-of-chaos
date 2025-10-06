@@ -37,7 +37,7 @@ func _ready() -> void:
 	
 	
 	
-	spawnUnit("cake",Vector2i(7,14),2)
+	spawnUnit("chicken_wing",Vector2i(7,14),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -63,12 +63,15 @@ func printstatblock():
 func generateEnemyTeam():
 	var EnemyCount = randi_range(currentWave,currentWave * currentWave)
 	var usedPositions = []
-	for E in EnemyCount:
-		var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()
-		var chosenPos = Vector2i(randi_range(2,12),randi_range(1,3))
-		if !usedPositions.has(chosenPos):
-			usedPositions.append(chosenPos)
-			spawnUnit(ChosenUnit,chosenPos,1)
+	if currentWave == 1 and $TutorialHandler.tutorialMode: 
+		spawnUnit("cake",Vector2i(7,1),1)
+	else:
+		for E in EnemyCount:
+			var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()
+			var chosenPos = Vector2i(randi_range(2,12),randi_range(1,3))
+			if !usedPositions.has(chosenPos):
+				usedPositions.append(chosenPos)
+				spawnUnit(ChosenUnit,chosenPos,1)
 		
 
 func startFight():

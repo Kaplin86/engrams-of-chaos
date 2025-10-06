@@ -377,10 +377,6 @@ offset_right = 715.0
 offset_bottom = 293.0
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "Howdy! Im the tutorial fella! Well, temperary. 
-The 'game' currently has one actual action, that being hitting the start round button.
-The controls will help too.
-In the future, you will be able to do normal autobattler things like moving units, and getting engrams to make more food-themed units"
 
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)
