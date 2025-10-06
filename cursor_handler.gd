@@ -1,4 +1,5 @@
 extends Node2D
+class_name CursorHandlerObject
 var CurrentState = "StartPause"
 var boardPosition : Vector2i
 var unitTarget : BaseUnit
@@ -8,6 +9,21 @@ var craftingSelected = 0
 
 @export var main : gameManager
 @export var ui : uiManager
+
+var disabledInputs = []
+
+signal FightButtonPressed
+signal CraftingButtonSelected
+signal CraftingButtonPressed
+
+func checkInputJustPressed(inputName):
+	if Input.is_action_just_pressed(inputName):
+		if disabledInputs.has(inputName):
+			return false
+		else:
+			return true
+	else:
+		return false
 
 func _process(delta: float) -> void:
 	if !main:
@@ -25,23 +41,23 @@ func _process(delta: float) -> void:
 			unitTarget = NewUnitList[0]
 		else:
 			ui.viewUnit(unitTarget)
-		if Input.is_action_just_pressed("ui_left"):
+		if checkInputJustPressed("ui_left"):
 			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
-		if Input.is_action_just_pressed("ui_right"):
+		if checkInputJustPressed("ui_right"):
 			if NewUnitList.find(unitTarget) + 1 >= NewUnitList.size():
 				changeUnitSelect(NewUnitList[0])
 			else:
 				changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) + 1])
 		unitTarget.modulate = Color(3,3,3)
-		if Input.is_action_just_pressed("ui_down"):
+		if checkInputJustPressed("ui_down"):
 			CurrentState = "SynergyView"
 			synergyPoint = 0
 			unitTarget.modulate = Color(1,1,1)
-		if Input.is_action_just_pressed("ui_up"):
+		if checkInputJustPressed("ui_up"):
 			CurrentState = "StartPause"
 			buttonPoint = "start"
 			unitTarget.modulate = Color(1,1,1)
-		if Input.is_action_just_pressed("confirm") and unitTarget.team == 2:
+		if checkInputJustPressed("confirm") and unitTarget.team == 2:
 			CurrentState = "PickingUpUnit"
 			boardPosition = unitTarget.board_position
 	
@@ -51,15 +67,15 @@ func _process(delta: float) -> void:
 		print(boardPosition.y)
 		unitTarget.board_position = boardPosition
 		unitTarget.visualPosition = main.board.map_to_local(boardPosition)
-		if Input.is_action_just_pressed("ui_up"):
+		if checkInputJustPressed("ui_up"):
 			boardPosition -= Vector2i(0,1)
-		if Input.is_action_just_pressed("ui_left"):
+		if checkInputJustPressed("ui_left"):
 			boardPosition -= Vector2i(1,0)
-		if Input.is_action_just_pressed("ui_down"):
+		if checkInputJustPressed("ui_down"):
 			boardPosition -= Vector2i(0,-1)
-		if Input.is_action_just_pressed("ui_right"):
+		if checkInputJustPressed("ui_right"):
 			boardPosition -= Vector2i(-1,0)
-		if Input.is_action_just_pressed("confirm"):
+		if checkInputJustPressed("confirm"):
 			var ValidSpace = true
 			for E in main.units:
 				if E.board_position == boardPosition and E != unitTarget:
@@ -71,18 +87,18 @@ func _process(delta: float) -> void:
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
 		
-		if Input.is_action_just_pressed("ui_left"):
+		if checkInputJustPressed("ui_left"):
 			synergyPoint -= 1
 			synergyPoint = wrap(synergyPoint,0,synergyList.size())
-		elif Input.is_action_just_pressed("ui_right"):
+		elif checkInputJustPressed("ui_right"):
 			synergyPoint += 1
 			synergyPoint = wrap(synergyPoint,0,synergyList.size())
-		elif Input.is_action_just_pressed("ui_up"):
+		elif checkInputJustPressed("ui_up"):
 			unitTarget = null
 			CurrentState = "BoardUnit"
 			ui.highlightSynergy("")
 			return
-		elif Input.is_action_just_pressed("ui_down"):
+		elif checkInputJustPressed("ui_down"):
 			CurrentState = "StartPause"
 			buttonPoint = "start"
 			
@@ -103,41 +119,44 @@ func _process(delta: float) -> void:
 			ui.highlightStartPause(true)
 		
 		
-		if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+		if checkInputJustPressed("ui_left") or checkInputJustPressed("ui_right"):
 			if buttonPoint == "start":
 				if main.engramInventory.size() != 0:
 					buttonPoint = "craft"
+					CraftingButtonSelected.emit()
 			elif buttonPoint == "craft":
 				buttonPoint = "start"
 		
-		if Input.is_action_just_pressed("ui_up"):
+		if checkInputJustPressed("ui_up"):
 			ui.highlightStartPause(false,true)
 			CurrentState = "SynergyView"
 			synergyPoint = 0
-		elif Input.is_action_just_pressed("ui_down"):
+		elif checkInputJustPressed("ui_down"):
 			ui.highlightStartPause(false,true)
 			CurrentState = "BoardUnit"
 			unitTarget = null
-		if Input.is_action_just_pressed("confirm"):
+		if checkInputJustPressed("confirm"):
 			if buttonPoint == "start":
 				main.startButtonHit()
+				FightButtonPressed.emit()
 			elif buttonPoint == "craft":
 				ui.showCraftingUi(main.engramInventory)
 				craftingSelected = 0
 				currentCrafting = []
 				CurrentState = "Crafting"
 				ui.updateCraftingUi(currentCrafting)
+				CraftingButtonPressed.emit()
 	elif CurrentState == "Crafting":
 		ui.highlightCrafting(main.engramInventory.keys()[craftingSelected])
-		if Input.is_action_just_pressed("ui_left"):
+		if checkInputJustPressed("ui_left"):
 			craftingSelected -= 1
 			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
 			ui.updateCraftingUi(currentCrafting)
-		elif Input.is_action_just_pressed("ui_right"):
+		elif checkInputJustPressed("ui_right"):
 			craftingSelected += 1
 			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
 			ui.updateCraftingUi(currentCrafting)
-		elif Input.is_action_just_pressed("confirm"):
+		elif checkInputJustPressed("confirm"):
 			if currentCrafting.size() != 2:
 				if currentCrafting.has(main.engramInventory.keys()[craftingSelected]):
 					if main.engramInventory[main.engramInventory.keys()[craftingSelected]] != 1:
@@ -167,10 +186,10 @@ func _process(delta: float) -> void:
 				CurrentState = "Crafting"
 				ui.updateCraftingUi(currentCrafting)
 			
-		elif Input.is_action_just_pressed("deny"):
+		elif checkInputJustPressed("deny"):
 			currentCrafting.pop_back()
 			ui.updateCraftingUi(currentCrafting)
-		elif Input.is_action_just_pressed("ui_down"):
+		elif checkInputJustPressed("ui_down"):
 			ui.hideCraftingUI()
 			CurrentState = "StartPause"
 	elif CurrentState == "CraftingAnim":

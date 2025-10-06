@@ -21,6 +21,10 @@ var battleLoadout : Array = [] ## A duplication of units made at the start of ea
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
+signal TickEnd
+signal AttackHit
+signal RoundEnd
+
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
@@ -31,6 +35,21 @@ func _ready() -> void:
 	generateEnemyTeam()
 	
 	
+	
+	
+	for E in range(5):
+		spawnUnit("chocolate",Vector2i(E * 2 + 2,14),2)
+	spawnUnit("citrus",Vector2i(1 * 2 + 2,13),2)
+	
+	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
+	#startFight()
+	
+	$CursorHandler.unitTarget = units[1]
+
+func pauseTicks(unpause = false):
+	tickTimer.paused = !unpause
+
+func printstatblock():
 	for E in DatastoreHolder.craftingUnitJson:
 		var GetStatBlock : BaseUnit = load("res://units/"+E+"/"+E+".tscn").instantiate()
 		print("UNIT NAME: ", E)
@@ -42,15 +61,6 @@ func _ready() -> void:
 		print("MAX MANA:", GetStatBlock.maxMana)
 		print("ABILITY/FUNCTION:", GetStatBlock.description)
 		print()
-	
-	for E in range(5):
-		spawnUnit("chocolate",Vector2i(E * 2 + 2,14),2)
-	spawnUnit("citrus",Vector2i(1 * 2 + 2,13),2)
-	
-	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
-	#startFight()
-	
-	$CursorHandler.unitTarget = units[1]
 
 func generateEnemyTeam():
 	var EnemyCount = randi_range(currentWave,currentWave * currentWave)
@@ -202,7 +212,7 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 		
 		unit.tick(secondsPerTick)
 	
-	
+	TickEnd.emit()
 
 func endRound(): ## This is called when the round ends
 	print("Ending Round")
@@ -240,7 +250,8 @@ func endRound(): ## This is called when the round ends
 			engramInventory[E] += 1
 		else:
 			engramInventory[E] = 1
-
+	
+	RoundEnd.emit()
 
 func sortSpeed(a, b): ## Function to sort the speed of units
 	return a.get("speed",0) < b.get("speed",0)
@@ -265,6 +276,7 @@ func unitDeath(unitData : BaseUnit): ## Called when any unit dies. It gets passe
 		gameFinished = true
 
 func unitAttack(unitData : BaseUnit): ## Called when any unit attacks. It gets passed the unit.
+	AttackHit.emit()
 	for E in currentSynergyObjects:
 		if teamSynergyStore[1].has(E.get_filename()):
 			E.unitAttack(1,teamSynergyStore[1][E.get_filename()],unitData)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=10 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ftm7e7tnhde" path="res://sfx/Perc_Can_hi.wav" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b0fa1fcw3ggsp" path="res://ui.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://dn8yn2yv0yjmi" path="res://cursor_handler.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://du7i5uc22arq2" path="res://tutorial_handler.gd" id="7_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -49,3 +50,9 @@ zoom = Vector2(2.25, 2.25)
 script = ExtResource("6_7mycd")
 main = NodePath("..")
 ui = NodePath("../CanvasLayer/UI")
+
+[node name="TutorialHandler" type="Node2D" parent="." node_paths=PackedStringArray("cursorHandler", "gameHandler")]
+script = ExtResource("7_272bh")
+tutorialMode = false
+cursorHandler = NodePath("../CursorHandler")
+gameHandler = NodePath("..")
