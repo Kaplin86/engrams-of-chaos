@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="shiba autochess"
-run/main_scene="uid://5nme2qseus3n"
+run/main_scene="uid://b1hvbupj4t4hn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

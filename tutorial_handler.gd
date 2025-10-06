@@ -6,6 +6,7 @@ extends Node2D
 func _ready() -> void:
 	if !cursorHandler or !gameHandler or !tutorialPointer:
 		return
+	tutorialMode = DatastoreHolder.tutorial
 	if !tutorialMode:
 		return
 	
