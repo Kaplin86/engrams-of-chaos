@@ -63,9 +63,13 @@ tutorialPointer = NodePath("../TutorialPointer")
 
 [node name="TutorialPointer" type="CanvasLayer" parent="."]
 script = ExtResource("8_4c57u")
+WantedPosition = Vector2(348, -200)
+
+[node name="Bell" type="AudioStreamPlayer" parent="TutorialPointer"]
+stream = ExtResource("4_lquwl")
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(49, 50)
+position = Vector2(348, -197.958)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -74,11 +78,12 @@ texture = ExtResource("8_5vw27")
 [node name="Arm" type="Sprite2D" parent="TutorialPointer/Guy/BurntToastBody"]
 z_index = -1
 position = Vector2(-230.884, -11.2626)
-rotation = 5.57104
+rotation = -2.90946
 texture = ExtResource("9_kek77")
 offset = Vector2(-175.905, 13.305)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="TutorialPointer/Guy"]
+visible = false
 self_modulate = Color(0, 0, 0, 0.357)
 custom_minimum_size = Vector2(175, 27)
 offset_left = 73.0
@@ -103,3 +108,6 @@ Wowie! Aint this swell!"
 scroll_active = false
 visible_characters = 17
 visible_ratio = 0.278689
+
+[node name="Marker2D" type="Marker2D" parent="TutorialPointer"]
+position = Vector2(603, 99)

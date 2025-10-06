@@ -11,6 +11,8 @@ func _ready() -> void:
 	
 	# Disable all the player's inputs
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","confirm","deny"]
+	tutorialPointer.moveTo(Vector2(348.0,230.0))
+	await get_tree().create_timer(0.5).timeout
 	# Intro text
 	await tutorialPointer.say("Howdy! Im Burnt Toast! I will be your tutorial fella! Press Z to continue!")
 	await tutorialPointer.say("Welcome to Engrams of Chaos.")
@@ -108,13 +110,27 @@ func _ready() -> void:
 	# Allow user to go left or right
 	cursorHandler.disabledInputs = ["ui_up","ui_down","deny","confirm"]
 	await cursorHandler.CraftingButtonSelected
+	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
+	
+	tutorialPointer.moveTo(Vector2(420,396))
+	tutorialPointer.pointTo(Vector2(607.0,393))
+	tutorialPointer.flip(-1)
+	tutorialPointer.pointing = true
+	await tutorialPointer.say("Now use Z to press the CRAFTING button after this message!")
+	tutorialPointer.silent()
+	
 	# Stop player from moving left or right, but allow them to confirm
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny"]
+	
+	
 	
 	await cursorHandler.CraftingButtonPressed
 	# Disable player inputs
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
+	tutorialPointer.moveTo(Vector2(460,90))
+	tutorialPointer.pointing = false
+	tutorialPointer.flip(1)
 	await tutorialPointer.say("Wow! Its dark in here!")
 	await tutorialPointer.say("Anyways welcome to the crafting ui.")
 	await tutorialPointer.say("You see these two circle slots?")
@@ -149,9 +165,16 @@ func _ready() -> void:
 	
 	await tutorialPointer.say("You see the unit you just made? They are selected!")
 	
+	tutorialPointer.moveTo(Vector2(397.94,148.765))
+	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
+	tutorialPointer.flip(-1)
+	tutorialPointer.pointing = true
 	await tutorialPointer.say("Their stats are up here in the top right, alongside a description.")
 	await tutorialPointer.say("How about we move your unit to a more advantagous position?")
 	await tutorialPointer.say("Press Z to pick up the selected unit")
+	tutorialPointer.moveTo(Vector2(460,90))
+	tutorialPointer.pointing = false
+	tutorialPointer.flip(1)
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny"]
@@ -160,34 +183,57 @@ func _ready() -> void:
 	
 	await tutorialPointer.say("Wowie!")
 	await tutorialPointer.say("You picked up someone without their permission, radical idea.")
-	await tutorialPointer.say("Move them around with W, A, S, or D. Once your'e done, press Z!")
+	await tutorialPointer.say("Move them around with W, A, S, or D. Once you're done, press Z!")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = []
 	await cursorHandler.DroppedUnit
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
+	tutorialPointer.moveTo(Vector2(397.94,148.765))
+	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
+	tutorialPointer.flip(-1)
+	tutorialPointer.pointing = true
 	await tutorialPointer.say("Alright. You see those icons in the units info panel? Those are the SYNERGIES your unit has.")
 	await tutorialPointer.say("Speaking of synergies, lets go through how you view those!")
 	await tutorialPointer.say("Once you are done looking at units, press S")
+	tutorialPointer.moveTo(Vector2(526.59,372.41))
+	tutorialPointer.flip(1)
+	tutorialPointer.pointing = false
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_up","deny","confirm"]
 	await cursorHandler.SynergyView
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
+	tutorialPointer.moveTo(Vector2(395,325))
 	await tutorialPointer.say("Welcome to the synergy view!")
+	tutorialPointer.moveTo(Vector2(181.44,360.125))
+	tutorialPointer.pointTo(Vector2(32.49,12.4))
+	tutorialPointer.flip(1)
+	tutorialPointer.pointing = true
 	await tutorialPointer.say("Right now you have the '" + gameHandler.calculatesynergies(2).keys()[0] + "' synergy selected!")
+	tutorialPointer.moveTo(Vector2(397.94,148.765))
+	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
+	tutorialPointer.flip(-1)
+	tutorialPointer.pointing = true
 	await tutorialPointer.say("In the top right, you can see what effects it does!")
 	await tutorialPointer.say("Synergy effects are based around how many units you have!")
 	await tutorialPointer.say("If text is BOLD, that means that effect is ACTIVE!!")
 	await tutorialPointer.say("Look through your synergies, then press S when your done!")
+	tutorialPointer.moveTo(Vector2(526.59,372.41))
+	tutorialPointer.flip(1)
+	tutorialPointer.pointing = false
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_up","deny","confirm"]
 	await cursorHandler.ButtonPanelTargeted
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
+	tutorialPointer.moveTo(Vector2(382,293))
+	tutorialPointer.pointTo(Vector2(608.0,335))
+	tutorialPointer.pointing = true
+	tutorialPointer.flip(-1)
 	await tutorialPointer.say("Wait a second, we are back to selecting buttons?!")
 	await tutorialPointer.say("Pressing S causes you to go downwards, so Buttons to Board to Synergies then back to board!")
 	await tutorialPointer.say("Pressing W is the opposite! Give it a try")
@@ -197,9 +243,12 @@ func _ready() -> void:
 	await cursorHandler.ButtonPanelTargeted
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
+	tutorialPointer.moveTo(Vector2(348.0,230.0))
+	tutorialPointer.pointing = false
 	await tutorialPointer.say("Alrighty! Thats EVERYTHING!! You are now given free will great job.")
 	await tutorialPointer.say("Whenever you're in doubt, read my automagically changing control guide in the bottom right!")
 	await tutorialPointer.say("Go ahead and start your next battle when your ready!")
 	await tutorialPointer.say("Peace!")
+	tutorialPointer.moveTo(Vector2(348.0,-200))
 	tutorialPointer.silent()
 	cursorHandler.disabledInputs = []

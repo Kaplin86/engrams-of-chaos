@@ -1,12 +1,16 @@
+@tool
 extends CanvasLayer
 class_name TutorialPointerObject
-var WantedPosition := Vector2(348.0,230.0)
+@export var WantedPosition := Vector2(348.0,230.0)
 var PointingDirection := deg_to_rad(193.3)
-var PointTarget := Vector2(0,0)
+@export var PointTarget := Vector2(0,0)
 var deltatimer = 0
-
-var pointing = false
-var flipDir = 1
+var flipDir
+@export var pointing = false
+@export var editorFlipDir = 1:
+	set(value):
+		flip(value)
+		editorFlipDir = value
 
 signal ConfirmPressed
 
@@ -24,8 +28,9 @@ func _process(delta: float) -> void:
 		PointingDirection = deg_to_rad(193.3)
 	
 	$Guy/BurntToastBody/Arm.global_rotation = lerp_angle($Guy/BurntToastBody/Arm.global_rotation,PointingDirection,0.1)
-	if Input.is_action_just_pressed("confirm"):
-		ConfirmPressed.emit()
+	if !Engine.is_editor_hint():
+		if Input.is_action_just_pressed("confirm"):
+			ConfirmPressed.emit()
 
 
 
@@ -38,11 +43,13 @@ func pointTo(newpos : Vector2):
 func flip(side):
 	flipDir = side
 	if side == -1:
-		$Guy/BurntToastBody.scale = Vector2(-0.178,0.178)
-		$Guy/NinePatchRect.position = Vector2(-239.0,7)
+		if has_node("Guy/BurntToastBody"):
+			$Guy/BurntToastBody.scale = Vector2(-0.178,0.178)
+			$Guy/NinePatchRect.position = Vector2(-239.0,7)
 	else:
-		$Guy/BurntToastBody.scale = Vector2(0.178,0.178)
-		$Guy/NinePatchRect.position = Vector2(73,7)
+		if has_node("Guy/BurntToastBody"):
+			get_node("Guy/BurntToastBody").scale = Vector2(0.178,0.178)
+			$Guy/NinePatchRect.position = Vector2(73,7)
 		
 
 func say(text : String):
@@ -54,7 +61,13 @@ func say(text : String):
 		$Guy/NinePatchRect/RichTextLabel.visible_characters += 1
 		$Guy/NinePatchRect.size = Vector2i(175,$Guy/NinePatchRect/RichTextLabel.get_content_height())
 		if !Input.is_action_pressed("deny"):
-			await get_tree().create_timer(0.05).timeout
+			$Bell.play()
+			$Bell.pitch_scale = (randf() * 0.5) + 1
+			if text[E] in [".",",","!","?"]:
+				await get_tree().create_timer(0.1).timeout
+			else:
+				await get_tree().create_timer(0.05).timeout
+			
 	
 	await ConfirmPressed
 	
