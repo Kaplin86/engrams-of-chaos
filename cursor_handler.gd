@@ -32,7 +32,10 @@ func checkInputJustPressed(inputName):
 	else:
 		return false
 
+var deltatimer = 0
+
 func _process(delta: float) -> void:
+	deltatimer += delta
 	if !main:
 		return
 	
@@ -126,9 +129,9 @@ func _process(delta: float) -> void:
 		
 		ui.showTutorial(main.currentWave)
 		if buttonPoint == "start":
-			ui.highlightStartPause(false)
+			ui.highlightStartPause(false,false,deltatimer)
 		elif buttonPoint == "craft":
-			ui.highlightStartPause(true)
+			ui.highlightStartPause(true,false,deltatimer)
 		
 		
 		if checkInputJustPressed("ui_left") or checkInputJustPressed("ui_right"):
@@ -194,6 +197,7 @@ func _process(delta: float) -> void:
 				
 				if !main.isPlayerBoardFull():
 					main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2)
+					ui.visualizeSynergy(main.calculatesynergies(2))
 				
 				await ui.craftAnimDone
 				CurrentState = "Crafting"

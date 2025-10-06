@@ -154,6 +154,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		return OK
 	else:
 		return FAILED
+	
 var beat = 3 ## The current metronome beat we are on
 
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function

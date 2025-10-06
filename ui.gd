@@ -47,7 +47,8 @@ func visualizeSynergy(synergyDictionary : Dictionary):
 	SynergyNames.sort_custom(sortSynergy)
 	
 	
-	
+	for E in $SynergyHolder.get_children():
+		E.queue_free()
 	
 	for E in SynergyNames:
 		var NewRect =synergyRectScene.instantiate()
@@ -88,14 +89,20 @@ func highlightCrafting(synergyname : String):
 			E.modulate = Color(3,3,3)
 
 
-func highlightStartPause(craft = false, disable = false):
-	
+func highlightStartPause(craft = false, disable = false, deltatimer = 0):
 	if !disable:
 		if !craft:
-			$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
+			print(floor(deltatimer)," vs ",round(deltatimer))
+			if floor(deltatimer * 2) == round(deltatimer * 2):
+				$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
+			else:
+				$GameManagingButtons/Pause_Resume.color =  Color("a9a9a9")
 			$GameManagingButtons/Craft.color =  Color("636363")
 		else:
-			$GameManagingButtons/Craft.color =  Color("b2b2b2")
+			if floor(deltatimer * 2) == round(deltatimer * 2):
+				$GameManagingButtons/Craft.color =  Color("b2b2b2")
+			else:
+				$GameManagingButtons/Craft.color =  Color("a9a9a9")
 			$GameManagingButtons/Pause_Resume.color =  Color("636363")
 	else:
 		$GameManagingButtons/Pause_Resume.color = Color("636363")

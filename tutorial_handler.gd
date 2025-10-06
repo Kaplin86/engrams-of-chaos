@@ -235,7 +235,7 @@ func _ready() -> void:
 	tutorialPointer.pointing = true
 	tutorialPointer.flip(-1)
 	await tutorialPointer.say("Wait a second, we are back to selecting buttons?!")
-	await tutorialPointer.say("Pressing S causes you to go downwards, so Buttons to Board to Synergies then back to board!")
+	await tutorialPointer.say("Pressing S causes you to go downwards, so Buttons to Board to Synergies then back to Buttons!")
 	await tutorialPointer.say("Pressing W is the opposite! Give it a try")
 	tutorialPointer.silent()
 	

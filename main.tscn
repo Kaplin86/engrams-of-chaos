@@ -69,7 +69,7 @@ WantedPosition = Vector2(348, -200)
 stream = ExtResource("4_lquwl")
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -197.958)
+position = Vector2(348, -202.69)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
