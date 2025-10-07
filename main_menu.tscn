@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=13 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="Texture2D" uid="uid://braxfc1u12b60" path="res://logo.png" id="2_jix8l"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="5_glbon"]
 [ext_resource type="Script" uid="uid://rgwl5e3uun00" path="res://physics_bg.gd" id="5_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="7_qe12f"]
 
 [sub_resource type="Gradient" id="Gradient_nlkkf"]
 offsets = PackedFloat32Array(0, 0.893333, 1)
@@ -25,7 +26,7 @@ size = Vector2(736, 110)
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons")]
 script = ExtResource("1_fu7sn")
-Buttons = [NodePath("Tutorial"), NodePath("Start")]
+Buttons = [NodePath("Tutorial"), NodePath("Start"), NodePath("Additional")]
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(359, 123)
@@ -134,6 +135,40 @@ text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Additional" type="ColorRect" parent="."]
+offset_left = 24.0
+offset_top = 486.0
+offset_right = 196.0
+offset_bottom = 529.0
+color = Color(0.389287, 0.389287, 0.389286, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Additional"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Additional"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 16
+text = "Additional
+Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PhysicsBG" type="Node2D" parent="."]
 z_index = -5
 script = ExtResource("5_nlkkf")
@@ -227,6 +262,67 @@ shape = SubResource("RectangleShape2D_nlkkf")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="AdvancedGuide" type="ColorRect" parent="."]
+visible = false
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 257.0
+offset_bottom = 379.0
+color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[node name="Label" type="RichTextLabel" parent="AdvancedGuide"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 52.0
+offset_right = 230.0
+offset_bottom = 362.0
+bbcode_enabled = true
+text = "[b]Stats:[/b]
+Damage calc is defense - damage, cannot go below 1.
+
+Attack speed determines which unit attacks first.
+Attack speed also determines when a unit attacks
+(1 = 1 hit every tick, 2 = 2 hits every tick, 0.5 = 1 hit every 2 ticks)
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="AdvancedGuide"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ADVANCED INNERWORKINGS
+MANUAL (For pros)"
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.133333)
+z_index = -11
+repeat_size = Vector2(425, 425)
+autoscroll = Vector2(50, 25)
+repeat_times = 7
+
+[node name="Node2D" type="Node2D" parent="Parallax2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(212.5, 212.5)
+texture = ExtResource("7_qe12f")
+
+[node name="Pattern2" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(-212.5, 212.5)
+texture = ExtResource("7_qe12f")
+flip_h = true
+
+[node name="Pattern3" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(212.5, -212.5)
+texture = ExtResource("7_qe12f")
+flip_v = true
+
+[node name="Pattern4" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(-212.5, -212.5)
+texture = ExtResource("7_qe12f")
+flip_h = true
+flip_v = true
 
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

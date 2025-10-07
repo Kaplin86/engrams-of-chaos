@@ -17,16 +17,18 @@ func _process(delta: float) -> void:
 			buttonInQuestion.color = Color("636363")
 	
 	if Input.is_action_just_pressed("ui_up"):
-		buttonHover += 1
-	elif Input.is_action_just_pressed("ui_down"):
 		buttonHover -= 1
+	elif Input.is_action_just_pressed("ui_down"):
+		buttonHover += 1
 	
 	if Input.is_action_just_pressed("confirm"):
-		print(buttonHover)
-		if buttonHover == 0:
-			DatastoreHolder.tutorial = true
-		get_tree().change_scene_to_file("res://main.tscn")
-	
+		if buttonHover == 0 or buttonHover == 1:
+			if buttonHover == 0:
+				DatastoreHolder.tutorial = true
+			get_tree().change_scene_to_file("res://main.tscn")
+		elif buttonHover == 2:
+			$AdvancedGuide.visible = !$AdvancedGuide.visible
+		
 	buttonHover = wrap(buttonHover,0,Buttons.size())
 
 func _on_timer_timeout() -> void:

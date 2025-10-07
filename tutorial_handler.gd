@@ -94,7 +94,7 @@ func _ready() -> void:
 	await tutorialPointer.say("Since the enemy was in range of your unit, it attacked instead of moving.")
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
-	await tutorialPointer.say("First, show them whos boss!")
+	await tutorialPointer.say("Now, show them whos boss!")
 	tutorialPointer.silent()
 	
 	# Allow user to hit the start button (Now the unpause button)
@@ -233,6 +233,7 @@ func _ready() -> void:
 	await tutorialPointer.say("In the top right, you can see what effects it does!")
 	await tutorialPointer.say("Synergy effects are based around how many units you have!")
 	await tutorialPointer.say("If text is BOLD, that means that effect is ACTIVE!!")
+	await tutorialPointer.say("This is also a tool in your strategic toolkit. Effects from synergies will help you last longer!")
 	await tutorialPointer.say("Look through your synergies, then press S when your done!")
 	tutorialPointer.moveTo(Vector2(526.59,372.41))
 	tutorialPointer.flip(1)
@@ -248,7 +249,7 @@ func _ready() -> void:
 	tutorialPointer.pointing = true
 	tutorialPointer.flip(-1)
 	await tutorialPointer.say("Wait a second, we are back to selecting buttons?!")
-	await tutorialPointer.say("Pressing S causes you to go downwards, so Buttons to Board to Synergies then back to Buttons!")
+	await tutorialPointer.say("Pressing S causes you to go deeper in the ui, so Buttons to Board to Synergies then back to Buttons!")
 	await tutorialPointer.say("Pressing W is the opposite! Give it a try")
 	tutorialPointer.silent()
 	
@@ -261,7 +262,7 @@ func _ready() -> void:
 	await tutorialPointer.say("Alrighty! Thats EVERYTHING!! You are now given free will great job.")
 	await tutorialPointer.say("Remember this saying I always tell myself. Cause chaos to get engrams, then use engrams to do better chaos!")
 	await tutorialPointer.say("Whenever you're in doubt, read my automagically changing control guide in the bottom right!")
-	await tutorialPointer.say("Go ahead and start your next battle when your ready!")
+	await tutorialPointer.say("Just highlight that START button again and press Z when you’re ready for round two!")
 	await tutorialPointer.say("Peace!")
 	tutorialPointer.moveTo(Vector2(348.0,-200))
 	tutorialPointer.silent()

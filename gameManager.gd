@@ -21,6 +21,8 @@ var battleLoadout : Array = [] ## A duplication of units made at the start of ea
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
+var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
+
 signal TickEnd
 signal AttackHit
 signal RoundEnd
@@ -36,8 +38,11 @@ func _ready() -> void:
 	
 	
 	
-	
-	spawnUnit("chicken_wing",Vector2i(7,14),2)
+	if !DatastoreHolder.tutorial:
+		spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
+		spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,13),2)
+	else:
+		spawnUnit("chicken_wing",Vector2i(7,14),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -217,6 +222,15 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 func endRound(): ## This is called when the round ends
 	print("Ending Round")
 	tickTimer.stop()
+	if units[0].team != 2: # Checks the first unit of the remaining ones. If all the enemy team is dead, this if statement shouldnt run
+		$CursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","confirm","deny"]
+		await get_tree().create_timer(1).timeout
+		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
+		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
+		
+		await newtween.finished
+		return
 	for E in units:
 		E.queue_free()
 	units.clear()

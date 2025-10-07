@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=18 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
 [ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="2_m6e0p"]
 [ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="3_27fn8"]
+[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="3_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="5_ibotj"]
 [ext_resource type="Texture2D" uid="uid://cs01ii7jihxxb" path="res://ui/shield.svg" id="6_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dv72pvgsxfxlw" path="res://ui/heart.svg" id="7_waa4j"]
@@ -189,6 +190,12 @@ offset_left = 621.0
 offset_top = 30.0
 offset_right = 716.0
 offset_bottom = 33.0
+
+[node name="Pattern" type="Sprite2D" parent="BG"]
+modulate = Color(1, 1, 1, 0.0588235)
+position = Vector2(612.75, 149.75)
+scale = Vector2(0.504706, 0.692941)
+texture = ExtResource("3_e2l4f")
 
 [node name="Name" type="Label" parent="."]
 offset_left = 509.0

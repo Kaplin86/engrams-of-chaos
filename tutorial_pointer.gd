@@ -61,8 +61,9 @@ func say(text : String):
 		$Guy/NinePatchRect/RichTextLabel.visible_characters += 1
 		$Guy/NinePatchRect.size = Vector2i(175,$Guy/NinePatchRect/RichTextLabel.get_content_height())
 		if !Input.is_action_pressed("deny"):
-			$Bell.play()
-			$Bell.pitch_scale = (randf() * 0.5) + 1
+			if randi_range(0,3) == 3:
+				$Bell.play()
+				$Bell.pitch_scale = (randf() * 0.5) + 1
 			if text[E] in [".",",","!","?"]:
 				await get_tree().create_timer(0.1).timeout
 			else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=15 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="1_ig7tw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://detkdq8rsjfqw" path="res://ui/burntToastSprites/burntToastBody.svg" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bsr8yvj7d6x3u" path="res://ui/burntToastSprites/Hand.svg" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://c2yoa86djxsvx" path="res://ui/WhiteCube.png" id="11_efxa6"]
+[ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="12_dg77c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -69,7 +70,7 @@ WantedPosition = Vector2(348, -200)
 stream = ExtResource("4_lquwl")
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -202.69)
+position = Vector2(348, -201.913)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -111,3 +112,37 @@ visible_ratio = 0.278689
 
 [node name="Marker2D" type="Marker2D" parent="TutorialPointer"]
 position = Vector2(603, 99)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DEATH" type="ColorRect" parent="CanvasLayer2/Control"]
+z_as_relative = false
+offset_right = 722.0
+offset_bottom = 541.0
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+
+[node name="GAME OVER" type="Label" parent="CanvasLayer2/Control"]
+offset_right = 720.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_dg77c")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathText" type="Label" parent="CanvasLayer2/Control"]
+offset_left = 8.0
+offset_top = 131.0
+offset_right = 711.0
+offset_bottom = 180.0
+text = "\"The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.\""
+horizontal_alignment = 1
+autowrap_mode = 3
