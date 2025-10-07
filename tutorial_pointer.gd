@@ -57,17 +57,20 @@ func say(text : String):
 	$Guy/NinePatchRect/RichTextLabel.text = text
 	$Guy/NinePatchRect/RichTextLabel.visible_characters = 0
 	$Guy/NinePatchRect.size = Vector2i.ZERO
+	var EveryOther = false
 	for E in text.length():
 		$Guy/NinePatchRect/RichTextLabel.visible_characters += 1
 		$Guy/NinePatchRect.size = Vector2i(175,$Guy/NinePatchRect/RichTextLabel.get_content_height())
 		if !Input.is_action_pressed("deny"):
-			if randi_range(0,3) == 3:
+			EveryOther = !EveryOther
+			if EveryOther:
 				$Bell.play()
-				$Bell.pitch_scale = (randf() * 0.5) + 1
+				$Bell.volume_linear = 0.9 + ((randf() - 0.5) * 0.1)
+				$Bell.pitch_scale = (randf() * 0.1) + 0.9
 			if text[E] in [".",",","!","?"]:
 				await get_tree().create_timer(0.1).timeout
 			else:
-				await get_tree().create_timer(0.05).timeout
+				await get_tree().create_timer(0.03).timeout
 			
 	
 	await ConfirmPressed

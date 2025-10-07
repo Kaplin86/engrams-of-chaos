@@ -71,7 +71,7 @@ func highlightSynergy(synergyname : String):
 			if remove_numbers_from_string(E.name) == synergyname:
 				E.modulate = Color(3,3,3)
 		var NewObject : BaseSynergy = load("res://synergyScripts/"+synergyname+".gd").new()
-		var Description = NewObject.get_description($"../..".calculatesynergies(2)[synergyname])
+		var Description = NewObject.get_description($"../..".calculatesynergies(2).get(synergyname,0))
 		$UnitUI.visible = false
 		$SynergyUI.visible = true
 		$Tutorial.visible = false

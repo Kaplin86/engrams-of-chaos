@@ -58,6 +58,7 @@ ui = NodePath("../CanvasLayer/UI")
 
 [node name="TutorialHandler" type="Node2D" parent="." node_paths=PackedStringArray("cursorHandler", "gameHandler", "tutorialPointer")]
 script = ExtResource("7_272bh")
+tutorialMode = null
 cursorHandler = NodePath("../CursorHandler")
 gameHandler = NodePath("..")
 tutorialPointer = NodePath("../TutorialPointer")
@@ -68,9 +69,10 @@ WantedPosition = Vector2(348, -200)
 
 [node name="Bell" type="AudioStreamPlayer" parent="TutorialPointer"]
 stream = ExtResource("4_lquwl")
+volume_db = -1.295
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -201.913)
+position = Vector2(348, -201.705)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -116,7 +118,7 @@ position = Vector2(603, 99)
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
-modulate = Color(1, 1, 1, 0)
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -124,11 +126,13 @@ offset_bottom = 40.0
 
 [node name="DEATH" type="ColorRect" parent="CanvasLayer2/Control"]
 z_as_relative = false
+layout_mode = 0
 offset_right = 722.0
 offset_bottom = 541.0
 color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 
 [node name="GAME OVER" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
 offset_right = 720.0
 offset_bottom = 172.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -139,6 +143,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeathText" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 131.0
 offset_right = 711.0
@@ -146,3 +151,41 @@ offset_bottom = 180.0
 text = "\"The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.\""
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="HighestRound" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 212.0
+offset_right = 551.0
+offset_bottom = 235.0
+theme_override_colors/font_color = Color(1, 0.862745, 1, 1)
+text = "Highest Round:"
+horizontal_alignment = 1
+
+[node name="StrongestSynergy" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 248.0
+offset_right = 551.0
+offset_bottom = 271.0
+theme_override_colors/font_color = Color(1, 0.862745, 1, 1)
+text = "Strongest Synergy:"
+horizontal_alignment = 1
+
+[node name="Tutorial" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 513.0
+offset_right = 711.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(1, 0.862745, 1, 1)
+text = "(TUTORIAL)"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer2/Control"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 490.0
+offset_right = 475.0
+offset_bottom = 513.0
+text = "Press Z to go to main menu."

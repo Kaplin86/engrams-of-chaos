@@ -36,7 +36,8 @@ func _ready() -> void:
 	
 	generateEnemyTeam()
 	
-	
+	$CanvasLayer2/Control.modulate = Color(1,1,1,0)
+	$CanvasLayer2/Control.visible = true
 	
 	if !DatastoreHolder.tutorial:
 		spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
@@ -226,10 +227,18 @@ func endRound(): ## This is called when the round ends
 		$CursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","confirm","deny"]
 		await get_tree().create_timer(1).timeout
 		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
+		$CanvasLayer2/Control/HighestRound.text = "Final Round: " + str(currentWave)
+		$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: " + $CanvasLayer/UI.synergyList[0]
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
+		await get_tree().create_timer(1).timeout
+		var loop = true
+		while loop:
+			await get_tree().create_timer(0.1).timeout
+			if Input.is_action_just_pressed("confirm"):
+				loop = false
 		
-		await newtween.finished
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 		return
 	for E in units:
 		E.queue_free()

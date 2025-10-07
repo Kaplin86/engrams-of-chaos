@@ -225,7 +225,7 @@ func _ready() -> void:
 	tutorialPointer.pointTo(Vector2(32.49,12.4))
 	tutorialPointer.flip(1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("Right now you have the '" + gameHandler.calculatesynergies(2).keys()[0] + "' synergy selected!")
+	await tutorialPointer.say("Right now you have the '" + cursorHandler.ui.synergyList[cursorHandler.synergyPoint] + "' synergy selected!")
 	tutorialPointer.moveTo(Vector2(397.94,148.765))
 	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
 	tutorialPointer.flip(-1)
