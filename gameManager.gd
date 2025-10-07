@@ -141,8 +141,6 @@ func getFirstOpenPlayerBoardPosition(): ## Gives the first open tile between 2,1
 			return Vector2i(E+2,14)
 func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
 	if board:
-		if !FileAccess.file_exists("res://units/" + unitType + "/" + unitType + ".tscn"):
-			unitType = "pepper"
 		var NewUnit : BaseUnit = load("res://units/" + unitType + "/" + unitType + ".tscn").instantiate()
 		NewUnit.board_position = pos
 		NewUnit.board = board

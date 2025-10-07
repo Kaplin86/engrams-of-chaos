@@ -162,7 +162,6 @@ shape = SubResource("RectangleShape2D_jix8l")
 [node name="RigidBody2D3" type="StaticBody2D" parent="PhysicsBG"]
 position = Vector2(1080, -143)
 rotation = 1.0382
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicsBG/RigidBody2D3"]
 position = Vector2(0, 265.5)

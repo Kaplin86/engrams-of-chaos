@@ -17,6 +17,10 @@ func _ready() -> void:
 	# Intro text
 	await tutorialPointer.say("Howdy! Im Burnt Toast! I will be your tutorial fella! Press Z to continue!")
 	await tutorialPointer.say("Welcome to Engrams of Chaos.")
+	await tutorialPointer.say("So. Goal of the game is simple. Make a team to survive as many battles as possible to beat your highscore.")
+	await tutorialPointer.say("When your team dies, your run ends. Simple enough right?")
+	await tutorialPointer.say("During battles, your team fights automatically. So, it is your job to prepare them beforehand!")
+	await tutorialPointer.say("Lets start the first battle!")
 	
 	tutorialPointer.moveTo(Vector2(382,293))
 	tutorialPointer.pointTo(Vector2(608.0,335))
@@ -39,13 +43,15 @@ func _ready() -> void:
 	
 	# Wait for the tick to end
 	await gameHandler.TickEnd
+	await gameHandler.TickEnd
+	await gameHandler.TickEnd
 	# Pause the game
 	gameHandler.startButtonHit() # this pauses the game at its current state
 	# Disable player inputs
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
 	# Tick text
-	await tutorialPointer.say("Okay so that was a lot in such a short bit of time!")
+	await tutorialPointer.say("Pause, Pause! Let me explain whats going on a bit.")
 	await tutorialPointer.say("Engrams of Chaos works with a tick-based system.")
 	
 	tutorialPointer.moveTo(Vector2(174,91))
@@ -53,8 +59,8 @@ func _ready() -> void:
 	tutorialPointer.pointing = true
 	
 	await tutorialPointer.say("This is the metronome, which shows when ticks happen.")
-	await tutorialPointer.say("Every tick, each unit can either move or attack.")
-	tutorialPointer.moveTo(Vector2(374,277))
+	await tutorialPointer.say("Every tick, each unit can either move or attack, they only attack when close to an enemy.")
+	tutorialPointer.moveTo(Vector2(330,258))
 	tutorialPointer.pointTo(Vector2(320.0,-20))
 	await tutorialPointer.say("As you can see here, your unit moved.")
 	
@@ -80,12 +86,12 @@ func _ready() -> void:
 	gameHandler.startButtonHit()
 	
 	# Note: Tutorial fight would be constructed so the player's unit gets first hit
+	await get_tree().create_timer(0.2).timeout
 	tutorialPointer.moveTo(Vector2(336.195,244))
 	tutorialPointer.pointTo(Vector2(218.0,264))
 	tutorialPointer.pointing = true
 	await tutorialPointer.say("Did you see that? Your unit just attacked!")
 	await tutorialPointer.say("Since the enemy was in range of your unit, it attacked instead of moving.")
-	await tutorialPointer.say("Damage depends on the unit's power and the opponents defense. We will see that soon!")
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
 	await tutorialPointer.say("First, show them whos boss!")
@@ -103,8 +109,10 @@ func _ready() -> void:
 	# Note: The engrams for the tutorial are RANDOM. You get 3 after the first fight
 	await tutorialPointer.say("What a great battle, you showed them whos boss alright!")
 	await tutorialPointer.say("Did you see those circle thingies that appeared on your screen?")
-	await tutorialPointer.say("Those are ENGRAMS, which are used for getting more units!")
-	await tutorialPointer.say("You get them by beating up enemies!")
+	await tutorialPointer.say("Those are ENGRAMS, which you get by surviving the round.")
+	await tutorialPointer.say("ENGRAMS can be used for CRAFTING new units!!")
+	await tutorialPointer.say("You see the loop now, right? You beat up guys, get engrams, make a better team, and repeat?")
+	await tutorialPointer.say("Anywhom, lets craft your first unit!")
 	await tutorialPointer.say("After this message, Press A or D to switch to your CRAFTING button!")
 	tutorialPointer.silent()
 	
@@ -143,14 +151,16 @@ func _ready() -> void:
 	await cursorHandler.CraftingAnimFinished
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	await tutorialPointer.say("Wow! What a unique fella you just crafted!")
+	await tutorialPointer.say("Let’s head back to the board to see your new ally.")
 	await tutorialPointer.say("Press S to go back to the main screen after this!")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_right","deny","confirm"]
 	await cursorHandler.ReturnFromCrafting
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
-	await tutorialPointer.say("Okay so. This game's ui has 3 main parts. Buttons, board, and synergies.")
-	await tutorialPointer.say("Lets select the board to take a look at your units!")
+	await tutorialPointer.say("You see your unit over there? Now you have a team of a whopping size of 2!")
+	await tutorialPointer.say("As you progress through rounds, you will have to expand your team and strategize to survive!")
+	await tutorialPointer.say("How about we look at the new unit you made?")
 	await tutorialPointer.say("Press S to go to the board!")
 	tutorialPointer.silent()
 	
@@ -172,6 +182,8 @@ func _ready() -> void:
 	tutorialPointer.pointing = true
 	await tutorialPointer.say("Their stats are up here in the top right, alongside a description.")
 	await tutorialPointer.say("How about we move your unit to a more advantagous position?")
+	await tutorialPointer.say("For instance, units with high defense should be in the front to protect the weaker units behind them!")
+	await tutorialPointer.say("Smart positioning helps your team survive longer. That’s how you push your score higher!")
 	await tutorialPointer.say("Press Z to pick up the selected unit")
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
@@ -247,6 +259,7 @@ func _ready() -> void:
 	tutorialPointer.moveTo(Vector2(348.0,230.0))
 	tutorialPointer.pointing = false
 	await tutorialPointer.say("Alrighty! Thats EVERYTHING!! You are now given free will great job.")
+	await tutorialPointer.say("Remember this saying I always tell myself. Cause chaos to get engrams, then use engrams to do better chaos!")
 	await tutorialPointer.say("Whenever you're in doubt, read my automagically changing control guide in the bottom right!")
 	await tutorialPointer.say("Go ahead and start your next battle when your ready!")
 	await tutorialPointer.say("Peace!")

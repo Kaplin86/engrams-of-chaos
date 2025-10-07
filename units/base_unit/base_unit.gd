@@ -152,8 +152,9 @@ func attack(target : BaseUnit, HitCount : int = 1): ## Runs when the unit tries 
 	gameManagerObject.unitAttack(self)
 	
 	if HitCount > 1:
-		animPlayer.animation_finished.connect(
-			Callable(self, "_on_attack_anim_finished").bind(target, HitCount - 1),CONNECT_ONE_SHOT)
+		if !animPlayer.animation_finished.is_connected(Callable(self, "_on_attack_anim_finished")):
+			animPlayer.animation_finished.connect(
+				Callable(self, "_on_attack_anim_finished").bind(target, HitCount - 1),CONNECT_ONE_SHOT)
 
 func _on_attack_anim_finished(animname,target, remainingHits):
 	if target and target.hp > 0:
