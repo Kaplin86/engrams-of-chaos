@@ -44,7 +44,7 @@ var _is_dying = false
 func _ready() -> void:
 	visualPosition = board.map_to_local(board_position)
 	if team == 1:
-		modulate = Color(1,0,0)
+		$VisualHolder/HealthBar.tint_progress = Color(0,0,0,1)
 	
 	$VisualHolder/HealthBar.max_value = maxHP
 	$VisualHolder/ManaBar.max_value = maxMana

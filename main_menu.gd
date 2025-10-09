@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 	deltatimer += delta
 	
 	$Logo.scale += (Vector2.ONE - $Logo.scale) / 20
+	$FirstEngraMmaintheme.pitch_scale = 1 + (sin(deltatimer * 0.5) * 0.01)
 	
 	for E in Buttons.size():
 		
@@ -41,11 +42,20 @@ func _process(delta: float) -> void:
 		buttonHover += 1
 	
 	if Input.is_action_just_pressed("confirm"):
-		if buttonHover == 0 or buttonHover == 1:
+		if buttonHover == 0 or buttonHover == 1 or buttonHover == 2:
 			if buttonHover == 0:
 				DatastoreHolder.tutorial = true
+				DatastoreHolder.enemySynergy = false
+				DatastoreHolder.difficulty = "Tutorial"
+			if buttonHover == 1:
+				DatastoreHolder.enemySynergy = false
+				DatastoreHolder.difficulty = "Easy"
+			if buttonHover == 2:
+				DatastoreHolder.enemySynergy = true
+				DatastoreHolder.difficulty = "Normal"
+			print("ENEMY SYNERGIES IS " , DatastoreHolder.enemySynergy)
 			get_tree().change_scene_to_file("res://main.tscn")
-		elif buttonHover == 2:
+		elif buttonHover == 3:
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
 		
 	buttonHover = wrap(buttonHover,0,Buttons.size())

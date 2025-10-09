@@ -186,21 +186,9 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 	
 	if doneFirstTick == false:
 		doneFirstTick = true
-		for E in currentSynergyObjects:
-			
-			if teamSynergyStore[1].has(E.get_filename()):
-				E.firstTick(1,teamSynergyStore[1][E.get_filename()])
-			
-			if teamSynergyStore[2].has(E.get_filename()):
-				
-				E.firstTick(2,teamSynergyStore[2][E.get_filename()])
+		callTeamSynergies("firstTick")
 	
-	for E in currentSynergyObjects:
-		if teamSynergyStore[1].has(E.get_filename()):
-			E.tickTeam(1,teamSynergyStore[1][E.get_filename()])
-		
-		if teamSynergyStore[2].has(E.get_filename()):
-			E.tickTeam(2,teamSynergyStore[2][E.get_filename()])
+	callTeamSynergies("tickTeam")
 	
 	
 	$AudioStreamPlayer.play()
@@ -242,6 +230,7 @@ func endRound(): ## This is called when the round ends
 		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
 		$CanvasLayer2/Control/HighestRound.text = "Final Round: " + str(currentWave)
 		$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: " + $CanvasLayer/UI.synergyList[0]
+		$CanvasLayer2/Control/Mode.text = "Gamemode: " + DatastoreHolder.difficulty
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
 		await get_tree().create_timer(1).timeout
@@ -290,12 +279,7 @@ func sortSpeed(a, b): ## Function to sort the speed of units
 	return a.get("speed",0) < b.get("speed",0)
 
 func unitDeath(unitData : BaseUnit): ## Called when any unit dies. It gets passed a duplicate of the unit that just died.
-	for E in currentSynergyObjects:
-		if teamSynergyStore[1].has(E.get_filename()):
-			E.unitDeath(1,teamSynergyStore[1][E.get_filename()],unitData)
-		
-		if teamSynergyStore[2].has(E.get_filename()):
-			E.unitDeath(2,teamSynergyStore[2][E.get_filename()],unitData)
+	callTeamSynergies("unitDeath",unitData)
 	
 	var team1alive = false
 	var team2alive = false
@@ -310,20 +294,10 @@ func unitDeath(unitData : BaseUnit): ## Called when any unit dies. It gets passe
 
 func unitAttack(unitData : BaseUnit): ## Called when any unit attacks. It gets passed the unit.
 	AttackHit.emit()
-	for E in currentSynergyObjects:
-		if teamSynergyStore[1].has(E.get_filename()):
-			E.unitAttack(1,teamSynergyStore[1][E.get_filename()],unitData)
-		
-		if teamSynergyStore[2].has(E.get_filename()):
-			E.unitAttack(2,teamSynergyStore[2][E.get_filename()],unitData)
+	callTeamSynergies("unitAttack",unitData)
 
 func unitOnHit(unitData : BaseUnit): ## Caled when any unit gets hit. It gets passed the unit.
-	for E in currentSynergyObjects:
-		if teamSynergyStore[1].has(E.get_filename()):
-			E.unitGetHit(1,teamSynergyStore[1][E.get_filename()],unitData)
-		
-		if teamSynergyStore[2].has(E.get_filename()):
-			E.unitGetHit(2,teamSynergyStore[2][E.get_filename()],unitData)
+	callTeamSynergies("unitGetHit",unitData)
 
 func startButtonHit(): ## When a particular ui button is hit
 	if battleState == "preround":
@@ -348,3 +322,18 @@ func startButtonHit(): ## When a particular ui button is hit
 			$CanvasLayer/UI.textUpdateStartButton("Resume")
 		else:
 			$CanvasLayer/UI.textUpdateStartButton("Pause")
+
+func callTeamSynergies(FunctionName : String, extraParam = null):
+	for E in currentSynergyObjects:
+		if teamSynergyStore[1].has(E.get_filename()):
+			if DatastoreHolder.enemySynergy:
+				if extraParam:
+					E.call(FunctionName,1,teamSynergyStore[1][E.get_filename()],extraParam)
+				else:
+					E.call(FunctionName,1,teamSynergyStore[1][E.get_filename()])
+		
+			if teamSynergyStore[2].has(E.get_filename()):
+				if extraParam:
+					E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()],extraParam)
+				else:
+					E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()])

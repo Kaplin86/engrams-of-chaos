@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=15 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://c0vtc21mup82j" path="res://sfx/button1.ogg" id="2_8qtwp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="5_glbon"]
 [ext_resource type="Script" uid="uid://rgwl5e3uun00" path="res://physics_bg.gd" id="5_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="7_qe12f"]
+[ext_resource type="AudioStream" uid="uid://dybdrextqsmc1" path="res://sfx/FirstENGRAMmaintheme.mp3" id="9_dy7ct"]
 
 [sub_resource type="Gradient" id="Gradient_nlkkf"]
 offsets = PackedFloat32Array(0, 0.893333, 1)
@@ -385,16 +386,20 @@ position = Vector2(-212.5, 212.5)
 texture = ExtResource("7_qe12f")
 flip_h = true
 
-[node name="Pattern3" type="Sprite2D" parent="Parallax2D/Node2D"]
-position = Vector2(212.5, -212.5)
-texture = ExtResource("7_qe12f")
-flip_v = true
-
 [node name="Pattern4" type="Sprite2D" parent="Parallax2D/Node2D"]
 position = Vector2(-212.5, -212.5)
 texture = ExtResource("7_qe12f")
 flip_h = true
 flip_v = true
+
+[node name="Pattern3" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(212.5, -212.5)
+texture = ExtResource("7_qe12f")
+flip_v = true
+
+[node name="FirstEngraMmaintheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_dy7ct")
+autoplay = true
 
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

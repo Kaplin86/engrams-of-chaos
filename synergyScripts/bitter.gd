@@ -1,7 +1,7 @@
 extends BaseSynergy
 class_name BitterSynergy
 func firstTick(team : int ,level): ## This fires at the first tick of battle. The team passed is the team with the synergy, and level refers to the level of synergy that team has.
-	print("THE BITTER LEVEL IS", level)
+	print("First bitter tick for team ",team, " with a power of ", level)
 	for unit in manager.units:
 		if unit.team == team:
 			var UnitsSynergy = DatastoreHolder.synergyUnitJson[unit.type]
