@@ -92,7 +92,6 @@ func highlightCrafting(synergyname : String):
 func highlightStartPause(craft = false, disable = false, deltatimer = 0):
 	if !disable:
 		if !craft:
-			print(floor(deltatimer)," vs ",round(deltatimer))
 			if floor(deltatimer * 2) == round(deltatimer * 2):
 				$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
 			else:

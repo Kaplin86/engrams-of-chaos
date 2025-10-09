@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=14 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://c0vtc21mup82j" path="res://sfx/button1.ogg" id="2_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://braxfc1u12b60" path="res://logo.png" id="2_jix8l"]
 [ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="3_glbon"]
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="4_jix8l"]
@@ -26,27 +27,18 @@ size = Vector2(736, 110)
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons")]
 script = ExtResource("1_fu7sn")
-Buttons = [NodePath("Tutorial"), NodePath("Start"), NodePath("Additional")]
+Buttons = [NodePath("Tutorial"), NodePath("Easy"), NodePath("Normal"), NodePath("Additional")]
+
+[node name="Button1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8qtwp")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(359, 123)
 texture = ExtResource("2_jix8l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
 z_index = -1
-offset_right = 719.0
-offset_bottom = 541.0
-color = Color(0, 0, 0, 0.051)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-z_index = -3
-offset_right = 719.0
-offset_bottom = 541.0
-color = Color(0, 0, 0, 0.051)
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-z_index = -1
-position = Vector2(477, 177)
+position = Vector2(118, 54)
 amount = 30
 texture = ExtResource("3_glbon")
 lifetime = 2.1
@@ -61,6 +53,18 @@ scale_amount_min = 0.9
 scale_amount_max = 0.95
 color_ramp = SubResource("Gradient_nlkkf")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 719.0
+offset_bottom = 541.0
+color = Color(0, 0, 0, 0.051)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -3
+offset_right = 719.0
+offset_bottom = 541.0
+color = Color(0, 0, 0, 0.051)
+
 [node name="Label" type="Label" parent="."]
 offset_left = 213.0
 offset_top = 487.0
@@ -69,12 +73,45 @@ offset_bottom = 532.0
 theme_override_font_sizes/font_size = 32
 text = "USE WASD, Z, AND X"
 
+[node name="DescBox" type="ColorRect" parent="."]
+offset_left = 458.0
+offset_top = 236.0
+offset_right = 675.0
+offset_bottom = 349.0
+color = Color(0.0260276, 2.05217e-05, 0.124753, 1)
+
+[node name="ModeDesc" type="Label" parent="DescBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Enemies do not recieve their own synergy buffs."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ModeName" type="Label" parent="DescBox"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 29
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="Tutorial" type="ColorRect" parent="."]
-offset_left = 266.0
-offset_top = 264.0
-offset_right = 465.0
-offset_bottom = 321.0
+offset_left = 162.0
+offset_top = 227.0
+offset_right = 361.0
+offset_bottom = 284.0
 color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "Its tutorial time!"
 
 [node name="ColorRect3" type="ColorRect" parent="Tutorial"]
 layout_mode = 1
@@ -102,14 +139,15 @@ text = "Tutorial"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Start" type="ColorRect" parent="."]
-offset_left = 267.0
-offset_top = 329.0
-offset_right = 466.0
-offset_bottom = 386.0
+[node name="Easy" type="ColorRect" parent="."]
+offset_left = 231.0
+offset_top = 292.0
+offset_right = 430.0
+offset_bottom = 349.0
 color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "Enemies do not have synergy buffs"
 
-[node name="ColorRect3" type="ColorRect" parent="Start"]
+[node name="ColorRect3" type="ColorRect" parent="Easy"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +160,41 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
-[node name="Label" type="Label" parent="Start"]
+[node name="Label" type="Label" parent="Easy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 16
+text = "Easy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Normal" type="ColorRect" parent="."]
+offset_left = 350.0
+offset_top = 356.0
+offset_right = 549.0
+offset_bottom = 413.0
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "The real Engrams of Chaos experience"
+
+[node name="ColorRect3" type="ColorRect" parent="Normal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Normal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

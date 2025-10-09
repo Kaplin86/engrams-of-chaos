@@ -3,8 +3,14 @@ extends Node2D
 @export var Buttons : Array[ColorRect] = []
 var buttonHover = 0
 var deltatimer = 0
+
+var lastInputDeltatime = 0
+
 func _process(delta: float) -> void:
 	deltatimer += delta
+	
+	$Logo.scale += (Vector2.ONE - $Logo.scale) / 20
+	
 	for E in Buttons.size():
 		
 		var buttonInQuestion = Buttons[E]
@@ -13,8 +19,21 @@ func _process(delta: float) -> void:
 				buttonInQuestion.color =  Color("b2b2b2")
 			else:
 				buttonInQuestion.color =  Color("a9a9a9")
+			
+			$DescBox/ModeName.text = buttonInQuestion.get_child(1).text
+			$DescBox/ModeDesc.text = buttonInQuestion.get_meta('desc','Wait this isnt a gamemode.')
 		else:
 			buttonInQuestion.color = Color("636363")
+	
+	
+	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down"):
+		if deltatimer - lastInputDeltatime > 0.25:
+			$Button1.pitch_scale = 1 + ((randf() - 0.5) * 0.1)
+		else:
+			$Button1.pitch_scale += 0.1
+		$Button1.play()
+		$Logo.scale += Vector2(0.05,0.05)
+		lastInputDeltatime = deltatimer
 	
 	if Input.is_action_just_pressed("ui_up"):
 		buttonHover -= 1

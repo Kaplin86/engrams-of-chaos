@@ -23,6 +23,8 @@ var engramInventory : Dictionary = {} ## The current engrams the player has. For
 
 var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
 
+var ticksThisRound = 0 ## This variable is set to how many ticks have happened so far this round.
+
 signal TickEnd
 signal AttackHit
 signal RoundEnd
@@ -88,6 +90,8 @@ func generateEnemyTeam():
 func startFight():
 	print("starting fightz")
 	doneFirstTick = false
+	ticksThisRound = 0
+	tickTimer.wait_time = secondsPerTick
 	tickTimer.start()
 	
 	
@@ -171,6 +175,9 @@ var beat = 3 ## The current metronome beat we are on
 func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through all units and runs their tick function
 	print()
 	print("TICK             ")
+	ticksThisRound += 1
+	tickTimer.wait_time = max(secondsPerTick - (0.02 * ticksThisRound),0.1)
+	tickTimer.start()
 	
 	if gameFinished:
 		gameFinished = false
@@ -178,7 +185,6 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 		return
 	
 	if doneFirstTick == false:
-		print(currentSynergyObjects)
 		doneFirstTick = true
 		for E in currentSynergyObjects:
 			
@@ -265,6 +271,7 @@ func endRound(): ## This is called when the round ends
 		NewIcon.scale = Vector2(0.055,0.055)
 		NewIcon.position.x = randi_range(41,160)
 		NewIcon.position.y = randi_range(21,175.0)
+		NewIcon.z_index = 20
 		var newtween = create_tween().bind_node(NewIcon).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_interval(1)
 		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 300,NewIcon.position.y),2)
