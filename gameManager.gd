@@ -26,6 +26,7 @@ var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make s
 signal TickEnd
 signal AttackHit
 signal RoundEnd
+signal _confirmpress
 
 func _ready() -> void:
 	tickTimer.wait_time = secondsPerTick
@@ -49,6 +50,10 @@ func _ready() -> void:
 	#startFight()
 	
 	$CursorHandler.unitTarget = units[1]
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("confirm"):
+		_confirmpress.emit()
 
 func pauseTicks(unpause = false):
 	tickTimer.paused = !unpause
@@ -95,7 +100,8 @@ func startFight():
 		currentSynergyObjects.append(NewSynergyObject)
 		NewSynergyObject.manager = self
 	
-	
+	$RoundStart.play()
+	$RoundStart.pitch_scale = 1 + (randf() - 0.5) * 0.1
 
 func combine_arrays_unique(array1: Array, array2: Array) -> Array:
 	var combined_array = array1.duplicate(true) 
@@ -153,6 +159,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		NewUnit.gameManagerObject = self
 		NewUnit.team = team
 		NewUnit.defense += defenseTuning
+		NewUnit.y_sort_enabled = true
 		add_child(NewUnit)
 		units.append(NewUnit)
 		return OK
@@ -232,11 +239,7 @@ func endRound(): ## This is called when the round ends
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
 		await get_tree().create_timer(1).timeout
-		var loop = true
-		while loop:
-			await get_tree().create_timer(0.1).timeout
-			if Input.is_action_just_pressed("confirm"):
-				loop = false
+		await _confirmpress
 		
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 		return
