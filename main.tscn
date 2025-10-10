@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=20 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b4iclk8uy8ll4" path="res://boardTiles.svg" id="2_w48qg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bsr8yvj7d6x3u" path="res://ui/burntToastSprites/Hand.svg" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://c2yoa86djxsvx" path="res://ui/WhiteCube.png" id="11_efxa6"]
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://cuftvymcegwhy" path="res://sfx/click4.mp3" id="12_yaehf"]
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="15_vivmo"]
 [ext_resource type="Texture2D" uid="uid://cmm6uiwgto3if" path="res://knife.svg" id="16_2cqfq"]
 
@@ -92,9 +93,15 @@ WantedPosition = Vector2(348, -200)
 [node name="Bell" type="AudioStreamPlayer" parent="TutorialPointer"]
 stream = ExtResource("4_lquwl")
 volume_db = -1.295
+bus = &"sfx"
+
+[node name="Bell2" type="AudioStreamPlayer" parent="TutorialPointer"]
+stream = ExtResource("12_yaehf")
+pitch_scale = 0.95
+bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -198.119)
+position = Vector2(348, -202.332)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -138,9 +145,9 @@ visible_ratio = 0.278689
 position = Vector2(603, 99)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

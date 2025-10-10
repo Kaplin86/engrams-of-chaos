@@ -163,16 +163,18 @@ func _process(delta: float) -> void:
 				ui.updateCraftingUi(currentCrafting)
 				CraftingButtonPressed.emit()
 	elif CurrentState == "Crafting":
-		ui.highlightCrafting(main.engramInventory.keys()[craftingSelected])
-		if checkInputJustPressed("ui_left"):
+		var EngramsLeft = main.engramInventory.keys().size() != 0
+		if EngramsLeft:
+			ui.highlightCrafting(main.engramInventory.keys()[craftingSelected])
+		if checkInputJustPressed("ui_left") and EngramsLeft:
 			craftingSelected -= 1
 			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
 			ui.updateCraftingUi(currentCrafting)
-		elif checkInputJustPressed("ui_right"):
+		elif checkInputJustPressed("ui_right") and EngramsLeft:
 			craftingSelected += 1
 			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
 			ui.updateCraftingUi(currentCrafting)
-		elif checkInputJustPressed("confirm"):
+		elif checkInputJustPressed("confirm") and EngramsLeft:
 			if currentCrafting.size() != 2:
 				if currentCrafting.has(main.engramInventory.keys()[craftingSelected]):
 					if main.engramInventory[main.engramInventory.keys()[craftingSelected]] != 1:
@@ -204,7 +206,7 @@ func _process(delta: float) -> void:
 				ui.updateCraftingUi(currentCrafting)
 				CraftingAnimFinished.emit()
 			
-		elif checkInputJustPressed("deny"):
+		elif checkInputJustPressed("deny") and EngramsLeft:
 			currentCrafting.pop_back()
 			ui.updateCraftingUi(currentCrafting)
 		elif checkInputJustPressed("ui_down"):

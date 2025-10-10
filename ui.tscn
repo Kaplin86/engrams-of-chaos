@@ -138,7 +138,7 @@ _data = {
 script = ExtResource("1_nltto")
 
 [node name="Metronome" parent="." instance=ExtResource("1_fyqef")]
-position = Vector2(48, 49)
+position = Vector2(36, 49)
 scale = Vector2(2.47025, 2.47025)
 maxangle = 110
 

@@ -64,9 +64,12 @@ func say(text : String):
 		if !Input.is_action_pressed("deny"):
 			EveryOther = !EveryOther
 			if EveryOther:
-				$Bell.play()
-				$Bell.volume_linear = 0.9 + ((randf() - 0.5) * 0.1)
-				$Bell.pitch_scale = (randf() * 0.1) + 0.9
+				var bell= $Bell2
+				bell.pitch_scale = randf_range(0.9, 1.1)
+				bell.volume_db = -6
+				
+				bell.play()
+				
 			if text[E] in [".",",","!","?"]:
 				await get_tree().create_timer(0.1).timeout
 			else:

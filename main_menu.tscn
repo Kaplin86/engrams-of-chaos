@@ -12,7 +12,7 @@
 
 [sub_resource type="Gradient" id="Gradient_nlkkf"]
 offsets = PackedFloat32Array(0, 0.893333, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 100, 100, 100, 1, 1, 1, 1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jix8l"]
 size = Vector2(20, 551)
@@ -38,7 +38,7 @@ position = Vector2(359, 123)
 texture = ExtResource("2_jix8l")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
-z_index = -1
+show_behind_parent = true
 position = Vector2(118, 54)
 amount = 30
 texture = ExtResource("3_glbon")
