@@ -1,0 +1,256 @@
+[gd_scene load_steps=22 format=3 uid="uid://cvn15kc1fi6pa"]
+
+[ext_resource type="Script" uid="uid://blgbh5dmllk2u" path="res://transition.gd" id="1_j7crc"]
+[ext_resource type="Shader" uid="uid://d33anw74ldbfs" path="res://ui/transition.gdshader" id="1_m7m3o"]
+[ext_resource type="Texture2D" uid="uid://braxfc1u12b60" path="res://logo.png" id="1_pj2mc"]
+[ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="2_4r5tf"]
+[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="3_1ap01"]
+[ext_resource type="Texture2D" uid="uid://c2yoa86djxsvx" path="res://ui/WhiteCube.png" id="4_m7m3o"]
+[ext_resource type="FontFile" uid="uid://bgacc4j1ttcny" path="res://LoftygoalsRegular-9Y5Xy.otf" id="7_j7crc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7crc"]
+shader = ExtResource("1_m7m3o")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 3
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_xhlym"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j7crc"]
+gradient = SubResource("Gradient_xhlym")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fmn4"]
+shader = ExtResource("1_m7m3o")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_texture = SubResource("GradientTexture1D_j7crc")
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = false
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_1ap01"]
+offsets = PackedFloat32Array(0, 0.893333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 100, 100, 100, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_xhlym"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_j7crc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fmn4"]
+_data = {
+&"RESET": SubResource("Animation_j7crc"),
+&"spin": SubResource("Animation_xhlym")
+}
+
+[sub_resource type="Gradient" id="Gradient_8mcfx"]
+colors = PackedColorArray(0, 0.698039, 1, 1, 0.0941176, 0.411765, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tyg23"]
+gradient = SubResource("Gradient_8mcfx")
+
+[sub_resource type="Animation" id="Animation_7fmn4"]
+resource_name = "screen_to_transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8mcfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tyg23"]
+resource_name = "transition_to_scene"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyg23"]
+_data = {
+&"RESET": SubResource("Animation_8mcfx"),
+&"screen_to_transition": SubResource("Animation_7fmn4"),
+&"transition_to_scene": SubResource("Animation_tyg23")
+}
+
+[node name="Transition" type="CanvasLayer"]
+layer = 99
+script = ExtResource("1_j7crc")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_j7crc")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(717, 537)
+render_target_update_mode = 4
+
+[node name="CanvasGroup" type="Node2D" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_7fmn4")
+
+[node name="Logo" type="Sprite2D" parent="SubViewportContainer/SubViewport/CanvasGroup"]
+position = Vector2(359, 123)
+texture = ExtResource("1_pj2mc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SubViewportContainer/SubViewport/CanvasGroup/Logo"]
+show_behind_parent = true
+position = Vector2(118, 54)
+amount = 30
+texture = ExtResource("2_4r5tf")
+lifetime = 2.1
+emission_shape = 4
+emission_points = PackedVector2Array(0, -12.78, 42.51, -8.84, 35.55, -32.625, -33.645, -36.97, -73.76, -94.79, -77.335, -15.425, -148.275, -13.92, -227.93, -43.365, -156.27, -92.81, -218.315, -98.695, -284.91, -55.605, -292.52, -114.905)
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+scale_amount_min = 0.9
+scale_amount_max = 0.95
+color_ramp = SubResource("Gradient_1ap01")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/CanvasGroup"]
+libraries = {
+&"": SubResource("AnimationLibrary_7fmn4")
+}
+speed_scale = 0.1
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport/CanvasGroup"]
+z_index = -1
+offset_left = -95.0
+offset_top = -156.0
+offset_right = 774.0
+offset_bottom = 713.0
+scale = Vector2(1.18243, 1.18243)
+pivot_offset = Vector2(434.5, 434.5)
+texture = SubResource("GradientTexture2D_tyg23")
+
+[node name="Pattern" type="Sprite2D" parent="SubViewportContainer/SubViewport/CanvasGroup/TextureRect"]
+modulate = Color(1, 1, 1, 0.017)
+position = Vector2(433.654, 431.086)
+scale = Vector2(1.96007, 1.96007)
+texture = ExtResource("3_1ap01")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="SubViewportContainer/SubViewport/CanvasGroup"]
+show_behind_parent = true
+position = Vector2(329, 541)
+amount = 70
+texture = ExtResource("2_4r5tf")
+lifetime = 2.1
+emission_shape = 3
+emission_rect_extents = Vector2(385.02, 1)
+direction = Vector2(0, -1)
+spread = 6.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 96.0
+scale_amount_min = 0.9
+scale_amount_max = 0.95
+color_ramp = SubResource("Gradient_1ap01")
+
+[node name="WhiteCube" type="Sprite2D" parent="SubViewportContainer/SubViewport/CanvasGroup"]
+position = Vector2(359, 523)
+scale = Vector2(45.375, 2.5)
+texture = ExtResource("4_m7m3o")
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_left = 49.0
+offset_top = 220.0
+offset_right = 686.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_fonts/font = ExtResource("7_j7crc")
+theme_override_font_sizes/font_size = 91
+text = "Please Wait..."
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tyg23")
+}

@@ -70,6 +70,8 @@ func getBoardScreenshot():
 			if not E is Camera2D:
 				var NewGuy = E.duplicate()
 				NewGuy.process_mode =Node.PROCESS_MODE_DISABLED
+				if NewGuy.get_script():
+					NewGuy.set_script(null)
 				$Death.add_child(NewGuy)
 	$Death.render_target_update_mode = $Death.UPDATE_ONCE
 	return $Death.get_texture()
@@ -255,7 +257,7 @@ func endRound(): ## This is called when the round ends
 		await get_tree().create_timer(1).timeout
 		await _confirmpress
 		
-		get_tree().change_scene_to_file("res://main_menu.tscn")
+		Transition.TransitionToScene("res://main_menu.tscn")
 		return
 	for E in units:
 		E.queue_free()
@@ -284,6 +286,8 @@ func endRound(): ## This is called when the round ends
 		newtween.tween_interval(1)
 		newtween.tween_property(NewIcon,"position",Vector2(NewIcon.position.x + 300,NewIcon.position.y),2)
 		newtween.tween_callback(NewIcon.queue_free)
+		NewIcon.set_visibility_layer_bit(0,false)
+		NewIcon.set_visibility_layer_bit(1,true)
 		add_child(NewIcon)
 	
 	for E in newengrams:
@@ -351,8 +355,8 @@ func callTeamSynergies(FunctionName : String, extraParam = null):
 				else:
 					E.call(FunctionName,1,teamSynergyStore[1][E.get_filename()])
 		
-			if teamSynergyStore[2].has(E.get_filename()):
-				if extraParam:
-					E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()],extraParam)
-				else:
-					E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()])
+		if teamSynergyStore[2].has(E.get_filename()):
+			if extraParam:
+				E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()],extraParam)
+			else:
+				E.call(FunctionName,2,teamSynergyStore[2][E.get_filename()])

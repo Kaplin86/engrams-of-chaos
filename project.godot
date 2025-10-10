@@ -18,6 +18,7 @@ config/icon="uid://braxfc1u12b60"
 [autoload]
 
 DatastoreHolder="*res://datastoreHolder.gd"
+Transition="*res://transition.tscn"
 
 [display]
 

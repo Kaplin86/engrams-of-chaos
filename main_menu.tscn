@@ -295,7 +295,7 @@ offset_left = -12.0
 offset_top = -10.0
 offset_right = 14.0
 offset_bottom = 550.0
-color = Color(0.221902, 0.221902, 0.221902, 1)
+color = Color(0.20871, 0.20871, 0.20871, 1)
 
 [node name="RigidBody2D5" type="StaticBody2D" parent="PhysicsBG"]
 position = Vector2(495, 508)

@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 				DatastoreHolder.enemySynergy = true
 				DatastoreHolder.difficulty = "Normal"
 			print("ENEMY SYNERGIES IS " , DatastoreHolder.enemySynergy)
-			get_tree().change_scene_to_file("res://main.tscn")
+			Transition.TransitionToScene("res://main.tscn")
 		elif buttonHover == 3:
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
 		

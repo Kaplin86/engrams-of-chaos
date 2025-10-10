@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 	# Disable all the player's inputs
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","confirm","deny"]
+	await get_tree().create_timer(1).timeout
 	tutorialPointer.moveTo(Vector2(348.0,230.0))
 	await get_tree().create_timer(0.5).timeout
 	# Intro text
