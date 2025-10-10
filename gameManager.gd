@@ -23,7 +23,8 @@ var engramInventory : Dictionary = {"sweet":4} ## The current engrams the player
 
 var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
 
-var ticksThisRound = 0 ## This variable is set to how many ticks have happened so far this round.
+var ticksThisRound := 0 ## This variable is set to how many ticks have happened so far this round.
+var lastScreenshot : ViewportTexture ## This texture is taken of the board last time a tick was started
 
 signal TickEnd
 signal AttackHit
@@ -36,6 +37,7 @@ func _ready() -> void:
 	#tickTimer.start()
 	
 	#seed(currentWave)
+	
 	
 	generateEnemyTeam()
 	
@@ -59,6 +61,18 @@ func _process(delta: float) -> void:
 
 func pauseTicks(unpause = false):
 	tickTimer.paused = !unpause
+
+func getBoardScreenshot():
+	for E in $Death.get_children():
+		E.queue_free()
+	for E in get_children():
+		if E is Node2D:
+			if not E is Camera2D:
+				var NewGuy = E.duplicate()
+				NewGuy.process_mode =Node.PROCESS_MODE_DISABLED
+				$Death.add_child(NewGuy)
+	$Death.render_target_update_mode = $Death.UPDATE_ONCE
+	return $Death.get_texture()
 
 func printstatblock():
 	for E in DatastoreHolder.craftingUnitJson:
@@ -89,6 +103,9 @@ func generateEnemyTeam():
 
 func startFight():
 	print("starting fightz")
+	
+	lastScreenshot = getBoardScreenshot()
+	
 	doneFirstTick = false
 	ticksThisRound = 0
 	tickTimer.wait_time = secondsPerTick
@@ -226,6 +243,8 @@ func endRound(): ## This is called when the round ends
 	tickTimer.stop()
 	if units[0].team != 2: # Checks the first unit of the remaining ones. If all the enemy team is dead, this if statement shouldnt run
 		$CursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","confirm","deny"]
+		if lastScreenshot:
+			$CanvasLayer2/Control/Board.texture = lastScreenshot
 		await get_tree().create_timer(1).timeout
 		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
 		$CanvasLayer2/Control/HighestRound.text = "Final Round: " + str(currentWave)
