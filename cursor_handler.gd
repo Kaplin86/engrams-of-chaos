@@ -224,6 +224,10 @@ func _process(delta: float) -> void:
 		var EngramsLeft = main.engramInventory.keys().size() != 0
 		if EngramsLeft:
 			ui.highlightCrafting(main.engramInventory.keys()[craftingSelected])
+			for E in ui.get_node("CraftingUI/SynergyHolder").get_children():
+				if ui.remove_numbers_from_string(E.name) == main.engramInventory.keys()[craftingSelected]:
+					PointerPos = E.get_global_transform_with_canvas().get_origin()
+					PointerSize =  E.size
 		if checkInputJustPressed("ui_left") and EngramsLeft:
 			craftingSelected -= 1
 			craftingSelected = wrap(craftingSelected,0,main.engramInventory.size())
