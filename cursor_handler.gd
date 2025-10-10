@@ -7,6 +7,9 @@ var synergyPoint = 0
 var buttonPoint = "start"
 var craftingSelected = 0
 
+var PointerPos : Vector2
+var PointerSize : Vector2
+
 @export var main : gameManager
 @export var ui : uiManager
 
@@ -44,6 +47,11 @@ func _process(delta: float) -> void:
 	else:
 		ui.modulateCraft(Color(0.1,0.1,0.1,1))
 	
+	if PointerPos:
+		$PointerLayer/Pointer.global_position -= ($PointerLayer/Pointer.global_position - PointerPos + Vector2(0,0)) * 0.1
+	if PointerSize:
+		$PointerLayer/Pointer.global_scale -= ($PointerLayer/Pointer.global_scale - PointerSize + Vector2(0,0)) * 0.1
+	
 	if CurrentState == "BoardUnit":
 		var NewUnitList = getunitsSortedToX()
 		
@@ -51,6 +59,9 @@ func _process(delta: float) -> void:
 			unitTarget = NewUnitList[0]
 		else:
 			ui.viewUnit(unitTarget)
+			var actualPoint : Node2D = unitTarget.get_child(0) 
+			PointerPos = actualPoint.get_global_transform_with_canvas().get_origin()
+			PointerSize = actualPoint.get_global_transform_with_canvas().get_scale() * (2/2.25)
 		if checkInputJustPressed("ui_left"):
 			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
 		if checkInputJustPressed("ui_right"):
@@ -100,7 +111,7 @@ func _process(delta: float) -> void:
 	
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
-		
+		PointerPos = Vector2(56,439)
 		if checkInputJustPressed("ui_left"):
 			synergyPoint -= 1
 			synergyPoint = wrap(synergyPoint,0,synergyList.size())
@@ -122,7 +133,13 @@ func _process(delta: float) -> void:
 		
 		var selectedSynergy = synergyList[synergyPoint]
 		ui.highlightSynergy(selectedSynergy)
-	
+		
+		for E : ColorRect in ui.get_node("SynergyHolder").get_children():
+			if ui.remove_numbers_from_string(E.name) == selectedSynergy:
+				print(E.size)
+				PointerPos = E.get_global_transform_with_canvas().get_origin()
+				PointerSize = E.get_global_transform_with_canvas().get_scale() * E.size / 16
+				PointerPos += (PointerSize * 16) / 2
 	
 	
 	elif CurrentState == "StartPause":
@@ -130,7 +147,17 @@ func _process(delta: float) -> void:
 		ui.showTutorial(main.currentWave)
 		if buttonPoint == "start":
 			ui.highlightStartPause(false,false,deltatimer)
+			if ui.has_node("GameManagingButtons/Pause_Resume"):
+				var ObjectInQuestion = ui.get_node("GameManagingButtons/Pause_Resume")
+				PointerPos = ObjectInQuestion.get_global_transform_with_canvas().get_origin()
+				PointerSize = ObjectInQuestion.get_global_transform_with_canvas().get_scale() * ObjectInQuestion.size / 16
+				PointerPos += (PointerSize * 16) / 2
 		elif buttonPoint == "craft":
+			if ui.has_node("GameManagingButtons/Craft"):
+				var ObjectInQuestion = ui.get_node("GameManagingButtons/Craft")
+				PointerPos = ObjectInQuestion.get_global_transform_with_canvas().get_origin()
+				PointerSize = ObjectInQuestion.get_global_transform_with_canvas().get_scale() * ObjectInQuestion.size / 16
+				PointerPos += (PointerSize * 16) / 2
 			ui.highlightStartPause(true,false,deltatimer)
 		
 		

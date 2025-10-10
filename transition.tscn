@@ -62,6 +62,21 @@ shader_parameter/progress_bias = Vector2(0, 0)
 offsets = PackedFloat32Array(0, 0.893333, 1)
 colors = PackedColorArray(1, 1, 1, 1, 100, 100, 100, 1, 1, 1, 1, 0)
 
+[sub_resource type="Animation" id="Animation_j7crc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_xhlym"]
 resource_name = "spin"
 loop_mode = 1
@@ -78,21 +93,6 @@ tracks/0/keys = {
 "values": [0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_j7crc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7fmn4"]
 _data = {
 &"RESET": SubResource("Animation_j7crc"),
@@ -104,21 +104,6 @@ colors = PackedColorArray(0, 0.698039, 1, 1, 0.0941176, 0.411765, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tyg23"]
 gradient = SubResource("Gradient_8mcfx")
-
-[sub_resource type="Animation" id="Animation_7fmn4"]
-resource_name = "screen_to_transition"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
 
 [sub_resource type="Animation" id="Animation_8mcfx"]
 length = 0.001
@@ -133,6 +118,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7fmn4"]
+resource_name = "screen_to_transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_tyg23"]
