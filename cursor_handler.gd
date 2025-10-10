@@ -37,10 +37,22 @@ func checkInputJustPressed(inputName):
 
 var deltatimer = 0
 
+var OutlineTexture1 = preload("res://ui/Outline.png")
+var OutlineTexture2 = preload("res://ui/Outline2.png")
+var LastPointerPos
+
+func playuiSound():
+	$Switch1.pitch_scale = 1 + randf_range(-0.1,0.1)
+	$Switch1.play()
 func _process(delta: float) -> void:
 	deltatimer += delta
 	if !main:
 		return
+	
+	if LastPointerPos != PointerPos:
+		LastPointerPos = PointerPos
+		$PointerLayer/AnimationPlayer.stop()
+		#$PointerLayer/AnimationPlayer.play("play")
 	
 	if main.engramInventory.size() != 0:
 		ui.modulateCraft(Color(1,1,1,1))
@@ -48,9 +60,16 @@ func _process(delta: float) -> void:
 		ui.modulateCraft(Color(0.1,0.1,0.1,1))
 	
 	if PointerPos:
-		$PointerLayer/Pointer.global_position -= ($PointerLayer/Pointer.global_position - PointerPos + Vector2(0,0)) * 0.1
+		$PointerLayer/Holder/NinePatchRect.global_position -= ($PointerLayer/Holder/NinePatchRect.global_position - PointerPos + Vector2(0,0)) * 0.2
+		print(PointerPos)
 	if PointerSize:
-		$PointerLayer/Pointer.global_scale -= ($PointerLayer/Pointer.global_scale - PointerSize + Vector2(0,0)) * 0.1
+		$PointerLayer/Holder/NinePatchRect.size -= ($PointerLayer/Holder/NinePatchRect.size - PointerSize + Vector2(0,0)) * 0.3
+	if floor(deltatimer * 2) == round(deltatimer * 2):
+		$PointerLayer/Holder/NinePatchRect.texture = OutlineTexture2
+	else:
+		$PointerLayer/Holder/NinePatchRect.texture = OutlineTexture1
+	
+	
 	
 	if CurrentState == "BoardUnit":
 		var NewUnitList = getunitsSortedToX()
@@ -61,10 +80,13 @@ func _process(delta: float) -> void:
 			ui.viewUnit(unitTarget)
 			var actualPoint : Node2D = unitTarget.get_child(0) 
 			PointerPos = actualPoint.get_global_transform_with_canvas().get_origin()
-			PointerSize = actualPoint.get_global_transform_with_canvas().get_scale() * (2/2.25)
+			PointerSize = actualPoint.get_global_transform_with_canvas().get_scale() * 16
+			PointerPos -= PointerSize / 2
 		if checkInputJustPressed("ui_left"):
 			changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) - 1])
+			playuiSound()
 		if checkInputJustPressed("ui_right"):
+			playuiSound()
 			if NewUnitList.find(unitTarget) + 1 >= NewUnitList.size():
 				changeUnitSelect(NewUnitList[0])
 			else:
@@ -82,23 +104,29 @@ func _process(delta: float) -> void:
 			ButtonPanelTargeted.emit()
 		if checkInputJustPressed("confirm") and unitTarget.team == 2:
 			CurrentState = "PickingUpUnit"
+			$MiscMenu.pitch_scale = 1 + randf_range(-0.05,0.05)
+			$MiscMenu.play()
 			PickUpUnit.emit()
 			boardPosition = unitTarget.board_position
 	
 	elif CurrentState == "PickingUpUnit":
 		boardPosition.x = clamp(boardPosition.x,2,12)
-		boardPosition.y = clamp(boardPosition.y,12,15)
+		boardPosition.y = clamp(boardPosition.y,12,14)
 		print(boardPosition.y)
 		unitTarget.board_position = boardPosition
 		unitTarget.visualPosition = main.board.map_to_local(boardPosition)
 		if checkInputJustPressed("ui_up"):
 			boardPosition -= Vector2i(0,1)
+			$Move.play()
 		if checkInputJustPressed("ui_left"):
 			boardPosition -= Vector2i(1,0)
+			$Move.play()
 		if checkInputJustPressed("ui_down"):
 			boardPosition -= Vector2i(0,-1)
+			$Move.play()
 		if checkInputJustPressed("ui_right"):
 			boardPosition -= Vector2i(-1,0)
+			$Move.play()
 		if checkInputJustPressed("confirm"):
 			var ValidSpace = true
 			for E in main.units:
@@ -108,10 +136,15 @@ func _process(delta: float) -> void:
 			if ValidSpace:
 				CurrentState = "BoardUnit"
 				DroppedUnit.emit()
+				$MiscMenu2.pitch_scale = 1 + randf_range(-0.05,0.05)
+				$MiscMenu2.play()
+		var actualPoint = unitTarget.get_child(0) 
+		PointerPos = actualPoint.get_global_transform_with_canvas().get_origin()
+		PointerSize = actualPoint.get_global_transform_with_canvas().get_scale() * 16
+		PointerPos -= PointerSize / 2
 	
 	elif CurrentState == "SynergyView":
 		var synergyList = ui.synergyList
-		PointerPos = Vector2(56,439)
 		if checkInputJustPressed("ui_left"):
 			synergyPoint -= 1
 			synergyPoint = wrap(synergyPoint,0,synergyList.size())
@@ -121,6 +154,7 @@ func _process(delta: float) -> void:
 		elif checkInputJustPressed("ui_up"):
 			unitTarget = null
 			CurrentState = "BoardUnit"
+			playuiSound()
 			ui.highlightSynergy("")
 			return
 		elif checkInputJustPressed("ui_down"):
@@ -136,11 +170,9 @@ func _process(delta: float) -> void:
 		
 		for E : ColorRect in ui.get_node("SynergyHolder").get_children():
 			if ui.remove_numbers_from_string(E.name) == selectedSynergy:
-				print(E.size)
+				print(PointerPos, E.global_position)
 				PointerPos = E.get_global_transform_with_canvas().get_origin()
-				PointerSize = E.get_global_transform_with_canvas().get_scale() * E.size / 16
-				PointerPos += (PointerSize * 16) / 2
-	
+				PointerSize =  E.size
 	
 	elif CurrentState == "StartPause":
 		
@@ -150,14 +182,12 @@ func _process(delta: float) -> void:
 			if ui.has_node("GameManagingButtons/Pause_Resume"):
 				var ObjectInQuestion = ui.get_node("GameManagingButtons/Pause_Resume")
 				PointerPos = ObjectInQuestion.get_global_transform_with_canvas().get_origin()
-				PointerSize = ObjectInQuestion.get_global_transform_with_canvas().get_scale() * ObjectInQuestion.size / 16
-				PointerPos += (PointerSize * 16) / 2
+				PointerSize = ObjectInQuestion.size
 		elif buttonPoint == "craft":
 			if ui.has_node("GameManagingButtons/Craft"):
 				var ObjectInQuestion = ui.get_node("GameManagingButtons/Craft")
 				PointerPos = ObjectInQuestion.get_global_transform_with_canvas().get_origin()
-				PointerSize = ObjectInQuestion.get_global_transform_with_canvas().get_scale() * ObjectInQuestion.size / 16
-				PointerPos += (PointerSize * 16) / 2
+				PointerSize = ObjectInQuestion.size
 			ui.highlightStartPause(true,false,deltatimer)
 		
 		
@@ -176,6 +206,7 @@ func _process(delta: float) -> void:
 		elif checkInputJustPressed("ui_down"):
 			ui.highlightStartPause(false,true)
 			CurrentState = "BoardUnit"
+			playuiSound()
 			unitTarget = null
 			WentToBoard.emit()
 		if checkInputJustPressed("confirm"):
