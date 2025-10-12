@@ -19,7 +19,7 @@ var gameFinished := false ## When this is true, next tick will restart the board
 var battleLoadout : Array = [] ## A duplication of units made at the start of each round
 
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
-var engramInventory : Dictionary = {"sweet":4} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
+var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
 var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
 

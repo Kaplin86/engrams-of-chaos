@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://t3hse2ya3ncr"]
+[gd_scene load_steps=5 format=3 uid="uid://t3hse2ya3ncr"]
 
 [ext_resource type="Script" uid="uid://cjrdsckvcsi8a" path="res://ui/leaderboard.gd" id="1_143yq"]
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="2_wvlxr"]
+[ext_resource type="AudioStream" uid="uid://jsnbr8sgoxa0" path="res://sfx/click3.wav" id="3_4tbto"]
+[ext_resource type="AudioStream" uid="uid://g2pyuqus2igl" path="res://sfx/click.wav" id="4_yr02i"]
 
 [node name="Leaderboard" type="Node2D"]
 script = ExtResource("1_143yq")
@@ -23,6 +25,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="LargeText" type="Label" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 1.0
 offset_top = 25.0
 offset_right = 718.0
@@ -107,6 +110,7 @@ offset_right = 474.0
 offset_bottom = 314.0
 
 [node name="GAME OVER" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 2.0
 offset_right = 722.0
 offset_bottom = 160.0
@@ -119,6 +123,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 244.0
 offset_top = 490.0
 offset_right = 466.0
@@ -126,3 +131,11 @@ offset_bottom = 513.0
 text = "Press Z to confirm.
 Press X to skip."
 horizontal_alignment = 1
+
+[node name="Move" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4tbto")
+bus = &"sfx"
+
+[node name="Move2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_yr02i")
+bus = &"sfx"

@@ -11,12 +11,17 @@ func _process(delta):
 	letterObjectSelected.modulate = Color(0.7,1,1,0.75 + (sin(deltatimer * 15) * 0.25))
 	if Input.is_action_just_pressed("ui_up"):
 		letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) + 1,0,letterArray.size())]
+		$Move2.play()
 	if Input.is_action_just_pressed("ui_down"):
 		letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) - 1,0,letterArray.size())]
+		$Move2.play()
 	if Input.is_action_just_pressed("ui_right"):
 		LetterSelect += 1
+		
+		$Move.play()
 	elif Input.is_action_just_pressed("ui_left"):
 		LetterSelect -= 1
+		$Move.play()
 	LetterSelect = wrap(LetterSelect,1,4)
 	if !saved:
 		if Input.is_action_just_pressed("confirm"):

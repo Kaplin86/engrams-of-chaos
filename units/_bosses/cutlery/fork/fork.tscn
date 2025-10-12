@@ -1,5 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cybnhnhp3mksn"]
+[gd_scene load_steps=4 format=3 uid="uid://cybnhnhp3mksn"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_2wvwf"]
+[ext_resource type="Script" uid="uid://dh3w1g3qyqms" path="res://units/_bosses/cutlery/fork/fork.gd" id="2_diegx"]
+[ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="3_incgo"]
 
 [node name="Unit" instance=ExtResource("1_2wvwf")]
+script = ExtResource("2_diegx")
+description = "When this attacks, it hits all enemies around itself."
+maxHP = 80
+damage = 9
+defense = 3
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+scale = Vector2(0.10645, 0.127261)
+texture = ExtResource("3_incgo")

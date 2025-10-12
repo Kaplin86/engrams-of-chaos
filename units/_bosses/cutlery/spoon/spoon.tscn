@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb40eqldoqfn"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_1nt2e"]
+[ext_resource type="Texture2D" uid="uid://cno85kagbqaft" path="res://units/sauce/sauce.svg" id="2_ivljl"]
+[ext_resource type="Script" uid="uid://2t8h26pw65y" path="res://units/_bosses/cutlery/spoon/spoon.gd" id="2_q3hkr"]
+
+[node name="Unit" instance=ExtResource("1_1nt2e")]
+script = ExtResource("2_q3hkr")
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+modulate = Color(100, 100, 100, 1)
+rotation = -3.14159
+texture = ExtResource("2_ivljl")
