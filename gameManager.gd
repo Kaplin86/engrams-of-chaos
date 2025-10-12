@@ -257,8 +257,8 @@ func endRound(): ## This is called when the round ends
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
 		await get_tree().create_timer(1).timeout
 		await _confirmpress
-		
-		Transition.TransitionToScene("res://main_menu.tscn")
+		DatastoreHolder.waveOfDeath = currentWave
+		Transition.TransitionToScene("res://ui/leaderboard.tscn")
 		return
 	for E in units:
 		E.queue_free()

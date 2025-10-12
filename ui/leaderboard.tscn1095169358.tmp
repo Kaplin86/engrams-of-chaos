@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://t3hse2ya3ncr"]
+[gd_scene load_steps=2 format=3 uid="uid://t3hse2ya3ncr"]
 
 [ext_resource type="Script" uid="uid://cjrdsckvcsi8a" path="res://ui/leaderboard.gd" id="1_143yq"]
-[ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="2_wvlxr"]
 
 [node name="Leaderboard" type="Node2D"]
 script = ExtResource("1_143yq")
@@ -22,7 +21,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="LargeText" type="Label" parent="Control"]
-visible = false
 offset_left = 1.0
 offset_top = 25.0
 offset_right = 718.0
@@ -105,24 +103,3 @@ offset_left = 413.0
 offset_top = 311.0
 offset_right = 474.0
 offset_bottom = 314.0
-
-[node name="GAME OVER" type="Label" parent="Control"]
-offset_left = 2.0
-offset_right = 722.0
-offset_bottom = 160.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_wvlxr")
-theme_override_font_sizes/font_size = 32
-text = "ENTER YOUR LEADERBOARD NAME."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Label" type="Label" parent="Control"]
-offset_left = 244.0
-offset_top = 490.0
-offset_right = 466.0
-offset_bottom = 513.0
-text = "Press Z to confirm.
-Press X to skip."
-horizontal_alignment = 1

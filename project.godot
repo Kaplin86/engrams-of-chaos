@@ -33,6 +33,13 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/hexagon_tilemaplayer/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://units/_bosses/": "orange",
+"res://units/_bosses/cutlery/fork/": "orange"
+}
+
 [importer_defaults]
 
 texture={

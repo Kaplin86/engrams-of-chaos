@@ -339,6 +339,7 @@ autostart = true
 
 [node name="AdvancedGuide" type="ColorRect" parent="."]
 visible = false
+z_index = 1
 offset_left = 20.0
 offset_top = 9.0
 offset_right = 257.0
@@ -398,16 +399,29 @@ position = Vector2(212.5, -212.5)
 texture = ExtResource("7_qe12f")
 flip_v = true
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 51.0
+offset_top = 295.0
+offset_right = 166.0
+offset_bottom = 318.0
+text = "LEADERBOARD"
+
 [node name="FirstEngraMmaintheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_dy7ct")
 autoplay = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." node_paths=PackedStringArray("Main")]
+[node name="ColorRect3" type="ColorRect" parent="."]
 offset_left = 21.0
 offset_top = 292.0
 offset_right = 201.0
 offset_bottom = 479.0
-scroll_vertical = 106
+color = Color(0, 0, 0, 0.078)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." node_paths=PackedStringArray("Main")]
+offset_left = 21.0
+offset_top = 324.0
+offset_right = 201.0
+offset_bottom = 479.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 script = ExtResource("10_0o4t1")
@@ -415,72 +429,6 @@ Main = NodePath("..")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label10" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label11" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
-
-[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(175.315, 0)
-layout_mode = 2
-text = "A A A A A A"
-autowrap_mode = 1
 
 [connection signal="changeButton" from="." to="ScrollContainer" method="_on_main_menu_change_button"]
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]

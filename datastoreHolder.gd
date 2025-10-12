@@ -6,7 +6,8 @@ var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
 var tutorial = false
 var enemySynergy = true
-var difficulty = ""
+var difficulty = "Easy"
+var waveOfDeath = 0
 
 func _ready() -> void:
 	var file = FileAccess.open("res://datastore/synergyUnits.json", FileAccess.READ)

@@ -5,13 +5,13 @@ const FIREBASE_API_KEY = "AIzaSyC-W-dSPlx8XY1K-zD3owoPKaEJGU4HZIA"
 const FIRESTORE_URL = "https://firestore.googleapis.com/v1/projects/%s/databases/(default)/documents/leaderboard" % FIREBASE_PROJECT_ID
 
 @onready var http := HTTPRequest.new()
-var topscores = {}
+var topscores = []
 
 signal gotTopScores
 
 func _ready():
 	add_child(http)
-	get_top_scores()
+	#get_top_scores()
 
 func post_score(name: String, score: int, gamemode : String, mainSynergy : String):
 	var url = FIRESTORE_URL + "?key=" + FIREBASE_API_KEY
@@ -46,6 +46,6 @@ func _on_request_completed(result, response_code, headers, body):
 				"main synergy": f["gamemode"]["stringValue"]
 			})
 		# Sort descending by score
-		scores.sort_custom(func(a, b): return b["score"] - a["score"])
+		scores.sort_custom(func(a, b): return a["score"] > b["score"] )
 		topscores = scores
 		gotTopScores.emit()

@@ -186,7 +186,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -199.675)
+position = Vector2(348, -197.538)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -317,11 +317,11 @@ horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer2/Control"]
 layout_mode = 0
-offset_left = 260.0
+offset_left = 244.0
 offset_top = 490.0
-offset_right = 475.0
+offset_right = 466.0
 offset_bottom = 513.0
-text = "Press Z to go to main menu."
+text = "Press Z to go to leaderboard."
 
 [node name="Board" type="TextureRect" parent="CanvasLayer2/Control"]
 layout_mode = 0
