@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://t3hse2ya3ncr"]
+
+[node name="Leaderboard" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 728.0
+offset_bottom = 543.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

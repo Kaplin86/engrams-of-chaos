@@ -5,6 +5,7 @@ var buttonHover = 0
 var deltatimer = 0
 
 var lastInputDeltatime = 0
+signal changeButton
 
 func _process(delta: float) -> void:
 	deltatimer += delta
@@ -35,11 +36,14 @@ func _process(delta: float) -> void:
 		$Button1.play()
 		$Logo.scale += Vector2(0.05,0.05)
 		lastInputDeltatime = deltatimer
+		
 	
 	if Input.is_action_just_pressed("ui_up"):
 		buttonHover -= 1
+		changeButton.emit()
 	elif Input.is_action_just_pressed("ui_down"):
 		buttonHover += 1
+		changeButton.emit()
 	
 	if Input.is_action_just_pressed("confirm"):
 		if buttonHover == 0 or buttonHover == 1 or buttonHover == 2:

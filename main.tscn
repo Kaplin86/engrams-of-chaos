@@ -186,7 +186,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -200.187)
+position = Vector2(348, -199.675)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -250,7 +250,7 @@ layout_mode = 0
 offset_left = 15.0
 offset_top = 190.0
 offset_right = 268.0
-offset_bottom = 443.0
+offset_bottom = 473.0
 color = Color(0, 0.160829, 0.225788, 1)
 
 [node name="GAME OVER" type="Label" parent="CanvasLayer2/Control"]

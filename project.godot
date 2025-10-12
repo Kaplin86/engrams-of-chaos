@@ -19,6 +19,7 @@ config/icon="uid://braxfc1u12b60"
 
 DatastoreHolder="*res://datastoreHolder.gd"
 Transition="*res://transition.tscn"
+FirebaseConnector="*res://firebaseConnector.gd"
 
 [display]
 

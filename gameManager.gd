@@ -183,6 +183,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a u
 		NewUnit.team = team
 		NewUnit.defense += defenseTuning
 		NewUnit.y_sort_enabled = true
+		NewUnit.z_index = 1
 		add_child(NewUnit)
 		units.append(NewUnit)
 		return OK
