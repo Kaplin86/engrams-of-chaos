@@ -6,8 +6,9 @@ class_name Leaderboard
 # I BORROWED THIS CODE FROM FELLOW HACKCLUBBER "NANOMARS"
 # https://github.com/NanoMars/space-game/blob/main/game/UI/win_screen/leaderboard.gd
 
-const BASE := "https://vhixkoslyltpeoepypse.supabase.co"
+const BASE := "https://vhixkoslyltpeoepypse.supabase.co/rest/v1"
 const TABLE := "leaderboard"
+
 const API_KEY := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoaXhrb3NseWx0cGVvZXB5cHNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyNzY2NTAsImV4cCI6MjA3NTg1MjY1MH0.RAlvUI0JqmQQOUMhCR0OLFs-wcpbt96dDuTnU8-RaiI"  # safe to ship with RLS
 
 #
@@ -21,7 +22,9 @@ const HEADERS_GET: PackedStringArray = [
 const HEADERS_POST: PackedStringArray = [
 	"apikey: " + API_KEY,
 	"Authorization: Bearer " + API_KEY,
-	"Content-Type: application/json"
+	"Content-Type: application/json",
+	"Accept: application/json",
+	"Prefer: return=representation"
 ]
 
 signal leaderboard_request_completed(data)
@@ -43,7 +46,7 @@ func submit_score(score_name: String, score: int, gamemode: String, mainsynergy 
 		return
 	_request_kind = RequestKind.SUBMIT
 	var body = {
-		"name": score_name,
+		"username": score_name,
 		"score": score,
 		"gamemode": gamemode,
 		"mainSynergy": mainsynergy,
@@ -84,7 +87,7 @@ func _on_request_completed(result, response_code, _headers, body):
 			_queued_fetch = false
 			fetch_top(_pending_limit)
 		return
-
+	
 	var text: String = body.get_string_from_utf8()
 	if text.is_empty():
 		print("No content")
@@ -95,7 +98,7 @@ func _on_request_completed(result, response_code, _headers, body):
 		return
 
 	var data = JSON.parse_string(text)
-
+	print("THE DATA IS", data)
 	# After a successful submit, trigger the fetch (or honor a queued fetch).
 	if kind == RequestKind.SUBMIT:
 		# Always fetch top after submitting.

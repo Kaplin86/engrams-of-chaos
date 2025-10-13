@@ -3,6 +3,9 @@ var LetterSelect = 1
 var deltatimer = 0
 var letterArray = [" ","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9","!","?",".","+","-","*","/",":","_","(",")"]
 var saved = false
+
+var censoredWords = ["ASS","CUM","FUC","FUK","KYS"] # be a coolkid and dont say naughty words please
+
 func _process(delta):
 	deltatimer += delta
 	var letterObjectSelected : Label = get_node("Control/Letter" + str(LetterSelect))
@@ -12,9 +15,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) + 1,0,letterArray.size())]
 		$Move2.play()
+		if $Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text in censoredWords:
+			letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) + 1,0,letterArray.size())]
 	if Input.is_action_just_pressed("ui_down"):
 		letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) - 1,0,letterArray.size())]
 		$Move2.play()
+		if $Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text in censoredWords:
+			letterObjectSelected.text = letterArray[wrap(letterArray.find(letterObjectSelected.text) - 1,0,letterArray.size())]
 	if Input.is_action_just_pressed("ui_right"):
 		LetterSelect += 1
 		
@@ -26,7 +33,9 @@ func _process(delta):
 	if !saved:
 		if Input.is_action_just_pressed("confirm"):
 			saved = true
-			FirebaseConnector.post_score($Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text,DatastoreHolder.waveOfDeath,DatastoreHolder.difficulty,"spicy")
+			print(",".join(DatastoreHolder.UnitTypesUsed))
+			LeaderboardAPI.submit_score($Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text,DatastoreHolder.waveOfDeath,DatastoreHolder.difficulty,DatastoreHolder.highestSynergy,",".join(DatastoreHolder.UnitTypesUsed) )
+
 			Transition.TransitionToScene("res://main_menu.tscn")
 		if Input.is_action_just_pressed("deny"):
 			saved = true

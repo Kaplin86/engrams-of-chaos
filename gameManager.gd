@@ -258,6 +258,8 @@ func endRound(): ## This is called when the round ends
 		await get_tree().create_timer(1).timeout
 		await _confirmpress
 		DatastoreHolder.waveOfDeath = currentWave
+		DatastoreHolder.highestSynergy = $CanvasLayer/UI.synergyList[0]
+		DatastoreHolder.UnitTypesUsed = battleLoadout
 		Transition.TransitionToScene("res://ui/leaderboard.tscn")
 		return
 	for E in units:

@@ -1,6 +1,5 @@
 extends Node
 
-var synergyTypes = ["spicy","umami"]
 
 var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
@@ -8,6 +7,8 @@ var tutorial = false
 var enemySynergy = true
 var difficulty = "Easy"
 var waveOfDeath = 0
+var UnitTypesUsed = "All the units!!"
+var highestSynergy = ""
 
 func _ready() -> void:
 	var file = FileAccess.open("res://datastore/synergyUnits.json", FileAccess.READ)
