@@ -1,6 +1,11 @@
 extends BaseUnit
 class_name CutleryBoss
 var charge = 0
+func _ready():
+	super()
+	gameManagerObject.spawnUnit("fork",Vector2(5,1),1,true)
+	gameManagerObject.spawnUnit("spoon",Vector2(9,1),1,true)
+	
 func tick(time):
 	super(time)
 	charge += 1

@@ -94,6 +94,8 @@ func generateEnemyTeam():
 	var usedPositions = []
 	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
+	elif currentWave == 5:
+		spawnUnit("cutlery",Vector2(7,1),1,true)
 	else:
 		for E in EnemyCount:
 			var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()
@@ -141,7 +143,8 @@ func calculatesynergies(team:int)-> Dictionary:
 		if E.team==team:
 			if !unitscounted.has(E.type):
 				unitscounted.append(E.type)
-				synergy += DatastoreHolder.synergyUnitJson[E.type]
+				if DatastoreHolder.synergyUnitJson.has(E.type):
+					synergy += DatastoreHolder.synergyUnitJson[E.type]
 	
 	var newsynergyStore := {}
 	for C in synergy:
@@ -174,9 +177,14 @@ func getFirstOpenPlayerBoardPosition(): ## Gives the first open tile between 2,1
 			return Vector2i(E+2,13)
 		elif !PositionDictionary.has(Vector2i(E+2,14)):
 			return Vector2i(E+2,14)
-func spawnUnit(unitType : String, pos : Vector2i, team : int = 1): ## Spawns a unit of a particular type at a specific board position
+func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false): ## Spawns a unit of a particular type at a specific board position
 	if board:
-		var NewUnit : BaseUnit = load("res://units/" + unitType + "/" + unitType + ".tscn").instantiate()
+		
+		var NewUnit : BaseUnit
+		if boss:
+			NewUnit = load("res://units/_bosses/" + unitType + "/" + unitType + ".tscn").instantiate()
+		else:
+			NewUnit = load("res://units/" + unitType + "/" + unitType + ".tscn").instantiate()
 		NewUnit.board_position = pos
 		NewUnit.board = board
 		NewUnit.gameManagerObject = self

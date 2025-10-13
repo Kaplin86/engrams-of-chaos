@@ -2,15 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ggbbg"]
 [ext_resource type="Script" uid="uid://otebcn0xecsc" path="res://units/_bosses/cutlery/cutleryMain.gd" id="2_0pebv"]
-[ext_resource type="Texture2D" uid="uid://cmm6uiwgto3if" path="res://knife.svg" id="3_2bx8u"]
+[ext_resource type="Texture2D" uid="uid://ctrogm7antd05" path="res://units/_bosses/cutlery/cutlery.svg" id="3_0pebv"]
 
 [node name="Unit" instance=ExtResource("1_ggbbg")]
 script = ExtResource("2_0pebv")
 description = "Every 10 ticks, instantly kill an enemy."
-maxHP = 90
-defense = 5
+maxHP = 300
+defense = 13
+type = "knife"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
-rotation = -0.312296
-scale = Vector2(0.0432004, 0.0432004)
-texture = ExtResource("3_2bx8u")
+texture = ExtResource("3_0pebv")

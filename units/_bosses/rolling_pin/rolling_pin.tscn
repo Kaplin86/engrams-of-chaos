@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://lxnuqxnabemx"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_xlje6"]
+[ext_resource type="Texture2D" uid="uid://dn0y2r0yeejvp" path="res://units/_bosses/rolling_pin/rolling_pin.svg" id="2_ru44d"]
+
+[node name="Unit" instance=ExtResource("1_xlje6")]
+description = "At the start of the round, half of the enemy's team turns to dough "
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_ru44d")

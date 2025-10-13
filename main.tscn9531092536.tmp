@@ -82,6 +82,8 @@ script = ExtResource("1_1bvp3")
 tickTimer = NodePath("Timer")
 secondsPerTick = 0.6
 board = NodePath("HexagonTileMapLayer")
+currentWave = null
+defenseTuning = null
 
 [node name="CursorHandler" type="Node2D" parent="." node_paths=PackedStringArray("main", "ui")]
 script = ExtResource("6_7mycd")
@@ -186,7 +188,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -201.364)
+position = Vector2(348, -201.642)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)

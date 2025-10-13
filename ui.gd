@@ -30,10 +30,11 @@ func viewUnit(unit : BaseUnit):
 	for E in $UnitUI/Synergies.get_children():
 		E.queue_free()
 	
-	for E in DatastoreHolder.synergyUnitJson[unit.type]:
-		var NewImage = TextureRect.new()
-		NewImage.texture = load("res://ui/elements/"+E+".svg")
-		$UnitUI/Synergies.add_child(NewImage)
+	if DatastoreHolder.synergyUnitJson.has(unit.type):
+		for E in DatastoreHolder.synergyUnitJson[unit.type]:
+			var NewImage = TextureRect.new()
+			NewImage.texture = load("res://ui/elements/"+E+".svg")
+			$UnitUI/Synergies.add_child(NewImage)
 	
 	
 

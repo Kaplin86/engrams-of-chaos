@@ -3,7 +3,7 @@ class_name Leaderboard
 @onready var http: HTTPRequest = HTTPRequest.new()
 
 
-# I BORROWED THIS CODE FROM FELLOW HACKCLUBBER "NANOMARS"
+# I BORROWED THIS CODE FROM FELLOW HACKCLUBBER "NANOMARS"/Armand
 # https://github.com/NanoMars/space-game/blob/main/game/UI/win_screen/leaderboard.gd
 
 const BASE := "https://vhixkoslyltpeoepypse.supabase.co/rest/v1"
@@ -46,6 +46,7 @@ func submit_score(score_name: String, score: int, gamemode: String, mainsynergy 
 		return
 	_request_kind = RequestKind.SUBMIT
 	var body = {
+		"ids":str(Time.get_datetime_dict_from_system()),
 		"username": score_name,
 		"score": score,
 		"gamemode": gamemode,
