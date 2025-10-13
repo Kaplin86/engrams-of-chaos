@@ -2,8 +2,8 @@ extends ScrollContainer
 @export var Main : Node
 
 func _ready():
-	FirebaseConnector.get_top_scores()
-	await FirebaseConnector.gotTopScores
+	LeaderboardAPI.fetch_top()
+	await LeaderboardAPI.leaderboard_request_completed
 	loadTopScores()
 	
 
@@ -18,7 +18,8 @@ func loadTopScores():
 	for E in $VBoxContainer.get_children():
 		E.queue_free()
 	var NewOrdering = []
-	for E in FirebaseConnector.topscores:
+	for E in LeaderboardAPI.lastData:
+		print(LeaderboardAPI.lastData)
 		if E['gamemode'] == difficulty:
 			NewOrdering.append(E)
 	for E in NewOrdering:

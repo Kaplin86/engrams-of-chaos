@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://s1nt7c8gpfe4"]
-
-[ext_resource type="Script" uid="uid://gyw844ksj6ow" path="res://firebaseConnector.gd" id="1_bwxhj"]
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_bwxhj")
