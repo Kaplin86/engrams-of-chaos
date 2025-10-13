@@ -61,7 +61,6 @@ func _process(delta: float) -> void:
 	
 	if PointerPos:
 		$PointerLayer/Holder/NinePatchRect.global_position -= ($PointerLayer/Holder/NinePatchRect.global_position - PointerPos + Vector2(0,0)) * 0.2
-		print(PointerPos)
 	if PointerSize:
 		$PointerLayer/Holder/NinePatchRect.size -= ($PointerLayer/Holder/NinePatchRect.size - PointerSize + Vector2(0,0)) * 0.3
 	if floor(deltatimer * 2) == round(deltatimer * 2):
@@ -112,7 +111,6 @@ func _process(delta: float) -> void:
 	elif CurrentState == "PickingUpUnit":
 		boardPosition.x = clamp(boardPosition.x,2,12)
 		boardPosition.y = clamp(boardPosition.y,12,14)
-		print(boardPosition.y)
 		unitTarget.board_position = boardPosition
 		unitTarget.visualPosition = main.board.map_to_local(boardPosition)
 		if checkInputJustPressed("ui_up"):
@@ -170,7 +168,6 @@ func _process(delta: float) -> void:
 		
 		for E : ColorRect in ui.get_node("SynergyHolder").get_children():
 			if ui.remove_numbers_from_string(E.name) == selectedSynergy:
-				print(PointerPos, E.global_position)
 				PointerPos = E.get_global_transform_with_canvas().get_origin()
 				PointerSize =  E.size
 	

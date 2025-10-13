@@ -97,7 +97,7 @@ func generateEnemyTeam():
 		spawnUnit("cake",Vector2i(7,1),1)
 	elif currentWave == 1:
 		#spawnUnit("cutlery",Vector2(7,1),1,true)
-		var bossName = "rolling_pin"
+		var bossName = "cutlery"
 		spawnUnit(bossName,Vector2(7,1),1,true)
 		
 		
