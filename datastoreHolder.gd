@@ -10,6 +10,8 @@ var waveOfDeath = 0
 var UnitTypesUsed = "All the units!!"
 var highestSynergy = ""
 
+var BossesDesc = {"cutlery":"A 3 in 1 combo! Prepare for mass destruction!","rolling_pin":"Half of your team shall return to dough..."}
+
 func _ready() -> void:
 	var file = FileAccess.open("res://datastore/synergyUnits.json", FileAccess.READ)
 	var content = file.get_as_text()

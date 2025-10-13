@@ -6,6 +6,7 @@
 
 [node name="Unit" instance=ExtResource("1_1nt2e")]
 script = ExtResource("2_q3hkr")
+description = "When this attacks, swaps positions with the enemy"
 maxHP = 300
 defense = 16
 type = "spoon"

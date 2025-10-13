@@ -19,6 +19,7 @@ var gameFinished := false ## When this is true, next tick will restart the board
 var battleLoadout : Array = [] ## A duplication of units made at the start of each round
 
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
+var currentlyAvailableBosses : Array[String] = ["rolling_pin","cutlery"] ## The current bosses you can fight
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
 var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
@@ -94,8 +95,23 @@ func generateEnemyTeam():
 	var usedPositions = []
 	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
-	elif currentWave == 5:
-		spawnUnit("cutlery",Vector2(7,1),1,true)
+	elif currentWave == 1:
+		#spawnUnit("cutlery",Vector2(7,1),1,true)
+		var bossName = "rolling_pin"
+		spawnUnit(bossName,Vector2(7,1),1,true)
+		
+		
+		$"BossText/Modulate/Boss Name".text = bossName.capitalize().replace("_"," ")
+		$BossText/Modulate/Desc.text = '"'+DatastoreHolder.BossesDesc.get(bossName,"") + '"'
+		$BossText/Modulate.modulate = Color(1,1,1,0)
+		$BossText.visible = true
+		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		newtween.tween_property($BossText/Modulate,"modulate",Color(1,1,1,1),0.5)
+		await get_tree().create_timer(2).timeout
+		newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		newtween.tween_property($BossText/Modulate,"modulate",Color(1,1,1,0),1)
+		await get_tree().create_timer(1).timeout
+		
 	else:
 		for E in EnemyCount:
 			var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()

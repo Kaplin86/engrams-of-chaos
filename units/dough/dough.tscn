@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8jcgeblemcot"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_85c8i"]
+[ext_resource type="Texture2D" uid="uid://vvdk8837uusq" path="res://units/dough/dough.svg" id="2_wo1o4"]
+
+[node name="Unit" instance=ExtResource("1_85c8i")]
+description = "The unbaked. The unedible. To be forcefully returned to your roots."
+maxHP = 90
+damage = 8
+defense = 8
+type = "dough"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_wo1o4")
