@@ -180,11 +180,14 @@ func attackAnim(hitcount : int = 1): ## Plays for the attack animation
 
 func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to pathfind towards the enemy, then moves accordingly. 
 	if targetPosition == null:
+		print("Pathfind Failed, no target pos")
 		return
 	
 	var PositionOfEnemy = board.map_to_local(targetPosition)
 	var MyPosition = board.map_to_local(board_position)
-	if MyPosition.distance_to(PositionOfEnemy) <= range * board.tile_set.tile_size.x:
+	var dist = board.cube_distance(Vector3i(board_position.x,board_position.y,0),Vector3i(Target.board_position.x,Target.board_position.y,0))
+	if dist <= range:
+		print("Pathfind 'Failed', in range of wanted pos")
 		return
 	
 	
@@ -203,15 +206,24 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 	if start_id == -1 or end_id == -1:
 		if start_id == -1:
 			modulate = Color(0,1,0)
+			print("Cant get id")
+		elif start_id == -1:
+			print("Cant get id")
 		return
 	var path = board.astar.get_id_path(start_id, end_id)
-	
 	if path.size() < 2:
 		#enable other units positions in the astar
+		var takenPositions = []
 		for unit in gameManagerObject.units:
+			takenPositions.append(unit.board_position)
 			if unit != self:
 				var point_id = board.astar.get_closest_point(board.map_to_local(unit.board_position),true)
 				board.astar.set_point_disabled(point_id,false)
+		var newdirections = directions.duplicate()
+		newdirections.shuffle()
+		for E in newdirections:
+			if not board.get_neighbor_cell(board_position,E) in newdirections:
+				movePosition(board.get_neighbor_cell(board_position,E))
 		return
 	
 	
