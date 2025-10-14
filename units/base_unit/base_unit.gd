@@ -39,6 +39,7 @@ var jumpToEnemy := false ## When this is enabled, all movements will attempt to 
 
 var _hideNextTick = false
 var _is_dying = false
+var isBoss = false ## This decides if this is or isnt a boss. gets set in real time
 
 
 func _ready() -> void:
@@ -196,7 +197,20 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 		if unit != self:
 			var point_id = board.pathfinding_get_point_id(unit.board_position)
 			if point_id == -1:
-				print("Point id was -1 for ", unit.board_position)
+				
+				var takenPositions = []
+				for t in gameManagerObject.units:
+					takenPositions.append(unit.board_position)
+					if t != self:
+						var point_ide = board.astar.get_closest_point(board.map_to_local(t.board_position),true)
+						board.astar.set_point_disabled(point_ide,false)
+				var newdirections = directions.duplicate()
+				newdirections.shuffle()
+				for E in newdirections:
+					if not board.get_neighbor_cell(board_position,E) in newdirections:
+						movePosition(board.get_neighbor_cell(board_position,E))
+						return
+						
 			else:
 				board.astar.set_point_disabled(point_id)
 	
@@ -212,6 +226,7 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 		return
 	var path = board.astar.get_id_path(start_id, end_id)
 	if path.size() < 2:
+		
 		#enable other units positions in the astar
 		var takenPositions = []
 		for unit in gameManagerObject.units:
@@ -224,7 +239,8 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 		for E in newdirections:
 			if not board.get_neighbor_cell(board_position,E) in newdirections:
 				movePosition(board.get_neighbor_cell(board_position,E))
-		return
+				return
+		
 	
 	
 	var FoundPosition = board.cube_to_map(board.get_closest_cell_from_local(board.astar.get_point_position(path[1])))
@@ -239,8 +255,15 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 	
 
 func movePosition(newPos : Vector2i):  ## moves to board location
-	board.astar.set_point_disabled(board.pathfinding_get_point_id(board_position),false)
-	board_position = newPos
+	
+	print(self," is moving from", board_position, " to ", newPos)
+	if newPos.y <= 14 and newPos.y >= 1: 
+		print("the new pos is y valid")
+		if newPos.x >= 2 and newPos.x <= 12:
+			print("blah")
+			board.astar.set_point_disabled(board.pathfinding_get_point_id(board_position),false)
+			board_position = newPos
+	
 
 func moveAngle(angle : int): ## This function defines moving to a neighboring tile on the board. Goes clockwise, 0 being top-left side and 5 being left side
 	board_position = board.get_neighbor_cell(board_position,angle)

@@ -168,7 +168,7 @@ offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(717, 537)
+size = Vector2i(724, 543)
 render_target_update_mode = 4
 
 [node name="CanvasGroup" type="Node2D" parent="SubViewportContainer/SubViewport"]

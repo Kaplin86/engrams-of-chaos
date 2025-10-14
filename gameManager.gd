@@ -45,11 +45,14 @@ func _ready() -> void:
 	$CanvasLayer2/Control.modulate = Color(1,1,1,0)
 	$CanvasLayer2/Control.visible = true
 	
-	if !DatastoreHolder.tutorial:
-		spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
-		spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,13),2)
+	if DatastoreHolder.difficulty == "TurnedTables":
+		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
 	else:
-		spawnUnit("chicken_wing",Vector2i(7,14),2)
+		if !DatastoreHolder.tutorial:
+			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
+			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,13),2)
+		else:
+			spawnUnit("chicken_wing",Vector2i(7,14),2)
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -95,9 +98,9 @@ func generateEnemyTeam():
 	var usedPositions = []
 	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
-	elif currentWave == 2:
+	elif currentWave == 5:
 		#spawnUnit("cutlery",Vector2(7,1),1,true)
-		var bossName = "blender"
+		var bossName = currentlyAvailableBosses.pick_random()
 		spawnUnit(bossName,Vector2(7,1),1,true)
 		
 		
@@ -210,6 +213,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false):
 		NewUnit.z_index = 1
 		add_child(NewUnit)
 		units.append(NewUnit)
+		NewUnit.isBoss = boss
 		return OK
 	else:
 		return FAILED
@@ -260,8 +264,10 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 			continue
 		
 		
-		
+		if ticksThisRound >= 100:
+			unit.hp -= ticksThisRound - 100
 		unit.tick(secondsPerTick)
+		
 	
 	TickEnd.emit()
 
@@ -275,14 +281,20 @@ func endRound(): ## This is called when the round ends
 		await get_tree().create_timer(1).timeout
 		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
 		$CanvasLayer2/Control/HighestRound.text = "Final Round: " + str(currentWave)
-		$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: " + $CanvasLayer/UI.synergyList[0]
+		if $CanvasLayer/UI.synergyList.size() != 0:
+			$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: " + $CanvasLayer/UI.synergyList.get(0)
+		else:
+			$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: NONE."
 		$CanvasLayer2/Control/Mode.text = "Gamemode: " + DatastoreHolder.difficulty
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
 		await get_tree().create_timer(1).timeout
 		await _confirmpress
 		DatastoreHolder.waveOfDeath = currentWave
-		DatastoreHolder.highestSynergy = $CanvasLayer/UI.synergyList[0]
+		if $CanvasLayer/UI.synergyList.size() != 0:
+			DatastoreHolder.highestSynergy = $CanvasLayer/UI.synergyList[0]
+		else:
+			DatastoreHolder.highestSynergy = "NONE. "
 		DatastoreHolder.UnitTypesUsed = battleLoadout
 		Transition.TransitionToScene("res://ui/leaderboard.tscn")
 		return
@@ -291,7 +303,7 @@ func endRound(): ## This is called when the round ends
 	units.clear()
 	
 	for data in battleLoadout:
-		spawnUnit(data["type"], data["pos"], data["team"])
+		spawnUnit(data["type"], data["pos"], data["team"], data["boss"])
 	battleLoadout.clear()
 	
 	battleState = "preround"
@@ -300,8 +312,10 @@ func endRound(): ## This is called when the round ends
 	generateEnemyTeam()
 	
 	var newengrams = []
-	
-	for E in round(currentWave * 1.5):
+	var EngramsOwed = currentWave * 1.5
+	if DatastoreHolder.difficulty == "TurnedTables":
+		EngramsOwed /= 4
+	for E in round(EngramsOwed):
 		newengrams.append(currentAvailableEngrams.pick_random())
 		var NewIcon = Sprite2D.new()
 		NewIcon.texture = load("res://ui/elements/"+newengrams[-1]+".svg")
@@ -359,7 +373,8 @@ func startButtonHit(): ## When a particular ui button is hit
 				battleLoadout.append({
 					"type": E.type,
 					"pos": E.board_position,
-					"team": E.team
+					"team": E.team,
+					"boss": E.isBoss
 				})
 		
 		startFight()

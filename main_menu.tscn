@@ -29,7 +29,7 @@ size = Vector2(736, 110)
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons")]
 script = ExtResource("1_fu7sn")
-Buttons = [NodePath("Tutorial"), NodePath("Easy"), NodePath("Normal"), NodePath("Additional")]
+Buttons = [NodePath("Tutorial"), NodePath("Easy"), NodePath("Normal"), NodePath("TurnedTables"), NodePath("Additional")]
 
 [node name="Button1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8qtwp")
@@ -208,6 +208,41 @@ theme_override_font_sizes/font_size = 16
 text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TurnedTables" type="ColorRect" parent="."]
+offset_left = 429.0
+offset_top = 419.0
+offset_right = 628.0
+offset_bottom = 476.0
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "Start with a boss on your team, but gain 1/4th engrams."
+
+[node name="ColorRect3" type="ColorRect" parent="TurnedTables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="TurnedTables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jix8l")
+theme_override_font_sizes/font_size = 16
+text = "Turned Tables"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Additional" type="ColorRect" parent="."]
 offset_left = 24.0

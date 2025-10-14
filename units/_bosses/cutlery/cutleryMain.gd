@@ -3,8 +3,12 @@ class_name CutleryBoss
 var charge = 0
 func _ready():
 	super()
-	gameManagerObject.spawnUnit("fork",Vector2(5,1),1,true)
-	gameManagerObject.spawnUnit("spoon",Vector2(9,1),1,true)
+	for E in gameManagerObject.units:
+		if E.type == "fork":
+			if E.team == team:
+				return
+	gameManagerObject.spawnUnit("fork",Vector2(board_position - Vector2i(2,0)),team,true)
+	gameManagerObject.spawnUnit("spoon",Vector2(board_position + Vector2i(2,0)),team,true)
 	
 func tick(time):
 	super(time)

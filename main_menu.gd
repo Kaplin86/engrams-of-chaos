@@ -46,18 +46,16 @@ func _process(delta: float) -> void:
 		changeButton.emit()
 	
 	if Input.is_action_just_pressed("confirm"):
-		if buttonHover == 0 or buttonHover == 1 or buttonHover == 2:
-			if buttonHover == 0:
+		if Buttons[buttonHover].name != "Additional":
+			DatastoreHolder.enemySynergy = true
+			DatastoreHolder.tutorial = false
+			if Buttons[buttonHover].name == "Tutorial":
 				DatastoreHolder.tutorial = true
 				DatastoreHolder.enemySynergy = false
-				DatastoreHolder.difficulty = "Tutorial"
-			if buttonHover == 1:
+			if Buttons[buttonHover].name == "Easy":
 				DatastoreHolder.enemySynergy = false
-				DatastoreHolder.difficulty = "Easy"
-			if buttonHover == 2:
-				DatastoreHolder.enemySynergy = true
-				DatastoreHolder.difficulty = "Normal"
-			print("ENEMY SYNERGIES IS " , DatastoreHolder.enemySynergy)
+			
+			DatastoreHolder.difficulty = Buttons[buttonHover].name
 			Transition.TransitionToScene("res://main.tscn")
 		elif buttonHover == 3:
 			$AdvancedGuide.visible = !$AdvancedGuide.visible

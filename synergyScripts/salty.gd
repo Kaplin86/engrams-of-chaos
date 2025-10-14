@@ -4,14 +4,15 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 	for E in manager.units:
 		if E is BaseUnit:
 			if E.team == team:
-				var UnitsSynergy = DatastoreHolder.synergyUnitJson[E.type]
-				if UnitsSynergy.has("salty"):
-					if level >= 6:
-						E.defense += round(0.2 * E.defense)
-					elif level >= 4:
-						E.defense += round(0.1 * E.defense)
-					elif level > 1:
-						E.defense += round(0.05 * E.defense)
+				if DatastoreHolder.synergyUnitJson.has(E.type):
+					var UnitsSynergy = DatastoreHolder.synergyUnitJson[E.type]
+					if UnitsSynergy.has("salty"):
+						if level >= 6:
+							E.defense += round(0.2 * E.defense)
+						elif level >= 4:
+							E.defense += round(0.1 * E.defense)
+						elif level > 1:
+							E.defense += round(0.05 * E.defense)
 
 func get_description(level) -> String:
 	if level >= 6:

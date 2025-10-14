@@ -9,7 +9,7 @@ script = ExtResource("2_0pebv")
 description = "Every 10 ticks, instantly kill an enemy."
 maxHP = 300
 defense = 13
-type = "knife"
+type = "cutlery"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_0pebv")

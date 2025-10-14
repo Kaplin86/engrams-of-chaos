@@ -4,15 +4,16 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 	print("First bitter tick for team ",team, " with a power of ", level)
 	for unit in manager.units:
 		if unit.team == team:
-			var UnitsSynergy = DatastoreHolder.synergyUnitJson[unit.type]
-			if UnitsSynergy.has("bitter"):
-				if level >= 2:
-					unit.jumpToEnemy = true
-				
-				if level >= 6:
-					unit.CritChance += 0.1
-				elif level >= 4:
-					unit.CritChance += 0.05
+			if DatastoreHolder.synergyUnitJson.has(unit.type):
+				var UnitsSynergy = DatastoreHolder.synergyUnitJson[unit.type]
+				if UnitsSynergy.has("bitter"):
+					if level >= 2:
+						unit.jumpToEnemy = true
+					
+					if level >= 6:
+						unit.CritChance += 0.1
+					elif level >= 4:
+						unit.CritChance += 0.05
 
 func get_description(level) -> String:
 	if level >= 6:

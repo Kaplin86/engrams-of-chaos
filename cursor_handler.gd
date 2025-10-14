@@ -163,13 +163,17 @@ func _process(delta: float) -> void:
 			ButtonPanelTargeted.emit()
 			return
 		
-		var selectedSynergy = synergyList[synergyPoint]
-		ui.highlightSynergy(selectedSynergy)
-		
-		for E : ColorRect in ui.get_node("SynergyHolder").get_children():
-			if ui.remove_numbers_from_string(E.name) == selectedSynergy:
-				PointerPos = E.get_global_transform_with_canvas().get_origin()
-				PointerSize =  E.size
+		if synergyList.size() != 0:
+			var selectedSynergy = synergyList[synergyPoint]
+			ui.highlightSynergy(selectedSynergy)
+			
+			for E : ColorRect in ui.get_node("SynergyHolder").get_children():
+				if ui.remove_numbers_from_string(E.name) == selectedSynergy:
+					PointerPos = E.get_global_transform_with_canvas().get_origin()
+					PointerSize =  E.size
+		else:
+			CurrentState = "StartPause"
+			buttonPoint = "start"
 	
 	elif CurrentState == "StartPause":
 		
