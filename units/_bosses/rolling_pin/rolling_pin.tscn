@@ -9,7 +9,7 @@ script = ExtResource("2_rygoh")
 description = "On first tick, Half of the enemy team turns into dough"
 maxHP = 700
 damage = 20
-speed = 999.0
+speed = 5.0
 defense = 14
 type = "rolling_pin"
 

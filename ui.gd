@@ -19,7 +19,10 @@ func viewUnit(unit : BaseUnit):
 	$UnitUI/Damage.text = str(unit.damage)
 	$UnitUI/Defense.text = str(unit.defense)
 	$UnitUI/Health.text = str(unit.hp)
-	$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
+	if unit.isBoss:
+		$UnitUI/UnitSelectedImage.texture = unit._sprite
+	else:
+		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	$UnitUI/Description.text = unit.description
 	
 	if unit.team != 2:

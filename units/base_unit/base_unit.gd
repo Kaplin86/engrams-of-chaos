@@ -40,7 +40,8 @@ var jumpToEnemy := false ## When this is enabled, all movements will attempt to 
 var _hideNextTick = false
 var _is_dying = false
 var isBoss = false ## This decides if this is or isnt a boss. gets set in real time
-
+var Frozen := false ## When this is active, the unit will not attack or move. Gets disabled after the action is denied.
+var _sprite = null # This is for bosses!
 
 func _ready() -> void:
 	visualPosition = board.map_to_local(board_position)
@@ -66,6 +67,9 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 		die()
 		return
 	
+	if Frozen:
+		Frozen = false
+		return
 	
 	if gameManagerObject:
 		Target = NearestEnemy()

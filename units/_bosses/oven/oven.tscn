@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmnlq6ancqr5b"]
+[gd_scene load_steps=7 format=3 uid="uid://bmnlq6ancqr5b"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_fcsv8"]
 [ext_resource type="Script" uid="uid://5rtxr7kixswm" path="res://units/_bosses/oven/oven.gd" id="2_o36m5"]
 [ext_resource type="AudioStream" uid="uid://dhkx2sepdquww" path="res://sfx/CardDraw.mp3" id="3_4w1gp"]
+[ext_resource type="Texture2D" uid="uid://b11hlu5mnwmou" path="res://units/_bosses/oven/oven.svg" id="3_od3bm"]
 
 [sub_resource type="Gradient" id="Gradient_o36m5"]
 offsets = PackedFloat32Array(0, 0.946871, 1)
@@ -14,6 +15,15 @@ colors = PackedColorArray(0.751511, 0.714692, 0, 1, 0.755511, 0.584748, 0.034499
 
 [node name="Unit" instance=ExtResource("1_fcsv8")]
 script = ExtResource("2_o36m5")
+description = "Doesn't move. A random enemy's row is engulfed in flames."
+maxHP = 800
+damage = 0
+defense = 15
+type = "oven"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+position = Vector2(0, 8.415)
+texture = ExtResource("3_od3bm")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." index="2"]
 z_index = 99
