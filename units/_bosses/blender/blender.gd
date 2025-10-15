@@ -1,6 +1,6 @@
 extends BaseBoss
-func tick(time):
-	super(time)
+func preTick():
+	super()
 	var Enemies = []
 	for E in gameManagerObject.units:
 		if E.team != team:

@@ -1,7 +1,7 @@
 extends BaseBoss
 var doneAbility = false
-func tick(time):
-	super(time)
+func preTick():
+	super()
 	if !doneAbility:
 		speed = 1
 		doneAbility = true

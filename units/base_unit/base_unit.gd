@@ -113,7 +113,9 @@ func attemptToJump(targetPos : Vector2i): ## Tries to find a place to jump (aka 
 	for unit in gameManagerObject.units:
 		if unit != self:
 			takenpositionArray.append(unit.board_position)
-	for E in directions:
+	var NewDirections = directions.duplicate()
+	NewDirections.reverse()
+	for E in NewDirections:
 		var NeighborCell = board.get_neighbor_cell(targetPos,E)
 		if !takenpositionArray.has(NeighborCell):
 			return NeighborCell
@@ -298,6 +300,12 @@ func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 		return TargetOfThinking
 	else:
 		return null
+
+func preTick():
+	pass
+
+func postTick():
+	pass
 
 func _process(delta: float) -> void:
 	$VisualHolder.global_position.x += (visualPosition.x - $VisualHolder.global_position.x) * 0.5 * 0.3 * ((1 / 0.016) * delta)
