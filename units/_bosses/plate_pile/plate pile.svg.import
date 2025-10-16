@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqatpjjmqg8kd"
-path="res://.godot/imported/fridge.svg-a3fc30e43c89c7ce1bdf8c69c6812d92.ctex"
+uid="uid://ckqcqrmc15vl2"
+path="res://.godot/imported/plate pile.svg-7787fe0b497ef527c96ade62b10a70f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/_bosses/fridge/fridge.svg"
-dest_files=["res://.godot/imported/fridge.svg-a3fc30e43c89c7ce1bdf8c69c6812d92.ctex"]
+source_file="res://units/_bosses/plate_pile/plate pile.svg"
+dest_files=["res://.godot/imported/plate pile.svg-7787fe0b497ef527c96ade62b10a70f9.ctex"]
 
 [params]
 

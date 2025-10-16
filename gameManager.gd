@@ -20,10 +20,10 @@ var battleLoadout : Array = [] ## A duplication of units made at the start of ea
 
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
 var currentlyAvailableBosses : Array[String] = ["rolling_pin","cutlery","whisk"] ## The current bosses you can fight
-var currentlyAvailableSuperbosses : Array[String] = ["oven","fridge"] ## The current super bosses that appear on wave 7
+var currentlyAvailableSuperbosses : Array[String] = ["oven","fridge","blender","plate_pile"] ## The current super bosses that appear on wave 7
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
-var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED"] ## A large array filled with strings of various death texts
+var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED","Try again and make burnt toast proud!!"] ## A large array filled with strings of various death texts
 
 var ticksThisRound := 0 ## This variable is set to how many ticks have happened so far this round.
 var lastScreenshot : ViewportTexture ## This texture is taken of the board last time a tick was started
@@ -47,8 +47,8 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("whisk",Vector2i(7,14),2,true)
+		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		#spawnUnit("plate_pile",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)

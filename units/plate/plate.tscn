@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fnt5tteg7ob"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_2uarh"]
+[ext_resource type="Texture2D" uid="uid://dsnaks7kc27nv" path="res://units/plate/plate.svg" id="2_3knq1"]
+
+[node name="Unit" instance=ExtResource("1_2uarh")]
+description = "One of the many great carrier."
+damage = 10
+defense = 9
+type = "plate"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_3knq1")
