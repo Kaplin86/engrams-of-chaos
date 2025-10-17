@@ -1,5 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://cej8c0ojbm0em"]
+[gd_scene load_steps=4 format=3 uid="uid://cej8c0ojbm0em"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ojdqw"]
+[ext_resource type="Texture2D" uid="uid://detkdq8rsjfqw" path="res://ui/burntToastSprites/burntToastBody.svg" id="2_jylfi"]
+[ext_resource type="Script" uid="uid://2l2ars67p6dg" path="res://units/_bosses/chaotic_one/chaotic_one.gd" id="2_shhvl"]
 
 [node name="Unit" instance=ExtResource("1_ojdqw")]
+script = ExtResource("2_shhvl")
+description = "chaotic_one"
+maxHP = 300
+damage = 9
+defense = 9
+type = "chaotic_one"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+modulate = Color(100, 100, 100, 1)
+scale = Vector2(0.0516033, 0.0516033)
+texture = ExtResource("2_jylfi")
+
+[node name="Visual2" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="1"]
+modulate = Color(100, 100, 100, 1)
+position = Vector2(18, 4)
+scale = Vector2(0.0516033, 0.0516033)
+texture = ExtResource("2_jylfi")
+
+[node name="Visual4" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="2"]
+modulate = Color(100, 100, 100, 1)
+position = Vector2(-1, 3)
+scale = Vector2(-0.110191, -0.0209061)
+texture = ExtResource("2_jylfi")
+
+[node name="Visual3" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="3"]
+modulate = Color(100, 100, 100, 1)
+position = Vector2(-19, 5)
+scale = Vector2(0.0516033, 0.0516033)
+texture = ExtResource("2_jylfi")

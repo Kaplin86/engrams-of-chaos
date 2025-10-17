@@ -265,12 +265,12 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 func movePosition(newPos : Vector2i):  ## moves to board location
 	
 	print(self," is moving from", board_position, " to ", newPos)
-	if newPos.y <= 14 and newPos.y >= 1: 
-		print("the new pos is y valid")
-		if newPos.x >= 2 and newPos.x <= 12:
-			print("blah")
-			board.astar.set_point_disabled(board.pathfinding_get_point_id(board_position),false)
-			board_position = newPos
+	
+	
+	
+	if board.get_used_cells().has(newPos):
+		board.astar.set_point_disabled(board.pathfinding_get_point_id(board_position),false)
+		board_position = newPos
 	
 
 func moveAngle(angle : int): ## This function defines moving to a neighboring tile on the board. Goes clockwise, 0 being top-left side and 5 being left side

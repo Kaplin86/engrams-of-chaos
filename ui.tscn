@@ -510,6 +510,12 @@ W to select
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Pattern" type="Sprite2D" parent="GameManagingButtons"]
+modulate = Color(1, 1, 1, 0.033)
+position = Vector2(612, 419)
+scale = Vector2(0.484706, 0.550588)
+texture = ExtResource("3_e2l4f")
+
 [node name="DEARPLAYTESTERS" type="Label" parent="."]
 offset_left = 80.0
 offset_top = 179.0

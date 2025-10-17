@@ -7,7 +7,7 @@
 description = "The unbaked. The unedible. To be forcefully returned to your roots."
 maxHP = 90
 damage = 8
-defense = 8
+defense = 7
 type = "dough"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
