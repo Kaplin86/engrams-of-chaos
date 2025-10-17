@@ -569,6 +569,7 @@ texture = ExtResource("9_ok7cu")
 
 [node name="SynergyHolder" type="GridContainer" parent="CraftingUI"]
 custom_minimum_size = Vector2(94, 42)
+layout_mode = 0
 offset_left = 22.0
 offset_top = 693.0
 offset_right = 800.0

@@ -307,10 +307,15 @@ func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 	else:
 		return null
 
-func preTick():
+func preTick(): ## Calls before a tick
 	pass
 
-func postTick():
+func postTick(): ## Calls after a tick
+	pass
+
+func deathOnBoard(unitData : BaseUnit): ##Calls when a unit is dying. wont run if the unit dying is itself
+	if hp <= 0:
+		return
 	pass
 
 func _process(delta: float) -> void:

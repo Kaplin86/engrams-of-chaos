@@ -40,7 +40,7 @@ texture = ExtResource("2_jix8l")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
 show_behind_parent = true
-position = Vector2(118, 54)
+position = Vector2(114.75, 45.75)
 amount = 30
 texture = ExtResource("3_glbon")
 lifetime = 2.1
@@ -51,8 +51,8 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 12.0
 initial_velocity_max = 12.0
-scale_amount_min = 0.9
-scale_amount_max = 0.95
+scale_amount_min = 1.44
+scale_amount_max = 1.6
 color_ramp = SubResource("Gradient_nlkkf")
 
 [node name="ColorRect" type="ColorRect" parent="."]

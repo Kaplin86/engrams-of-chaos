@@ -10,7 +10,16 @@ var waveOfDeath = 0
 var UnitTypesUsed = "All the units!!"
 var highestSynergy = ""
 
-var BossesDesc = {"cutlery":"A 3 in 1 combo! Prepare for mass destruction!","rolling_pin":"Half of your team shall return to dough...","whisk":"Get moving, Get groving, its shuffling time!","oven":"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.","fridge":"Brrr... So chilly! Each tick, half your team will be FROZEN.","blender":"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!"}
+var BossesDesc = {
+	"cutlery":"A 3 in 1 combo! Prepare for mass destruction!",
+"rolling_pin":"Half of your team shall return to dough...",
+"whisk":"Get moving, Get groving, its shuffling time!",
+"oven":"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.",
+"fridge":"Brrr... So chilly! Each tick, half your team will be FROZEN.",
+"blender":"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",
+"plate_pile":"A stack of plates to the skies above. When the pile gets hit twice, the pile will crumble a bit and spawn a plate enemy.",
+"trash_can":"25% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!"
+}
 
 func _ready() -> void:
 	var file = FileAccess.open("res://datastore/synergyUnits.json", FileAccess.READ)
