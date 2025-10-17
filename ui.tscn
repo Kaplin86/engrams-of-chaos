@@ -138,8 +138,8 @@ _data = {
 script = ExtResource("1_nltto")
 
 [node name="Metronome" parent="." instance=ExtResource("1_fyqef")]
-position = Vector2(36, 49)
-scale = Vector2(2.47025, 2.47025)
+position = Vector2(60, 71)
+scale = Vector2(3.82457, 3.82457)
 maxangle = 110
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -162,6 +162,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.6, 1.6)
 
 [node name="ColorRect" type="ColorRect" parent="BG"]
 layout_mode = 0
@@ -198,17 +199,19 @@ scale = Vector2(0.504706, 0.692941)
 texture = ExtResource("3_e2l4f")
 
 [node name="Name" type="Label" parent="."]
-offset_left = 509.0
-offset_top = 2.0
-offset_right = 715.0
-offset_bottom = 33.0
+offset_left = 806.0
+offset_top = 3.0
+offset_right = 1144.0
+offset_bottom = 47.0
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 19
-text = "UNIT"
+theme_override_font_sizes/font_size = 31
+text = "hi"
 horizontal_alignment = 2
+autowrap_mode = 1
 uppercase = true
 
 [node name="SynergyUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -216,11 +219,13 @@ offset_bottom = 40.0
 
 [node name="Description" type="RichTextLabel" parent="SynergyUI"]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 36.0
-offset_right = 715.0
-offset_bottom = 292.0
-theme_override_font_sizes/bold_font_size = 18
+offset_left = 820.0
+offset_top = 71.0
+offset_right = 1135.0
+offset_bottom = 472.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
 text = "Units of this synergy jump to enemies and have increase crit chance.
 
@@ -234,16 +239,15 @@ vertical_alignment = 1
 
 [node name="SynergyIcon" type="TextureRect" parent="SynergyUI"]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 5.0
-offset_right = 820.0
-offset_bottom = 316.0
+offset_left = 814.0
+offset_top = 6.0
+offset_right = 1379.0
+offset_bottom = 571.0
 scale = Vector2(0.107959, 0.107959)
 texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -251,30 +255,23 @@ offset_bottom = 40.0
 
 [node name="Description" type="Label" parent="UnitUI"]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 215.0
-offset_right = 653.0
-offset_bottom = 269.0
+offset_left = 818.0
+offset_top = 308.0
+offset_right = 1041.0
+offset_bottom = 418.0
 scale = Vector2(1.4471, 1.4471)
-theme_override_fonts/font = ExtResource("8_irxef")
-theme_override_font_sizes/font_size = 8
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 15
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UnitUI"]
-layout_mode = 0
-offset_left = 510.0
-offset_top = 161.551
-offset_right = 821.0
-offset_bottom = 161.551
-
 [node name="Synergies" type="VBoxContainer" parent="UnitUI"]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 29.0
-offset_right = 821.0
-offset_bottom = 970.0
-scale = Vector2(0.140266, 0.140266)
+offset_left = 830.0
+offset_top = 58.0
+offset_right = 1141.0
+offset_bottom = 999.0
+scale = Vector2(0.252009, 0.252009)
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
@@ -295,10 +292,10 @@ stretch_mode = 4
 
 [node name="Damage" type="Label" parent="UnitUI"]
 layout_mode = 0
-offset_left = 535.0
-offset_top = 175.0
-offset_right = 562.0
-offset_bottom = 207.0
+offset_left = 976.0
+offset_top = 256.0
+offset_right = 1003.0
+offset_bottom = 288.0
 theme_override_font_sizes/font_size = 23
 text = "32"
 
@@ -318,10 +315,10 @@ texture = ExtResource("5_ibotj")
 
 [node name="Defense" type="Label" parent="UnitUI"]
 layout_mode = 0
-offset_left = 604.0
-offset_top = 175.0
-offset_right = 631.0
-offset_bottom = 207.0
+offset_left = 1037.0
+offset_top = 256.0
+offset_right = 1064.0
+offset_bottom = 288.0
 theme_override_font_sizes/font_size = 23
 text = "32"
 
@@ -341,10 +338,10 @@ texture = ExtResource("6_y4yjw")
 
 [node name="Health" type="Label" parent="UnitUI"]
 layout_mode = 0
-offset_left = 669.0
-offset_top = 175.0
-offset_right = 708.0
-offset_bottom = 207.0
+offset_left = 1095.0
+offset_top = 256.0
+offset_right = 1134.0
+offset_bottom = 288.0
 theme_override_font_sizes/font_size = 23
 text = "100"
 
@@ -363,16 +360,15 @@ texture = ExtResource("7_waa4j")
 
 [node name="UnitSelectedImage" type="TextureRect" parent="UnitUI"]
 layout_mode = 0
-offset_left = 569.0
-offset_top = 37.0
-offset_right = 703.0
-offset_bottom = 161.0
+offset_left = 942.0
+offset_top = 59.0
+offset_right = 1142.0
+offset_bottom = 244.0
 texture = ExtResource("2_m6e0p")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Tutorial" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -403,10 +399,10 @@ offset_bottom = 40.0
 
 [node name="BG" type="ColorRect" parent="GameManagingButtons"]
 layout_mode = 0
-offset_left = 507.0
-offset_top = 300.0
-offset_right = 717.0
-offset_bottom = 538.0
+offset_left = 811.0
+offset_top = 480.0
+offset_right = 1147.0
+offset_bottom = 861.0
 color = Color(0.0196078, 0.184314, 0.294118, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="GameManagingButtons/BG"]
@@ -423,12 +419,18 @@ grow_vertical = 2
 color = Color(0.0431373, 0.266667, 0.415686, 1)
 
 [node name="Pause_Resume" type="ColorRect" parent="GameManagingButtons"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.7
+anchor_top = 4.6
+anchor_right = 10.675
+anchor_bottom = 5.45
 offset_left = 513.0
 offset_top = 307.0
 offset_right = 712.0
 offset_bottom = 364.0
 color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Pause_Resume"]
 layout_mode = 1
@@ -450,18 +452,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("8_irxef")
-theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
 text = "Start Round"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Craft" type="ColorRect" parent="GameManagingButtons"]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 368.0
-offset_right = 712.0
-offset_bottom = 425.0
+offset_left = 821.0
+offset_top = 589.0
+offset_right = 1139.0
+offset_bottom = 680.0
 color = Color(0.389287, 0.389287, 0.389286, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="GameManagingButtons/Craft"]
@@ -484,8 +486,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("8_irxef")
-theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
 text = "Craft Units"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -494,12 +496,12 @@ vertical_alignment = 1
 z_index = 8
 z_as_relative = false
 layout_mode = 0
-offset_left = 509.0
-offset_top = 426.0
-offset_right = 715.0
-offset_bottom = 537.0
-theme_override_font_sizes/normal_font_size = 13
-theme_override_font_sizes/bold_font_size = 19
+offset_left = 815.0
+offset_top = 681.0
+offset_right = 1144.0
+offset_bottom = 858.0
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 text = "[b]Controls[/b]
 W - Select Start
@@ -512,8 +514,8 @@ vertical_alignment = 1
 
 [node name="Pattern" type="Sprite2D" parent="GameManagingButtons"]
 modulate = Color(1, 1, 1, 0.033)
-position = Vector2(612, 419)
-scale = Vector2(0.484706, 0.550588)
+position = Vector2(980, 670.5)
+scale = Vector2(0.77647, 0.882353)
 texture = ExtResource("3_e2l4f")
 
 [node name="DEARPLAYTESTERS" type="Label" parent="."]

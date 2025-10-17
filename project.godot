@@ -23,8 +23,7 @@ LeaderboardAPI="*res://LeaderboardAPI.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=540
+window/size/viewport_height=864
 window/size/window_width_override=640
 window/size/window_height_override=480
 window/stretch/mode="viewport"
