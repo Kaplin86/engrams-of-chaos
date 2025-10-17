@@ -70,7 +70,6 @@ func _on_timer_timeout() -> void:
 	newBody.freeze = false
 	newBody.rotation = randf()
 	var unit = DatastoreHolder.craftingUnitJson.keys().pick_random()
-	newBody.get_child(0).texture = load("res://units/"+unit+"/"+unit+".svg")
-	add_child(newBody)
-	
-	print("new guy")
+	if load("res://units/"+unit+"/"+unit+".svg"):
+		newBody.get_child(0).texture = load("res://units/"+unit+"/"+unit+".svg")
+		add_child(newBody)

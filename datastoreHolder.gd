@@ -18,7 +18,8 @@ var BossesDesc = {
 "fridge":"Brrr... So chilly! Each tick, half your team will be FROZEN.",
 "blender":"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",
 "plate_pile":"A stack of plates to the skies above. When the pile gets hit twice, the pile will crumble a bit and spawn a plate enemy.",
-"trash_can":"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!"
+"trash_can":"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!",
+"kettle":"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it."
 }
 
 func _ready() -> void:

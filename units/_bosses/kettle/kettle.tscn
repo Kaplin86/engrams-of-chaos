@@ -20,4 +20,4 @@ texture = ExtResource("3_tl3v4")
 stream = ExtResource("3_4mamp")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
-color = Color(0.705882, 0.721569, 0.788235, 1)
+color = Color(0.740921, 0.755292, 0.860699, 1)

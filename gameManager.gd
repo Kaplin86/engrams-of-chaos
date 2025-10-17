@@ -46,8 +46,8 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		#spawnUnit("kettle",Vector2i(7,14),2,true)
+		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		spawnUnit("kettle",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
@@ -120,7 +120,7 @@ func generateEnemyTeam():
 		await get_tree().create_timer(1).timeout
 	else:
 		for E in EnemyCount:
-			var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()
+			var ChosenUnit = DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random())
 			var chosenPos
 			if currentWave == 2 and $TutorialHandler.tutorialMode:
 				chosenPos = Vector2i(randi_range(3,12),randi_range(1,3))
@@ -210,6 +210,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false):
 		if boss:
 			NewUnit = load("res://units/_bosses/" + unitType + "/" + unitType + ".tscn").instantiate()
 		else:
+			print(unitType)
 			NewUnit = load("res://units/" + unitType + "/" + unitType + ".tscn").instantiate()
 		NewUnit.board_position = pos
 		NewUnit.board = board
