@@ -51,3 +51,6 @@ orbit_velocity_max = 0.2
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_jic42")
 color_initial_ramp = SubResource("Gradient_phaxb")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
+color = Color(0.827451, 0.890196, 0.929412, 1)

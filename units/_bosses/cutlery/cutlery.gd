@@ -1,4 +1,4 @@
-extends BaseUnit
+extends BaseBoss
 class_name CutleryBoss
 var charge = 0
 func _ready():

@@ -19,7 +19,7 @@ maxHP = 80
 range = 4
 damage = 7
 speed = 1.5
-defense = 4
+defense = 6
 type = "bbq"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

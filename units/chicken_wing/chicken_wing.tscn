@@ -7,5 +7,5 @@
 script = ExtResource("2_8aaqf")
 description = "ABILITY: Attacks the enemy, adding the  defense to damage."
 maxMana = 60
-defense = 4
+defense = 6
 type = "chicken_wing"

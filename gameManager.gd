@@ -40,7 +40,6 @@ func _ready() -> void:
 	
 	#seed(currentWave)
 	
-	
 	generateEnemyTeam()
 	
 	$CanvasLayer2/Control.modulate = Color(1,1,1,0)
@@ -222,6 +221,8 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false):
 		add_child(NewUnit)
 		units.append(NewUnit)
 		NewUnit.isBoss = boss
+		if randi_range(0,100) == 86:
+			NewUnit.scale = Vector2(-1,-1)
 		return OK
 	else:
 		return FAILED

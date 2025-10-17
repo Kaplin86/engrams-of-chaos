@@ -268,3 +268,22 @@ func _ready() -> void:
 	tutorialPointer.moveTo(Vector2(348.0,-200))
 	tutorialPointer.silent()
 	cursorHandler.disabledInputs = []
+	
+	await gameHandler.superboss
+	# secret boss for tutorialmode only since unironically its harder to start in
+	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
+	
+	
+	tutorialPointer.moveTo(Vector2(348.0,230.0))
+	await tutorialPointer.say("Okay champ. So uh. You see that superboss there? It must have detected my presence...")
+	await tutorialPointer.say("You see, bosses, or more specifically superbosses, have the engram of 'Chaos'.")
+	await tutorialPointer.say("This guy is composed of a SINGLE engram. How thats possible? I dont even know. But it wont stop until it feels full.")
+	await tutorialPointer.say("It cant. But hey, you've gotten this far, right? Surely you know how to survive, yes?")
+	tutorialPointer.silent()
+	await tutorialPointer.slice()
+	tutorialPointer.moveTo(Vector2(348.0,300.0))
+	await tutorialPointer.say("... dang. Somehow it sliced me. Dont uh. Dont worry champ im fine. Focus on surviving this round. Il be fine.")
+	tutorialPointer.moveTo(Vector2(200.0,300))
+	await get_tree().create_timer(1)
+	tutorialPointer.moveTo(Vector2(-300,300))
+	tutorialPointer.silent()

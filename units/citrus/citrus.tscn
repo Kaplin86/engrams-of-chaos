@@ -8,9 +8,9 @@
 script = ExtResource("2_tucbe")
 description = "ABILITY: Target can no longer crit"
 maxHP = 95
-damage = 12
+damage = 11
 maxMana = 60
-defense = 7
+defense = 8
 type = "citrus"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

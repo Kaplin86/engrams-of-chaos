@@ -13,9 +13,8 @@ shader_parameter/strength = 7.0
 script = ExtResource("2_b87tx")
 description = "When this unit jumps, Increase crit chance by 10%"
 maxHP = 90
-damage = 14
 speed = 1.25
-defense = 7
+defense = 6
 type = "coffee"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

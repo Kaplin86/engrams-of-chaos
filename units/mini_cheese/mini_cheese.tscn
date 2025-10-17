@@ -7,7 +7,7 @@
 [node name="Unit" instance=ExtResource("1_1tehm")]
 script = ExtResource("2_l3n17")
 description = "Small. Don't underestimate its strength!"
-maxHP = 10
+maxHP = 20
 damage = 8
 speed = 5.0
 type = "mini_cheese"

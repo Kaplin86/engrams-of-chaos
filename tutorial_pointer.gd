@@ -82,3 +82,6 @@ func say(text : String):
 
 func silent():
 	$Guy/NinePatchRect.visible = false
+
+func slice():
+	pass

@@ -7,7 +7,7 @@
 description = "A fun guy."
 maxHP = 110
 damage = 13
-defense = 11
+defense = 10
 type = "mushroom"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

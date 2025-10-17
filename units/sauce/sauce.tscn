@@ -6,7 +6,6 @@
 [node name="Unit" instance=ExtResource("1_ppada")]
 description = "Wants to see the world burn."
 maxHP = 90
-damage = 16
 defense = 8
 type = "sauce"
 

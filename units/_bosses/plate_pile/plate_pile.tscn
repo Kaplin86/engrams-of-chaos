@@ -22,3 +22,6 @@ offset_bottom = -5.0
 [node name="HealthBar" parent="VisualHolder" index="2"]
 offset_top = -22.0
 offset_bottom = -6.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+color = Color(0.819608, 0.917647, 0.968627, 1)

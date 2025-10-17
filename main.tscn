@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://5nme2qseus3n"]
+[gd_scene load_steps=31 format=4 uid="uid://5nme2qseus3n"]
 
 [ext_resource type="Script" uid="uid://7ker8jed8vvw" path="res://gameManager.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://b4iclk8uy8ll4" path="res://boardTiles.svg" id="2_w48qg"]
@@ -72,6 +72,14 @@ texture_region_size = Vector2i(15, 15)
 [sub_resource type="TileSet" id="TileSet_h2yge"]
 tile_shape = 3
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
+
+[sub_resource type="Animation" id="Animation_ryguw"]
+resource_name = "bite"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d13ii"]
+_data = {
+&"bite": SubResource("Animation_ryguw")
+}
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yaehf"]
 viewport_path = NodePath("Death")
@@ -186,7 +194,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -202.193)
+position = Vector2(348, -198.978)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
 scale = Vector2(0.178, 0.178)
@@ -228,6 +236,11 @@ visible_ratio = 0.278689
 
 [node name="Marker2D" type="Marker2D" parent="TutorialPointer"]
 position = Vector2(603, 99)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TutorialPointer"]
+libraries = {
+&"": SubResource("AnimationLibrary_d13ii")
+}
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 3

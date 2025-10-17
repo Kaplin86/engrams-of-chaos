@@ -8,8 +8,9 @@
 script = ExtResource("2_jrs8q")
 description = "When this attacks, heal 3% of the enemies defense"
 maxHP = 130
+damage = 13
 speed = 0.5
-defense = 11
+defense = 10
 type = "onion"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]

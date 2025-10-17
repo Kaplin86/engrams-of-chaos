@@ -44,3 +44,6 @@ color_initial_ramp = SubResource("Gradient_4w1gp")
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="." index="3"]
 stream = ExtResource("3_4w1gp")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
+color = Color(0.92549, 0.823529, 0.823529, 1)

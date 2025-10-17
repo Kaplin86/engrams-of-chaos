@@ -12,6 +12,7 @@ shader_parameter/strength = 2.5
 [node name="Unit" instance=ExtResource("1_tia8l")]
 script = ExtResource("2_8ks4v")
 description = "ABILITY: Increase crit chance  all neighboring allies by 10%"
+maxHP = 110
 damage = 12
 maxMana = 70
 defense = 8

@@ -87,8 +87,11 @@ func highlightSynergy(synergyname : String):
 		$SynergyUI.visible = true
 		$Tutorial.visible = false
 		$SynergyUI/Description.text = Description
+		
 		$Name.text = synergyname + " SYNERGY"
+		
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
+		$Name.add_theme_color_override("font_color",getColorOfImage($SynergyUI/SynergyIcon.texture))
 
 func modulateCraft(modulating):
 	$GameManagingButtons/Craft.modulate = modulating
@@ -247,6 +250,7 @@ func showTutorial(roundnumber):
 	$Tutorial.visible = true
 	$UnitUI.visible = false
 	$SynergyUI.visible = false
+	$Name.remove_theme_color_override("font_color")
 	$Name.text = "Current Wave: "+  str(roundnumber)
 
 func runCraftAnim(NewFusion):
