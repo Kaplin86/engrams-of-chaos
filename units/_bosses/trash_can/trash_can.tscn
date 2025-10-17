@@ -6,8 +6,8 @@
 
 [node name="Unit" instance=ExtResource("1_j8uxl")]
 script = ExtResource("2_jxhvj")
-description = "25% of Random enemies turn to allies. Whenever an ally gets a kill, heal team by 100"
-maxHP = 700
+description = "Doesn't move. 30% of the enemy team turn into allies. Whenever an ally gets a kill, heal team by 100 and buff every ally"
+maxHP = 800
 damage = 0
 speed = 3.0
 defense = 8
@@ -15,3 +15,6 @@ type = "trash_can"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_042da")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+color = Color(0.519377, 1, 0.463755, 1)

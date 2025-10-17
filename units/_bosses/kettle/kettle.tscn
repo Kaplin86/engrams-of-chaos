@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://crg0ow54udxln"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_q1pvr"]
+[ext_resource type="Script" uid="uid://qa0eo0s8m80r" path="res://units/_bosses/kettle/kettle.gd" id="2_7plo5"]
+[ext_resource type="AudioStream" uid="uid://x11nk5luwutw" path="res://sfx/switch1.mp3" id="3_4mamp"]
+[ext_resource type="Texture2D" uid="uid://cnkeg2ytsyp1" path="res://units/_bosses/kettle/kettle.svg" id="3_tl3v4"]
+
+[node name="Unit" instance=ExtResource("1_q1pvr")]
+script = ExtResource("2_7plo5")
+description = "Doesn't move. Every 5 ticks, kill a random enemy and heal double its HP"
+maxHP = 500
+damage = 0
+defense = 10
+type = "kettle"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_tl3v4")
+
+[node name="Switch1" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("3_4mamp")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
+color = Color(0.705882, 0.721569, 0.788235, 1)

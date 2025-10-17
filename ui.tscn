@@ -517,6 +517,7 @@ offset_bottom = 254.0
 theme_override_constants/outline_size = 9
 
 [node name="CraftingUI" type="TextureRect" parent="."]
+visible = false
 offset_left = -3.0
 offset_top = -10.0
 offset_right = 1151.0

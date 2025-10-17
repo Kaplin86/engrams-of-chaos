@@ -20,7 +20,7 @@ var battleLoadout : Array = [] ## A duplication of units made at the start of ea
 
 var currentAvailableEngrams : Array[String] = ["bitter","salty","sour","spicy","sweet","umami"] ## The current engrams you can obtain
 var currentlyAvailableBosses : Array[String] = ["rolling_pin","cutlery","whisk"] ## The current bosses you can fight
-var currentlyAvailableSuperbosses : Array[String] = ["oven","fridge","blender","plate_pile"] ## The current super bosses that appear on wave 7
+var currentlyAvailableSuperbosses : Array[String] = ["oven","fridge","blender","plate_pile","trash_can", "kettle"] ## The current super bosses that appear on wave 7
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
 var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED","Try again and make burnt toast proud!!"] ## A large array filled with strings of various death texts
@@ -46,8 +46,8 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("trash_can",Vector2i(7,14),2,true)
+		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		#spawnUnit("kettle",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
@@ -223,7 +223,7 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false):
 		NewUnit.isBoss = boss
 		if randi_range(0,100) == 86:
 			NewUnit.scale = Vector2(-1,-1)
-		return OK
+		return NewUnit
 	else:
 		return FAILED
 	

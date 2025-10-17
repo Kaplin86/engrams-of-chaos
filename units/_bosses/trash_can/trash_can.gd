@@ -19,12 +19,12 @@ func preTick():
 		for E in gameManagerObject.units:
 			if E.team != team:
 				Enemies.append(E)
-		for i in ceil(Enemies / 4):
+		for i in ceil(Enemies.size() * 0.3):
 			var chosenEnemy : BaseUnit = Enemies.pick_random()
 			Enemies.erase(chosenEnemy)
 			chosenEnemy.hp = -999
 			chosenEnemy.team = team
-			gameManagerObject.spawnUnit(chosenEnemy.type,chosenEnemy.board_position,team,chosenEnemy.isBoss)
+			var newunit = gameManagerObject.spawnUnit(chosenEnemy.type,chosenEnemy.board_position,team,chosenEnemy.isBoss)
 
 func deathOnBoard(unit):
 	super(unit)
@@ -32,3 +32,5 @@ func deathOnBoard(unit):
 		for E in gameManagerObject.units:
 			if E.team == team:
 				E.heal(100)
+				E.defense += 2
+				E.damage += 1
