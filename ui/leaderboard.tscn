@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="2_wvlxr"]
 [ext_resource type="AudioStream" uid="uid://jsnbr8sgoxa0" path="res://sfx/click3.wav" id="3_4tbto"]
 [ext_resource type="AudioStream" uid="uid://g2pyuqus2igl" path="res://sfx/click.wav" id="4_yr02i"]
-[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="5_r3wwd"]
+[ext_resource type="Texture2D" uid="uid://cimisbht3wfqh" path="res://ui/double_pattern.svg" id="5_j7j2d"]
 [ext_resource type="Shader" uid="uid://bum06njvnloh7" path="res://scroll.gdshader" id="6_j7j2d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4qs1"]
@@ -34,6 +34,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect5" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 543.0
+color = Color(0, 0, 0, 0.171)
 
 [node name="LargeText" type="Label" parent="Control"]
 visible = false
@@ -152,18 +158,18 @@ horizontal_alignment = 1
 [node name="Sprite2D2" type="Sprite2D" parent="Control"]
 z_index = -1
 material = SubResource("ShaderMaterial_k5xrk")
-position = Vector2(359.976, 132.781)
+position = Vector2(359.976, 134.245)
 rotation = 3.14159
-scale = Vector2(1.69401, 0.638678)
-texture = ExtResource("5_r3wwd")
+scale = Vector2(1.69401, 0.317819)
+texture = ExtResource("5_j7j2d")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control"]
 z_index = -1
 material = SubResource("ShaderMaterial_k5xrk")
-position = Vector2(359.976, 404.171)
+position = Vector2(359.976, 402.484)
 rotation = 3.14159
-scale = Vector2(1.694, -0.639)
-texture = ExtResource("5_r3wwd")
+scale = Vector2(1.694, -0.318)
+texture = ExtResource("5_j7j2d")
 
 [node name="Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4tbto")

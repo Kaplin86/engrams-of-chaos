@@ -46,8 +46,8 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("chaotic_one",Vector2i(7,14),2,true)
+		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		#spawnUnit("chaotic_one",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
