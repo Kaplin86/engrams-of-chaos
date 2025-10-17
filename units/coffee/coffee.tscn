@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfu5t4wuo1grp"]
+[gd_scene load_steps=6 format=3 uid="uid://cfu5t4wuo1grp"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_blgf8"]
 [ext_resource type="Script" uid="uid://b4q28vipd21bd" path="res://units/coffee/coffee.gd" id="2_b87tx"]
 [ext_resource type="Texture2D" uid="uid://b0hlg40m75lbp" path="res://units/coffee/coffee.svg" id="3_s2174"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_yd7v4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcl7n"]
+shader = ExtResource("3_yd7v4")
+shader_parameter/strength = 7.0
 
 [node name="Unit" instance=ExtResource("1_blgf8")]
 script = ExtResource("2_b87tx")
@@ -14,5 +19,6 @@ defense = 7
 type = "coffee"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_lcl7n")
 scale = Vector2(0.059, 0.059)
 texture = ExtResource("3_s2174")

@@ -98,7 +98,7 @@ func printstatblock():
 func generateEnemyTeam():
 	var EnemyCount = randi_range(currentWave,currentWave * currentWave)
 	var usedPositions = []
-	if currentWave == 5 and $TutorialHandler.tutorialMode: 
+	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
 	elif currentWave == 5 or currentWave == 7:
 		#spawnUnit("cutlery",Vector2(7,1),1,true)
@@ -122,7 +122,11 @@ func generateEnemyTeam():
 	else:
 		for E in EnemyCount:
 			var ChosenUnit = DatastoreHolder.synergyUnitJson.keys().pick_random()
-			var chosenPos = Vector2i(randi_range(2,12),randi_range(1,3))
+			var chosenPos
+			if currentWave == 2 and $TutorialHandler.tutorialMode:
+				chosenPos = Vector2i(randi_range(3,12),randi_range(1,3))
+			else:
+				chosenPos = Vector2i(randi_range(2,12),randi_range(1,3))
 			if !usedPositions.has(chosenPos):
 				usedPositions.append(chosenPos)
 				spawnUnit(ChosenUnit,chosenPos,1)

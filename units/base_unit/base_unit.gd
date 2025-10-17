@@ -51,6 +51,8 @@ func _ready() -> void:
 	$VisualHolder/HealthBar.max_value = maxHP
 	$VisualHolder/ManaBar.max_value = maxMana
 	
+	Texture2D.new()
+	
 	if maxMana == 0:
 		$VisualHolder/ManaBar.visible = false
 	

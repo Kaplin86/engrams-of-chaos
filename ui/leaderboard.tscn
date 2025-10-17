@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://t3hse2ya3ncr"]
+[gd_scene load_steps=10 format=3 uid="uid://t3hse2ya3ncr"]
 
 [ext_resource type="Script" uid="uid://cjrdsckvcsi8a" path="res://ui/leaderboard.gd" id="1_143yq"]
+[ext_resource type="Shader" uid="uid://b6y4iifx4nany" path="res://rainbowGradient.gdshader" id="2_j4qs1"]
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="2_wvlxr"]
 [ext_resource type="AudioStream" uid="uid://jsnbr8sgoxa0" path="res://sfx/click3.wav" id="3_4tbto"]
 [ext_resource type="AudioStream" uid="uid://g2pyuqus2igl" path="res://sfx/click.wav" id="4_yr02i"]
+[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="5_r3wwd"]
+[ext_resource type="Shader" uid="uid://bum06njvnloh7" path="res://scroll.gdshader" id="6_j7j2d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4qs1"]
+shader = ExtResource("2_j4qs1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5xrk"]
+shader = ExtResource("6_j7j2d")
 
 [node name="Leaderboard" type="Node2D"]
 script = ExtResource("1_143yq")
@@ -15,13 +24,14 @@ offset_right = 720.0
 offset_bottom = 539.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -9
+material = SubResource("ShaderMaterial_j4qs1")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="LargeText" type="Label" parent="Control"]
 visible = false
@@ -139,3 +149,19 @@ bus = &"sfx"
 [node name="Move2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yr02i")
 bus = &"sfx"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_k5xrk")
+position = Vector2(359.976, 132.781)
+rotation = 3.14159
+scale = Vector2(1.69401, 0.638678)
+texture = ExtResource("5_r3wwd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_k5xrk")
+position = Vector2(359.976, 404.171)
+rotation = 3.14159
+scale = Vector2(1.69389, -0.638901)
+texture = ExtResource("5_r3wwd")

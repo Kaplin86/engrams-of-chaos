@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1h5w6sfc1xg1"]
+[gd_scene load_steps=6 format=3 uid="uid://b1h5w6sfc1xg1"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_kfl5c"]
 [ext_resource type="Script" uid="uid://116tejplucbg" path="res://units/walnut/walnut.gd" id="2_m2ixk"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_0vvek"]
 [ext_resource type="Texture2D" uid="uid://bxn22ijp2i632" path="res://units/walnut/walnut.svg" id="3_on0ax"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gddu"]
+shader = ExtResource("3_0vvek")
+shader_parameter/strength = 2.0
 
 [node name="Unit" instance=ExtResource("1_kfl5c")]
 script = ExtResource("2_m2ixk")
@@ -14,4 +19,5 @@ defense = 8
 type = "walnut"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_0gddu")
 texture = ExtResource("3_on0ax")

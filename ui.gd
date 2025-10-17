@@ -23,12 +23,19 @@ func viewUnit(unit : BaseUnit):
 		$UnitUI/UnitSelectedImage.texture = unit._sprite
 	else:
 		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
+	
+	
+	
 	$UnitUI/Description.text = unit.description
 	
 	if unit.team != 2:
 		$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
 		$Name.text = unit.type.replace("_"," ")
+	
+	if $UnitUI/UnitSelectedImage.texture:
+		$Name.add_theme_color_override("font_color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
+	
 	
 	for E in $UnitUI/Synergies.get_children():
 		E.queue_free()
@@ -146,6 +153,11 @@ A/D - Choose Unit
 S - Synergy Selection
 Z to select
 "
+	elif currentstate == "PickingUpUnit":
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+WASD - Move unit
+Z to place
+"
 	elif currentstate == "SynergyView":
 		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
 W - Unit Selection
@@ -173,6 +185,10 @@ S - Go Back
 Z - Confirm Fusion
 X - Remove Synergy
 "
+	else:
+		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+Tell the dev to go fix '
+" + currentstate + "', whatever that means"
 
 func getColorOfImage(texture : Texture2D):
 	var color := Vector3.ZERO
