@@ -20,8 +20,10 @@ script = ExtResource("1_143yq")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 720.0
+offset_left = -4.0
+offset_right = 716.0
 offset_bottom = 539.0
+scale = Vector2(1.61, 1.61)
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 z_index = -9
@@ -58,6 +60,7 @@ offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 91
 text = "A"
 vertical_alignment = 1
@@ -76,6 +79,7 @@ offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 91
 text = "A"
 vertical_alignment = 1
@@ -94,6 +98,7 @@ offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 91
 text = "A"
 vertical_alignment = 1
@@ -134,13 +139,31 @@ autowrap_mode = 2
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 244.0
-offset_top = 490.0
-offset_right = 466.0
-offset_bottom = 513.0
-text = "Press Z to confirm.
+offset_left = 248.447
+offset_top = 435.404
+offset_right = 470.447
+offset_bottom = 536.404
+text = "W and S to change letter
+A and D to go to next letter
+Press Z to confirm.
 Press X to skip."
 horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+z_index = -1
+material = SubResource("ShaderMaterial_k5xrk")
+position = Vector2(359.976, 132.781)
+rotation = 3.14159
+scale = Vector2(1.69401, 0.638678)
+texture = ExtResource("5_r3wwd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+z_index = -1
+material = SubResource("ShaderMaterial_k5xrk")
+position = Vector2(359.976, 404.171)
+rotation = 3.14159
+scale = Vector2(1.694, -0.639)
+texture = ExtResource("5_r3wwd")
 
 [node name="Move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_4tbto")
@@ -149,19 +172,3 @@ bus = &"sfx"
 [node name="Move2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yr02i")
 bus = &"sfx"
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = -1
-material = SubResource("ShaderMaterial_k5xrk")
-position = Vector2(359.976, 132.781)
-rotation = 3.14159
-scale = Vector2(1.69401, 0.638678)
-texture = ExtResource("5_r3wwd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-z_index = -1
-material = SubResource("ShaderMaterial_k5xrk")
-position = Vector2(359.976, 404.171)
-rotation = 3.14159
-scale = Vector2(1.69389, -0.638901)
-texture = ExtResource("5_r3wwd")

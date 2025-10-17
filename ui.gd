@@ -137,8 +137,8 @@ func showCraftingUi(inventory : Dictionary,skiptween = false):
 		$CraftingUI/SynergyHolder.add_child(NewRect)
 		NewRect.name = E
 	
-	$CraftingUI/LeftElement.position = Vector2(145,176)
-	$CraftingUI/RightElement.position = Vector2(611,234)
+	$CraftingUI/LeftElement.position = Vector2(232.0,281.6)
+	$CraftingUI/RightElement.position = Vector2(977.6,374.4)
 
 func hideCraftingUI():
 	var coolTween = create_tween()

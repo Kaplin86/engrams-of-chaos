@@ -35,10 +35,10 @@ func _process(delta: float) -> void:
 
 
 func moveTo(newpos : Vector2):
-	WantedPosition = newpos
+	WantedPosition = newpos * Vector2(1.6,1.6)
 
 func pointTo(newpos : Vector2):
-	PointTarget = newpos
+	PointTarget = newpos * Vector2(1.6,1.6)
 
 func flip(side):
 	flipDir = side

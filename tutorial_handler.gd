@@ -269,7 +269,9 @@ func _ready() -> void:
 	tutorialPointer.silent()
 	cursorHandler.disabledInputs = []
 	
-	await gameHandler.superboss
+	
+	return
+	# await gameHandler.superboss
 	# secret boss for tutorialmode only since unironically its harder to start in
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	

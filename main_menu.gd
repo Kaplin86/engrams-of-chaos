@@ -7,10 +7,12 @@ var deltatimer = 0
 var lastInputDeltatime = 0
 signal changeButton
 
+
+
 func _process(delta: float) -> void:
 	deltatimer += delta
 	
-	$Logo.scale += (Vector2.ONE - $Logo.scale) / 20
+	$Logo.scale += (Vector2(1.6,1.6) - $Logo.scale) / 20
 	$FirstEngraMmaintheme.pitch_scale = 1 + (sin(deltatimer * 0.5) * 0.01)
 	
 	for E in Buttons.size():
@@ -57,7 +59,7 @@ func _process(delta: float) -> void:
 			
 			DatastoreHolder.difficulty = Buttons[buttonHover].name
 			Transition.TransitionToScene("res://main.tscn")
-		elif buttonHover == 3:
+		elif buttonHover == 4:
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
 		
 	buttonHover = wrap(buttonHover,0,Buttons.size())

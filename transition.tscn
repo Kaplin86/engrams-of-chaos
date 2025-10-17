@@ -165,6 +165,7 @@ script = ExtResource("1_j7crc")
 material = SubResource("ShaderMaterial_j7crc")
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.6, 1.6)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false

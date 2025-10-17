@@ -30,38 +30,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CraftingUI/LeftElement:position")
+tracks/0/path = NodePath("CraftingUI/RightElement:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(145, 176)]
+"values": [Vector2(977.6, 374.4)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CraftingUI/RightElement:position")
+tracks/1/path = NodePath("CraftingUI/LeftElement:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(611, 234)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CraftingUI/RightElement:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_27fn8")]
+"values": [Vector2(232, 281.6)]
 }
 
 [sub_resource type="Animation" id="Animation_irxef"]
@@ -75,9 +63,9 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2, 0),
+"transitions": PackedFloat32Array(1, 0),
 "update": 0,
-"values": [Vector2(145, 176), Vector2(378, 205)]
+"values": [Vector2(232, 281.6), Vector2(616, 327)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -87,9 +75,9 @@ tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2, 0),
+"transitions": PackedFloat32Array(1, 0),
 "update": 0,
-"values": [Vector2(611, 234), Vector2(378, 205)]
+"values": [Vector2(977.6, 374.4), Vector2(616, 327)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -142,19 +130,21 @@ position = Vector2(60, 71)
 scale = Vector2(3.82457, 3.82457)
 maxangle = 110
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-54, 0)
+scale = Vector2(1.6, 1.6)
 
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
+[node name="Marker2D" type="Marker2D" parent="Node2D2"]
 position = Vector2(75, 23)
 
-[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+[node name="Marker2D2" type="Marker2D" parent="Node2D2"]
 position = Vector2(501, 426)
 
-[node name="Area2D" type="Area2D" parent="Node2D"]
+[node name="Area2D" type="Area2D" parent="Node2D2"]
 position = Vector2(75, 23)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-position = Vector2(213, 201.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D"]
+position = Vector2(211.125, 195.875)
 shape = SubResource("RectangleShape2D_27fn8")
 
 [node name="BG" type="Control" parent="."]
@@ -385,11 +375,12 @@ bbcode_enabled = true
 
 [node name="SynergyHolder" type="GridContainer" parent="."]
 custom_minimum_size = Vector2(94, 42)
-offset_left = 14.0
-offset_top = 433.0
-offset_right = 500.0
-offset_bottom = 573.0
-columns = 5
+offset_left = 24.0
+offset_top = 703.0
+offset_right = 785.0
+offset_bottom = 857.0
+theme_override_constants/h_separation = 9
+columns = 7
 
 [node name="GameManagingButtons" type="Control" parent="."]
 layout_mode = 3
@@ -526,66 +517,63 @@ offset_bottom = 254.0
 theme_override_constants/outline_size = 9
 
 [node name="CraftingUI" type="TextureRect" parent="."]
-visible = false
 offset_left = -3.0
 offset_top = -10.0
-offset_right = 723.0
-offset_bottom = 543.0
+offset_right = 1151.0
+offset_bottom = 869.0
 texture = SubResource("GradientTexture2D_irxef")
 
 [node name="CraftingUI2" type="ColorRect" parent="CraftingUI"]
 layout_mode = 0
-offset_left = 517.0
-offset_top = 436.0
-offset_right = 731.0
-offset_bottom = 552.0
+offset_left = 827.2
+offset_top = 697.6
+offset_right = 1169.6
+offset_bottom = 883.2
 color = Color(0.0431373, 0.266667, 0.415686, 1)
 
 [node name="LeftNeuron" type="Sprite2D" parent="CraftingUI"]
-position = Vector2(144, 177)
+position = Vector2(230.4, 283.2)
 rotation = 1.06949
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.594, 0.594)
 texture = ExtResource("8_ok7cu")
 offset = Vector2(215.633, -10.6415)
 
 [node name="RightNeuron" type="Sprite2D" parent="CraftingUI"]
-position = Vector2(612, 233)
+position = Vector2(979.2, 372.8)
 rotation = -2.07171
-scale = Vector2(0.371, 0.371)
+scale = Vector2(0.594, 0.594)
 texture = ExtResource("8_ok7cu")
 offset = Vector2(215.633, -10.6415)
 
 [node name="LeftElement" type="Sprite2D" parent="CraftingUI"]
-position = Vector2(145, 176)
-scale = Vector2(0.370549, 0.370549)
+position = Vector2(232, 281.6)
+scale = Vector2(0.594, 0.594)
 
 [node name="RightElement" type="Sprite2D" parent="CraftingUI"]
-position = Vector2(611, 234)
-scale = Vector2(0.370549, 0.370549)
-texture = ExtResource("3_27fn8")
-
-[node name="SynergyHolder" type="GridContainer" parent="CraftingUI"]
-custom_minimum_size = Vector2(94, 42)
-layout_mode = 0
-offset_left = 14.0
-offset_top = 433.0
-offset_right = 500.0
-offset_bottom = 573.0
-columns = 5
+position = Vector2(977.6, 374.4)
+scale = Vector2(0.594, 0.594)
 
 [node name="Label" type="Label" parent="CraftingUI"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 408.0
-offset_right = 182.0
-offset_bottom = 431.0
+offset_left = 22.4
+offset_top = 652.8
+offset_right = 457.6
+offset_bottom = 689.6
 theme_override_fonts/font = ExtResource("8_irxef")
 text = "ENGRAM INVENTORY:"
 
 [node name="CraftedUnit" type="Sprite2D" parent="CraftingUI"]
 visible = false
-position = Vector2(378, 213)
+position = Vector2(616, 327)
 texture = ExtResource("9_ok7cu")
+
+[node name="SynergyHolder" type="GridContainer" parent="CraftingUI"]
+custom_minimum_size = Vector2(94, 42)
+offset_left = 22.0
+offset_top = 693.0
+offset_right = 800.0
+offset_bottom = 866.0
+columns = 5
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(375.406, 206.629)

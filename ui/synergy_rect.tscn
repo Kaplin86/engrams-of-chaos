@@ -4,28 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="1_w1xyo"]
 
 [node name="SynergyRect" type="ColorRect"]
-custom_minimum_size = Vector2(94, 44.7)
+custom_minimum_size = Vector2(101.52, 48.276)
 offset_left = 33.0
 offset_top = 438.0
-offset_right = 127.0
-offset_bottom = 482.7
+offset_right = 135.0
+offset_bottom = 486.276
 color = Color(0.229112, 0.229112, 0.229112, 1)
 script = ExtResource("1_hf80y")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 1.0
-offset_right = 94.0
-offset_bottom = 43.0
+anchor_left = 0.43617
+anchor_top = 0.0223714
+anchor_right = 1.0
+anchor_bottom = 0.961969
 theme_override_constants/outline_size = 9
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 29
 text = "x 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Image" type="Sprite2D" parent="."]
-position = Vector2(21, 22)
-scale = Vector2(0.117145, 0.117145)
+position = Vector2(24, 24)
+scale = Vector2(0.14, 0.14)
 texture = ExtResource("1_w1xyo")
