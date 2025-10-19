@@ -122,6 +122,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7fmn4"]
 resource_name = "screen_to_transition"
+length = 1.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -137,6 +138,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tyg23"]
 resource_name = "transition_to_scene"
+length = 1.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

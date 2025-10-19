@@ -9,12 +9,8 @@ func _ready():
 
 func loadTopScores():
 	var difficulty = ""
-	if Main.buttonHover == 0:
-		difficulty = "Tutorial"
-	if Main.buttonHover == 1:
-		difficulty = "Easy"
-	if Main.buttonHover == 2:
-		difficulty = "Normal"
+	if Main.buttonHover >= 0 and Main.buttonHover < Main.Buttons.size():
+		difficulty = Main.Buttons[Main.buttonHover].name
 	for E in $VBoxContainer.get_children():
 		E.queue_free()
 	var NewOrdering = []
@@ -22,8 +18,14 @@ func loadTopScores():
 		return
 	for E in LeaderboardAPI.lastData:
 		print(LeaderboardAPI.lastData)
-		if E['gamemode'] == difficulty:
-			NewOrdering.append(E)
+		if Main.mode == "cradle":
+			if E['gamemode'] == "Cradle" + difficulty:
+				NewOrdering.append(E)
+				
+			
+		else:
+			if E['gamemode'] == difficulty:
+				NewOrdering.append(E)
 	for E in NewOrdering:
 		var LabelNew = Label.new()
 		LabelNew.custom_minimum_size.x = 175.315

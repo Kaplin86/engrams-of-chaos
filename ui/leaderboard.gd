@@ -34,7 +34,11 @@ func _process(delta):
 		if Input.is_action_just_pressed("confirm"):
 			saved = true
 			print(",".join(DatastoreHolder.UnitTypesUsed))
-			LeaderboardAPI.submit_score($Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text,DatastoreHolder.waveOfDeath,DatastoreHolder.difficulty,DatastoreHolder.highestSynergy,",".join(DatastoreHolder.UnitTypesUsed) )
+			if DatastoreHolder.Mode == "Cradle":
+				LeaderboardAPI.submit_score($Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text,DatastoreHolder.waveOfDeath,"Cradle" + DatastoreHolder.difficulty,DatastoreHolder.highestSynergy,",".join(DatastoreHolder.UnitTypesUsed) )
+			else:
+				LeaderboardAPI.submit_score($Control/Letter1.text + $Control/Letter2.text + $Control/Letter3.text,DatastoreHolder.waveOfDeath,DatastoreHolder.difficulty,DatastoreHolder.highestSynergy,",".join(DatastoreHolder.UnitTypesUsed) )
+
 
 			Transition.TransitionToScene("res://main_menu.tscn")
 		if Input.is_action_just_pressed("deny"):

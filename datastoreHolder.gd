@@ -1,6 +1,9 @@
 extends Node
 
 
+var CradleEngrams = ["sweet","spicy","sour","bitter","umami","salty"]
+var CradleBosses = ["rolling_pin","cutlery","whisk","grumble"]
+
 var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
 var tutorial = false
@@ -9,6 +12,7 @@ var difficulty = "Easy"
 var waveOfDeath = 0
 var UnitTypesUsed = "All the units!!"
 var highestSynergy = ""
+var Mode = "kitchen"
 
 var BossesDesc = {
 	"cutlery":"A 3 in 1 combo! Prepare for mass destruction!",

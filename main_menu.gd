@@ -7,10 +7,19 @@ var deltatimer = 0
 var lastInputDeltatime = 0
 signal changeButton
 
+var mode = "kitchen"
 
+var NotGameButtons = ["Additional","CradleOfElements"]
 
 func _process(delta: float) -> void:
 	deltatimer += delta
+	
+	if mode == "kitchen":
+		if !Buttons.has($Tutorial):
+			Buttons.insert(0,$Tutorial)
+	else:
+		if Buttons.has($Tutorial):
+			Buttons.erase($Tutorial)
 	
 	$Logo.scale += (Vector2(1.6,1.6) - $Logo.scale) / 20
 	$FirstEngraMmaintheme.pitch_scale = 1 + (sin(deltatimer * 0.5) * 0.01)
@@ -48,7 +57,7 @@ func _process(delta: float) -> void:
 		changeButton.emit()
 	
 	if Input.is_action_just_pressed("confirm"):
-		if Buttons[buttonHover].name != "Additional":
+		if Buttons[buttonHover].name not in NotGameButtons:
 			DatastoreHolder.enemySynergy = true
 			DatastoreHolder.tutorial = false
 			if Buttons[buttonHover].name == "Tutorial":
@@ -58,9 +67,21 @@ func _process(delta: float) -> void:
 				DatastoreHolder.enemySynergy = false
 			
 			DatastoreHolder.difficulty = Buttons[buttonHover].name
+			DatastoreHolder.Mode = mode
 			Transition.TransitionToScene("res://main.tscn")
-		elif buttonHover == 4:
+		elif Buttons[buttonHover].name == "Additional":
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
+		elif Buttons[buttonHover].name == "CradleOfElements":
+			if mode == "kitchen":
+				mode = "Cradle"
+				buttonHover = 3
+				$Tutorial.visible = false
+				$Logo.texture = load("res://cradleLogo.png")
+			else:
+				mode = "kitchen"
+				$Tutorial.visible = true
+				$Logo.texture = load("res://logo.png")
+				buttonHover = 4
 		
 	buttonHover = wrap(buttonHover,0,Buttons.size())
 
