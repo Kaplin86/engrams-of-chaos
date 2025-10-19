@@ -75,12 +75,10 @@ func _process(delta: float) -> void:
 			if mode == "kitchen":
 				mode = "Cradle"
 				buttonHover = 3
-				$Tutorial.visible = false
-				$Logo.texture = load("res://cradleLogo.png")
+				$AnimationPlayer.play("kitchenToCradle")
 			else:
 				mode = "kitchen"
-				$Tutorial.visible = true
-				$Logo.texture = load("res://logo.png")
+				$AnimationPlayer.play("cradleToKitchen")
 				buttonHover = 4
 		
 	buttonHover = wrap(buttonHover,0,Buttons.size())

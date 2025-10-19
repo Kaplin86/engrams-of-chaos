@@ -2,7 +2,7 @@ extends Node
 
 
 var CradleEngrams = ["sweet","spicy","sour","bitter","umami","salty"]
-var CradleBosses = ["rolling_pin","cutlery","whisk","grumble"]
+var CradleBosses = ["rolling_pin","cutlery","whisk","echo"]
 
 var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
@@ -23,7 +23,9 @@ var BossesDesc = {
 "blender":"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",
 "plate_pile":"A stack of plates to the skies above. When the pile gets hit twice, the pile will crumble a bit and spawn a plate enemy.",
 "trash_can":"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!",
-"kettle":"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it."
+"kettle":"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it.",
+
+"echo":"Don't be too loud... The boss will turn into a random unit with 3 times stats."
 }
 
 func _ready() -> void:

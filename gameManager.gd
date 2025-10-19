@@ -34,6 +34,15 @@ signal RoundEnd
 signal _confirmpress
 
 func _ready() -> void:
+	
+	if DatastoreHolder.Mode == "Cradle":
+		currentlyAvailableBosses = []
+		var TempThing = DatastoreHolder.CradleBosses.duplicate()
+		for I in range(3):
+			var NewThing = TempThing.pick_random()
+			TempThing.erase(NewThing)
+			currentlyAvailableBosses.append(NewThing)
+	
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)
 	#tickTimer.start()

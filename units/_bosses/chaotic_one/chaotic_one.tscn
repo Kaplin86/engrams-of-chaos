@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cej8c0ojbm0em"]
+[gd_scene load_steps=8 format=3 uid="uid://cej8c0ojbm0em"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ojdqw"]
 [ext_resource type="Texture2D" uid="uid://detkdq8rsjfqw" path="res://ui/burntToastSprites/burntToastBody.svg" id="2_jylfi"]
 [ext_resource type="Script" uid="uid://2l2ars67p6dg" path="res://units/_bosses/chaotic_one/chaotic_one.gd" id="2_shhvl"]
+[ext_resource type="Texture2D" uid="uid://53bewodgcb8p" path="res://cradleLogo.png" id="4_7cd7g"]
+[ext_resource type="Texture2D" uid="uid://b4iclk8uy8ll4" path="res://boardTiles.svg" id="5_usmoe"]
+[ext_resource type="Texture2D" uid="uid://d2yv1xbr00kjt" path="res://placeholdertiles.png" id="6_r8r77"]
+[ext_resource type="Texture2D" uid="uid://n6bp87bbe5pj" path="res://placeholderbase.png" id="7_8rky2"]
 
 [node name="Unit" instance=ExtResource("1_ojdqw")]
 script = ExtResource("2_shhvl")
@@ -34,3 +38,20 @@ modulate = Color(100, 100, 100, 1)
 position = Vector2(-19, 5)
 scale = Vector2(0.0516033, 0.0516033)
 texture = ExtResource("2_jylfi")
+
+[node name="CradleLogo" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="4"]
+position = Vector2(-11, -7)
+scale = Vector2(0.0462563, 0.0462563)
+texture = ExtResource("4_7cd7g")
+
+[node name="BoardTiles" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="5"]
+position = Vector2(17, 6)
+texture = ExtResource("5_usmoe")
+
+[node name="Placeholdertiles" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="6"]
+position = Vector2(-11, 1)
+texture = ExtResource("6_r8r77")
+
+[node name="Placeholderbase" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="7"]
+position = Vector2(16, -11)
+texture = ExtResource("7_8rky2")

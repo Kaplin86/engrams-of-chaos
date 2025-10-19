@@ -268,8 +268,8 @@ func runCraftAnim(NewFusion):
 	$CraftingUI/CraftedUnit.texture = load("res://units/"+NewFusion+"/"+NewFusion+".svg")
 	await $AnimationPlayer.animation_finished
 	craftAnimDone.emit()
-	$CraftingUI/LeftElement.position = Vector2(145,176)
-	$CraftingUI/RightElement.position = Vector2(611,234)
+	$CraftingUI/LeftElement.position = Vector2(232,281)
+	$CraftingUI/RightElement.position = Vector2(977,374)
 	$AnimationPlayer.speed_scale += 0.1
 
 signal craftAnimDone

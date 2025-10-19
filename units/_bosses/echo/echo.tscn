@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdfklhbxqffri"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ln5ep"]
+[ext_resource type="Script" uid="uid://dkeias8vetvpu" path="res://units/_bosses/echo/echo.gd" id="2_yyuvx"]
+[ext_resource type="Texture2D" uid="uid://bjurgtkfdo4hi" path="res://units/_bosses/echo/echo.svg" id="3_8vfkr"]
+
+[node name="Unit" instance=ExtResource("1_ln5ep")]
+script = ExtResource("2_yyuvx")
+description = "Will turn into a random enemy with 3 times the HP and ATTACK"
+damage = 7
+type = "echo"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_8vfkr")

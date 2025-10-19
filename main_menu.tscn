@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=20 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://c0vtc21mup82j" path="res://sfx/button1.ogg" id="2_8qtwp"]
 [ext_resource type="Texture2D" uid="uid://braxfc1u12b60" path="res://logo.png" id="2_jix8l"]
 [ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="3_glbon"]
+[ext_resource type="Texture2D" uid="uid://53bewodgcb8p" path="res://cradleLogo.png" id="5_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://b0xfbrnet82wa" path="res://units/pepper/pepper.svg" id="5_glbon"]
 [ext_resource type="Script" uid="uid://rgwl5e3uun00" path="res://physics_bg.gd" id="5_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="7_qe12f"]
@@ -26,6 +27,202 @@ radius = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlkkf"]
 size = Vector2(736, 110)
 
+[sub_resource type="Animation" id="Animation_0k4wn"]
+resource_name = "kitchenToCradle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j5v2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iotk1"]
+resource_name = "cradleToKitchen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w44g7"]
+_data = {
+&"RESET": SubResource("Animation_j5v2v"),
+&"cradleToKitchen": SubResource("Animation_iotk1"),
+&"kitchenToCradle": SubResource("Animation_0k4wn")
+}
+
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons")]
 script = ExtResource("1_fu7sn")
 Buttons = [NodePath("Tutorial"), NodePath("Easy"), NodePath("Normal"), NodePath("TurnedTables"), NodePath("CradleOfElements"), NodePath("Additional")]
@@ -39,6 +236,29 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_jix8l")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Logo"]
+show_behind_parent = true
+position = Vector2(114.75, 45.75)
+amount = 30
+texture = ExtResource("3_glbon")
+lifetime = 2.1
+emission_shape = 4
+emission_points = PackedVector2Array(0, -12.78, 42.51, -8.84, 35.55, -32.625, -33.645, -36.97, -73.76, -94.79, -77.335, -15.425, -148.275, -13.92, -227.93, -43.365, -156.27, -92.81, -218.315, -98.695, -284.91, -55.605, -292.52, -114.905)
+emission_colors = PackedColorArray()
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+scale_amount_min = 1.44
+scale_amount_max = 1.6
+color_ramp = SubResource("Gradient_nlkkf")
+
+[node name="Logo2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(574.4, 196.8)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5_0o4t1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Logo2"]
 show_behind_parent = true
 position = Vector2(114.75, 45.75)
 amount = 30
@@ -535,6 +755,11 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "LEADERBOARD"
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w44g7")
+}
 
 [connection signal="changeButton" from="." to="ColorRect3/ScrollContainer" method="_on_main_menu_change_button"]
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]
