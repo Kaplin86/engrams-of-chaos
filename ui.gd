@@ -25,13 +25,18 @@ func viewUnit(unit : BaseUnit):
 		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	
 	
-	
 	$UnitUI/Description.text = unit.description
 	
 	if unit.team != 2:
 		$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
 		$Name.text = unit.type.replace("_"," ")
+	
+	if $UnitUI/UnitSelectedImage.texture:
+		if !unit.has_meta("color"):
+			$Name.set_meta("color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
+		else:
+			$Name.add_theme_color_override("font_color",unit.get_meta("color"))
 	
 	if $UnitUI/UnitSelectedImage.texture:
 		$Name.add_theme_color_override("font_color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
@@ -77,10 +82,13 @@ func highlightSynergy(synergyname : String):
 		for E in $SynergyHolder.get_children():
 			E.modulate = Color(1,1,1)
 	else:
+		var color = null
 		for E in $SynergyHolder.get_children():
 			E.modulate = Color(1,1,1)
 			if remove_numbers_from_string(E.name) == synergyname:
 				E.modulate = Color(3,3,3)
+				color = E.get_child(0).get_theme_color("font_color")
+				
 		var NewObject : BaseSynergy = load("res://synergyScripts/"+synergyname+".gd").new()
 		var Description = NewObject.get_description($"../..".calculatesynergies(2).get(synergyname,0))
 		$UnitUI.visible = false
@@ -90,8 +98,8 @@ func highlightSynergy(synergyname : String):
 		
 		$Name.text = synergyname + " SYNERGY"
 		
+		$Name.add_theme_color_override("font_color",color)
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
-		$Name.add_theme_color_override("font_color",getColorOfImage($SynergyUI/SynergyIcon.texture))
 
 func modulateCraft(modulating):
 	$GameManagingButtons/Craft.modulate = modulating
@@ -201,7 +209,9 @@ func getColorOfImage(texture : Texture2D):
 	for y in range(0, texture_size.y):
 		for x in range(0, texture_size.x):
 			var pixel := image.get_pixel(x, y)
-			color += Vector3(pixel.r, pixel.g, pixel.b)
+			if pixel.r + pixel.g + pixel.b != 0:
+				color += Vector3(pixel.r, pixel.g, pixel.b)
+			
 			
 	color /= texture_size.x * texture_size.y
 

@@ -50,8 +50,8 @@ func _ready() -> void:
 		spawnUnit("kettle",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
-			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,14),2)
-			spawnUnit( DatastoreHolder.synergyUnitJson.keys().pick_random(),Vector2i(7,13),2)
+			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)
+			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,13),2)
 		else:
 			spawnUnit("chicken_wing",Vector2i(7,14),2)
 	
