@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cntvffmal31fm"]
+[gd_scene load_steps=4 format=3 uid="uid://cntvffmal31fm"]
 
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="1_754j0"]
-[ext_resource type="Texture2D" uid="uid://cjsgb1lsu6on4" path="res://ui/slot.svg" id="2_e0pol"]
+[ext_resource type="Script" uid="uid://cqarlous0xvx" path="res://cradle_engram_chooser.gd" id="1_akn1v"]
+[ext_resource type="PackedScene" uid="uid://dnadkydavqxm3" path="res://engramSlotMachine.tscn" id="3_akn1v"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_akn1v")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0.133333)
@@ -35,8 +37,26 @@ position = Vector2(212.5, -212.5)
 texture = ExtResource("1_754j0")
 flip_v = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Machine1" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(157, 280)
+scale = Vector2(0.354842, 0.354842)
 
-[node name="Slot" type="Sprite2D" parent="."]
-position = Vector2(316, 421)
-texture = ExtResource("2_e0pol")
+[node name="Machine2" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(375, 280)
+scale = Vector2(0.354842, 0.354842)
+
+[node name="Machine3" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(592, 280)
+scale = Vector2(0.354842, 0.354842)
+
+[node name="Machine4" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(157, 596)
+scale = Vector2(0.354842, 0.354842)
+
+[node name="Machine5" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(375, 596)
+scale = Vector2(0.354842, 0.354842)
+
+[node name="Machine6" parent="." instance=ExtResource("3_akn1v")]
+position = Vector2(592, 596)
+scale = Vector2(0.354842, 0.354842)
