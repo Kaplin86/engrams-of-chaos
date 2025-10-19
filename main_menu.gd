@@ -68,7 +68,10 @@ func _process(delta: float) -> void:
 			
 			DatastoreHolder.difficulty = Buttons[buttonHover].name
 			DatastoreHolder.Mode = mode
-			Transition.TransitionToScene("res://main.tscn")
+			if mode == "kitchen":
+				Transition.TransitionToScene("res://main.tscn")
+			else:
+				Transition.TransitionToScene("res://cradleEngramChooser.tscn")
 		elif Buttons[buttonHover].name == "Additional":
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
 		elif Buttons[buttonHover].name == "CradleOfElements":

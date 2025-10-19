@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cntvffmal31fm"]
+[gd_scene load_steps=5 format=3 uid="uid://cntvffmal31fm"]
 
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="1_754j0"]
 [ext_resource type="Script" uid="uid://cqarlous0xvx" path="res://cradle_engram_chooser.gd" id="1_akn1v"]
 [ext_resource type="PackedScene" uid="uid://dnadkydavqxm3" path="res://engramSlotMachine.tscn" id="3_akn1v"]
+[ext_resource type="Texture2D" uid="uid://53bewodgcb8p" path="res://cradleLogo.png" id="4_akn1v"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("machines")]
 script = ExtResource("1_akn1v")
+machines = [NodePath("Machine1"), NodePath("Machine2"), NodePath("Machine3"), NodePath("Machine4"), NodePath("Machine5"), NodePath("Machine6")]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 modulate = Color(1, 1, 1, 0.133333)
@@ -37,26 +39,100 @@ position = Vector2(212.5, -212.5)
 texture = ExtResource("1_754j0")
 flip_v = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 36.0
+offset_top = 105.0
+offset_right = 714.0
+offset_bottom = 763.0
+color = Color(0, 0, 0, 0.211765)
+
 [node name="Machine1" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(157, 280)
-scale = Vector2(0.354842, 0.354842)
 
 [node name="Machine2" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(375, 280)
-scale = Vector2(0.354842, 0.354842)
 
 [node name="Machine3" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(592, 280)
-scale = Vector2(0.354842, 0.354842)
 
 [node name="Machine4" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(157, 596)
-scale = Vector2(0.354842, 0.354842)
 
 [node name="Machine5" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(375, 596)
-scale = Vector2(0.354842, 0.354842)
 
 [node name="Machine6" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(592, 596)
-scale = Vector2(0.354842, 0.354842)
+
+[node name="confirm" type="ColorRect" parent="."]
+offset_left = 765.0
+offset_top = 225.0
+offset_right = 1083.4
+offset_bottom = 316.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "The real Engrams of Chaos experience"
+
+[node name="ColorRect3" type="ColorRect" parent="confirm"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="confirm"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reroll" type="ColorRect" parent="."]
+offset_left = 765.0
+offset_top = 335.0
+offset_right = 1083.4
+offset_bottom = 426.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "The real Engrams of Chaos experience"
+
+[node name="ColorRect3" type="ColorRect" parent="reroll"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="reroll"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "Reroll"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CradleLogo" type="Sprite2D" parent="."]
+position = Vector2(938, 111)
+scale = Vector2(0.891067, 0.891067)
+texture = ExtResource("4_akn1v")

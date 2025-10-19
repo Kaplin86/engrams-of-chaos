@@ -4,6 +4,9 @@ var engramNameToTexture = {}
 var CurrentList = []
 var engramNameToColor = {}
 var target = "spicy"
+var ReachedHighSpeed = false
+
+signal stop 
 
 func _ready():
 	for E in DatastoreHolder.CradleEngrams:
@@ -15,7 +18,8 @@ func _ready():
 	CurrentList.append(DatastoreHolder.CradleEngrams.pick_random())
 	CurrentList.append(DatastoreHolder.CradleEngrams.pick_random())
 	
-	startSpin()
+
+
 
 func getColorOfImage(texture : Texture2D):
 	var color := Vector3.ZERO
@@ -36,7 +40,6 @@ func getColorOfImage(texture : Texture2D):
 
 
 func startSpin():
-	target = "spicy"
 	VisualizeCurrentList()
 	$AnimationPlayer.play("scroll")
 	var NewTween = get_tree().create_tween()
@@ -48,7 +51,7 @@ func startSpin():
 
 
 func switchEngrams():
-	if $AnimationPlayer.speed_scale <= 7:
+	if $AnimationPlayer.speed_scale <= 7 and ReachedHighSpeed:
 		CurrentList.pop_front()
 		CurrentList.append(target)
 	else:
@@ -70,8 +73,12 @@ func VisualizeCurrentList(restartAnim = false):
 	NewTween.tween_property($Slot,"modulate",engramNameToColor[CurrentList[2]],0.1)
 	
 	$Selected.text = CurrentList[2]
+	$Click3.play()
 	
-	if $AnimationPlayer.speed_scale <= 1:
+	if $AnimationPlayer.speed_scale >= 10:
+		ReachedHighSpeed = true
+	if $AnimationPlayer.speed_scale <= 1 and ReachedHighSpeed:
 		$AnimationPlayer.stop()
 		NewTween = get_tree().create_tween()
 		NewTween.tween_property($Slot,"modulate",engramNameToColor[CurrentList[1]],0.1)
+		stop.emit()
