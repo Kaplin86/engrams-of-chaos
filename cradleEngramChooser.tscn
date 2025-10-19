@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cntvffmal31fm"]
+
+[ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="1_754j0"]
+[ext_resource type="Texture2D" uid="uid://cjsgb1lsu6on4" path="res://ui/slot.svg" id="2_e0pol"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.133333)
+z_index = -11
+repeat_size = Vector2(425, 425)
+autoscroll = Vector2(50, 25)
+repeat_times = 7
+
+[node name="Node2D" type="Node2D" parent="Parallax2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Pattern" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(212.5, 212.5)
+texture = ExtResource("1_754j0")
+
+[node name="Pattern2" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(-212.5, 212.5)
+texture = ExtResource("1_754j0")
+flip_h = true
+
+[node name="Pattern4" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(-212.5, -212.5)
+texture = ExtResource("1_754j0")
+flip_h = true
+flip_v = true
+
+[node name="Pattern3" type="Sprite2D" parent="Parallax2D/Node2D"]
+position = Vector2(212.5, -212.5)
+texture = ExtResource("1_754j0")
+flip_v = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Slot" type="Sprite2D" parent="."]
+position = Vector2(316, 421)
+texture = ExtResource("2_e0pol")

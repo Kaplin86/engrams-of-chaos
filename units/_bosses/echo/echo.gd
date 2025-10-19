@@ -9,7 +9,7 @@ func preTick():
 	var RandomEnemy : BaseUnit = Enemies.pick_random()
 	var NewUnit = gameManagerObject.spawnUnit(RandomEnemy.type,board_position,team,RandomEnemy.isBoss)
 	NewUnit.maxHP *= 3
-	NewUnit.hp = maxHP
+	NewUnit.hp *= 3
 	NewUnit.damage *= 3
 	hp = -999
 	

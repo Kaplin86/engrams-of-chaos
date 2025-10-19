@@ -1,8 +1,9 @@
 extends Node
 
 
-var CradleEngrams = ["sweet","spicy","sour","bitter","umami","salty"]
-var CradleBosses = ["rolling_pin","cutlery","whisk","echo"]
+var CradleEngrams = ["sweet","spicy","sour","bitter","umami","salty","greed","game","symbol","creativity"]
+#var CradleBosses = ["rolling_pin","cutlery","whisk","echo"]
+#var CradleBosses = ["echo","echo","echo"]
 
 var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
