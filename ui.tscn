@@ -201,7 +201,6 @@ autowrap_mode = 1
 uppercase = true
 
 [node name="SynergyUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -217,13 +216,13 @@ theme_override_constants/outline_size = 7
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 28
 bbcode_enabled = true
-text = "Units of this synergy jump to enemies and have increase crit chance.
+text = "At the start of the round, remove an engram to buff all defense by chance.
 
-[b]2 Units - Jump to enemy[/b]
+2 Units - (0 to 1) Defense
 
-4 Units - 5% Boost
+[b]4 Units - (0 to 2) Defense[/b]
 
-[b]6 Units - 10% Boost[/b]"
+6 Units - (0 to 4) Defense"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -238,6 +237,7 @@ texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

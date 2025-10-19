@@ -27,5 +27,11 @@
 	"fridge":["chaos","salty"],
 	"plate_pile":["chaos","umami"],
 	"trash_can": ["chaos","bitter"],
-	"kettle": ["chaos","sweet"]
+	"kettle": ["chaos","sweet"],
+	
+	"sweet_tooth":["sweet","greed"],
+	"blueprint":["sweet","creativity"],
+	"up_arrow":["sweet","symbol"],
+	"fractal":["symbol","symbol"],
+	"dice":["game","game"]
 }
