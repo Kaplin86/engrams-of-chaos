@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3e1s60jibe8h"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_u0wcg"]
+[ext_resource type="Texture2D" uid="uid://cjiu703e5hipp" path="res://units/blueprint/blueprint.svg" id="2_cv6hc"]
+[ext_resource type="Script" uid="uid://w48qjx6t4uym" path="res://units/blueprint/blueprint.gd" id="2_phwoq"]
+
+[node name="Unit" instance=ExtResource("1_u0wcg")]
+script = ExtResource("2_phwoq")
+description = "Every tick, Allies in the same column as this unit have increased attack speed"
+maxHP = 80
+damage = 6
+defense = 9
+type = "blueprint"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+scale = Vector2(0.0600222, 0.0600222)
+texture = ExtResource("2_cv6hc")

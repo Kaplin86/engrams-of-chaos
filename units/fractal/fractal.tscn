@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgithlr07myxf"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_77dup"]
+[ext_resource type="Script" uid="uid://dguwbr70h1nyo" path="res://units/fractal/fractal.gd" id="2_u41x0"]
+[ext_resource type="Texture2D" uid="uid://1qt3mflluu3t" path="res://units/fractal/fractal.svg" id="3_03j6u"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_wjqxf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhwjq"]
+shader = ExtResource("3_wjqxf")
+shader_parameter/strength = 2.0
+
+[node name="Unit" instance=ExtResource("1_77dup")]
+script = ExtResource("2_u41x0")
+description = "Every 10 ticks spawn another fractal somewhere on the board"
+maxHP = 90
+damage = 10
+defense = 9
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_vhwjq")
+texture = ExtResource("3_03j6u")

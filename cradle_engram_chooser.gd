@@ -1,6 +1,6 @@
 extends Node2D
 
-var loadout = []
+var loadout : Array[String] = []
 @export var machines : Array[Node] = []
 
 var selectedButton = "confirm"
@@ -25,9 +25,10 @@ func spin():
 		E.startSpin()
 	
 	
-	
+	DatastoreHolder.SelectedCradleEngrams = loadout
 	await $Machine1.stop
 	canSelect = true
+	
 	
 func _process(delta):
 	deltatimer += delta

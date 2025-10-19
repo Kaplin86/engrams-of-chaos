@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvw2asjx8hffk"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ucq5u"]
+[ext_resource type="Texture2D" uid="uid://cynwjitygelwg" path="res://units/up_arrow/up_arrow.svg" id="2_4nghx"]
+[ext_resource type="Script" uid="uid://cj25dhfp3b6ec" path="res://units/up_arrow/up_arrow.gd" id="2_vg1tm"]
+
+[node name="Unit" instance=ExtResource("1_ucq5u")]
+script = ExtResource("2_vg1tm")
+description = "On the second tick, if there has been a overall stat increase, this unit gains increased max hp"
+damage = 8
+defense = 11
+type = "up_arrow"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_4nghx")

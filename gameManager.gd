@@ -42,6 +42,7 @@ func _ready() -> void:
 			var NewThing = TempThing.pick_random()
 			TempThing.erase(NewThing)
 			currentlyAvailableBosses.append(NewThing)
+		currentAvailableEngrams = DatastoreHolder.SelectedCradleEngrams.duplicate()
 	
 	tickTimer.wait_time = secondsPerTick
 	tickTimer.timeout.connect(tick)

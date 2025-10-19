@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://n1xla0r2d1xa"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_dssp8"]
+[ext_resource type="Script" uid="uid://b3co6djju07af" path="res://units/sweet_tooth/sweet_tooth.gd" id="2_i3y0w"]
+[ext_resource type="Texture2D" uid="uid://is60mygjdo0f" path="res://units/sweet_tooth/sweet_tooth.svg" id="2_vgg4q"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_g85g5"]
+[ext_resource type="Texture2D" uid="uid://drqvahj3kbcva" path="res://units/sweet_tooth/sweet_tooth2.svg" id="4_i3y0w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsofo"]
+shader = ExtResource("3_g85g5")
+shader_parameter/strength = 1.0
+
+[node name="Unit" instance=ExtResource("1_dssp8")]
+script = ExtResource("2_i3y0w")
+description = "At the start of the round, if the sweet synergy is higher than 4 this gains a large buff."
+maxHP = 90
+damage = 6
+defense = 8
+type = "sweet_tooth"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_vgg4q")
+
+[node name="Visual2" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="1"]
+visible = false
+material = SubResource("ShaderMaterial_bsofo")
+scale = Vector2(0.078877, 0.078877)
+texture = ExtResource("4_i3y0w")

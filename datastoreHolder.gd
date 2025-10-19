@@ -5,6 +5,8 @@ var CradleEngrams = ["sweet","spicy","sour","bitter","umami","salty","greed","ga
 var CradleBosses = ["rolling_pin","cutlery","whisk","echo"]
 #var CradleBosses = ["echo","echo","echo"]
 
+var SelectedCradleEngrams : Array[String] = []
+
 var synergyUnitJson : Dictionary = {}
 var craftingUnitJson : Dictionary = {}
 var tutorial = false
@@ -50,3 +52,4 @@ func getFusedUnit(element1,element2):
 			print("checking if unit has ", element2, " in ", parseJson)
 			if parseJson.has(element2):
 				return unit
+	return "pepper"

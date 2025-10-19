@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5nurd5ai41h"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_328vq"]
+[ext_resource type="Script" uid="uid://bl8f07b8lcc81" path="res://units/dice/dice.gd" id="2_rgl18"]
+[ext_resource type="Texture2D" uid="uid://3fs4org3wx2t" path="res://units/dice/dice.svg" id="3_tgc6u"]
+
+[node name="Unit" instance=ExtResource("1_328vq")]
+script = ExtResource("2_rgl18")
+description = "Every tick, increase an ally's stats by random amounts ( can go down )"
+damage = 9
+defense = 9
+type = "dice"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_tgc6u")
