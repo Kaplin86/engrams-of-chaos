@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cntvffmal31fm"]
+[gd_scene load_steps=9 format=3 uid="uid://cntvffmal31fm"]
 
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="1_754j0"]
 [ext_resource type="Script" uid="uid://cqarlous0xvx" path="res://cradle_engram_chooser.gd" id="1_akn1v"]
 [ext_resource type="PackedScene" uid="uid://dnadkydavqxm3" path="res://engramSlotMachine.tscn" id="3_akn1v"]
+[ext_resource type="Texture2D" uid="uid://bwt8d6rxp1740" path="res://ui/elements/greed.svg" id="3_ee2xj"]
 [ext_resource type="Texture2D" uid="uid://53bewodgcb8p" path="res://cradleLogo.png" id="4_akn1v"]
+[ext_resource type="Texture2D" uid="uid://b2q1mdh162ehn" path="res://ui/elements/creativity.svg" id="4_ms5qj"]
+[ext_resource type="Texture2D" uid="uid://sal5sgp18br8" path="res://ui/elements/symbol.svg" id="5_uvnds"]
+[ext_resource type="Texture2D" uid="uid://2fi32vv7ly34" path="res://ui/elements/game.svg" id="6_6b8en"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("machines")]
 script = ExtResource("1_akn1v")
@@ -45,6 +49,42 @@ offset_top = 105.0
 offset_right = 714.0
 offset_bottom = 763.0
 color = Color(0, 0, 0, 0.211765)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 724.0
+offset_top = 596.0
+offset_right = 1135.0
+offset_bottom = 847.0
+color = Color(0, 0, 0, 0.211765)
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "NOTE:
+THIS GAMEMODE IS NOT FULLY COMPLETE
+SO SOME CRAFTING COMBOS WILL RESULT IN PEPPER
+RATHER THAN A NEW UNIT"
+
+[node name="Creativity" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(41.6274, 212.627)
+scale = Vector2(0.159709, 0.159709)
+texture = ExtResource("3_ee2xj")
+
+[node name="Creativity2" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(105.627, 212.627)
+scale = Vector2(0.159709, 0.159709)
+texture = ExtResource("4_ms5qj")
+
+[node name="Creativity3" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(170.627, 212.627)
+scale = Vector2(0.159709, 0.159709)
+texture = ExtResource("5_uvnds")
+
+[node name="Creativity4" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(231.627, 212.627)
+scale = Vector2(0.159709, 0.159709)
+texture = ExtResource("6_6b8en")
 
 [node name="Machine1" parent="." instance=ExtResource("3_akn1v")]
 position = Vector2(157, 280)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhptcwfgwja7l"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_5e32p"]
+[ext_resource type="Script" uid="uid://b668u7emrqd6f" path="res://units/sculpture/sculpture.gd" id="2_6ijj2"]
+[ext_resource type="Texture2D" uid="uid://dp5sunyw0hfr7" path="res://units/sculpture/sculpture.svg" id="3_lr206"]
+
+[node name="Unit" instance=ExtResource("1_5e32p")]
+script = ExtResource("2_6ijj2")
+description = "ABILITY: This unit strikes the enemy with 5 times their damage, then decreases their damage by 2"
+damage = 10
+defense = 9
+type = "sculpture"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_lr206")

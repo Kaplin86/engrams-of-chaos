@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cny3dugwcfm3q"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_irk4t"]
+[ext_resource type="Script" uid="uid://m1ltgpmvt8ox" path="res://units/canvas/canvas.gd" id="2_voj0u"]
+[ext_resource type="Texture2D" uid="uid://33mt4cv8enm0" path="res://units/canvas/canvas.svg" id="3_5mo1v"]
+
+[node name="Unit" instance=ExtResource("1_irk4t")]
+script = ExtResource("2_voj0u")
+description = "At the start of the round, turn into the unit to the left of this"
+maxHP = 90
+damage = 11
+defense = 7
+type = "canvas"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+scale = Vector2(0.0475623, 0.0475623)
+texture = ExtResource("3_5mo1v")

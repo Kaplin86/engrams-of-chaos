@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu2p6jvucjcjv"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ktnr6"]
+[ext_resource type="Script" uid="uid://b8ldqrs6re7nn" path="res://units/rules_card/rules_card.gd" id="2_n5ahx"]
+[ext_resource type="Texture2D" uid="uid://dctyq13tj41st" path="res://units/rules_card/rules_card.svg" id="3_fsl4g"]
+
+[node name="Unit" instance=ExtResource("1_ktnr6")]
+script = ExtResource("2_n5ahx")
+description = "At the round start, the unit to the right of this has the same stats as the unit to the left."
+damage = 10
+defense = 8
+type = "rules_card"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_fsl4g")

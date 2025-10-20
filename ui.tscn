@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=19 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="3_27fn8"]
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="3_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="5_ibotj"]
+[ext_resource type="Script" uid="uid://j0s0bjih7bcp" path="res://textslowchange.gd" id="5_n5rqp"]
 [ext_resource type="Texture2D" uid="uid://cs01ii7jihxxb" path="res://ui/shield.svg" id="6_y4yjw"]
 [ext_resource type="Texture2D" uid="uid://dv72pvgsxfxlw" path="res://ui/heart.svg" id="7_waa4j"]
 [ext_resource type="FontFile" uid="uid://bp4mijjya3jcm" path="res://PressStart2P-Regular.ttf" id="8_irxef"]
@@ -248,7 +249,6 @@ texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -265,6 +265,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 15
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
+script = ExtResource("5_n5rqp")
 
 [node name="Synergies" type="VBoxContainer" parent="UnitUI"]
 layout_mode = 0

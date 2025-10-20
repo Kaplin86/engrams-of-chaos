@@ -3,7 +3,11 @@ class_name GameSynergy
 func firstTick(team : int ,level): ## This fires at the first tick of battle. The team passed is the team with the synergy, and level refers to the level of synergy that team has.
 	if level > 1 and team == 2:
 		if manager.engramInventory.size() > 0:
-			manager.engramInventory[manager.engramInventory.keys().pick_random()] -= 1
+			var selectedThing = manager.engramInventory.keys().pick_random()
+			manager.engramInventory[selectedThing] -= 1
+			if manager.engramInventory[selectedThing] <= 0:
+				manager.engramInventory.erase(selectedThing)
+			
 			for E in manager.units:
 				if E is BaseUnit:
 					if E.team == team:

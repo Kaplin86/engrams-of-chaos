@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn6mp41r6txs5"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_dmqba"]
+[ext_resource type="Script" uid="uid://cfjpaqr1xjd8s" path="res://units/gold/gold.gd" id="2_frb4j"]
+[ext_resource type="Texture2D" uid="uid://cgxlnnee42ung" path="res://units/gold/gold.svg" id="3_5kdir"]
+
+[node name="Unit" instance=ExtResource("1_dmqba")]
+script = ExtResource("2_frb4j")
+description = "ABILITY: Heal this unit by how many engrams you have."
+damage = 9
+maxMana = 50
+defense = 8
+type = "gold"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_5kdir")

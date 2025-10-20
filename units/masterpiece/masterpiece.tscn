@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv2i2qclkm85v"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_4eg55"]
+[ext_resource type="Script" uid="uid://dvd0fo6cuf5m6" path="res://units/masterpiece/masterpiece.gd" id="2_h1fkm"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_ag0jt"]
+[ext_resource type="Texture2D" uid="uid://dk2nt34nxr6kr" path="res://units/masterpiece/masterpiece.svg" id="3_l0soe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ktbbi"]
+shader = ExtResource("3_ag0jt")
+shader_parameter/strength = 1.5
+
+[node name="Unit" instance=ExtResource("1_4eg55")]
+script = ExtResource("2_h1fkm")
+description = "When this attacks, freeze the enemy (excluding Bosses)"
+maxHP = 90
+damage = 9
+defense = 7
+type = "masterpiece"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_ktbbi")
+scale = Vector2(0.0544495, 0.0544495)
+texture = ExtResource("3_l0soe")

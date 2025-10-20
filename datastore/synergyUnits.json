@@ -1,7 +1,6 @@
 {
 	"pepper":["spicy","spicy"],
 	"chicken_wing":["spicy","umami"],
-	
 	"cake":["sweet","sweet"],
 	"bbq":["sweet","spicy"],
 	"pineapple":["sweet","sour"],
@@ -33,5 +32,12 @@
 	"blueprint":["sweet","creativity"],
 	"up_arrow":["sweet","symbol"],
 	"fractal":["symbol","symbol"],
-	"dice":["game","game"]
+	"dice":["game","game"],
+	"down_arrow":["bitter","symbol"],
+	"rotting_coin":["sour","greed"],
+	"masterpiece":["umami","creativity"],
+	"rules_card":["salty","game"],
+	"sculpture":["bitter","creativity"],
+	"gold":["greed","greed"],
+	"canvas":["creativity","creativity"]
 }

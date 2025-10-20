@@ -17,8 +17,8 @@ func loadTopScores():
 	if !LeaderboardAPI.lastData:
 		return
 	for E in LeaderboardAPI.lastData:
-		print(LeaderboardAPI.lastData)
-		if Main.mode == "cradle":
+		if Main.mode == "Cradle":
+			print(E['gamemode'])
 			if E['gamemode'] == "Cradle" + difficulty:
 				NewOrdering.append(E)
 				
