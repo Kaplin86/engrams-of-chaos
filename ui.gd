@@ -10,6 +10,7 @@ func _ready() -> void:
 	$DEARPLAYTESTERS.visible = false
 
 var synergyRectScene = preload("res://ui/synergy_rect.tscn")
+var selectedButton = "play"
 
 func viewUnit(unit : BaseUnit):
 	$UnitUI.visible = true
@@ -26,11 +27,13 @@ func viewUnit(unit : BaseUnit):
 	
 	
 	$UnitUI/Description.text = unit.description
-	
+	$Name.size.x = 334
+	$Name.position.x = 812
 	if unit.team != 2:
 		$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
 		$Name.text = unit.type.replace("_"," ")
+	
 	
 	if $UnitUI/UnitSelectedImage.texture:
 		if !unit.has_meta("color"):
@@ -96,6 +99,8 @@ func highlightSynergy(synergyname : String):
 		$Tutorial.visible = false
 		$SynergyUI/Description.text = Description
 		
+		$Name.size.x = 334
+		$Name.position.x = 812
 		$Name.text = synergyname + " SYNERGY"
 		
 		$Name.add_theme_color_override("font_color",color)
@@ -114,12 +119,14 @@ func highlightCrafting(synergyname : String):
 func highlightStartPause(craft = false, disable = false, deltatimer = 0):
 	if !disable:
 		if !craft:
+			selectedButton = "play"
 			if floor(deltatimer * 2) == round(deltatimer * 2):
 				$GameManagingButtons/Pause_Resume.color =  Color("b2b2b2")
 			else:
 				$GameManagingButtons/Pause_Resume.color =  Color("a9a9a9")
 			$GameManagingButtons/Craft.color =  Color("636363")
 		else:
+			selectedButton = "craft"
 			if floor(deltatimer * 2) == round(deltatimer * 2):
 				$GameManagingButtons/Craft.color =  Color("b2b2b2")
 			else:
@@ -176,9 +183,15 @@ A/D - Choose synergy
 S - Button Selection
 "
 	elif currentstate == "StartPause":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+		if selectedButton == "play":
+			$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
 W - Synergy Selection
-A/D - Choose Button
+S - Craft Button
+Z to select
+"
+		elif selectedButton == "craft":
+			$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
+W - Play Button
 S - Unit Selection
 Z to select
 "
@@ -261,6 +274,7 @@ func showTutorial(roundnumber):
 	$UnitUI.visible = false
 	$SynergyUI.visible = false
 	$Name.remove_theme_color_override("font_color")
+	$Name.size.x = 23
 	$Name.text = "Current Wave: "+  str(roundnumber)
 
 func runCraftAnim(NewFusion):

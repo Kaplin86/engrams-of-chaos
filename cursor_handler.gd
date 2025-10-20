@@ -98,7 +98,10 @@ func _process(delta: float) -> void:
 			SynergyView.emit()
 		if checkInputJustPressed("ui_up"):
 			CurrentState = "StartPause"
-			buttonPoint = "start"
+			if main.engramInventory.size() != 0:
+				buttonPoint = "craft"
+			else:
+				buttonPoint = "start"
 			unitTarget.modulate = Color(1,1,1)
 			ButtonPanelTargeted.emit()
 		if checkInputJustPressed("confirm") and unitTarget.team == 2:
@@ -192,24 +195,34 @@ func _process(delta: float) -> void:
 			ui.highlightStartPause(true,false,deltatimer)
 		
 		
-		if checkInputJustPressed("ui_left") or checkInputJustPressed("ui_right"):
+		if checkInputJustPressed("ui_up") or checkInputJustPressed("ui_down"):
 			if buttonPoint == "start":
-				if main.engramInventory.size() != 0:
-					buttonPoint = "craft"
-					CraftingButtonSelected.emit()
+				if checkInputJustPressed("ui_up"):
+					ui.highlightStartPause(false,true)
+					CurrentState = "SynergyView"
+					synergyPoint = 0
+				else:
+					if main.engramInventory.size() != 0:
+						buttonPoint = "craft"
+						CraftingButtonSelected.emit()
+					else:
+						ui.highlightStartPause(false,true)
+						CurrentState = "BoardUnit"
+						playuiSound()
+						unitTarget = null
+						WentToBoard.emit()
+				
+				
 			elif buttonPoint == "craft":
-				buttonPoint = "start"
+				if checkInputJustPressed("ui_up"):
+					buttonPoint = "start"
+				else:
+					ui.highlightStartPause(false,true)
+					CurrentState = "BoardUnit"
+					playuiSound()
+					unitTarget = null
+					WentToBoard.emit()
 		
-		if checkInputJustPressed("ui_up"):
-			ui.highlightStartPause(false,true)
-			CurrentState = "SynergyView"
-			synergyPoint = 0
-		elif checkInputJustPressed("ui_down"):
-			ui.highlightStartPause(false,true)
-			CurrentState = "BoardUnit"
-			playuiSound()
-			unitTarget = null
-			WentToBoard.emit()
 		if checkInputJustPressed("confirm"):
 			if buttonPoint == "start":
 				main.startButtonHit()

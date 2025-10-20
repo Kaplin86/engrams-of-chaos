@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3jwk4ljdrqq0"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_bhcvj"]
+[ext_resource type="Script" uid="uid://d0ngnc7ahkklj" path="res://units/rotting_coin/rotting_coin.gd" id="2_ujfvo"]
+[ext_resource type="Texture2D" uid="uid://cmmjcb3fxefyc" path="res://units/rotting_coin/rotting_coin.svg" id="3_5cpck"]
+
+[node name="Unit" instance=ExtResource("1_bhcvj")]
+script = ExtResource("2_ujfvo")
+description = "ABILITY: Attacks the enemy with attack times greed synergy level"
+maxHP = 110
+damage = 7
+maxMana = 80
+defense = 10
+type = "rotting_coin"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_5cpck")

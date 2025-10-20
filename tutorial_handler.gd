@@ -114,11 +114,11 @@ func _ready() -> void:
 	await tutorialPointer.say("ENGRAMS can be used for CRAFTING new units!!")
 	await tutorialPointer.say("You see the loop now, right? You beat up guys, get engrams, make a better team, and repeat?")
 	await tutorialPointer.say("Anywhom, lets craft your first unit!")
-	await tutorialPointer.say("After this message, Press A or D to switch to your CRAFTING button!")
+	await tutorialPointer.say("After this message, Press S to switch to your CRAFTING button!")
 	tutorialPointer.silent()
 	
 	# Allow user to go left or right
-	cursorHandler.disabledInputs = ["ui_up","ui_down","deny","confirm"]
+	cursorHandler.disabledInputs = ["ui_up","deny","confirm","ui_left","ui_right"]
 	await cursorHandler.CraftingButtonSelected
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	

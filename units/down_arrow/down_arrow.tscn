@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://jpyggtmny1sd"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_atomw"]
+[ext_resource type="Script" uid="uid://dc8m34s0ic2b" path="res://units/down_arrow/down_arrow.gd" id="2_otsgv"]
+[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="3_5xey4"]
+[ext_resource type="Texture2D" uid="uid://bofyguqkdrxk4" path="res://units/down_arrow/down_arrow.svg" id="4_eqfn3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5sqy"]
+shader = ExtResource("3_5xey4")
+shader_parameter/strength = 0.5
+
+[node name="Unit" instance=ExtResource("1_atomw")]
+script = ExtResource("2_otsgv")
+description = "Every tick, If a negative stat changed happened on the team last tick, gain 5 max hp"
+maxHP = 70
+damage = 9
+defense = 7
+type = "down_arrow"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_y5sqy")
+texture = ExtResource("4_eqfn3")

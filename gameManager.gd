@@ -109,6 +109,7 @@ func generateEnemyTeam():
 	var usedPositions = []
 	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
+		
 	elif currentWave == 5 or currentWave == 7:
 		#spawnUnit("cutlery",Vector2(7,1),1,true)
 		var bossName = currentlyAvailableBosses.pick_random()
@@ -129,6 +130,8 @@ func generateEnemyTeam():
 		newtween.tween_property($BossText/Modulate,"modulate",Color(1,1,1,0),1)
 		await get_tree().create_timer(1).timeout
 	else:
+		if currentWave == 2 and $TutorialHandler.tutorialMode:
+			EnemyCount = 2
 		for E in EnemyCount:
 			var ChosenUnit = DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random())
 			var chosenPos
