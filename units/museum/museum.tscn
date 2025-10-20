@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsd4exfc7abec"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_mvvx7"]
+[ext_resource type="Script" uid="uid://b04hlajahwxqj" path="res://units/museum/museum.gd" id="2_jo1rt"]
+[ext_resource type="Texture2D" uid="uid://x17f01y8p3md" path="res://units/museum/museum.svg" id="3_jlotl"]
+
+[node name="Unit" instance=ExtResource("1_mvvx7")]
+script = ExtResource("2_jo1rt")
+description = "When this dies, spawn the last ally whos died here."
+maxHP = 110
+damage = 5
+defense = 9
+type = "museum"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_jlotl")

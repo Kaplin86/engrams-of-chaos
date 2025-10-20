@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8rfoi3ttqfq1"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_h2cxq"]
+[ext_resource type="Script" uid="uid://dduec2tcd28p8" path="res://units/poker_chip/poker_chip.gd" id="2_3j6y6"]
+[ext_resource type="Texture2D" uid="uid://doemga2304qrc" path="res://units/poker_chip/poker_chip.svg" id="2_ubagp"]
+
+[node name="Unit" instance=ExtResource("1_h2cxq")]
+script = ExtResource("2_3j6y6")
+description = "ABILITY: Flip a coin. If heads, double damage, if tails, half defense"
+maxHP = 90
+damage = 9
+maxMana = 100
+defense = 9
+type = "poker_chip"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_ubagp")

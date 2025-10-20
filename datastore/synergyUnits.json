@@ -39,5 +39,10 @@
 	"rules_card":["salty","game"],
 	"sculpture":["bitter","creativity"],
 	"gold":["greed","greed"],
-	"canvas":["creativity","creativity"]
+	"canvas":["creativity","creativity"],
+	
+	"1st_place_medal":["sweet","game"],
+	"tax_form":["bitter","greed"],
+	"museum":["greed","creativity"],
+	"poker_chip":["greed","game"]
 }

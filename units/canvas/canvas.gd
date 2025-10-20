@@ -1,4 +1,4 @@
-extends BaseBoss
+extends BaseUnit
 func preTick():
 	var UnitPosDictionary = {}
 	for E in gameManagerObject.units:

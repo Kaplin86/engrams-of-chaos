@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://7lswhhwxbj25"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_pngwx"]
+[ext_resource type="Script" uid="uid://dse8pbaqg6kse" path="res://units/tax_form/tax_form.gd" id="2_bpk1k"]
+[ext_resource type="Texture2D" uid="uid://mvr5hqcl5cg" path="res://units/tax_form/tax_form.svg" id="3_7v02c"]
+
+[node name="Unit" instance=ExtResource("1_pngwx")]
+script = ExtResource("2_bpk1k")
+description = "When this gets attacked, the attacker looses 1 defense."
+maxHP = 60
+damage = 7
+defense = 7
+type = "tax_form"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_7v02c")

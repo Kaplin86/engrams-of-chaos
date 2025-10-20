@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://du8efwcbgo01y"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_svnnq"]
+[ext_resource type="Script" uid="uid://rmwlqla0ac0a" path="res://units/1st_place_medal/1st_place_medal.gd" id="2_1tv75"]
+[ext_resource type="Texture2D" uid="uid://0rv7h48242ml" path="res://units/1st_place_medal/1st_place_medal.svg" id="3_2j2jy"]
+
+[node name="Unit" instance=ExtResource("1_svnnq")]
+script = ExtResource("2_1tv75")
+description = "Every tick, allies surrounding this gain 5% crit chance"
+damage = 9
+speed = 1.2
+defense = 8
+type = "1st_place_medal"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_2j2jy")
