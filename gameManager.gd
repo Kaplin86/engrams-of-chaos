@@ -256,7 +256,6 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 		return
 	
 	if doneFirstTick == false:
-		doneFirstTick = true
 		callTeamSynergies("firstTick")
 	
 	callTeamSynergies("tickTeam")
@@ -287,8 +286,12 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 			unit.die()
 			continue
 		
+		if doneFirstTick == false:
+			unit.mana = 0
 		
 		unit.preTick()
+	
+	doneFirstTick = true
 	
 	# ACTUAL TICK
 	for E in UnitsBySpeed:

@@ -36,7 +36,9 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 
 folder_colors={
 "res://units/_bosses/": "orange",
-"res://units/_bosses/fork/": "orange"
+"res://units/_bosses/fork/": "orange",
+"res://units/base_unit/base_unit.tscn": "red",
+"res://units/chess_piece/": "red"
 }
 
 [importer_defaults]

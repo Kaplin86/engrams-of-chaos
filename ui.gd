@@ -20,6 +20,14 @@ func viewUnit(unit : BaseUnit):
 	$UnitUI/Damage.text = str(unit.damage)
 	$UnitUI/Defense.text = str(unit.defense)
 	$UnitUI/Health.text = str(unit.hp)
+	if unit.maxMana == 0:
+		$UnitUI/Mana.visible = false
+	else:
+		$UnitUI/Mana.visible = true
+		$UnitUI/Mana.text = str(unit.mana)
+	$UnitUI/CritChance.text = str(unit.CritChance * 100) + "%"
+	$UnitUI/Speed.text = str(snapped(unit.speed,0.1))
+	
 	if unit.isBoss:
 		$UnitUI/UnitSelectedImage.texture = unit._sprite
 	else:

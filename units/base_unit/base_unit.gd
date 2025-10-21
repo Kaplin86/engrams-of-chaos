@@ -57,7 +57,7 @@ func _ready() -> void:
 		$VisualHolder/ManaBar.visible = false
 	
 	
-	mana = 0
+	mana = maxMana
 	hp = maxHP
 
 func tick(time_per_tick : float): ## This is ran every ingame tick.

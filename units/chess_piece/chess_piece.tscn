@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh4gosgpweb12"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_nxgpp"]
+
+[node name="Unit" instance=ExtResource("1_nxgpp")]
+description = "ABILITY: Does 2 additional ticks"
+maxHP = 95
+damage = 10
+maxMana = 80
+defense = 8
+type = "chess_piece"
