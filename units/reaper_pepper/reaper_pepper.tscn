@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx7nqqsenb6rj"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_nr15t"]
+[ext_resource type="Script" uid="uid://6hsv748on5wk" path="res://units/reaper_pepper/reaper_pepper.gd" id="2_j45ym"]
+
+[node name="Unit" instance=ExtResource("1_nr15t")]
+script = ExtResource("2_j45ym")
+description = "Every time this unit attacks, it's damage increases by one, but its speed decreases"
+damage = 9
+defense = 8
+type = "reaper_pepper"

@@ -257,7 +257,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Description" type="Label" parent="UnitUI"]
+[node name="Description" type="RichTextLabel" parent="UnitUI"]
 layout_mode = 0
 offset_left = 818.0
 offset_top = 311.0
@@ -265,10 +265,17 @@ offset_right = 1041.0
 offset_bottom = 419.0
 scale = Vector2(1.4471, 1.4471)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 15
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
 script = ExtResource("5_n5rqp")
+KeywordToColor = {
+"crit chance": Color(1, 0.533333, 0, 1),
+"damage": Color(1, 0.435951, 0.344696, 1),
+"defense": Color(0.531287, 0.494965, 1, 1),
+"hp": Color(0.890196, 0, 0, 1),
+"mana": Color(0.231373, 0.0156863, 1, 1),
+"speed": Color(0.894118, 0.494118, 0.0941176, 1)
+}
 
 [node name="Synergies" type="VBoxContainer" parent="UnitUI"]
 layout_mode = 0
@@ -296,6 +303,7 @@ texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitSelectedImage" type="TextureRect" parent="UnitUI"]
+layout_mode = 0
 offset_left = 942.0
 offset_top = 56.0
 offset_right = 1142.0

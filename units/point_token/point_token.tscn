@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dksdpuwlx48kp"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_uyf05"]
+[ext_resource type="Script" uid="uid://iryf0uat2nat" path="res://units/point_token/point_token.gd" id="2_i6v5q"]
+
+[node name="Unit" instance=ExtResource("1_uyf05")]
+script = ExtResource("2_i6v5q")
+description = "ABILITY: Strike the enemy with damage * the number of point tokens on the team"
+maxHP = 110
+damage = 7
+defense = 10
+type = "point_token"

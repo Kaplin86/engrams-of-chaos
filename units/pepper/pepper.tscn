@@ -10,7 +10,7 @@ description = "Every time this unit attacks, it's attack speed increases by 2%"
 maxHP = 90
 damage = 8
 speed = 1.5
-defense = 5
+defense = 6
 type = "pepper"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
