@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw0upbkh1jrry"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_gocpt"]
+[ext_resource type="Script" uid="uid://djyqffier20s7" path="res://units/brush/brush.gd" id="2_tgv4b"]
+
+[node name="Unit" instance=ExtResource("1_gocpt")]
+script = ExtResource("2_tgv4b")
+description = "ABILITY: Spawn a scribble somewhere on the board"
+maxHP = 80
+damage = 7
+maxMana = 80
+defense = 10
+type = "brush"
