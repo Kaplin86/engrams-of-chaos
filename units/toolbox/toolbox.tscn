@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqejl84x0hrne"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_v3akt"]
+[ext_resource type="Script" uid="uid://c3nymcytvgfwy" path="res://units/toolbox/toolbox.gd" id="2_vyw4c"]
+
+[node name="Unit" instance=ExtResource("1_v3akt")]
+script = ExtResource("2_vyw4c")
+description = "Every tick, Allies in the same row as this unit have increased attack speed"

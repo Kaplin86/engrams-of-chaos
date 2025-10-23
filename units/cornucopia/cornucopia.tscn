@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5dyd76ifcvc"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_yx6qh"]
+[ext_resource type="Script" uid="uid://dgpm31k28pv02" path="res://units/cornucopia/cornucopia.gd" id="2_31og1"]
+
+[node name="Unit" instance=ExtResource("1_yx6qh")]
+script = ExtResource("2_31og1")
+description = "When this gets hit, equally distribute the hit between neighboring allies"
+maxHP = 110
+damage = 9
+speed = 1.5
+defense = 9
+type = "cornucopia"

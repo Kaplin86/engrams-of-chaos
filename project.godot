@@ -35,20 +35,26 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 [file_customization]
 
 folder_colors={
+"res://units/4th_place_medal/": "red",
 "res://units/_bosses/": "orange",
 "res://units/_bosses/fork/": "orange",
+"res://units/anchor/": "red",
 "res://units/base_unit/base_unit.tscn": "red",
 "res://units/blueprint/blueprint.tscn": "red",
 "res://units/brush/": "red",
 "res://units/chess_piece/": "red",
+"res://units/cornucopia/": "red",
 "res://units/crown/": "red",
 "res://units/dusty_book/": "red",
 "res://units/exclamation_point/": "red",
 "res://units/investment_vault/": "red",
+"res://units/modified_card/": "red",
 "res://units/money_paper/": "red",
 "res://units/point_token/": "red",
 "res://units/reaper_pepper/": "red",
-"res://units/scribble/": "red"
+"res://units/scribble/": "red",
+"res://units/toolbox/": "red",
+"res://units/warning/": "red"
 }
 
 [importer_defaults]

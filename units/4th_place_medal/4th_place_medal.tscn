@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba0ghtqkx8ehd"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_c0ffe"]
+[ext_resource type="Script" uid="uid://cpbnhoik3u5b4" path="res://units/4th_place_medal/4th_place_medal.gd" id="2_6lsy1"]
+
+[node name="Unit" instance=ExtResource("1_c0ffe")]
+script = ExtResource("2_6lsy1")
+description = "Once this reaches 30% HP, It's defences increase by 7"
+damage = 8
+defense = 7
+type = "4th_place_medal"
