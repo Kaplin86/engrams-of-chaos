@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bidtnm4mv12qt"]
+[gd_scene load_steps=5 format=3 uid="uid://bidtnm4mv12qt"]
 
 [ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_wmngt"]
 [ext_resource type="Script" uid="uid://uigqoccpfaf1" path="res://units/anchor/anchor.gd" id="2_tuy28"]
+[ext_resource type="Texture2D" uid="uid://kqqdc7241f6u" path="res://units/chicken_wing/chicken_wing.svg" id="3_7ckcv"]
 
 [sub_resource type="Curve2D" id="Curve2D_tuy28"]
 resource_local_to_scene = true
@@ -19,6 +20,9 @@ speed = 1.0
 maxMana = 100
 defense = 8
 type = "anchor"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_7ckcv")
 
 [node name="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_tuy28")

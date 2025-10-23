@@ -50,9 +50,11 @@ folder_colors={
 "res://units/investment_vault/": "red",
 "res://units/modified_card/": "red",
 "res://units/money_paper/": "red",
+"res://units/paint_bomb/": "red",
 "res://units/point_token/": "red",
 "res://units/reaper_pepper/": "red",
 "res://units/scribble/": "red",
+"res://units/snowball/": "red",
 "res://units/toolbox/": "red",
 "res://units/warning/": "red"
 }

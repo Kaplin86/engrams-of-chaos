@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy40ilr3hilag"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_set24"]
+[ext_resource type="Script" uid="uid://cw73lyqb5u314" path="res://units/controller/controller.gd" id="2_7mvie"]
+
+[node name="Unit" instance=ExtResource("1_set24")]
+script = ExtResource("2_7mvie")
+description = "ABILITY: This unit becomes frozen for a tick, giving another unit a bonus action"
+damage = 7
+maxMana = 80
+defense = 10
+type = "controller"

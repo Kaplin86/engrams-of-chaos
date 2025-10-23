@@ -1,4 +1,4 @@
-extends Label
+extends RichTextLabel
 var lastString = ""
 
 @export var RelativeToLength = true

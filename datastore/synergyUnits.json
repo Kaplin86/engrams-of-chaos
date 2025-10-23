@@ -44,5 +44,22 @@
 	"1st_place_medal":["sweet","game"],
 	"tax_form":["bitter","greed"],
 	"museum":["greed","creativity"],
-	"poker_chip":["greed","game"]
+	"poker_chip":["greed","game"],
+	"reaper_pepper":["spicy","greed"],
+	"paint_bomb":["spicy","creativity"],
+	"exclamation_point":["spicy","symbol"],
+	"snowball":["spicy","game"],
+	"dusty_book":["sour","creativity"],
+	"4th_place_medal":["sour","game"],
+	"controller":["bitter","game"],
+	"cornucopia":["umami","greed"],
+	"crown":["umami","symbol"],
+	"point_token":["umami","game"],
+	"investment_vault":["salty","greed"],
+	"toolbox":["salty","creativity"],
+	"anchor":["salty","symbol"],
+	"money_paper":["greed","symbol"],
+	"brush":["creativity","symbol"],
+	"modified_card":["creativity","game"],
+	"chess_piece":["symbol","game"]
 }

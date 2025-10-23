@@ -2,7 +2,7 @@ extends BaseUnit
 func preTick():
 	var UnitPosDictionary = {}
 	for E in gameManagerObject.units:
-		UnitPosDictionary[E.board_position]
+		UnitPosDictionary[E.board_position] = E
 	
 	
 	if UnitPosDictionary.has(board_position + Vector2i(-1,0)):

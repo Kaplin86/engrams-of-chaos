@@ -218,9 +218,7 @@ Z - Confirm Fusion
 X - Remove Synergy
 "
 	else:
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-Tell the dev to go fix '
-" + currentstate + "', whatever that means"
+		$GameManagingButtons/RichTextLabel.text = ""
 
 func getColorOfImage(texture : Texture2D):
 	var color := Vector3.ZERO

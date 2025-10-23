@@ -63,8 +63,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "NOTE:
 THIS GAMEMODE IS NOT FULLY COMPLETE
-SO SOME CRAFTING COMBOS WILL RESULT IN PEPPER
-RATHER THAN A NEW UNIT"
+SO SOME SPRITES MIGHT BE MISSING
+AND YOUR GAME MAY CRASH"
 
 [node name="Creativity" type="Sprite2D" parent="ColorRect2"]
 position = Vector2(41.6274, 212.627)
