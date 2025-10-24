@@ -168,67 +168,45 @@ func hideCraftingUI():
 	
 	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,0),0.3)
 
-func textUpdateStartButton(newtext : String):
+func textUpdateStartBustton(newtext : String):
 	$GameManagingButtons/Pause_Resume/Label.text = newtext
+
+var ControlsTranslation = {
+			"UP_CONTROL" = tr("UP_CONTROL"),
+			"DOWN_CONTROL"=tr("DOWN_CONTROL"),
+			"LEFT_CONTROL"=tr("LEFT_CONTROL"),
+			"RIGHT_CONTROL"=tr("RIGHT_CONTROL"),
+			"LEFT_RIGHT_CONTROL"=tr("LEFT_RIGHT_CONTROL"),
+			"SELECT_CONTROL"=tr("SELECT_CONTROL"),
+			"ALL_CONTROL"=tr("ALL_CONTROL"),
+			"CANCEL_CONTROL"=tr("CANCEL_CONTROL")
+			}
 
 func currentControlState(currentstate : String):
 	if currentstate == "BoardUnit":
 		
-		var NewText = tr("BoardUnit_CONTROLS")
-		NewText = NewText.format(
-			{"UP_CONTROL":tr("UP_CONTROL"),
-			"DOWN_CONTROL":tr("DOWN_CONTROL"),
-			"LEFT_CONTROL":tr("LEFT_CONTROL"),
-			"RIGHT_CONTROL":tr("RIGHT_CONTROL")
-			
-			}
-		)
+		var NewText = tr("BoardUnit_CONTROLS").format(ControlsTranslation)
 		$GameManagingButtons/RichTextLabel.text = NewText
 	elif currentstate == "PickingUpUnit":
-		var NewText = tr("PickingUpUnit_CONTROLS")
-		NewText = NewText.format(
-			{"{UP_CONTROL}"=tr("UP_CONTROL"),
-			"{DOWN_CONTROL}"=tr("DOWN_CONTROL"),
-			"{LEFT_CONTROL}"=tr("LEFT_CONTROL"),
-			"{RIGHT_CONTROL}"=tr("RIGHT_CONTROL")
-			
-			}
-		)
+		var NewText = tr("PickingUpUnit_CONTROLS").format(ControlsTranslation)
 		$GameManagingButtons/RichTextLabel.text = NewText
 
 	elif currentstate == "SynergyView":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-W - Unit Selection
-A/D - Choose synergy
-S - Button Selection
-"
+		var NewText = tr("SynergyView_CONTROLS").format(ControlsTranslation)
+		$GameManagingButtons/RichTextLabel.text = NewText
 	elif currentstate == "StartPause":
 		if selectedButton == "play":
-			$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-W - Synergy Selection
-S - Craft Button
-Z to select
-"
+			var NewText = tr("StartPause_play_CONTROLS").format(ControlsTranslation)
+			$GameManagingButtons/RichTextLabel.text = NewText
 		elif selectedButton == "craft":
-			$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-W - Play Button
-S - Unit Selection
-Z to select
-"
+			var NewText = tr("StartPause_craft_CONTROLS").format(ControlsTranslation)
+			$GameManagingButtons/RichTextLabel.text = NewText
 	elif currentstate == "Crafting":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-A/D - Choose synergy
-S - Go Back
-Z - Add Synergy
-X - Remove Synergy
-"
+		var NewText = tr("Crafting_CONTROLS").format(ControlsTranslation)
+		$GameManagingButtons/RichTextLabel.text = NewText
 	elif currentstate == "CraftConfirm":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-A/D - Choose synergy
-S - Go Back
-Z - Confirm Fusion
-X - Remove Synergy
-"
+		var NewText = tr("CraftConfirm_CONTROLS").format(ControlsTranslation)
+		$GameManagingButtons/RichTextLabel.text = NewText
 	else:
 		$GameManagingButtons/RichTextLabel.text = ""
 	

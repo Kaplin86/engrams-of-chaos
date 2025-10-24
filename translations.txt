@@ -39,6 +39,12 @@ LEFT_CONTROL,A,左
 RIGHT_CONTROL,D,右
 LEFT_RIGHT_CONTROL,A/D,左右
 SELECT_CONTROL,Z,選択する
+CANCEL_CONTROL,X,キャンセル
 ALL_CONTROL,WASD,上下左右
 BoardUnit_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Button Selection\n{LEFT_RIGHT_CONTROL} - Choose Unit\n{DOWN_CONTROL} - Synergy Selection\n{SELECT_CONTROL} to select,[b]操作[/b]\n{UP_CONTROL} - ボタンの選択\n{LEFT_RIGHT_CONTROL} - ユニットを選択してください\n{DOWN_CONTROL} - シナジー選択\n{SELECT_CONTROL} - 選択する
 PickingUpUnit_CONTROLS,[b]Controls[/b]\n{ALL_CONTROL} - Move unit\n{SELECT_CONTROL} - Place,[b]操作[/b]\n{ALL_CONTROL} - ユニットを移動する\n{SELECT_CONTROL} - 場所
+SynergyView_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Unit Selection\n{LEFT_RIGHT_CONTROL} - Choose synergy\n{DOWN_CONTROL} - Button Selection,[b]操作[/b]\n{UP_CONTROL} - 単位の選択\n{LEFT_RIGHT_CONTROL} - シナジーを選択\n{DOWN_CONTROL} - ボタンの選択
+StartPause_play_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Synergy Selection\n{DOWN_CONTROL} - Craft Button\n{SELECT_CONTROL} - Select,[b]操作[/b]\n{UP_CONTROL} - シナジーの選択\n{DOWN_CONTROL} - クラフトボタン\n{SELECT_CONTROL} - 選択する
+StartPause_craft_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Play Button\n{DOWN_CONTROL} - Unit Selection\n{SELECT_CONTROL} to select,[b]操作[/b]\n{UP_CONTROL} - 再生ボタン\n{DOWN_CONTROL} - ユニットの選択\n{SELECT_CONTROL} - 選択する
+Crafting_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Add Engram\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - エングラムを追加\n{CANCEL_CONTROL} - エングラムを削除する
+CraftConfirm_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Confirm Fusion\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - 融合の確認\n{CANCEL_CONTROL} - エングラムを削除する
