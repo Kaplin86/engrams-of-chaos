@@ -1,11 +1,10 @@
-key,eng,japan
+key,en,ja
 enemy_unit,{ENEMY}{UNIT},{UNIT}の{ENEMY}
 enemy,enemy,敵
 engram,engram,記憶痕跡
-chicken wing,chicken wing,手羽先
 synergy,synergy,相乗効果
 TUT,Tutorial,学習用
-TUT_DESC,Its tutorial time!,学習の時間です！
+TUT_DESC,Its tutorial time!E,学習の時間です！
 EASY,Easy,簡単
 EASY_DESC,Enemies do not have synergy buffs,敵同士のシナジー効果はない
 NORMAL,Normal,普通
@@ -17,9 +16,13 @@ CRADLE_DESC,A more chaotic chaos! A lot more units and many MANY more synergies!
 ADDINFO,Additional Info,追加情報
 ADDINFO_TITLE,ADVANCED INNERWORKINGS MANUAL (For pros),上級ガイド
 ADDINFO_TEXT,"Damage calc is defense - damage, cannot go below 1.\nAttack Speed determines which unit receives its tick first.","ダメージ計算は防御力 - ダメージで、1 未満になることはありません。\n攻撃速度によって、どのユニットが最初にティックを受け取るかが決まります。"
-LEADERB0ARD,Leaderboard,ランキング
+LEADERBOARD,Leaderboard,ランキング
 CONFIRM,Confirm,確認
 REROLL,Reroll,再抽選
+STARTR,Start Round,ラウンド開始
+PAUSE,Pause,一時停止
+RESUME,Resume,再開する
+CRAFTU,Craft Units,ユニットの作成
 spicy,spicy,辛い
 sweet,sweet,甘い
 salty,salty,塩辛い
@@ -30,3 +33,12 @@ game,game,ゲーム
 creativity,creativity,創造性
 greed,greed,貪欲
 symbol,symbol,シンボル
+UP_CONTROL,W,上
+DOWN_CONTROL,S,下
+LEFT_CONTROL,A,左
+RIGHT_CONTROL,D,右
+LEFT_RIGHT_CONTROL,A/D,左右
+SELECT_CONTROL,Z,選択する
+ALL_CONTROL,WASD,上下左右
+BoardUnit_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Button Selection\n{LEFT_RIGHT_CONTROL} - Choose Unit\n{DOWN_CONTROL} - Synergy Selection\n{SELECT_CONTROL} to select,[b]操作[/b]\n{UP_CONTROL} - ボタンの選択\n{LEFT_RIGHT_CONTROL} - ユニットを選択してください\n{DOWN_CONTROL} - シナジー選択\n{SELECT_CONTROL} - 選択する
+PickingUpUnit_CONTROLS,[b]Controls[/b]\n{ALL_CONTROL} - Move unit\n{SELECT_CONTROL} - Place,[b]操作[/b]\n{ALL_CONTROL} - ユニットを移動する\n{SELECT_CONTROL} - 場所

@@ -173,17 +173,29 @@ func textUpdateStartButton(newtext : String):
 
 func currentControlState(currentstate : String):
 	if currentstate == "BoardUnit":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-W - Button Selection
-A/D - Choose Unit
-S - Synergy Selection
-Z to select
-"
+		
+		var NewText = tr("BoardUnit_CONTROLS")
+		NewText = NewText.format(
+			{"UP_CONTROL":tr("UP_CONTROL"),
+			"DOWN_CONTROL":tr("DOWN_CONTROL"),
+			"LEFT_CONTROL":tr("LEFT_CONTROL"),
+			"RIGHT_CONTROL":tr("RIGHT_CONTROL")
+			
+			}
+		)
+		$GameManagingButtons/RichTextLabel.text = NewText
 	elif currentstate == "PickingUpUnit":
-		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
-WASD - Move unit
-Z to place
-"
+		var NewText = tr("PickingUpUnit_CONTROLS")
+		NewText = NewText.format(
+			{"{UP_CONTROL}"=tr("UP_CONTROL"),
+			"{DOWN_CONTROL}"=tr("DOWN_CONTROL"),
+			"{LEFT_CONTROL}"=tr("LEFT_CONTROL"),
+			"{RIGHT_CONTROL}"=tr("RIGHT_CONTROL")
+			
+			}
+		)
+		$GameManagingButtons/RichTextLabel.text = NewText
+
 	elif currentstate == "SynergyView":
 		$GameManagingButtons/RichTextLabel.text = "[b]Controls[/b]
 W - Unit Selection
@@ -219,6 +231,8 @@ X - Remove Synergy
 "
 	else:
 		$GameManagingButtons/RichTextLabel.text = ""
+	
+	$GameManagingButtons/RichTextLabel.text
 
 func getColorOfImage(texture : Texture2D):
 	var color := Vector3.ZERO

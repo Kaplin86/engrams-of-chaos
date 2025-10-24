@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh4gosgpweb12"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_nxgpp"]
-[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="2_cdsgc"]
+[ext_resource type="Shader" path="res://wobble.gdshader" id="2_cdsgc"]
 [ext_resource type="Texture2D" uid="uid://c0atm6ogf1783" path="res://units/chess_piece/chess_piece.svg" id="3_kqv2e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7tcqm"]

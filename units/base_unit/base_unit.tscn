@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dlce6rwtjimmm"]
 
 [ext_resource type="Script" uid="uid://dvjuxp1chph5b" path="res://units/base_unit/base_unit.gd" id="1_ct6mi"]
-[ext_resource type="Shader" uid="uid://cj6v85gqnptsh" path="res://wobble.gdshader" id="2_h1f2x"]
+[ext_resource type="Shader" path="res://wobble.gdshader" id="2_h1f2x"]
 [ext_resource type="Texture2D" uid="uid://dpiwfrfk8bdgh" path="res://units/base_unit/base_unit.svg" id="3_h1f2x"]
 [ext_resource type="Texture2D" uid="uid://cmcaga1uq6fht" path="res://ui/HurtCube.png" id="3_p7025"]
 [ext_resource type="Texture2D" uid="uid://ddhcml1bc4ja4" path="res://ui/HealthCube.png" id="4_bsofo"]

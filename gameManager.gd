@@ -360,7 +360,7 @@ func endRound(): ## This is called when the round ends
 	battleLoadout.clear()
 	
 	battleState = "preround"
-	$CanvasLayer/UI.textUpdateStartButton("Start Round")
+	$CanvasLayer/UI.textUpdateStartButton("STARTR")
 	currentWave += 1
 	generateEnemyTeam()
 	
@@ -432,15 +432,15 @@ func startButtonHit(): ## When a particular ui button is hit
 				})
 		
 		startFight()
-		$CanvasLayer/UI.textUpdateStartButton("Pause")
+		$CanvasLayer/UI.textUpdateStartButton("PAUSE")
 		
 		
 	elif battleState == "round":
 		tickTimer.paused = !tickTimer.paused
 		if tickTimer.paused:
-			$CanvasLayer/UI.textUpdateStartButton("Resume")
+			$CanvasLayer/UI.textUpdateStartButton("RESUME")
 		else:
-			$CanvasLayer/UI.textUpdateStartButton("Pause")
+			$CanvasLayer/UI.textUpdateStartButton("PAUSE")
 
 func callTeamSynergies(FunctionName : String, extraParam = null):
 	for E in currentSynergyObjects:

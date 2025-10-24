@@ -15,7 +15,7 @@ func castSpell(target):
 
 func tryHit(offset : Vector2i, positionDictionary, baseBoardPos):
 	if positionDictionary.has(offset + baseBoardPos):
-		var targetedunit : BaseUnit = positionDictionary[offset + board_position]
+		var targetedunit : BaseUnit = positionDictionary[offset + baseBoardPos]
 		if targetedunit.team == team:
 			targetedunit.onHit(damage,self,trueDamagePercentage)
 		

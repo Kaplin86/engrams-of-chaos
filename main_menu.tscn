@@ -355,6 +355,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
 [node name="Label" type="Label" parent="Tutorial"]
+auto_translate_mode = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -441,7 +442,7 @@ offset_top = 615.0
 offset_right = 402.4
 offset_bottom = 706.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
-metadata/desc = "Start with a boss on your team, but gain 1/4th engrams."
+metadata/desc = "TURNTABLE_DESC"
 
 [node name="ColorRect3" type="ColorRect" parent="TurnedTables"]
 layout_mode = 1
@@ -534,7 +535,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 36
-text = "ADDINFO	"
+text = "ADDINFO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -650,7 +651,7 @@ offset_top = 52.0
 offset_right = 230.0
 offset_bottom = 362.0
 bbcode_enabled = true
-text = "Damage calc is defense - damage, cannot go below 1. Attack Speed determines which unit recieves its tick first."
+text = "ADDINFO_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -658,7 +659,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 234.0
 offset_bottom = 49.0
-text = "ADVANCED INNERWORKINGS MANUAL (For pros)"
+text = "ADDINFO_TITLE"
 autowrap_mode = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -713,6 +714,7 @@ theme_override_font_sizes/font_size = 31
 text = "LEADERBOARD"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect3" node_paths=PackedStringArray("Main")]

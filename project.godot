@@ -117,7 +117,8 @@ deny={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://AutochessTranslation - Sheet1.eng.translation", "res://AutochessTranslation - Sheet1.japan.translation")
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://translations.en.translation", "res://translations.ja.translation")
 
 [rendering]
 

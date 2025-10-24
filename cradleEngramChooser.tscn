@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cntvffmal31fm"]
 
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="1_754j0"]
-[ext_resource type="Script" uid="uid://cqarlous0xvx" path="res://cradle_engram_chooser.gd" id="1_akn1v"]
+[ext_resource type="Script" path="res://cradle_engram_chooser.gd" id="1_akn1v"]
 [ext_resource type="PackedScene" uid="uid://dnadkydavqxm3" path="res://engramSlotMachine.tscn" id="3_akn1v"]
 [ext_resource type="Texture2D" uid="uid://bwt8d6rxp1740" path="res://ui/elements/greed.svg" id="3_ee2xj"]
 [ext_resource type="Texture2D" uid="uid://53bewodgcb8p" path="res://cradleLogo.png" id="4_akn1v"]

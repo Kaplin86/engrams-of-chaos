@@ -194,7 +194,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -198.466)
+position = Vector2(348, -201.795)
 scale = Vector2(1.6, 1.6)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
