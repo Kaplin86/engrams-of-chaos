@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5yqn0d7355f7"]
+[gd_scene load_steps=4 format=3 uid="uid://b5yqn0d7355f7"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_2i8kq"]
 [ext_resource type="Script" uid="uid://h2xhpenwqmsn" path="res://units/dusty_book/dusty_book.gd" id="2_5lffo"]
+[ext_resource type="Texture2D" uid="uid://bj6lnx8is4ler" path="res://units/dusty_book/dusty_book.svg" id="3_nmt5b"]
 
 [node name="Unit" instance=ExtResource("1_2i8kq")]
 script = ExtResource("2_5lffo")
@@ -11,3 +12,6 @@ damage = 8
 maxMana = 100
 defense = 12
 type = "dusty_book"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_nmt5b")

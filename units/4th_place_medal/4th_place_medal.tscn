@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba0ghtqkx8ehd"]
+[gd_scene load_steps=4 format=3 uid="uid://ba0ghtqkx8ehd"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_c0ffe"]
 [ext_resource type="Script" uid="uid://cpbnhoik3u5b4" path="res://units/4th_place_medal/4th_place_medal.gd" id="2_6lsy1"]
+[ext_resource type="Texture2D" uid="uid://d2hxu0b2roauf" path="res://units/4th_place_medal/4th_place_medal.svg" id="3_xwa3d"]
 
 [node name="Unit" instance=ExtResource("1_c0ffe")]
 script = ExtResource("2_6lsy1")
@@ -9,3 +10,6 @@ description = "Once this reaches 30% HP, It's defences increase by 7"
 damage = 8
 defense = 7
 type = "4th_place_medal"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_xwa3d")

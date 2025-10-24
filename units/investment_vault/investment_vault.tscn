@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi4f3pluc5mbt"]
+[gd_scene load_steps=4 format=3 uid="uid://bi4f3pluc5mbt"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_gc1l4"]
 [ext_resource type="Script" uid="uid://cj2awn7766bsg" path="res://units/investment_vault/investment_vault.gd" id="2_i7pob"]
+[ext_resource type="Texture2D" uid="uid://clqshliv70d4b" path="res://units/investment_vault/investment_vault.svg" id="3_b2pya"]
 
 [node name="Unit" instance=ExtResource("1_gc1l4")]
 script = ExtResource("2_i7pob")
@@ -10,3 +11,6 @@ maxHP = 110
 damage = 6
 defense = 11
 type = "investment_vault"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_b2pya")

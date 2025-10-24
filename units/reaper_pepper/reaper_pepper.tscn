@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx7nqqsenb6rj"]
+[gd_scene load_steps=4 format=3 uid="uid://cx7nqqsenb6rj"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_nr15t"]
 [ext_resource type="Script" uid="uid://6hsv748on5wk" path="res://units/reaper_pepper/reaper_pepper.gd" id="2_j45ym"]
+[ext_resource type="Texture2D" uid="uid://dbju012abwuin" path="res://units/reaper_pepper/reaper_pepper.svg" id="3_qqnq3"]
 
 [node name="Unit" instance=ExtResource("1_nr15t")]
 script = ExtResource("2_j45ym")
@@ -9,3 +10,6 @@ description = "Every time this unit attacks, it's damage increases by one, but i
 damage = 9
 defense = 8
 type = "reaper_pepper"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_qqnq3")

@@ -265,10 +265,12 @@ offset_right = 1041.0
 offset_bottom = 419.0
 scale = Vector2(1.4471, 1.4471)
 theme_override_constants/outline_size = 8
+bbcode_enabled = true
 text = "Every time this unit attacks, it's attack speed increases by 2%"
 autowrap_mode = 2
 script = ExtResource("5_n5rqp")
 KeywordToColor = {
+"crit": Color(1, 0.533333, 0, 1),
 "crit chance": Color(1, 0.533333, 0, 1),
 "damage": Color(1, 0.435951, 0.344696, 1),
 "defense": Color(0.531287, 0.494965, 1, 1),

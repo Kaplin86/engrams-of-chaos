@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://t5kltp0x005r"]
+[gd_scene load_steps=4 format=3 uid="uid://t5kltp0x005r"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_7xem4"]
 [ext_resource type="Script" uid="uid://bcdjes3dffmi8" path="res://units/exclamation_point/exclamation_point.gd" id="2_4o8p8"]
+[ext_resource type="Texture2D" uid="uid://du6gt5fbo2poh" path="res://units/exclamation_point/exclamation_point.svg" id="3_6sl2u"]
 
 [node name="Unit" instance=ExtResource("1_7xem4")]
 script = ExtResource("2_4o8p8")
@@ -10,3 +11,6 @@ maxHP = 90
 damage = 6
 defense = 9
 type = "exclamation_point"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_6sl2u")

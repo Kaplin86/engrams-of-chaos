@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bidtnm4mv12qt"]
+[gd_scene load_steps=6 format=3 uid="uid://bidtnm4mv12qt"]
 
 [ext_resource type="PackedScene" uid="uid://cxsmriwppix3k" path="res://units/base_ranger/base_ranger.tscn" id="1_wmngt"]
 [ext_resource type="Script" uid="uid://uigqoccpfaf1" path="res://units/anchor/anchor.gd" id="2_tuy28"]
-[ext_resource type="Texture2D" uid="uid://kqqdc7241f6u" path="res://units/chicken_wing/chicken_wing.svg" id="3_7ckcv"]
+[ext_resource type="Texture2D" uid="uid://bjgojful5f84h" path="res://units/anchor/anchor.svg" id="3_dox4i"]
+[ext_resource type="Texture2D" uid="uid://tiaq6cdasj0k" path="res://units/anchor/anchor_projectile.svg" id="4_xhmlv"]
 
 [sub_resource type="Curve2D" id="Curve2D_tuy28"]
 resource_local_to_scene = true
@@ -22,7 +23,11 @@ defense = 8
 type = "anchor"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
-texture = ExtResource("3_7ckcv")
+texture = ExtResource("3_dox4i")
 
 [node name="Path2D" parent="VisualHolder" index="2"]
 curve = SubResource("Curve2D_tuy28")
+
+[node name="Projectile" parent="VisualHolder/Path2D/PathFollow2D" index="0"]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_xhmlv")

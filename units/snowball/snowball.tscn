@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq3l5fpjwxe4g"]
+[gd_scene load_steps=4 format=3 uid="uid://bq3l5fpjwxe4g"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_vd0kg"]
 [ext_resource type="Script" uid="uid://npla45d8ug1o" path="res://units/snowball/snowball.gd" id="2_a1a0i"]
+[ext_resource type="Texture2D" uid="uid://mpfsdjw4lcbm" path="res://units/snowball/snowball.svg" id="3_0olkd"]
 
 [node name="Unit" instance=ExtResource("1_vd0kg")]
 script = ExtResource("2_a1a0i")
@@ -10,3 +11,6 @@ damage = 9
 speed = 2.0
 defense = 7
 type = "snowball"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_0olkd")

@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c84wct02idae1"]
+[gd_scene load_steps=4 format=3 uid="uid://c84wct02idae1"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_sd7ln"]
 [ext_resource type="Script" uid="uid://cq0iaoxjnwftg" path="res://units/paint_bomb/paint_bomb.gd" id="2_8lvd2"]
+[ext_resource type="Texture2D" uid="uid://cfekh1epots0f" path="res://units/paint_bomb/paint_bomb.svg" id="3_5u38i"]
 
 [node name="Unit" instance=ExtResource("1_sd7ln")]
 script = ExtResource("2_8lvd2")
+description = "ABILITY: Hits the target, but also hits any enemies surrounding the target"
+maxHP = 90
+damage = 11
+speed = 2.0
+maxMana = 50
+defense = 9
+type = "paint_bomb"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_5u38i")
