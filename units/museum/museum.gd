@@ -13,8 +13,9 @@ func deathOnBoard(data : BaseUnit):
 
 func die():
 	super()
-	var newguy = gameManagerObject.spawnUnit(LastDeathStats["type"],board_position,team,LastDeathStats["isBoss"])
-	newguy.damage = LastDeathStats["damage"]
-	newguy.speed = LastDeathStats["speed"]
-	newguy.defense = LastDeathStats["defense"]
-	newguy.CritChance = LastDeathStats["critChance"]
+	if !LastDeathStats.is_empty():
+		var newguy = gameManagerObject.spawnUnit(LastDeathStats["type"],board_position,team,LastDeathStats["isBoss"])
+		newguy.damage = LastDeathStats["damage"]
+		newguy.speed = LastDeathStats["speed"]
+		newguy.defense = LastDeathStats["defense"]
+		newguy.CritChance = LastDeathStats["critChance"]

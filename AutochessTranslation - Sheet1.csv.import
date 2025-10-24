@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://butmyxyji8tgu"
+
+[deps]
+
+files=["res://AutochessTranslation - Sheet1.eng.translation", "res://AutochessTranslation - Sheet1.japan.translation"]
+
+source_file="res://AutochessTranslation - Sheet1.csv"
+dest_files=["res://AutochessTranslation - Sheet1.eng.translation", "res://AutochessTranslation - Sheet1.japan.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,32 @@
+key,eng,japan
+enemy_unit,{ENEMY}{UNIT},{UNIT}の{ENEMY}
+enemy,enemy,敵
+engram,engram,記憶痕跡
+chicken wing,chicken wing,手羽先
+synergy,synergy,相乗効果
+TUT,Tutorial,学習用
+TUT_DESC,Its tutorial time!,学習の時間です！
+EASY,Easy,簡単
+EASY_DESC,Enemies do not have synergy buffs,敵同士のシナジー効果はない
+NORMAL,Normal,普通
+NORMAL_DESC,The real Engrams of Chaos experience,意図した遊び方
+TURNTABLE,Turned Tables,立場逆転
+TURNTABLE_DESC,"Start with a boss on your team, but gain 1/4th engrams",通常ユニットの獲得エングラムは1/4になる
+CRADLE,Cradle of Engrams,エングラムのゆりかご
+CRADLE_DESC,A more chaotic chaos! A lot more units and many MANY more synergies!,さらに混沌としたカオス！ユニットもさらに増えシナジー効果もさらにアップ！
+ADDINFO,Additional Info,追加情報
+ADDINFO_TITLE,ADVANCED INNERWORKINGS MANUAL (For pros),上級ガイド
+ADDINFO_TEXT,"Damage calc is defense - damage, cannot go below 1.\nAttack Speed determines which unit receives its tick first.","ダメージ計算は防御力 - ダメージで、1 未満になることはありません。\n攻撃速度によって、どのユニットが最初にティックを受け取るかが決まります。"
+LEADERB0ARD,Leaderboard,ランキング
+CONFIRM,Confirm,確認
+REROLL,Reroll,再抽選
+spicy,spicy,辛い
+sweet,sweet,甘い
+salty,salty,塩辛い
+sour,sour,酸っぱい
+bitter,bitter,苦い
+umami,umami,うま味
+game,game,ゲーム
+creativity,creativity,創造性
+greed,greed,貪欲
+symbol,symbol,シンボル
