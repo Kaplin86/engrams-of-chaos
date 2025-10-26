@@ -17,39 +17,3 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 							E.defense += randi_range(0,2)
 						else:
 							E.defense += randi_range(0,1)
-
-func get_description(level) -> String:
-	if level >= 6:
-		return "At the start of the round, remove an engram to buff all defense by chance.
-
-2 Units - (0 to 1) Defense
-
-4 Units - (0 to 2) Defense
-
-[b]6 Units - (0 to 4) Defense[/b]"
-
-
-	elif level >= 4:
-		return "At the start of the round, remove an engram to buff all defense by chance.
-
-2 Units - (0 to 1) Defense
-
-[b]4 Units - (0 to 2) Defense[/b]
-
-6 Units - (0 to 4) Defense"
-	elif level > 1:
-		return "At the start of the round, remove an engram to buff all defense by chance.
-
-[b]2 Units - (0 to 1) Defense[/b]
-
-4 Units - (0 to 2) Defense
-
-6 Units - (0 to 4) Defense"
-	else:
-		return "At the start of the round, remove an engram to buff all defense by chance.
-
-2 Units - (0 to 1) Defense
-
-4 Units - (0 to 2) Defense
-
-6 Units - (0 to 4) Defense"

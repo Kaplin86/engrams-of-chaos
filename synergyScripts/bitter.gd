@@ -16,37 +16,47 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 						unit.CritChance += 0.05
 
 func get_description(level) -> String:
+	var StringWow = tr("bitterSynergyDesc")
+	StringWow += "\n\n"
 	if level >= 6:
-		return "Units of this synergy jump to enemies and have increase crit chance.
-
-[b]2 Units - Jump to enemy[/b]
-
-4 Units - 5% Boost
-
-[b]6 Units - 10% Boost[/b]"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":2}) + " - "
+		StringWow += "[b]" + tr("bitterSynergyTier2") + "[/b]"
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":4}) + " - "
+		StringWow += tr("bitterSynergyTier4")
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":6}) + " - "
+		StringWow += "[b]" + tr("bitterSynergyTier6") + "[/b]"
+		return StringWow
 
 
 	elif level >= 4:
-		return "Units of this synergy jump to enemies and have increase crit chance.
-
-[b]2 Units - Jump to enemy[/b]
-
-[b]4 Units - 5% Boost[/b]
-
-6 Units - 10% Boost"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":2}) + " - "
+		StringWow += "[b]" + tr("bitterSynergyTier2") + "[/b]"
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":4}) + " - "
+		StringWow += "[b]" + tr("bitterSynergyTier4") + "[/b]"
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":6}) + " - "
+		StringWow += tr("bitterSynergyTier6")
+		return StringWow
 	elif level > 1:
-		return "Units of this synergy jump to enemies and have increase crit chance.
-
-[b]2 Units - Jump to enemy[/b]
-
-4 Units - 5% Boost
-
-6 Units - 10% Boost"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":2}) + " - "
+		StringWow += "[b]" + tr("bitterSynergyTier2") + "[/b]"
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":4}) + " - "
+		StringWow += tr("bitterSynergyTier4")
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":6}) + " - "
+		StringWow += tr("bitterSynergyTier6")
+		return StringWow
 	else:
-		return "Units of this synergy jump to enemies and have increase crit chance.
-
-2 Units - Jump to enemy
-
-4 Units - 5% Boost
-
-6 Units - 10% Boost"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":2}) + " - "
+		StringWow += tr("bitterSynergyTier2")
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":4}) + " - "
+		StringWow += tr("bitterSynergyTier4")
+		StringWow += "\n\n"
+		StringWow += tr("NumberOfUnits").format({"NUMBER":6}) + " - "
+		StringWow += tr("bitterSynergyTier6")
+		return StringWow

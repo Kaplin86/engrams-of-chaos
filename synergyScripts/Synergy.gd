@@ -26,10 +26,10 @@ func addTextLevel(inputText,levelArray,selector,level) -> String:
 	for E in levelArray:
 		if level >= E:
 			if E == levelArray[selector]:
-				return "\n\n [b]"+Prefix + " - " + "" + inputText + "[/b]"
+				return "\n\n [color=#FFCC00]"+Prefix + " - " + "" + inputText + "[/color]"
 			else:
 				return "\n\n"+Prefix + " - " + inputText
-	return str(level)
+	return "\n\n"+Prefix + " - " + inputText
 func get_filename() -> String: ## This function returns the string name for this resource
 	return get_script().resource_path.get_file().get_basename()
 func unitDeath(team : int,level,unit : BaseUnit): ## This fires when a unit on a team dies

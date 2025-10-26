@@ -1,6 +1,7 @@
 extends BaseSynergy
 class_name GreedSynergy
 func firstTick(team : int, level):
+	
 	if level > 1:
 		var Allies = []
 		for E in manager.units:

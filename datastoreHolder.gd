@@ -18,8 +18,8 @@ var highestSynergy = ""
 var Mode = "kitchen"
 
 var BossesDesc = {
-	"cutlery":"A 3 in 1 combo! Prepare for mass destruction!",
-"rolling_pin":"Half of your team shall return to dough...",
+	"cutlery":tr("cutlery_bossDesc"),
+"rolling_pin":tr("rolling_ping_bossDesc"),
 "whisk":"Get moving, Get groving, its shuffling time!",
 "oven":"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.",
 "fridge":"Brrr... So chilly! Each tick, half your team will be FROZEN.",
