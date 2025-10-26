@@ -4,7 +4,7 @@ enemy,enemy,敵
 engram,engram,記憶痕跡
 synergy,synergy,相乗効果
 TUT,Tutorial,学習用
-TUT_DESC,Its tutorial time!E,学習の時間です！
+TUT_DESC,Its tutorial time!,学習の時間です！
 EASY,Easy,簡単
 EASY_DESC,Enemies do not have synergy buffs,敵同士のシナジー効果はない
 NORMAL,Normal,普通
@@ -48,3 +48,25 @@ StartPause_play_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Synergy Selection\n{DOW
 StartPause_craft_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Play Button\n{DOWN_CONTROL} - Unit Selection\n{SELECT_CONTROL} to select,[b]操作[/b]\n{UP_CONTROL} - 再生ボタン\n{DOWN_CONTROL} - ユニットの選択\n{SELECT_CONTROL} - 選択する
 Crafting_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Add Engram\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - エングラムを追加\n{CANCEL_CONTROL} - エングラムを削除する
 CraftConfirm_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Confirm Fusion\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - 融合の確認\n{CANCEL_CONTROL} - エングラムを削除する
+SynergyName,{ENGRAM} {SYNERGY},{ENGRAM}の{SYNERGY}
+NumberOfUnits,{NUMBER} Units,{NUMBER}体
+
+spicySynergyDesc,Units of this synergy get an attack increase at the start of the round.,このシナジーのユニットは、ラウンドの開始時に攻撃力が増加します。
+spicySynergyTier2,5% Increase,攻撃力5%増加
+spicySynergyTier4,10% Increase,攻撃力10%増加
+spicySynergyTier6,15%Increase,攻撃力15%増加
+
+creativitySynergyDesc,Units of this synergy gain max HP times however many unique synergies are on board.,このシナジーのユニットは、ボード上のユニークなシナジーの数に応じて最大体力が増加します。
+creativitySynergyTier2,1 Max HP,1 最大体力
+creativitySynergyTier4,2 Max HP,2 最大体力
+creativitySynergyTier6,4 Max HP,4 最大体力
+
+gameSynergyDesc,"At the start of the round, remove an engram to buff all defense by chance.","ラウンド開始時にエングラムを1つ削除し、確率で全ユニットの防御力を強化します。"
+gameSynergyTier2,(0 to 1) Defense,(0対1) 防御
+gameSynergyTier4,(0 to 2) Defense,(0対2) 防御
+gameSynergyTier6,(0 to 4) Defense,(0対4) 防御
+
+greedSynergyDesc,"A random unit is sacrificed, the rest of the team gets buffs.","ランダムなユニットが犠牲になり、チームの残りのメンバーは強化を受けます。"
+greedSynergyTier2,1 Attack,攻撃力 +1
+greedSynergyTier4,2 Attack,攻撃力 +2
+greedSynergyTier6,4 Attack,攻撃力 +4

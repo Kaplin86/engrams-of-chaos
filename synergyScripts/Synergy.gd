@@ -14,7 +14,22 @@ func unitAttack(team : int,level,unit : BaseUnit): ## This fires when a unit on 
 func unitGetHit(team : int,level,unit : BaseUnit): ## This fires when a unit on a team gets hit
 	pass
 func get_description(level) -> String: ## This function should return the in-text description of what this synergy does. It also gets the current level.
-	return "BaseSynergy. Does NOTHING"
+	var SynergyName = get_script().get_path().get_file().replace(".gd","")
+	var Text = tr(SynergyName + "SynergyDesc")
+	Text += addTextLevel(tr(SynergyName + "SynergyTier2"),[6,4,2],2,level)
+	Text += addTextLevel(tr(SynergyName + "SynergyTier4"),[6,4,2],1,level)
+	Text += addTextLevel(tr(SynergyName + "SynergyTier6"),[6,4,2],0,level)
+	return Text
+
+func addTextLevel(inputText,levelArray,selector,level) -> String:
+	var Prefix = tr("NumberOfUnits").format({"NUMBER":levelArray[selector]})
+	for E in levelArray:
+		if level >= E:
+			if E == levelArray[selector]:
+				return "\n\n [b]"+Prefix + " - " + "" + inputText + "[/b]"
+			else:
+				return "\n\n"+Prefix + " - " + inputText
+	return str(level)
 func get_filename() -> String: ## This function returns the string name for this resource
 	return get_script().resource_path.get_file().get_basename()
 func unitDeath(team : int,level,unit : BaseUnit): ## This fires when a unit on a team dies

@@ -48,3 +48,10 @@ StartPause_play_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Synergy Selection\n{DOW
 StartPause_craft_CONTROLS,[b]Controls[/b]\n{UP_CONTROL} - Play Button\n{DOWN_CONTROL} - Unit Selection\n{SELECT_CONTROL} to select,[b]操作[/b]\n{UP_CONTROL} - 再生ボタン\n{DOWN_CONTROL} - ユニットの選択\n{SELECT_CONTROL} - 選択する
 Crafting_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Add Engram\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - エングラムを追加\n{CANCEL_CONTROL} - エングラムを削除する
 CraftConfirm_CONTROLS,[b]Controls[/b]\n{LEFT_RIGHT_CONTROL} - Choose Engram\n{DOWN_CONTROL} - Go Back\n{SELECT_CONTROL} - Confirm Fusion\n{CANCEL_CONTROL} - Remove Engram,[b]操作[/b]\n{LEFT_RIGHT_CONTROL} - エングラムを選択\n{DOWN_CONTROL} - 戻ってください\n{SELECT_CONTROL} - 融合の確認\n{CANCEL_CONTROL} - エングラムを削除する
+SynergyName,{ENGRAM} {SYNERGY},{ENGRAM}の{SYNERGY}
+NumberOfUnits,{NUMBER} Units,{NUMBER}単位
+
+spicySynergyDesc,Units of this synergy get an attack increase at the start of the round.,このシナジーのユニットは、ラウンドの開始時に攻撃力が増加します。
+spicySynergyTier2,5% Increase,5%増加
+spicySynergyTier4,10% Increase,10%増加
+spicySynergyTier6,15%Increase,15%増加

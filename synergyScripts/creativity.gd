@@ -20,39 +20,3 @@ func firstTick(team : int, level):
 						if UnitsSynergy.has("salty"):
 							E.maxHP += buff
 							E.heal(buff)
-
-func get_description(level) -> String:
-	if level >= 6:
-		return "Units of this synergy gain max HP times however many unique synergies are on board.
-
-2 Units - 1 Max HP
-
-4 Units - 2 Max HP
-
-[b]6 Units - 4 Max HP[/b]"
-
-
-	elif level >= 4:
-		return "Units of this synergy gain max HP times however many unique synergies are on board.
-
-2 Units - 1 Max HP
-
-[b]4 Units - 2 Max HP[/b]
-
-6 Units - 4 Max HP"
-	elif level > 1:
-		return "Units of this synergy gain max HP times however many unique synergies are on board.
-
-[b]2 Units - 1 Max HP[/b]
-
-4 Units - 2 Max HP
-
-6 Units - 4 Max HP"
-	else:
-		return "Units of this synergy gain max HP times however many unique synergies are on board.
-
-2 Units - 1 Max HP
-
-4 Units - 2 Max HP
-
-6 Units - 4 Max HP"

@@ -109,7 +109,11 @@ func highlightSynergy(synergyname : String):
 		
 		$Name.size.x = 334
 		$Name.position.x = 812
-		$Name.text = synergyname + " SYNERGY"
+		var Key = {
+			"ENGRAM":tr(synergyname),
+			"SYNERGY":tr("synergy")
+		}
+		$Name.text = tr("SynergyName").format(Key)
 		
 		$Name.add_theme_color_override("font_color",color)
 		$SynergyUI/SynergyIcon.texture = load("res://ui/elements/"+synergyname+".svg")
@@ -168,7 +172,7 @@ func hideCraftingUI():
 	
 	coolTween.tween_property($CraftingUI,"modulate",Color(1,1,1,0),0.3)
 
-func textUpdateStartBustton(newtext : String):
+func textUpdateStartButton(newtext : String):
 	$GameManagingButtons/Pause_Resume/Label.text = newtext
 
 var ControlsTranslation = {
