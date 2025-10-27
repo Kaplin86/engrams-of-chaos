@@ -101,6 +101,8 @@ bitterSynergyTier2,Jump to enemy,敵に飛びつく
 bitterSynergyTier4,5% Boost,クリティカル確率5%増加
 bitterSynergyTier6,10% Boost,クリティカル確率10%増加
 
+current_wave,Current Wave: ,現在の波 : 
+
 cutlery,cutlery,刃物
 cutlery_bossDesc,A 3 in 1 combo! Prepare for mass destruction!,3 in 1コンボ！大量破壊に備えよ！
 
@@ -109,3 +111,12 @@ rolling_pin_bossDesc,Half of your team shall return to dough...,あなたのチ�
 
 whisk,whisk,泡立て器
 whisk_bossDesc,"Get moving, Get groving, its shuffling time!","動いて、動いて、シャッフルの時間だよ！"
+
+oven,oven,オーブン
+oven_bossDesc,"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.",暑さで気が曇らないようにしてください。1 ティックごとに 1 ユニットが、列に並んでいる人とともに焼かれます。
+
+fridge,fridge,冷蔵庫
+fridge_bossDesc,"Brrr... So chilly! Each tick, half your team will be FROZEN.",ぶるぶる…寒い！毎秒、チームの半分が凍り付いてしまいます。
+
+blender,blender,ブレンダー
+blender_bossDesc,"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",ブレードが高速回転！これがヒットすると、盤面全体がシャッフルされます。その後、ブレンダーの近くにあるユニットはすべてヒットします！

@@ -194,7 +194,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -200.358)
+position = Vector2(348, -198.659)
 scale = Vector2(1.6, 1.6)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
@@ -515,6 +515,6 @@ offset_top = 252.8
 offset_right = 675.2
 offset_bottom = 289.6
 theme_override_font_sizes/font_size = 26
-text = "Oh no! A boss!"
+text = "bossFlavorTextIntro"
 
 [connection signal="TickEnd" from="." to="Camera2D" method="_on_node_2d_tick_end"]

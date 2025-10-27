@@ -119,8 +119,8 @@ func generateEnemyTeam():
 		spawnUnit(bossName,Vector2(7,1),1,true)
 		
 		
-		$"BossText/Modulate/Boss Name".text = bossName.capitalize().replace("_"," ")
-		$BossText/Modulate/Desc.text = '"'+DatastoreHolder.BossesDesc.get(bossName,"") + '"'
+		$"BossText/Modulate/Boss Name".text = tr(bossName).capitalize().replace("_"," ")
+		$BossText/Modulate/Desc.text = '"'+tr(bossName + "_bossDesc") + '"'
 		$BossText/Modulate.modulate = Color(1,1,1,0)
 		$BossText.visible = true
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)

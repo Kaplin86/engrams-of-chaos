@@ -1,5 +1,5 @@
 key,en,ja
-enemy_unit,{ENEMY}{UNIT},{UNIT}の{ENEMY}
+enemy_unit,{ENEMY} {UNIT},{UNIT}の{ENEMY}
 enemy,enemy,敵
 engram,engram,記憶痕跡
 synergy,synergy,相乗効果
@@ -101,6 +101,8 @@ bitterSynergyTier2,Jump to enemy,敵に飛びつく
 bitterSynergyTier4,5% Boost,クリティカル確率5%増加
 bitterSynergyTier6,10% Boost,クリティカル確率10%増加
 
+current_wave,Current Wave: ,現在の波 : 
+
 cutlery,cutlery,刃物
 cutlery_bossDesc,A 3 in 1 combo! Prepare for mass destruction!,3 in 1コンボ！大量破壊に備えよ！
 
@@ -109,3 +111,26 @@ rolling_pin_bossDesc,Half of your team shall return to dough...,あなたのチ�
 
 whisk,whisk,泡立て器
 whisk_bossDesc,"Get moving, Get groving, its shuffling time!","動いて、動いて、シャッフルの時間だよ！"
+
+oven,oven,オーブン
+oven_bossDesc,"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.",暑さで気が曇らないようにしてください。1 ティックごとに 1 ユニットが、列に並んでいる人とともに焼かれます。
+
+fridge,fridge,冷蔵庫
+fridge_bossDesc,"Brrr... So chilly! Each tick, half your team will be FROZEN.",ぶるぶる…寒い！ティックごとに、チームの半分が凍り付いてしまいます。
+
+blender,blender,ブレンダー
+blender_bossDesc,"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",ブレードが高速回転！これがヒットすると、盤面全体がシャッフルされます。その後、ブレンダーの近くにあるユニットはすべてヒットします！
+
+plate_pile,plate_pile,皿の山
+plate_pile_bossDesc,"A stack of plates to the skies above. When the pile gets hit twice, the pile will crumble a bit and spawn a plate enemy.",空高く舞い上がるプレートの山。2回攻撃を受けると、少し崩れてプレート型の敵が出現します。
+
+trash_can,trash_can,ごみ箱
+trash_can_bossDesc,"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!",チームの30%が離反します。敵がキルを獲得すると、敵に利益がもたらされます！速やかに腐敗を止めてください！
+
+kettle,kettle,ケトル
+kettle_bossDesc,"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it.",食べ物が次々と爆発！5ティックごとにランダムな味方が爆発し、ケトルがそのエネルギーを吸収する！
+
+echo,echo,残響
+echo_bossDesc,Don't be too loud... The boss will turn into a random unit with 3 times stats.,あまり大声を出さないでください...ボスは3倍のステータスを持つランダムなユニットに変わります。
+
+bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！

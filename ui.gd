@@ -38,7 +38,8 @@ func viewUnit(unit : BaseUnit):
 	$Name.size.x = 334
 	$Name.position.x = 812
 	if unit.team != 2:
-		$Name.text = "ENEMY " + unit.type.replace("_"," ")
+		$Name.text = tr("enemy_unit").format({"ENEMY":tr("enemy"),"UNIT":tr(unit.type)})
+		#$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
 		$Name.text = unit.type.replace("_"," ")
 	
@@ -277,7 +278,7 @@ func showTutorial(roundnumber):
 	$SynergyUI.visible = false
 	$Name.remove_theme_color_override("font_color")
 	$Name.size.x = 23
-	$Name.text = "Current Wave: "+  str(roundnumber)
+	$Name.text = tr("current_wave") +  str(roundnumber)
 
 func runCraftAnim(NewFusion):
 	$AnimationPlayer.play("craft")
