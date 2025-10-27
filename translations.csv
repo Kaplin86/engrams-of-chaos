@@ -135,7 +135,12 @@ echo_bossDesc,Don't be too loud... The boss will turn into a random unit with 3 
 
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 
+GAMEOVERTEXT,TRY AGAIN|TRY AGAIN|TRY AGAIN| Make sure to place your units strategically!|Make sure to use synergy buffs to their fullest!|In life, we are always learning.|The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.|YOUR LOSS HERE IS ALL BUT GUARANTEED|Try again and make burnt toast proud!!,もう一度やり直してください|もう一度やり直してください|もう一度やり直してください|人生において、私たちは常に学び続けている
+FINALROUND, Final Round: ,最終ラウンド: 
+STRONGESTSYNERGY, Strongest Synergy: ,最強のシナジー:
+NONE,NONE.,なし
 
+ABILITY,[b]ABILITY[/b],[color=#FFCC00]魔法[/color]
 
 pepper,pepper,胡椒
 pepper_desc,"Every time this unit attacks, it's attack speed increases by 2%",このユニットが攻撃するたびに、攻撃速度が2%増加します。
@@ -153,148 +158,148 @@ pineapple,pineapple,パイナップル
 pineapple_desc,Any enemies that attack this unit lose 5% of their attack speed,このユニットを攻撃する敵は攻撃速度が5%低下する
 
 chocolate,chocolate,チョコレート
-chocolate_desc,ABILITY: Increase crit chance  all neighboring allies by 10%,
+chocolate_desc,{ABILITY}: Increase crit chance  all neighboring allies by 10%,{ABILITY}: 隣接する味方全員のクリティカル確率を10増加
 
 bacon,bacon,ベーコン
-bacon_desc,ABILITY: Heal all allies by their attack + defense,
+bacon_desc,{ABILITY}: Heal all allies by their attack + defense,{ABILITY}: 攻撃力と防御力に基づいて味方全員を回復します。
 
 caramel_cube,caramel_cube,キャラメルキューブ
-caramel_cube_desc,ABILITY: Heals all neighboring allies by 2x their defense,
+caramel_cube_desc,{ABILITY}: Heals all neighboring allies by 2x their defense,{ABILITY}: 周囲の味方の体力を防御力の2倍回復する
 
 kimchi,kimchi,キムチ
-kimchi_desc,ABILITY: Decrease the attack of every enemy by 3,
+kimchi_desc,{ABILITY}: Decrease the attack of every enemy by 3,{ABILITY}: 敵の攻撃力を3減少させる
 
 sauce,hot_sauce,ホットソース
-sauce_desc,Wants to see the world burn.,
+sauce_desc,Wants to see the world burn.,世界が燃え尽きるのを見たい
 
 salt_and_pepper,salt_and_pepper,塩とコショウ
-salt_and_pepper_desc,ABILITY: This unit's attack and defense swap,
+salt_and_pepper_desc,{ABILITY}: This unit's attack and defense swap,{ABILITY}: このユニットの攻撃と防御を入れ替える
 
 sour_belt,sour_belt,サワーグミ
-sour_belt_desc,"Every enemy this unit attacks, target looses 3 spell mana",
+sour_belt_desc,"Every enemy this unit attacks, target looses 3 spell mana",このユニットが攻撃する敵ごとに、ターゲットは 3 スペル マナを失います。
 
 citrus,citrus,柑橘類
-citrus_desc,ABILITY: Target can no longer crit,
+citrus_desc,{ABILITY}: Target can no longer crit,{ABILITY}: 対象はクリティカルヒットを実行できない
 
 onion,onion,タマネギ
-onion_desc,"When this attacks, heal 3% of the enemies defense",
+onion_desc,"When this attacks, heal 3% of the enemies defense",攻撃時、敵の防御力の3%分HPを回復する。
 
 pickle,pickle,ピクルス
-pickle_desc,ABILITY: This unit's target loses 7 defense,
+pickle_desc,{ABILITY}: This unit's target loses 7 defense,{ABILITY}: このユニットのターゲットは防御力を7失う
 
 coffee,coffee,コーヒー
-coffee_desc,"When this unit jumps, Increase crit chance by 10%",
+coffee_desc,"When this unit jumps, Increase crit chance by 10%",このユニットがジャンプすると、クリティカル率が10%上昇します。
 
 mushroom,mushroom,キノコ
-mushroom_desc,A fun guy.,
+mushroom_desc,A fun guy.,それはキノコです
 
 blue_cheese,blue_cheese,ブルーチーズ
-blue_cheese_desc,"When this unit dies, spawn a mini cheese where it died.",
+blue_cheese_desc,"When this unit dies, spawn a mini cheese where it died.",このユニットが死亡した場合、死亡した場所にミニチーズを生成します。
 
 walnut,walnut,クルミ
-walnut_desc,"When this unit attacks, it deals all its true damage again in another attack.",
+walnut_desc,"When this unit attacks, it deals all its true damage again in another attack.",このユニットが攻撃する場合、貫通ダメージをすべて別の攻撃で再度与えます。
 
 fish,fish,魚
-fish_desc,ABILITY: Attack the enemy with an attack that deals 3x damage,
+fish_desc,{ABILITY}: Attack the enemy with an attack that deals 3x damage,{ABILITY}: 対象に3倍のダメージを与える
 
 salt_cube,salt_cube,塩キューブ
-salt_cube_desc,"Every 3 ticks, gain 2 defense.",
+salt_cube_desc,"Every 3 ticks, gain 2 defense.",3ティックごとに、このユニットの防御力が2増加します
 
 sweet_tooth,sweet_tooth,甘党
-sweet_tooth_desc,"At the start of the round, if the sweet synergy is higher than 4 this gains a large buff.",
+sweet_tooth_desc,"At the start of the round, if the sweet synergy is higher than 4 this gains a large buff.",ラウンド開始時にスイートシナジーが 4 つ以上ある場合、このユニットは大きな強化を受けます。
 
 blueprint,blueprint,青写真
-blueprint_desc,"Every tick, Allies in the same column as this unit have increased attack speed",
+blueprint_desc,"Every tick, Allies in the same column as this unit have increased attack speed",毎ティック、このユニットと同じ列の味方の攻撃速度が上昇する
 
 up_arrow,up_arrow,上矢印
-up_arrow_desc,"On the second tick, if there has been a overall stat increase, this unit gains increased max hp",
+up_arrow_desc,"On the second tick, if there has been a overall stat increase, this unit gains increased max hp",2回目のティックで、全体的なステータスが増加した場合、このユニットの最大HPが増加します。
 
 fractal,fractal,フラクタル
-fractal_desc,Every 10 ticks spawn another fractal somewhere on the board,
+fractal_desc,Every 10 ticks spawn another fractal somewhere on the board,10ティックごとにボード上のどこかに別のフラクタルが出現します
 
 dice,dice,サイコロ
-dice_desc,"Every tick, increase an ally's stats by random amounts ( can go down )",
+dice_desc,"Every tick, increase an ally's stats by random amounts ( can go down )",ティックごとに、味方のステータスをランダムな量だけ増加します（減少する場合もあります）。
 
 down_arrow,down_arrow,下矢印
-down_arrow_desc,"Every tick, If a negative stat changed happened on the team last tick, gain 5 max hp",
+down_arrow_desc,"Every tick, If a negative stat changed happened on the team last tick, gain 5 max hp",毎ティック、前回のティックでチームにマイナスのステータス変化があった場合、最大HPが5増加します
 
 rotting_coin,rotting_coin,腐った円
-rotting_coin_desc,ABILITY: Attacks the enemy with attack times greed synergy level,
+rotting_coin_desc,{ABILITY}: Attacks the enemy with attack times greed synergy level,{ABILITY}: 攻撃回数に応じてグリードシナジーレベルが上昇し、敵を攻撃する
 
 masterpiece,masterpiece,完璧な芸術
-masterpiece_desc,"When this attacks, freeze the enemy (excluding Bosses)",
+masterpiece_desc,"When this attacks, freeze the enemy (excluding Bosses)",攻撃時に対象を凍結させる（ボスを除く）
 
 rules_card,rules_card,ルールカード
-rules_card_desc,"At the round start, the unit to the right of this has the same stats as the unit to the left.",
+rules_card_desc,"At the round start, the unit to the right of this has the same stats as the unit to the left.",ラウンド開始時、このユニットの右側のユニットは左側のユニットと同じステータスになります。
 
 sculpture,sculpture,彫刻
-sculpture_desc,"ABILITY: This unit strikes the enemy with 5 times their damage, then decreases their damage by 2",
+sculpture_desc,"{ABILITY}: This unit strikes the enemy with 5 times their damage, then decreases their damage by 2",{ABILITY}: このユニットはターゲットに 5 倍のダメージを与え、その後ダメージを 2 軽減します。
 
 gold,gold,金
-gold_desc,ABILITY: Heal this unit by how many engrams you have.,
+gold_desc,{ABILITY}: Heal this unit by how many engrams you have.,{ABILITY}: 保有しているエングラムの数に応じてこのユニットを回復する
 
 canvas,canvas,キャンバス
-canvas_desc,"At the start of the round, turn into the unit to the left of this",
+canvas_desc,"At the start of the round, turn into the unit to the left of this",ラウンド開始時、このユニットの左隣のユニットに変身する。
 
 1st_place_medal,1st_place_medal,1位メダル
-1st_place_medal_desc,"Every tick, allies surrounding this gain 5% crit chance",
+1st_place_medal_desc,"Every tick, allies surrounding this gain 5% crit chance",毎ティック、これを囲む味方は5%のクリティカル確率を得る
 
 tax_form,tax_form,納税フォーム
-tax_form_desc,"When this gets attacked, the attacker looses 1 defense.",
+tax_form_desc,"When this gets attacked, the attacker looses 1 defense.",これが攻撃されると、攻撃者は防御力を 1 失います。
 
 museum,museum,博物館
-museum_desc,"When this dies, spawn the last ally whos died here.",
+museum_desc,"When this dies, spawn the last ally whos died here.",このユニットが死亡した場合、最後に死亡した味方として復活します。
 
 poker_chip,poker_chip,ポーカーチップ
-poker_chip_desc,"ABILITY: Flip a coin. If heads, double damage, if tails, half defense",
+poker_chip_desc,"{ABILITY}: Flip a coin. If heads, double damage, if tails, half defense",{ABILITY}: コインを投げる。表ならダメージ2倍、裏なら防御力半分
 
 reaper_pepper,reaper_pepper,死神ペッパー
-reaper_pepper_desc,"Every time this unit attacks, it's damage increases by one, but its speed decreases",
+reaper_pepper_desc,"Every time this unit attacks, it's damage increases by one, but its speed decreases",このユニットが攻撃するたびにダメージが1増加しますが、速度が低下します。
 
 paint_bomb,paint_bomb,ペイントボム
-paint_bomb_desc,"ABILITY: Hits the target, but also hits any enemies surrounding the target",
+paint_bomb_desc,"{ABILITY}: Hits the target, but also hits any enemies surrounding the target",{ABILITY}: ターゲットに命中するが、ターゲットの周囲の敵にも命中する
 
 exclamation_point,!,!
-exclamation_point_desc,"When this unit gets hit, It jumps to its starting position and gains 1 defense.",
+exclamation_point_desc,"When this unit gets hit, It jumps to its starting position and gains 1 defense.",このユニットが攻撃を受けると、開始位置に戻り、防御力が 1 増加します。
 
 snowball,snowball,雪だるま
-snowball_desc,"This unit's crit chance will go up every attack. Once it crits, it resets to 10%",
+snowball_desc,"This unit's crit chance will go up every attack. Once it crits, it resets to 10%",このユニットのクリティカル率は攻撃ごとに上昇します。一度クリティカルが発生すると、10%にリセットされます。
 
 dusty_book,dusty_book,古書
-dusty_book_desc,ABILITY: Allies in the same column as this unit gain 1 defense and attack,
+dusty_book_desc,{ABILITY}: Allies in the same column as this unit gain 1 defense and attack,{ABILITY}: このユニットと同じ列の味方は防御力と攻撃力が1増加する
 
 4th_place_medal,4th_place_medal,4位メダル
-4th_place_medal_desc,"Once this reaches 30% HP, It's defences increase by 7",
+4th_place_medal_desc,"Once this reaches 30% HP, It's defences increase by 7",HPが30%に達すると防御力が7増加する
 
 controller,controller,コントローラ
-controller_desc,"ABILITY: This unit becomes frozen for a tick, giving another unit a bonus action",
+controller_desc,"{ABILITY}: This unit becomes frozen for a tick, giving another unit a bonus action",{ABILITY}: このユニットは 1 ティックの間凍結され、別の味方にボーナス アクションを付与します。
 
 cornucopia,cornucopia,豊穣の角
-cornucopia_desc,"When this gets hit, equally distribute the hit between neighboring allies",
+cornucopia_desc,"When this gets hit, equally distribute the hit between neighboring allies",これが攻撃を受けた場合、隣接する味方に均等にダメージを分配します
 
 crown,crown,クラウン
-crown_desc,"At the start of the round, this unit dies, passing its stats to the unit to the left",
+crown_desc,"At the start of the round, this unit dies, passing its stats to the unit to the left",ラウンド開始時にこのユニットは死亡し、そのステータスを左隣のユニットに渡す。
 
 point_token,point_token,ポイントトークン
-point_token_desc,ABILITY: Strike the enemy with damage * the number of point tokens on the team,
+point_token_desc,{ABILITY}: Strike the enemy with damage multiplied by the number of point tokens on the team,{ABILITY}: チームのポイントトークンの数に比例したダメージを敵に与える
 
 investment_vault,investment_vault,投資金庫
-investment_vault_desc,"At the start of the round, Kill a random ally, Then when this dies revive the ally",
+investment_vault_desc,"At the start of the round, Kill a random ally, Then when this dies revive the ally with 1.5 times the defense.",ラウンド開始時にランダムな味方を倒す。このユニットが死亡した場合、その味方を防御力1.5倍で復活させる。
 
 toolbox,toolbox,ツールボックス
-toolbox_desc,"Every tick, Allies in the same row as this unit have increased attack speed",
+toolbox_desc,"Every tick, Allies in the same row as this unit have increased attack speed",毎ティック、このユニットと同じ列の味方の攻撃速度が上昇する
 
 anchor,anchor,アンカー
-anchor_desc,ABILITY: Increase the range of this unit by 1,
+anchor_desc,{ABILITY}: Increase the range of this unit by 1,{ABILITY}: このユニットの射程を1増加
 
 money_paper,dollar,紙幣
-money_paper_desc,ABILITY: Attacks the target based on how many engrams you have.,
+money_paper_desc,{ABILITY}: Attacks the target based on how many engrams you have.,{ABILITY}: 保有しているエングラムの数に応じてターゲットにダメージを与えます
 
 brush,brush,ブラシf
-brush_desc,ABILITY: Spawn a scribble somewhere on the board,
+brush_desc,{ABILITY}: Spawn a scribble somewhere on the board,{ABILITY}: ボード上のどこかに落書きを作成する
 
 modified_card,modified_card,編集されたカード
-modified_card_desc,"At the round start, the units to the left and right of this have averaged stats.",
+modified_card_desc,"At the round start, the units to the left and right of this have averaged stats.",ラウンド開始時、このユニットの左右のユニットは平均ステータスを持ちます。
 
 chess_piece,chess_piece,チェスの駒
-chess_piece_desc,ABILITY: Does 2 additional ticks,
+chess_piece_desc,{ABILITY}: Does 2 additional ticks,{ABILITY}: 2つの追加ティックを実行します

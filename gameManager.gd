@@ -23,7 +23,7 @@ var currentlyAvailableBosses : Array[String] = ["rolling_pin","cutlery","whisk"]
 var currentlyAvailableSuperbosses : Array[String] = ["oven","fridge","blender","plate_pile","trash_can", "kettle"] ## The current super bosses that appear on wave 7
 var engramInventory : Dictionary = {} ## The current engrams the player has. Formatted like {"sweet":3,"salty":9}
 
-var gameOverText : Array[String] = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED","Try again and make burnt toast proud!!"] ## A large array filled with strings of various death texts
+var gameOverText : Array = ["TRY AGAIN","TRY AGAIN","TRY AGAIN", "Make sure to place your units strategically!","Make sure to use synergy buffs to their fullest!","In life, we are always learning.","The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.","YOUR LOSS HERE IS ALL BUT GUARANTEED","Try again and make burnt toast proud!!"] ## A large array filled with strings of various death texts
 
 var ticksThisRound := 0 ## This variable is set to how many ticks have happened so far this round.
 var lastScreenshot : ViewportTexture ## This texture is taken of the board last time a tick was started
@@ -346,13 +346,14 @@ func endRound(): ## This is called when the round ends
 		if lastScreenshot:
 			$CanvasLayer2/Control/Board.texture = lastScreenshot
 		await get_tree().create_timer(1).timeout
+		gameOverText = Array(tr("GAMEOVERTEXT").split("|"))
 		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
-		$CanvasLayer2/Control/HighestRound.text = "Final Round: " + str(currentWave)
+		$CanvasLayer2/Control/HighestRound.text = tr("FINALROUND") + str(currentWave)
 		if $CanvasLayer/UI.synergyList.size() != 0:
-			$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: " + $CanvasLayer/UI.synergyList.get(0)
+			$CanvasLayer2/Control/StrongestSynergy.text = tr("STRONGESTSYNERGY") + tr($CanvasLayer/UI.synergyList.get(0))
 		else:
-			$CanvasLayer2/Control/StrongestSynergy.text = "Strongest Synergy: NONE."
-		$CanvasLayer2/Control/Mode.text = "Gamemode: " + DatastoreHolder.difficulty
+			$CanvasLayer2/Control/StrongestSynergy.text = tr("STRONGESTSYNERGY") + tr("NONE")
+		$CanvasLayer2/Control/Mode.text = tr("GAMEMODE") + tr(DatastoreHolder.difficulty.to_upper())
 		var newtween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 		newtween.tween_property($CanvasLayer2/Control,"modulate",Color(1,1,1,1),1)
 		await get_tree().create_timer(1).timeout

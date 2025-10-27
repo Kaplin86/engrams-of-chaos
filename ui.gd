@@ -34,7 +34,7 @@ func viewUnit(unit : BaseUnit):
 		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	
 	
-	$UnitUI/Description.text = tr(unit.type + "_desc")
+	$UnitUI/Description.text = tr(unit.type + "_desc").format({"ABILITY":tr("ABILITY")})
 	$Name.size.x = 334
 	$Name.position.x = 812
 	if unit.team != 2:
