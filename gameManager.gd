@@ -52,6 +52,8 @@ func _ready() -> void:
 	
 	generateEnemyTeam()
 	
+	printCoolTranslationTemplate()
+	
 	$CanvasLayer2/Control.modulate = Color(1,1,1,0)
 	$CanvasLayer2/Control.visible = true
 	
@@ -103,6 +105,18 @@ func printstatblock():
 		print("MAX MANA:", GetStatBlock.maxMana)
 		print("ABILITY/FUNCTION:", GetStatBlock.description)
 		print()
+
+func printCoolTranslationTemplate():
+	for E in DatastoreHolder.craftingUnitJson:
+		if tr(E) == E:
+			if load("res://units/"+E+"/"+E+".tscn"):
+				var GetStatBlock : BaseUnit = load("res://units/"+E+"/"+E+".tscn").instantiate()
+				print()
+				print(E,",",E)
+				if "," in GetStatBlock.description:
+					print(E,'_desc,"',GetStatBlock.description,'"')
+				else:
+					print(E,"_desc,",GetStatBlock.description)
 
 func generateEnemyTeam():
 	var EnemyCount = randi_range(currentWave,currentWave * currentWave)

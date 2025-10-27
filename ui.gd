@@ -34,14 +34,13 @@ func viewUnit(unit : BaseUnit):
 		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	
 	
-	$UnitUI/Description.text = unit.description
+	$UnitUI/Description.text = tr(unit.type + "_desc")
 	$Name.size.x = 334
 	$Name.position.x = 812
 	if unit.team != 2:
 		$Name.text = tr("enemy_unit").format({"ENEMY":tr("enemy"),"UNIT":tr(unit.type)})
-		#$Name.text = "ENEMY " + unit.type.replace("_"," ")
 	else:
-		$Name.text = unit.type.replace("_"," ")
+		$Name.text = tr(unit.type)
 	
 	
 	if $UnitUI/UnitSelectedImage.texture:
