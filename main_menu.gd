@@ -10,9 +10,18 @@ signal changeButton
 var mode = "kitchen"
 
 var NotGameButtons = ["Additional","CradleOfElements"]
-
+var pressed = false
 func _process(delta: float) -> void:
 	deltatimer += delta
+	if Input.is_key_pressed(KEY_J):
+		if pressed == false:
+			pressed = true
+			if TranslationServer.get_locale() == "en":
+				TranslationServer.set_locale("ja")
+			else:
+				TranslationServer.set_locale("en")
+	else:
+		pressed = false
 	
 	if mode == "kitchen":
 		if !Buttons.has($Tutorial):

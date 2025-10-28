@@ -135,11 +135,16 @@ echo_bossDesc,Don't be too loud... The boss will turn into a random unit with 3 
 
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 
-GAMEOVERTEXT,TRY AGAIN|TRY AGAIN|TRY AGAIN| Make sure to place your units strategically!|Make sure to use synergy buffs to their fullest!|In life, we are always learning.|The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.|YOUR LOSS HERE IS ALL BUT GUARANTEED|Try again and make burnt toast proud!!,もう一度やり直してください|もう一度やり直してください|もう一度やり直してください|人生において、私たちは常に学び続けている
+QUOTE_START,',「
+QUOTE_END,',」
+
+GAMEOVERTEXT,"TRY AGAIN|TRY AGAIN|TRY AGAIN| Make sure to place your units strategically!|Make sure to use synergy buffs to their fullest!|In life, we are always learning.|The cycle of losses should not be interpreted as a treadmill, but as a wheel. You move forward with each repetition.|YOUR LOSS HERE IS ALL BUT GUARANTEED|Try again and make burnt toast proud!!",もう一度やり直してください|もう一度やり直してください|もう一度やり直してください|人生において、私たちは常に学び続けている
 FINALROUND, Final Round: ,最終ラウンド: 
 STRONGESTSYNERGY, Strongest Synergy: ,最強のシナジー:
 NONE,NONE.,なし
 GAMEMODE,Gamemode: ,ゲームモード: 
+
+GAMEOVER,GAME OVER, ゲームオーバー
 
 ABILITY,[b]ABILITY[/b],[color=#FFCC00]魔法[/color]
 

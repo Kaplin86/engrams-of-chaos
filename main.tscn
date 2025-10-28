@@ -194,7 +194,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -201.618)
+position = Vector2(348, -200.754)
 scale = Vector2(1.6, 1.6)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
@@ -275,7 +275,7 @@ offset_bottom = 275.2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("12_dg77c")
 theme_override_font_sizes/font_size = 104
-text = "GAME OVER"
+text = "GAMEOVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

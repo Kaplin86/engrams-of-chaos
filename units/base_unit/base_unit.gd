@@ -182,6 +182,17 @@ func onHit(damageToTake,attacker : BaseUnit = null, truedamagePercent : float = 
 	hp -= totaldamage
 	if hp <= 0:
 		die()
+	
+	var CoolText = $VisualHolder/BaseLabel.duplicate()
+	#CoolText.visible = true
+	$VisualHolder/GridContainer/Control.add_sibling(CoolText)
+	var NewTween = create_tween()
+	NewTween.tween_interval(timePerTick)
+	NewTween.tween_property(CoolText, "modulate", Color(1,1,1,0), timePerTick)
+	NewTween.bind_node(CoolText)
+	
+
+
 
 func attackAnim(hitcount : int = 1): ## Plays for the attack animation
 	animPlayer.stop()

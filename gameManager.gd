@@ -34,7 +34,7 @@ signal RoundEnd
 signal _confirmpress
 
 func _ready() -> void:
-	
+	print(tr("GAMEOVERTEXT"))
 	if DatastoreHolder.Mode == "Cradle":
 		currentlyAvailableBosses = []
 		var TempThing = DatastoreHolder.CradleBosses.duplicate()
@@ -347,7 +347,7 @@ func endRound(): ## This is called when the round ends
 			$CanvasLayer2/Control/Board.texture = lastScreenshot
 		await get_tree().create_timer(1).timeout
 		gameOverText = Array(tr("GAMEOVERTEXT").split("|"))
-		$CanvasLayer2/Control/DeathText.text = "'"+gameOverText.pick_random() + "'"
+		$CanvasLayer2/Control/DeathText.text = tr("QUOTE_START")+gameOverText.pick_random() + tr("QUOTE_END")
 		$CanvasLayer2/Control/HighestRound.text = tr("FINALROUND") + str(currentWave)
 		if $CanvasLayer/UI.synergyList.size() != 0:
 			$CanvasLayer2/Control/StrongestSynergy.text = tr("STRONGESTSYNERGY") + tr($CanvasLayer/UI.synergyList.get(0))

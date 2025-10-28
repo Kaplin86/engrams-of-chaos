@@ -758,6 +758,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_w44g7")
 }
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 786.0
+offset_top = 14.0
+offset_right = 978.0
+offset_bottom = 89.0
+scale = Vector2(1.76087, 1.76087)
+text = "(J to translate text)
+(wip japanese
+translations)"
+
 [connection signal="changeButton" from="." to="ColorRect3/ScrollContainer" method="_on_main_menu_change_button"]
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

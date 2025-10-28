@@ -40,7 +40,6 @@ func _ready() -> void:
 	craftingUnitJson = JSON.new().parse_string(content) # THIS IS TEMP!! LATER DOWN THE LINE I WILL MAKE ITS OWN INDEPENDENT JSON
 	
 	print(getFusedUnit("umami","spicy"))
-	TranslationServer.set_locale("ja")
 
 
 func getFusedUnit(element1,element2):
