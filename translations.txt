@@ -105,33 +105,51 @@ current_wave,Current Wave: ,現在の波 :
 
 cutlery,cutlery,刃物
 cutlery_bossDesc,A 3 in 1 combo! Prepare for mass destruction!,3 in 1コンボ！大量破壊に備えよ！
+cutlery_desc,"Every 10 ticks, instantly kill an enemy.",10ティックごとに敵を即座に殺します。
 
 rolling_pin,rolling_pin,麺棒
 rolling_pin_bossDesc,Half of your team shall return to dough...,あなたのチームの半分は生地に戻ります...
+rolling_pin_desc,"On first tick, Half of the enemy team turns into dough",最初のティックで敵チームの半分がパンに変わる
+
 
 whisk,whisk,泡立て器
 whisk_bossDesc,"Get moving, Get groving, its shuffling time!","動いて、動いて、シャッフルの時間だよ！"
+whisk_desc,"Every tick, all enemies shuffle",すべての敵は毎ティックごとにシャッフルします
 
 oven,oven,オーブン
 oven_bossDesc,"Don't let the heat cloud your mind, a unit each tick will get burnt alongside those in line.",暑さで気が曇らないようにしてください。1 ティックごとに 1 ユニットが、列に並んでいる人とともに焼かれます。
+oven_desc,Doesn't move. A random enemy's row is engulfed in flames.,移動しません。ランダムな敵の列が炎に包まれます。
 
 fridge,fridge,冷蔵庫
 fridge_bossDesc,"Brrr... So chilly! Each tick, half your team will be FROZEN.",ぶるぶる…寒い！ティックごとに、チームの半分が凍り付いてしまいます。
+fridge_desc,"Doesn't move. At the start of every tick, half of the enemy team becomes frozen.",動きません。毎ティックの開始時に、敵チームの半分が凍結します。
 
 blender,blender,ブレンダー
 blender_bossDesc,"The blades spin quickly! When this gets hit, the whole board gets shuffled. Any units near the blender after this gets hit!",ブレードが高速回転！これがヒットすると、盤面全体がシャッフルされます。その後、ブレンダーの近くにあるユニットはすべてヒットします！
+blender_desc,"Doesn't move. When this gets hit, all unit's positions get randomized. Every unit takes some damage.",移動しません。この攻撃を受けると、全ユニットの位置がランダムに変更されます。全ユニットがダメージを受けます。
+
+fork,fork,フォーク
+fork_desc,"When this attacks, it hits all enemies around itself.",この攻撃は周囲の敵全員に命中します。
+
+spoon,spoon,スプーン
+spoon_desc,"When this attacks, swaps positions with the enemy",攻撃時に敵と位置を入れ替える
 
 plate_pile,plate_pile,皿の山
 plate_pile_bossDesc,"A stack of plates to the skies above. When the pile gets hit twice, the pile will crumble a bit and spawn a plate enemy.",空高く舞い上がるプレートの山。2回攻撃を受けると、少し崩れてプレート型の敵が出現します。
+plate_pile_desc,"Doesn't move. Every 2 times this gets hit, spawn a plate.",動きません。2回攻撃されるごとにプレートを生成します。
 
 trash_can,trash_can,ごみ箱
 trash_can_bossDesc,"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!",チームの30%が離反します。敵がキルを獲得すると、敵に利益がもたらされます！速やかに腐敗を止めてください！
+trash_can_desc,"Doesn't move. 30% of the enemy team turn into allies. Whenever an ally gets a kill, heal team by 100 and buff every ally",移動しません。敵チームの30%が味方チームに転向します。味方がキルを達成するたびに、チームの体力を100回復し、味方全体にバフを付与します。
+
 
 kettle,kettle,ケトル
 kettle_bossDesc,"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it.",食べ物が次々と爆発！5ティックごとにランダムな味方が爆発し、ケトルがそのエネルギーを吸収する！
+kettle_desc,"Doesn't move. Every 5 ticks, kill a random enemy and heal double its HP",動かない。5ティックごとにランダムな敵を倒し、そのHPを2倍回復する。
 
 echo,echo,残響
 echo_bossDesc,Don't be too loud... The boss will turn into a random unit with 3 times stats.,あまり大声を出さないでください...ボスは3倍のステータスを持つランダムなユニットに変わります。
+echo_desc,Will turn into a random enemy with 3 times the HP and ATTACK,ランダムにHPと攻撃力が3倍の敵に変身する
 
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 
@@ -304,8 +322,46 @@ money_paper_desc,{ABILITY}: Attacks the target based on how many engrams you hav
 brush,brush,ブラシf
 brush_desc,{ABILITY}: Spawn a scribble somewhere on the board,{ABILITY}: ボード上のどこかに落書きを作成する
 
+scribble,scribble,落書き
+scribble_desc,A amalgamation of lines. It is both nothing and everything at the same time.,線の融合。それは同時に無であり、同時に全てでもある。
+
+dough,dough,生地
+dough_desc,The unbaked. The unedible. To be forcefully returned to your roots.,焼かれていないもの。食べられないもの。強制的に原点に戻される。
+
 modified_card,modified_card,編集されたカード
 modified_card_desc,"At the round start, the units to the left and right of this have averaged stats.",ラウンド開始時、このユニットの左右のユニットは平均ステータスを持ちます。
 
 chess_piece,chess_piece,チェスの駒
 chess_piece_desc,{ABILITY}: Does 2 additional ticks,{ABILITY}: 2つの追加ティックを実行します
+
+
+tut1,Howdy! Im Burnt Toast! I will be your tutorial fella! Press {SELECT_CONTROL} to continue!,やあ！焦げたトーストだよ！チュートリアル担当するよ！{SELECT_CONTROL}キーを押して続けてね！
+tut2,Welcome to Engrams of Chaos.,Engrams of Chaos へようこそ。
+tut3,So. Goal of the game is simple. Make a team to survive as many battles as possible to beat your highscore.,ゲームの目的はシンプルです。チームを組んで、できるだけ多くの戦闘を生き残り、ハイスコアを更新することです。
+tut4,When your team dies, your run ends. Simple enough right?,チームが全滅すると、ランも終了します。とてもシンプルですよね？
+tut5,"During battles, your team fights automatically. So, it is your job to prepare them beforehand!",戦闘中は、チームは自動的に戦闘を行います。そのため、事前にチームを準備しておくことが重要です。
+tut6,Lets start the first battle!,最初の戦いを始めよう！
+tut7,So you see this pretty START button here. See how its glowing? That means its selected!,ここに可愛いスタートボタンがありますね。光っているのが分かりますか？選択されているってことですね！
+tut8,"After I stop talking, Press {SELECT_CONTROL} to START the fight!",私が話すのをやめたら、{SELECT_CONTROL} を押して戦闘を開始してください。
+tut9,"Pause, Pause! Let me explain whats going on a bit.",ちょっと待って！何が起こっているのか少し説明させてください。
+tut10,Engrams of Chaos works with a tick-based system.,Engrams of Chaos はティックベースのシステムで動作します。
+tut11,"This is the metronome, which shows when ticks happen.",これはメトロノームで、カチカチという音が鳴るタイミングを示します。
+tut12,"Every tick, each unit can either move or attack, they only attack when close to an enemy.",毎ティックごとに、各ユニットは移動または攻撃することができ、敵に近づいた場合にのみ攻撃します。
+tut13,"As you can see here, your unit moved.",ご覧のとおり、ユニットは移動しました。
+tut14,Press {SELECT_CONTROL} to resume the fight after this message.,このメッセージの後、{SELECT_CONTROL} キーを押して戦闘を再開してください。
+tut15,Did you see that? Your unit just attacked!,見たか？部隊が攻撃したぞ！
+tut16,"Since the enemy was in range of your unit, it attacked instead of moving.",敵はあなたのユニットの射程内にいたので、移動するのではなく攻撃しました。
+tut17,"Now, show them whos boss!",さあ、誰がボスか見せつけてやりましょう!
+tut18,"What a great battle, you showed them whos boss alright!",素晴らしい戦いでした、誰がボスかを彼らに示しましたね！
+tut19,Did you see those circle thingies that appeared on your screen?,画面に表示された円形のものを見ましたか?
+tut20,"Those are ENGRAMS, which you get by surviving the round.",それらはラウンドを生き残ることで獲得できるエングラムでした。
+tut21,ENGRAMS can be used for CRAFTING new units!!,エングラムは新しいユニットの作成に使用できます!!
+tut22,"You see the loop now, right? You beat up guys, get engrams, make a better team, and repeat!",ループの仕組みが分かりましたか？ 敵を倒してエングラムを集め、より良いチームを作り、それを繰り返すんです！
+tut23,"Anywhom, lets craft your first unit!",とにかく、最初のユニットを作りましょう！
+tut24,"After this message, Press {DOWN_CONTROL} to switch to your CRAFTING button!",このメッセージの後、{DOWN_CONTROL} キーを押してクラフト ボタンに切り替えます。
+tut25,Now use {SELECT_CONTROL} to press the CRAFTING button after this message!,このメッセージの後に、{SELECT_CONTROL} キーを使用して作成ボタンを押してください。
+tut26,Wow! It's dark in here!,わあ！ここは暗いですね！
+tut27,Anyways welcome to the crafting ui.,とにかく、クラフトインターフェースへようこそ。
+tut28,You see these two circle slots?,これら 2 つの円形のスロットが見えますか?
+tut29,"Select the two ENGRAMS you wanna use using {LEFT_CONTROL}, {RIGHT_CONTROL}, and {SELECT_CONTROL}!","{LEFT_CONTROL}、{RIGHT_CONTROL}、{SELECT_CONTROL}を使用して、使用したい2つのエングラムを選択してください。"
+tut30,Wow! What a unique fella you just crafted!,わあ！すごくユニークなやつができましたね！

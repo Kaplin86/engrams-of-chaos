@@ -38,9 +38,9 @@ func viewUnit(unit : BaseUnit):
 	$Name.size.x = 334
 	$Name.position.x = 812
 	if unit.team != 2:
-		$Name.text = tr("enemy_unit").format({"ENEMY":tr("enemy"),"UNIT":tr(unit.type)})
+		$Name.text = tr("enemy_unit").format({"ENEMY":tr("enemy"),"UNIT":tr(unit.type)}).replace("_"," ")
 	else:
-		$Name.text = tr(unit.type)
+		$Name.text = tr(unit.type).replace("_"," ")
 	
 	
 	if $UnitUI/UnitSelectedImage.texture:
