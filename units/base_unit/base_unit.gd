@@ -43,6 +43,8 @@ var isBoss = false ## This decides if this is or isnt a boss. gets set in real t
 var Frozen := false ## When this is active, the unit will not attack or move. Gets disabled after the action is denied.
 var _sprite = null # This is for bosses!
 
+var healthAtTickStart := 0.0 ## Indicates HP of unit at the start of the tick. gets set to its value at pretick
+
 func _ready() -> void:
 	visualPosition = board.map_to_local(board_position)
 	if team == 1:
@@ -183,13 +185,6 @@ func onHit(damageToTake,attacker : BaseUnit = null, truedamagePercent : float = 
 	if hp <= 0:
 		die()
 	
-	var CoolText = $VisualHolder/BaseLabel.duplicate()
-	#CoolText.visible = true
-	$VisualHolder/GridContainer/Control.add_sibling(CoolText)
-	var NewTween = create_tween()
-	NewTween.tween_interval(timePerTick)
-	NewTween.tween_property(CoolText, "modulate", Color(1,1,1,0), timePerTick)
-	NewTween.bind_node(CoolText)
 	
 
 
@@ -319,10 +314,23 @@ func NearestEnemy() -> BaseUnit: ## Returns the nearest Enemy Unit
 		return null
 
 func preTick(): ## Calls before a tick
-	pass
+	healthAtTickStart = hp
 
 func postTick(): ## Calls after a tick
-	pass
+	var change = hp - healthAtTickStart
+	if int(change) != 0:
+		var CoolText : Label = $VisualHolder/BaseLabel.duplicate()
+		$VisualHolder/GridContainer/Control.add_sibling(CoolText)
+		var NewTween = create_tween()
+		NewTween.tween_interval(timePerTick)
+		NewTween.tween_property(CoolText, "modulate", Color(1,1,1,0), timePerTick)
+		NewTween.bind_node(CoolText)
+		
+
+		CoolText.text = str(int(change))
+		CoolText.visible = true
+		if change > 0:
+			CoolText.add_theme_color_override("font_color",Color.from_string("10a500",Color(4,4,4)))
 
 func deathOnBoard(unitData : BaseUnit): ##Calls when a unit is dying. wont run if the unit dying is itself
 	if hp <= 0:

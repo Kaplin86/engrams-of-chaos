@@ -365,3 +365,37 @@ tut27,Anyways welcome to the crafting ui.,とにかく、クラフトインタ�
 tut28,You see these two circle slots?,これら 2 つの円形のスロットが見えますか?
 tut29,"Select the two ENGRAMS you wanna use using {LEFT_CONTROL}, {RIGHT_CONTROL}, and {SELECT_CONTROL}!","{LEFT_CONTROL}、{RIGHT_CONTROL}、{SELECT_CONTROL}を使用して、使用したい2つのエングラムを選択してください。"
 tut30,Wow! What a unique fella you just crafted!,わあ！すごくユニークなやつができましたね！
+tut31,Let’s head back to the board to see your new ally.,ボードに戻って新しい仲間を確認しましょう。
+tut32,Press {DOWN_CONTROL} to go back to the main screen after this!,この後、{DOWN_CONTROL} を押すとメイン画面に戻ります。
+tut33,You see your unit over there? Now you have a team of a whopping size of 2!,あそこにあなたの部隊が見えますか？これでチームはなんと2人になりました！
+tut34,"As you progress through rounds, you will have to expand your team and strategize to survive!",ラウンドが進むにつれて、チームを拡大し、生き残るための戦略を立てる必要があります。
+tut35,How about we look at the new unit you made?,あなたが作った新しいユニットを見てみませんか？
+tut36,Press {DOWN_CONTROL} to go to the board!,{DOWN_CONTROL} キーを押してボードに移動してください。
+tut37,By default, the left-most unit is selected.,デフォルトでは、左端のユニットが選択されます。
+tut38,You see the unit you just made? They are selected!,今作ったユニットが見えますか？選択されました！
+tut39,"Their stats are up here in the top right, alongside a description.",統計情報は、説明の横の右上に表示されます。
+tut40,How about we move your unit to a more advantagous position?,あなたの部隊をもっと有利な位置に移動させてみませんか？
+tut41,"For instance, units with high defense should be in the front to protect the weaker units behind them!",たとえば、防御力の高いユニットは前方に配置して、後ろにいる弱いユニットを守る必要があります。
+tut42,Smart positioning helps your team survive longer. That’s how you push your score higher!,賢いポジショニングはチームの生存率を高め、スコアを伸ばす鍵となります！
+tut43,Press {SELECT_CONTROL} to pick up the selected unit,{SELECT_CONTROL}を押すと選択したユニットを拾うことができます
+tut44,Wowie!,わーい！
+tut45,"You picked up someone without their permission, radical idea.",許可なく人を拾ったなんて、極端な考えですね。
+tut46,"Move them around with {UP_CONTROL}, {LEFT_CONTROL}, {DOWN_CONTROL}, or {RIGHT_CONTROL}. Once you're done, press {SELECT_CONTROL}!",{UP_CONTROL}、{LEFT_CONTROL}、{DOWN_CONTROL}、または {RIGHT_CONTROL} で移動します。完了したら、{SELECT_CONTROL} を押してください。
+tut47,Alright. You see those icons in the units info panel? Those are the SYNERGIES your unit has.,よし。ユニット情報パネルにあるアイコンが見えますか？あれがユニットのシナジーです。
+tut48,"Speaking of synergies, lets go through how you view those!",シナジー効果について言えば、それをどのように見ているかを見てみましょう。
+tut49,"Once you are done looking at units, press {DOWN_CONTROL}",ユニットの確認が終わったら、{DOWN_CONTROL}を押します
+tut50,Welcome to the synergy view!,シナジービューへようこそ！
+tut51,Right now you have the '{SYNERGYNAME}' synergy selected!,現在、「{SYNERGYNAME}」シナジーが選択されています。
+tut52,"In the top right, you can see what effects it does!",右上に、どのような効果があるかが表示されます。
+tut53,Synergy effects are based around how many units you have!,シナジー効果は、所有するユニットの数によって決まります。
+tut54,"If text is BOLD, that means that effect is ACTIVE!!",テキストがゴールドの場合、その効果はアクティブです!!
+tut55,This is also a tool in your strategic toolkit. Effects from synergies will help you last longer!,これも戦略ツールキットのツールの一つです。相乗効果によって、より長く続くことができるでしょう！
+tut56,"Look through your synergies, then press {DOWN_CONTROL} when your done!",シナジーを確認して、完了したら {DOWN_CONTROL} を押してください。
+tut57,"Wait a second, we are back to selecting buttons?!",ちょっと待ってください。ボタンの選択に戻りましたか?
+tut58,"Pressing {DOWN_CONTROL} causes you to go deeper in the ui, so Buttons to Board to Synergies then back to Buttons!",{DOWN_CONTROL} を押すとメニューの奥深くに移動できるので、ボタンからボード、シナジー、そしてボタンに戻ります。
+tut59,Pressing {UP_CONTROL} is the opposite! Give it a try,{UP_CONTROL}を押すと逆になります！試してみてください
+tut60,Alrighty! Thats EVERYTHING!! You are now given free will great job.,はい！以上です！よくできました！
+tut61,"Remember this saying I always tell myself. Cause chaos to get engrams, then use engrams to do better chaos!",いつも自分に言い聞かせているこの言葉を覚えておいて。エングラムを得るためにカオスを引き起こし、そしてエングラムを使ってさらに大きなカオスを引き起こすんだ！
+tut62,"Whenever you're in doubt, read my automagically changing control guide in the bottom right!",疑問があるときはいつでも、右下にある自動的に変化するコントロール ガイドをお読みください。
+tut63,Just highlight that START button again and press {SELECT_CONTROL} when you’re ready for round two!,スタートボタンをもう一度ハイライトし、第 2 ラウンドの準備ができたら {SELECT_CONTROL} を押します。
+tut64,Peace!,さようなら！

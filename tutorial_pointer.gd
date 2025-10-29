@@ -52,13 +52,27 @@ func flip(side):
 			$Guy/NinePatchRect.position = Vector2(73,7)
 		
 
-func say(text : String):
+var ControlsTranslation = {
+			"UP_CONTROL" = tr("UP_CONTROL"),
+			"DOWN_CONTROL"=tr("DOWN_CONTROL"),
+			"LEFT_CONTROL"=tr("LEFT_CONTROL"),
+			"RIGHT_CONTROL"=tr("RIGHT_CONTROL"),
+			"LEFT_RIGHT_CONTROL"=tr("LEFT_RIGHT_CONTROL"),
+			"SELECT_CONTROL"=tr("SELECT_CONTROL"),
+			"ALL_CONTROL"=tr("ALL_CONTROL"),
+			"CANCEL_CONTROL"=tr("CANCEL_CONTROL")
+			}
+
+func say(text : String,extradata = null):
 	$Guy/NinePatchRect.visible = true
-	$Guy/NinePatchRect/RichTextLabel.text = text
+	if extradata:
+		$Guy/NinePatchRect/RichTextLabel.text = tr(text).format({"SYNERGYNAME":extradata})
+	else:
+		$Guy/NinePatchRect/RichTextLabel.text = tr(text).format(ControlsTranslation)
 	$Guy/NinePatchRect/RichTextLabel.visible_characters = 0
 	$Guy/NinePatchRect.size = Vector2i.ZERO
 	var EveryOther = false
-	for E in text.length():
+	for E in tr(text).length():
 		$Guy/NinePatchRect/RichTextLabel.visible_characters += 1
 		$Guy/NinePatchRect.size = Vector2i(175,$Guy/NinePatchRect/RichTextLabel.get_content_height())
 		if !Input.is_action_pressed("deny"):
@@ -70,7 +84,7 @@ func say(text : String):
 				
 				bell.play()
 				
-			if text[E] in [".",",","!","?"]:
+			if tr(text)[E] in [".",",","!","?"]:
 				await get_tree().create_timer(0.1).timeout
 			else:
 				await get_tree().create_timer(0.03).timeout

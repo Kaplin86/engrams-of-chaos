@@ -100,7 +100,12 @@ func _on_timer_timeout() -> void:
 	newBody.position = Vector2(randf_range(41.0,678.0),-84.0)
 	newBody.freeze = false
 	newBody.rotation = randf()
-	var unit = DatastoreHolder.craftingUnitJson.keys().pick_random()
+	var unit
+	if mode == "kitchen":
+		unit = DatastoreHolder.getFusedUnit(["spicy","sweet","salty","bitter","sour","umami"].pick_random(),["spicy","sweet","salty","bitter","sour","umami"].pick_random())
+	else:
+		unit = DatastoreHolder.craftingUnitJson.keys().pick_random()
+	
 	if load("res://units/"+unit+"/"+unit+".svg"):
 		newBody.get_child(0).texture = load("res://units/"+unit+"/"+unit+".svg")
 		add_child(newBody)
