@@ -90,11 +90,11 @@ func _process(delta: float) -> void:
 				changeUnitSelect(NewUnitList[0])
 			else:
 				changeUnitSelect(NewUnitList[NewUnitList.find(unitTarget) + 1])
-		unitTarget.modulate = Color(3,3,3)
+		unitTarget.get_child(0).modulate = Color(3,3,3)
 		if checkInputJustPressed("ui_down"):
 			CurrentState = "SynergyView"
 			synergyPoint = 0
-			unitTarget.modulate = Color(1,1,1)
+			unitTarget.get_child(0).modulate = Color(1,1,1)
 			SynergyView.emit()
 		if checkInputJustPressed("ui_up"):
 			CurrentState = "StartPause"
@@ -102,7 +102,7 @@ func _process(delta: float) -> void:
 				buttonPoint = "craft"
 			else:
 				buttonPoint = "start"
-			unitTarget.modulate = Color(1,1,1)
+			unitTarget.get_child(0).modulate = Color(1,1,1)
 			ButtonPanelTargeted.emit()
 		if checkInputJustPressed("confirm") and unitTarget.team == 2:
 			CurrentState = "PickingUpUnit"
@@ -312,7 +312,7 @@ func sortX(a, b):
 	return a.get_child(0).global_position.x < b.get_child(0).global_position.x
 
 func changeUnitSelect(newUnit : BaseUnit):
-	unitTarget.modulate = Color(1,1,1)
+	unitTarget.get_child(0).modulate = Color(1,1,1)
 	unitTarget = newUnit
 	if unitTarget and ui:
 		ui.viewUnit(unitTarget)

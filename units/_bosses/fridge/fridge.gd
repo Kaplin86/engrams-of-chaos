@@ -11,6 +11,7 @@ func tick(time_per_tick):
 	visualPosition = board.map_to_local(board_position)
 
 func preTick():
+	super()
 	var Enemies = []
 	for E in gameManagerObject.units:
 		if E.team != team:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy40ilr3hilag"]
+[gd_scene load_steps=4 format=3 uid="uid://dy40ilr3hilag"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_set24"]
 [ext_resource type="Script" uid="uid://cw73lyqb5u314" path="res://units/controller/controller.gd" id="2_7mvie"]
+[ext_resource type="Texture2D" uid="uid://bhi7x11wfee2v" path="res://units/controller/controller.svg" id="3_hlkcl"]
 
 [node name="Unit" instance=ExtResource("1_set24")]
 script = ExtResource("2_7mvie")
@@ -10,3 +11,6 @@ damage = 7
 maxMana = 80
 defense = 10
 type = "controller"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_hlkcl")

@@ -7,6 +7,7 @@
 [node name="Unit" instance=ExtResource("1_v3akt")]
 script = ExtResource("2_vyw4c")
 description = "Every tick, Allies in the same row as this unit have increased attack speed"
+type = "toolbox"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_rhedv")

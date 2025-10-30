@@ -163,6 +163,12 @@ NONE,NONE.,なし
 GAMEMODE,Gamemode: ,ゲームモード: 
 
 GAMEOVER,GAME OVER, ゲームオーバー
+TOLEADER,Press {SELECT_CONTROL} to go to leaderboard.,リーダーボードに移動するには、{SELECT_CONTROL} を押します。
+LEADERBOARDORDER,ENTER YOUR LEADERBOARD NAME.,リーダーボード名を入力してください。
+CHANGELETTER,{UP_CONTROL} and {DOWN_CONTROL} to change letter,{UP_CONTROL}と{DOWN_CONTROL}で文字を変更します
+NEXTLETTER,{LEFT_CONTROL} and {RIGHT_CONTROL} to go to next letter,{LEFT_CONTROL} と {RIGHT_CONTROL} を押すと次の文字に進みます
+LEADERCONFIRM,Press {SELECT_CONTROL} to confirm,確認するには{SELECT_CONTROL}を押してください
+LEADERSKIP,Press {CANCEL_CONTROL} to skip,スキップするには{CANCEL_CONTROL}を押してください
 
 ABILITY,[b]ABILITY[/b],[color=#FFCC00]魔法[/color]
 

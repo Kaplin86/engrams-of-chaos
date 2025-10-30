@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dnadkydavqxm3"]
 
-[ext_resource type="Script" path="res://engram_slot_machine.gd" id="1_fq5l3"]
+[ext_resource type="Script" uid="uid://c1jowemcl7jdm" path="res://engram_slot_machine.gd" id="1_fq5l3"]
 [ext_resource type="Texture2D" uid="uid://bj88sh0sxx12n" path="res://ui/elements/bitter.svg" id="2_dk5fi"]
 [ext_resource type="Texture2D" uid="uid://cjsgb1lsu6on4" path="res://ui/slot.svg" id="2_fq5l3"]
 [ext_resource type="Texture2D" uid="uid://bwt8d6rxp1740" path="res://ui/elements/greed.svg" id="4_2mden"]
@@ -112,7 +112,7 @@ offset_right = 279.0
 offset_bottom = 406.0
 theme_override_constants/outline_size = 36
 theme_override_font_sizes/font_size = 96
-text = "SPICY"
+text = "greed"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true

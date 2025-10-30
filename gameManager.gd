@@ -34,7 +34,6 @@ signal RoundEnd
 signal _confirmpress
 
 func _ready() -> void:
-	print(tr("GAMEOVERTEXT"))
 	if DatastoreHolder.Mode == "Cradle":
 		currentlyAvailableBosses = []
 		var TempThing = DatastoreHolder.CradleBosses.duplicate()
@@ -58,8 +57,8 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		#spawnUnit("kettle",Vector2i(7,14),2,true)
+		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		spawnUnit("lightbulb",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)
@@ -71,6 +70,8 @@ func _ready() -> void:
 	#startFight()
 	
 	$CursorHandler.unitTarget = units[1]
+	
+	$CanvasLayer2/Control/Label.text = tr("TOLEADER").format({"SELECT_CONTROL":tr("SELECT_CONTROL")})
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm"):

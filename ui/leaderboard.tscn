@@ -143,19 +143,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 248.0
-offset_top = 435.0
-offset_right = 470.0
-offset_bottom = 536.0
-text = "W and S to change letter
-A and D to go to next letter
-Press Z to confirm.
-Press X to skip."
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Control"]
+[node name="CL" type="Label" parent="Control"]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 179.0
 offset_top = 435.0
@@ -164,7 +153,8 @@ offset_bottom = 484.0
 text = "CHANGELETTER"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Control"]
+[node name="NL" type="Label" parent="Control"]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 179.0
 offset_top = 460.87
@@ -173,7 +163,8 @@ offset_bottom = 509.87
 text = "NEXTLETTER"
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="Control"]
+[node name="LC" type="Label" parent="Control"]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 179.0
 offset_top = 486.957
@@ -182,7 +173,8 @@ offset_bottom = 535.957
 text = "LEADERCONFIRM"
 horizontal_alignment = 1
 
-[node name="Label6" type="Label" parent="Control"]
+[node name="LS" type="Label" parent="Control"]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 179.0
 offset_top = 513.043

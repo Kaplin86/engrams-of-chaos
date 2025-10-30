@@ -12,6 +12,7 @@ func tick(time_per_tick):
 	
 	
 func postTick():
+	super()
 	var Enemies = []
 	for E in gameManagerObject.units:
 		if E.team != team:

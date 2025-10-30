@@ -12,6 +12,7 @@ func tick(time):
 	visualPosition = board.map_to_local(board_position)
 
 func preTick():
+	super()
 	charge += 1
 	if charge >= 5:
 		charge = 0

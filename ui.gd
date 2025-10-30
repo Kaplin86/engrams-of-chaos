@@ -11,6 +11,7 @@ func _ready() -> void:
 
 var synergyRectScene = preload("res://ui/synergy_rect.tscn")
 var selectedButton = "play"
+var unitTypeSprite = {}
 
 func viewUnit(unit : BaseUnit):
 	$UnitUI.visible = true
@@ -28,10 +29,15 @@ func viewUnit(unit : BaseUnit):
 	$UnitUI/CritChance.text = str(unit.CritChance * 100) + "%"
 	$UnitUI/Speed.text = str(snapped(unit.speed,0.1))
 	
-	if unit.isBoss:
-		$UnitUI/UnitSelectedImage.texture = unit._sprite
+	if unitTypeSprite.has(unit.type):
+		$UnitUI/UnitSelectedImage.texture = unitTypeSprite[unit.type]
 	else:
-		$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
+		if unit.isBoss:
+			$UnitUI/UnitSelectedImage.texture = unit._sprite
+			unitTypeSprite[unit.type] = unit._sprite
+		else:
+			$UnitUI/UnitSelectedImage.texture = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
+			unitTypeSprite[unit.type] = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	
 	
 	$UnitUI/Description.text = tr(unit.type + "_desc").format({"ABILITY":tr("ABILITY")})
