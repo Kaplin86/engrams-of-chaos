@@ -338,7 +338,7 @@ chess_piece_desc,{ABILITY}: Does 2 additional ticks,{ABILITY}: 2つの追加テ�
 tut1,Howdy! Im Burnt Toast! I will be your tutorial fella! Press {SELECT_CONTROL} to continue!,やあ！焦げたトーストだよ！チュートリアル担当するよ！{SELECT_CONTROL}キーを押して続けてね！
 tut2,Welcome to Engrams of Chaos.,Engrams of Chaos へようこそ。
 tut3,So. Goal of the game is simple. Make a team to survive as many battles as possible to beat your highscore.,ゲームの目的はシンプルです。チームを組んで、できるだけ多くの戦闘を生き残り、ハイスコアを更新することです。
-tut4,When your team dies, your run ends. Simple enough right?,チームが全滅すると、ランも終了します。とてもシンプルですよね？
+tut4,"When your team dies, your run ends. Simple enough right?",チームが全滅すると、ランも終了します。とてもシンプルですよね？
 tut5,"During battles, your team fights automatically. So, it is your job to prepare them beforehand!",戦闘中は、チームは自動的に戦闘を行います。そのため、事前にチームを準備しておくことが重要です。
 tut6,Lets start the first battle!,最初の戦いを始めよう！
 tut7,So you see this pretty START button here. See how its glowing? That means its selected!,ここに可愛いスタートボタンがありますね。光っているのが分かりますか？選択されているってことですね！
@@ -348,54 +348,55 @@ tut10,Engrams of Chaos works with a tick-based system.,Engrams of Chaos はテ�
 tut11,"This is the metronome, which shows when ticks happen.",これはメトロノームで、カチカチという音が鳴るタイミングを示します。
 tut12,"Every tick, each unit can either move or attack, they only attack when close to an enemy.",毎ティックごとに、各ユニットは移動または攻撃することができ、敵に近づいた場合にのみ攻撃します。
 tut13,"As you can see here, your unit moved.",ご覧のとおり、ユニットは移動しました。
-tut14,Press {SELECT_CONTROL} to resume the fight after this message.,このメッセージの後、{SELECT_CONTROL} キーを押して戦闘を再開してください。
-tut15,Did you see that? Your unit just attacked!,見たか？部隊が攻撃したぞ！
-tut16,"Since the enemy was in range of your unit, it attacked instead of moving.",敵はあなたのユニットの射程内にいたので、移動するのではなく攻撃しました。
-tut17,"Now, show them whos boss!",さあ、誰がボスか見せつけてやりましょう!
-tut18,"What a great battle, you showed them whos boss alright!",素晴らしい戦いでした、誰がボスかを彼らに示しましたね！
-tut19,Did you see those circle thingies that appeared on your screen?,画面に表示された円形のものを見ましたか?
-tut20,"Those are ENGRAMS, which you get by surviving the round.",それらはラウンドを生き残ることで獲得できるエングラムでした。
-tut21,ENGRAMS can be used for CRAFTING new units!!,エングラムは新しいユニットの作成に使用できます!!
-tut22,"You see the loop now, right? You beat up guys, get engrams, make a better team, and repeat!",ループの仕組みが分かりましたか？ 敵を倒してエングラムを集め、より良いチームを作り、それを繰り返すんです！
-tut23,"Anywhom, lets craft your first unit!",とにかく、最初のユニットを作りましょう！
-tut24,"After this message, Press {DOWN_CONTROL} to switch to your CRAFTING button!",このメッセージの後、{DOWN_CONTROL} キーを押してクラフト ボタンに切り替えます。
-tut25,Now use {SELECT_CONTROL} to press the CRAFTING button after this message!,このメッセージの後に、{SELECT_CONTROL} キーを使用して作成ボタンを押してください。
-tut26,Wow! It's dark in here!,わあ！ここは暗いですね！
-tut27,Anyways welcome to the crafting ui.,とにかく、クラフトインターフェースへようこそ。
-tut28,You see these two circle slots?,これら 2 つの円形のスロットが見えますか?
-tut29,"Select the two ENGRAMS you wanna use using {LEFT_CONTROL}, {RIGHT_CONTROL}, and {SELECT_CONTROL}!","{LEFT_CONTROL}、{RIGHT_CONTROL}、{SELECT_CONTROL}を使用して、使用したい2つのエングラムを選択してください。"
-tut30,Wow! What a unique fella you just crafted!,わあ！すごくユニークなやつができましたね！
-tut31,Let’s head back to the board to see your new ally.,ボードに戻って新しい仲間を確認しましょう。
-tut32,Press {DOWN_CONTROL} to go back to the main screen after this!,この後、{DOWN_CONTROL} を押すとメイン画面に戻ります。
-tut33,You see your unit over there? Now you have a team of a whopping size of 2!,あそこにあなたの部隊が見えますか？これでチームはなんと2人になりました！
-tut34,"As you progress through rounds, you will have to expand your team and strategize to survive!",ラウンドが進むにつれて、チームを拡大し、生き残るための戦略を立てる必要があります。
-tut35,How about we look at the new unit you made?,あなたが作った新しいユニットを見てみませんか？
-tut36,Press {DOWN_CONTROL} to go to the board!,{DOWN_CONTROL} キーを押してボードに移動してください。
-tut37,By default, the left-most unit is selected.,デフォルトでは、左端のユニットが選択されます。
-tut38,You see the unit you just made? They are selected!,今作ったユニットが見えますか？選択されました！
-tut39,"Their stats are up here in the top right, alongside a description.",統計情報は、説明の横の右上に表示されます。
-tut40,How about we move your unit to a more advantagous position?,あなたの部隊をもっと有利な位置に移動させてみませんか？
-tut41,"For instance, units with high defense should be in the front to protect the weaker units behind them!",たとえば、防御力の高いユニットは前方に配置して、後ろにいる弱いユニットを守る必要があります。
-tut42,Smart positioning helps your team survive longer. That’s how you push your score higher!,賢いポジショニングはチームの生存率を高め、スコアを伸ばす鍵となります！
-tut43,Press {SELECT_CONTROL} to pick up the selected unit,{SELECT_CONTROL}を押すと選択したユニットを拾うことができます
-tut44,Wowie!,わーい！
-tut45,"You picked up someone without their permission, radical idea.",許可なく人を拾ったなんて、極端な考えですね。
-tut46,"Move them around with {UP_CONTROL}, {LEFT_CONTROL}, {DOWN_CONTROL}, or {RIGHT_CONTROL}. Once you're done, press {SELECT_CONTROL}!",{UP_CONTROL}、{LEFT_CONTROL}、{DOWN_CONTROL}、または {RIGHT_CONTROL} で移動します。完了したら、{SELECT_CONTROL} を押してください。
-tut47,Alright. You see those icons in the units info panel? Those are the SYNERGIES your unit has.,よし。ユニット情報パネルにあるアイコンが見えますか？あれがユニットのシナジーです。
-tut48,"Speaking of synergies, lets go through how you view those!",シナジー効果について言えば、それをどのように見ているかを見てみましょう。
-tut49,"Once you are done looking at units, press {DOWN_CONTROL}",ユニットの確認が終わったら、{DOWN_CONTROL}を押します
-tut50,Welcome to the synergy view!,シナジービューへようこそ！
-tut51,Right now you have the '{SYNERGYNAME}' synergy selected!,現在、「{SYNERGYNAME}」シナジーが選択されています。
-tut52,"In the top right, you can see what effects it does!",右上に、どのような効果があるかが表示されます。
-tut53,Synergy effects are based around how many units you have!,シナジー効果は、所有するユニットの数によって決まります。
-tut54,"If text is BOLD, that means that effect is ACTIVE!!",テキストがゴールドの場合、その効果はアクティブです!!
-tut55,This is also a tool in your strategic toolkit. Effects from synergies will help you last longer!,これも戦略ツールキットのツールの一つです。相乗効果によって、より長く続くことができるでしょう！
-tut56,"Look through your synergies, then press {DOWN_CONTROL} when your done!",シナジーを確認して、完了したら {DOWN_CONTROL} を押してください。
-tut57,"Wait a second, we are back to selecting buttons?!",ちょっと待ってください。ボタンの選択に戻りましたか?
-tut58,"Pressing {DOWN_CONTROL} causes you to go deeper in the ui, so Buttons to Board to Synergies then back to Buttons!",{DOWN_CONTROL} を押すとメニューの奥深くに移動できるので、ボタンからボード、シナジー、そしてボタンに戻ります。
-tut59,Pressing {UP_CONTROL} is the opposite! Give it a try,{UP_CONTROL}を押すと逆になります！試してみてください
-tut60,Alrighty! Thats EVERYTHING!! You are now given free will great job.,はい！以上です！よくできました！
-tut61,"Remember this saying I always tell myself. Cause chaos to get engrams, then use engrams to do better chaos!",いつも自分に言い聞かせているこの言葉を覚えておいて。エングラムを得るためにカオスを引き起こし、そしてエングラムを使ってさらに大きなカオスを引き起こすんだ！
-tut62,"Whenever you're in doubt, read my automagically changing control guide in the bottom right!",疑問があるときはいつでも、右下にある自動的に変化するコントロール ガイドをお読みください。
-tut63,Just highlight that START button again and press {SELECT_CONTROL} when you’re ready for round two!,スタートボタンをもう一度ハイライトし、第 2 ラウンドの準備ができたら {SELECT_CONTROL} を押します。
-tut64,Peace!,さようなら！
+tut14,Lets resume the fight to see what happens,戦いを続けて何が起こるか見てみましょう。
+tut15,Press {SELECT_CONTROL} to resume the fight after this message.,このメッセージの後、{SELECT_CONTROL} キーを押して戦闘を再開してください。
+tut16,Did you see that? Your unit just attacked!,見たか？部隊が攻撃したぞ！
+tut17,"Since the enemy was in range of your unit, it attacked instead of moving.",敵はあなたのユニットの射程内にいたので、移動するのではなく攻撃しました。
+tut18,"Now, show them whos boss!",さあ、誰がボスか見せつけてやりましょう!
+tut19,"What a great battle, you showed them whos boss alright!",素晴らしい戦いでした、誰がボスかを彼らに示しましたね！
+tut20,Did you see those circle thingies that appeared on your screen?,画面に表示された円形のものを見ましたか?
+tut21,"Those are ENGRAMS, which you get by surviving the round.",それらはラウンドを生き残ることで獲得できるエングラムでした。
+tut22,ENGRAMS can be used for CRAFTING new units!!,エングラムは新しいユニットの作成に使用できます!!
+tut23,"You see the loop now, right? You beat up guys, get engrams, make a better team, and repeat!",ループの仕組みが分かりましたか？ 敵を倒してエングラムを集め、より良いチームを作り、それを繰り返すんです！
+tut24,"Anywhom, lets craft your first unit!",とにかく、最初のユニットを作りましょう！
+tut25,"After this message, Press {DOWN_CONTROL} to switch to your CRAFTING button!",このメッセージの後、{DOWN_CONTROL} キーを押してクラフト ボタンに切り替えます。
+tut26,Now use {SELECT_CONTROL} to press the CRAFTING button after this message!,このメッセージの後に、{SELECT_CONTROL} キーを使用して作成ボタンを押してください。
+tut27,Wow! It's dark in here!,わあ！ここは暗いですね！
+tut28,Anyways welcome to the crafting ui.,とにかく、クラフトインターフェースへようこそ。
+tut29,You see these two circle slots?,これら 2 つの円形のスロットが見えますか?
+tut30,"Select the two ENGRAMS you wanna use using {LEFT_CONTROL}, {RIGHT_CONTROL}, and {SELECT_CONTROL}!","{LEFT_CONTROL}、{RIGHT_CONTROL}、{SELECT_CONTROL}を使用して、使用したい2つのエングラムを選択してください。"
+tut31,Wow! What a unique fella you just crafted!,わあ！すごくユニークなやつができましたね！
+tut32,Let’s head back to the board to see your new ally.,ボードに戻って新しい仲間を確認しましょう。
+tut33,Press {DOWN_CONTROL} to go back to the main screen after this!,この後、{DOWN_CONTROL} を押すとメイン画面に戻ります。
+tut34,You see your unit over there? Now you have a team of a whopping size of 2!,あそこにあなたの部隊が見えますか？これでチームはなんと2人になりました！
+tut35,"As you progress through rounds, you will have to expand your team and strategize to survive!",ラウンドが進むにつれて、チームを拡大し、生き残るための戦略を立てる必要があります。
+tut36,How about we look at the new unit you made?,あなたが作った新しいユニットを見てみませんか？
+tut37,Press {DOWN_CONTROL} to go to the board!,{DOWN_CONTROL} キーを押してボードに移動してください。
+tut38,"By default, the left-most unit is selected.",デフォルトでは、左端のユニットが選択されます。
+tut39,You see the unit you just made? They are selected!,今作ったユニットが見えますか？選択されました！
+tut40,"Their stats are up here in the top right, alongside a description.",統計情報は、説明の横の右上に表示されます。
+tut41,How about we move your unit to a more advantagous position?,あなたの部隊をもっと有利な位置に移動させてみませんか？
+tut42,"For instance, units with high defense should be in the front to protect the weaker units behind them!",たとえば、防御力の高いユニットは前方に配置して、後ろにいる弱いユニットを守る必要があります。
+tut43,Smart positioning helps your team survive longer. That’s how you push your score higher!,賢いポジショニングはチームの生存率を高め、スコアを伸ばす鍵となります！
+tut44,Press {SELECT_CONTROL} to pick up the selected unit,{SELECT_CONTROL}を押すと選択したユニットを拾うことができます
+tut45,Wowie!,わーい！
+tut46,"You picked up someone without their permission, radical idea.",許可なく人を拾ったなんて、極端な考えですね。
+tut47,"Move them around with {UP_CONTROL}, {LEFT_CONTROL}, {DOWN_CONTROL}, or {RIGHT_CONTROL}. Once you're done, press {SELECT_CONTROL}!",{UP_CONTROL}、{LEFT_CONTROL}、{DOWN_CONTROL}、または {RIGHT_CONTROL} で移動します。完了したら、{SELECT_CONTROL} を押してください。
+tut48,Alright. You see those icons in the units info panel? Those are the SYNERGIES your unit has.,よし。ユニット情報パネルにあるアイコンが見えますか？あれがユニットのシナジーです。
+tut49,"Speaking of synergies, lets go through how you view those!",シナジー効果について言えば、それをどのように見ているかを見てみましょう。
+tut50,"Once you are done looking at units, press {DOWN_CONTROL}",ユニットの確認が終わったら、{DOWN_CONTROL}を押します
+tut51,Welcome to the synergy view!,シナジービューへようこそ！
+tut52,Right now you have the '{SYNERGYNAME}' synergy selected!,現在、「{SYNERGYNAME}」シナジーが選択されています。
+tut53,"In the top right, you can see what effects it does!",右上に、どのような効果があるかが表示されます。
+tut54,Synergy effects are based around how many units you have!,シナジー効果は、所有するユニットの数によって決まります。
+tut55,"If text is BOLD, that means that effect is ACTIVE!!",テキストがゴールドの場合、その効果はアクティブです!!
+tut56,This is also a tool in your strategic toolkit. Effects from synergies will help you last longer!,これも戦略ツールキットのツールの一つです。相乗効果によって、より長く続くことができるでしょう！
+tut57,"Look through your synergies, then press {DOWN_CONTROL} when your done!",シナジーを確認して、完了したら {DOWN_CONTROL} を押してください。
+tut58,"Wait a second, we are back to selecting buttons?!",ちょっと待ってください。ボタンの選択に戻りましたか?
+tut59,"Pressing {DOWN_CONTROL} causes you to go deeper in the ui, so Buttons to Board to Synergies then back to Buttons!",{DOWN_CONTROL} を押すとメニューの奥深くに移動できるので、ボタンからボード、シナジー、そしてボタンに戻ります。
+tut60,Pressing {UP_CONTROL} is the opposite! Give it a try,{UP_CONTROL}を押すと逆になります！試してみてください
+tut61,Alrighty! Thats EVERYTHING!! You are now given free will great job.,はい！以上です！よくできました！
+tut62,"Remember this saying I always tell myself. Cause chaos to get engrams, then use engrams to do better chaos!",いつも自分に言い聞かせているこの言葉を覚えておいて。エングラムを得るためにカオスを引き起こし、そしてエングラムを使ってさらに大きなカオスを引き起こすんだ！
+tut63,"Whenever you're in doubt, read my automagically changing control guide in the bottom right!",疑問があるときはいつでも、右下にある自動的に変化するコントロール ガイドをお読みください。
+tut64,Just highlight that START button again and press {SELECT_CONTROL} when you’re ready for round two!,スタートボタンをもう一度ハイライトし、第 2 ラウンドの準備ができたら {SELECT_CONTROL} を押します。
+tut65,Peace!,さようなら！

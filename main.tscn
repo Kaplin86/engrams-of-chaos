@@ -194,7 +194,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -202.494)
+position = Vector2(348, -202.7)
 scale = Vector2(1.6, 1.6)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
@@ -345,7 +345,7 @@ offset_right = 745.6
 offset_bottom = 820.8
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 26
-text = "Press Z to go to leaderboard."
+text = "TOLEADER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

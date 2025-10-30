@@ -52,24 +52,24 @@ func _ready() -> void:
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
 	# Tick text
-	await tutorialPointer.say("tut8")
 	await tutorialPointer.say("tut9")
+	await tutorialPointer.say("tut10")
 	
 	tutorialPointer.moveTo(Vector2(174,91))
 	tutorialPointer.pointTo(Vector2(49.0,50))
 	tutorialPointer.pointing = true
 	
-	await tutorialPointer.say("tut10")
 	await tutorialPointer.say("tut11")
+	await tutorialPointer.say("tut12")
 	tutorialPointer.moveTo(Vector2(330,258))
 	tutorialPointer.pointTo(Vector2(320.0,-20))
-	await tutorialPointer.say("tut12")
+	await tutorialPointer.say("tut13")
 	
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
-	await tutorialPointer.say("tut13")
-	
 	await tutorialPointer.say("tut14")
+	
+	await tutorialPointer.say("tut15")
 	tutorialPointer.silent()
 	
 	# Allow user to hit the start button (Now the unpause button)
@@ -91,11 +91,11 @@ func _ready() -> void:
 	tutorialPointer.moveTo(Vector2(336.195,244))
 	tutorialPointer.pointTo(Vector2(218.0,264))
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut15")
 	await tutorialPointer.say("tut16")
+	await tutorialPointer.say("tut17")
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
-	await tutorialPointer.say("tut17")
+	await tutorialPointer.say("tut18")
 	tutorialPointer.silent()
 	
 	# Allow user to hit the start button (Now the unpause button)
@@ -108,13 +108,13 @@ func _ready() -> void:
 	await gameHandler.RoundEnd
 	
 	# Note: The engrams for the tutorial are RANDOM. You get 3 after the first fight
-	await tutorialPointer.say("tut18")
 	await tutorialPointer.say("tut19")
 	await tutorialPointer.say("tut20")
 	await tutorialPointer.say("tut21")
 	await tutorialPointer.say("tut22")
 	await tutorialPointer.say("tut23")
 	await tutorialPointer.say("tut24")
+	await tutorialPointer.say("tut25")
 	tutorialPointer.silent()
 	
 	# Allow user to go left or right
@@ -126,7 +126,7 @@ func _ready() -> void:
 	tutorialPointer.pointTo(Vector2(607.0,393))
 	tutorialPointer.flip(-1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut25")
+	await tutorialPointer.say("tut26")
 	tutorialPointer.silent()
 	
 	# Stop player from moving left or right, but allow them to confirm
@@ -141,28 +141,28 @@ func _ready() -> void:
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
 	tutorialPointer.flip(1)
-	await tutorialPointer.say("tut26")
 	await tutorialPointer.say("tut27")
 	await tutorialPointer.say("tut28")
 	await tutorialPointer.say("tut29")
+	await tutorialPointer.say("tut30")
 	tutorialPointer.silent()
 	
 	# Allow player to press left, right, or confirm. S would cause them to go back to the main screen.
 	cursorHandler.disabledInputs = ["ui_up","ui_down","deny"]
 	await cursorHandler.CraftingAnimFinished
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
-	await tutorialPointer.say("tut30")
 	await tutorialPointer.say("tut31")
 	await tutorialPointer.say("tut32")
+	await tutorialPointer.say("tut33")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_right","deny","confirm"]
 	await cursorHandler.ReturnFromCrafting
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
-	await tutorialPointer.say("tut33")
 	await tutorialPointer.say("tut34")
 	await tutorialPointer.say("tut35")
 	await tutorialPointer.say("tut36")
+	await tutorialPointer.say("tut37")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_left","ui_up","ui_right","deny","confirm"]
@@ -173,19 +173,19 @@ func _ready() -> void:
 	tutorialPointer.pointTo(Vector2(136.815,56.955))
 	tutorialPointer.pointing = true
 	
-	await tutorialPointer.say("tut37")
-	
 	await tutorialPointer.say("tut38")
+	
+	await tutorialPointer.say("tut39")
 	
 	tutorialPointer.moveTo(Vector2(397.94,148.765))
 	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
 	tutorialPointer.flip(-1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut39")
 	await tutorialPointer.say("tut40")
 	await tutorialPointer.say("tut41")
 	await tutorialPointer.say("tut42")
 	await tutorialPointer.say("tut43")
+	await tutorialPointer.say("tut44")
 	tutorialPointer.moveTo(Vector2(460,90))
 	tutorialPointer.pointing = false
 	tutorialPointer.flip(1)
@@ -195,9 +195,9 @@ func _ready() -> void:
 	await cursorHandler.PickUpUnit
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
-	await tutorialPointer.say("tut44")
 	await tutorialPointer.say("tut45")
 	await tutorialPointer.say("tut46")
+	await tutorialPointer.say("tut47")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = []
@@ -208,9 +208,9 @@ func _ready() -> void:
 	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
 	tutorialPointer.flip(-1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut47")
 	await tutorialPointer.say("tut48")
 	await tutorialPointer.say("tut49")
+	await tutorialPointer.say("tut50")
 	tutorialPointer.moveTo(Vector2(526.59,372.41))
 	tutorialPointer.flip(1)
 	tutorialPointer.pointing = false
@@ -221,21 +221,21 @@ func _ready() -> void:
 	cursorHandler.disabledInputs = ["ui_up","ui_left","ui_down","ui_right","deny","confirm"]
 	
 	tutorialPointer.moveTo(Vector2(395,325))
-	await tutorialPointer.say("tut50")
+	await tutorialPointer.say("tut51")
 	tutorialPointer.moveTo(Vector2(181.44,360.125))
 	tutorialPointer.pointTo(Vector2(32.49,12.4))
 	tutorialPointer.flip(1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut51",cursorHandler.ui.synergyList[cursorHandler.synergyPoint])
+	await tutorialPointer.say("tut52",cursorHandler.ui.synergyList[cursorHandler.synergyPoint])
 	tutorialPointer.moveTo(Vector2(397.94,148.765))
 	tutorialPointer.pointTo(Vector2(-56.065,-7.695))
 	tutorialPointer.flip(-1)
 	tutorialPointer.pointing = true
-	await tutorialPointer.say("tut52")
 	await tutorialPointer.say("tut53")
 	await tutorialPointer.say("tut54")
 	await tutorialPointer.say("tut55")
 	await tutorialPointer.say("tut56")
+	await tutorialPointer.say("tut57")
 	tutorialPointer.moveTo(Vector2(526.59,372.41))
 	tutorialPointer.flip(1)
 	tutorialPointer.pointing = false
@@ -249,9 +249,9 @@ func _ready() -> void:
 	tutorialPointer.pointTo(Vector2(608.0,335))
 	tutorialPointer.pointing = true
 	tutorialPointer.flip(-1)
-	await tutorialPointer.say("tut57")
 	await tutorialPointer.say("tut58")
 	await tutorialPointer.say("tut59")
+	await tutorialPointer.say("tut60")
 	tutorialPointer.silent()
 	
 	cursorHandler.disabledInputs = ["ui_left","ui_down","ui_right","deny","confirm"]
@@ -260,11 +260,11 @@ func _ready() -> void:
 	
 	tutorialPointer.moveTo(Vector2(348.0,230.0))
 	tutorialPointer.pointing = false
-	await tutorialPointer.say("tut60")
 	await tutorialPointer.say("tut61")
 	await tutorialPointer.say("tut62")
 	await tutorialPointer.say("tut63")
 	await tutorialPointer.say("tut64")
+	await tutorialPointer.say("tut65")
 	tutorialPointer.moveTo(Vector2(348.0,-200))
 	tutorialPointer.silent()
 	cursorHandler.disabledInputs = []
