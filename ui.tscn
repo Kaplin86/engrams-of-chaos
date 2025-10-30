@@ -193,6 +193,7 @@ scale = Vector2(0.504706, 0.692941)
 texture = ExtResource("3_e2l4f")
 
 [node name="SynergyUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -230,7 +231,6 @@ texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -245,7 +245,7 @@ offset_bottom = 419.0
 scale = Vector2(1.4471, 1.4471)
 theme_override_constants/outline_size = 8
 bbcode_enabled = true
-text = "Every time this unit attacks, it's attack speed increases by 2%"
+text = "Doesn't move. Every tick all enemies that have the most-used-synergy take damage"
 autowrap_mode = 2
 script = ExtResource("5_n5rqp")
 KeywordToColor = {

@@ -142,14 +142,21 @@ trash_can,trash_can,ごみ箱
 trash_can_bossDesc,"30% of your team will betray you, when any enemy gets a kill they all benefit! Stop the rottening quick!",チームの30%が離反します。敵がキルを獲得すると、敵に利益がもたらされます！速やかに腐敗を止めてください！
 trash_can_desc,"Doesn't move. 30% of the enemy team turn into allies. Whenever an ally gets a kill, heal team by 100 and buff every ally",移動しません。敵チームの30%が味方チームに転向します。味方がキルを達成するたびに、チームの体力を100回復し、味方全体にバフを付与します。
 
-
 kettle,kettle,ケトル
-kettle_bossDesc,"All our food keeps blowing up! Every 5 ticks, a random ally blows up and the kettle heals from it.",食べ物が次々と爆発！5ティックごとにランダムな味方が爆発し、ケトルがそのエネルギーを吸収する！
+kettle_bossDesc,"All our food keeps blowing up! Every 5 ticks, a random unit blows up and the kettle heals from it.",食べ物が次々と爆発！5ティックごとにランダムな味方が爆発し、ケトルがそのエネルギーを吸収する！
 kettle_desc,"Doesn't move. Every 5 ticks, kill a random enemy and heal double its HP",動かない。5ティックごとにランダムな敵を倒し、そのHPを2倍回復する。
 
 echo,echo,残響
 echo_bossDesc,Don't be too loud... The boss will turn into a random unit with 3 times stats.,あまり大声を出さないでください...ボスは3倍のステータスを持つランダムなユニットに変わります。
 echo_desc,Will turn into a random enemy with 3 times the HP and ATTACK,ランダムにHPと攻撃力が3倍の敵に変身する
+
+lightbulb,lightbulb,電球
+lightbulb_bossDesc,"Shine, Shine! Half of your team will be copied over!",輝け、輝け！チームの半分がコピーされるぞ！
+lightbulb_desc,"Doesn't move. On the first tick, duplicate the enemy team and move them accordingly. The positioning is inverted.",移動しません。最初のティックで敵チームを複製し、それに応じて移動させます。配置は反転されます。
+
+piggy_bank,piggy bank,貯金箱
+piggy_bank_bossDesc,"Oink! Every tick, the units with the most-used synergy will take some damage!",ブーー！毎ティックごとに、最も多く使用されているシナジーを持つユニットがダメージを受けます！
+piggy_bank_desc,"Doesn't move. Every tick all enemies that have the most-used-synergy take damage",動かない。毎ティック、最も多く使われているシナジーを持つすべての敵がダメージを受ける。
 
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 

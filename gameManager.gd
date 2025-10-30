@@ -58,7 +58,7 @@ func _ready() -> void:
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
 		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("lightbulb",Vector2i(7,14),2,true)
+		spawnUnit("piggy_bank",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)

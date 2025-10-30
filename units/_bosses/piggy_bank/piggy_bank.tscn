@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ujgjjb7ksahn"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_lg7rc"]
+[ext_resource type="Script" uid="uid://diega8cyrbaj" path="res://units/_bosses/piggy_bank/piggy_bank.gd" id="2_b44jo"]
+[ext_resource type="Texture2D" uid="uid://befs0kelcww1a" path="res://units/_bosses/piggy_bank/piggy_bank.svg" id="3_b44jo"]
+[ext_resource type="Texture2D" uid="uid://dxks87tf5c0dm" path="res://ui/elements/salty.svg" id="4_wyxin"]
+
+[sub_resource type="Gradient" id="Gradient_idkxu"]
+offsets = PackedFloat32Array(0, 0.946871, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Unit" instance=ExtResource("1_lg7rc")]
+script = ExtResource("2_b44jo")
+maxHP = 700
+damage = 0
+defense = 10
+type = "piggy_bank"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("3_b44jo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+color = Color(0.976471, 0.607843, 0.890196, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+z_index = 99
+z_as_relative = false
+emitting = false
+amount = 20
+texture = ExtResource("4_wyxin")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 15.2
+gravity = Vector2(0, 0)
+initial_velocity_max = 23.97
+orbit_velocity_min = -0.2
+orbit_velocity_max = 0.2
+scale_amount_min = 0.0
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_idkxu")
