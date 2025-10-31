@@ -58,7 +58,7 @@ func _ready() -> void:
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
 		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("infinite_pattern",Vector2i(7,14),2,true)
+		spawnUnit("score_holder",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)
@@ -352,6 +352,7 @@ func endRound(): ## This is called when the round ends
 		gameOverText = Array(tr("GAMEOVERTEXT").split("|"))
 		$CanvasLayer2/Control/DeathText.text = tr("QUOTE_START")+gameOverText.pick_random() + tr("QUOTE_END")
 		$CanvasLayer2/Control/HighestRound.text = tr("FINALROUND") + str(currentWave)
+		print("THE SYNERGY IS", $CanvasLayer/UI.synergyList.get(0))
 		if $CanvasLayer/UI.synergyList.size() != 0:
 			$CanvasLayer2/Control/StrongestSynergy.text = tr("STRONGESTSYNERGY") + tr($CanvasLayer/UI.synergyList.get(0))
 		else:

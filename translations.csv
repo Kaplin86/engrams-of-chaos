@@ -10,6 +10,7 @@ EASY_DESC,Enemies do not have synergy buffs,敵同士のシナジー効果はな
 NORMAL,Normal,普通
 NORMAL_DESC,The real Engrams of Chaos experience,意図した遊び方
 TURNTABLE,Turned Tables,立場逆転
+TURNTABLES,Turned Tables,立場逆転
 TURNTABLE_DESC,"Start with a boss on your team, but gain 1/4th engrams",通常ユニットの獲得エングラムは1/4になる
 CRADLE,Cradle of Engrams,エングラムのゆりかご
 CRADLE_DESC,A more chaotic chaos! A lot more units and many MANY more synergies!,さらに混沌としたカオス！ユニットもさらに増えシナジー効果もさらにアップ！
@@ -33,6 +34,7 @@ game,game,ゲーム
 creativity,creativity,創造性
 greed,greed,貪欲
 symbol,symbol,シンボル
+chaos,chaos,カオス
 UP_CONTROL,W,上
 DOWN_CONTROL,S,下
 LEFT_CONTROL,A,左
@@ -158,6 +160,14 @@ piggy_bank,piggy bank,貯金箱
 piggy_bank_bossDesc,"Oink! Every tick, the units with the most-used synergy will take some damage!",ブーー！毎ティックごとに、最も多く使用されているシナジーを持つユニットがダメージを受けます！
 piggy_bank_desc,"Doesn't move. Every tick all enemies that have the most-used-synergy take damage",動かない。毎ティック、最も多く使われているシナジーを持つすべての敵がダメージを受ける。
 
+infinite_pattern,infinite pattern, 無限のパターン
+infinite_pattern_bossDesc,"Every 20 ticks, It repeats itself! It repeats itself! It repeats itself! It repeats itself!",20 ティックごとに、繰り返されます。繰り返されます。繰り返されます。繰り返されます。
+infinite_pattern_desc,"Doesn't move. Every 20 ticks, spawns another infinite pattern somewhere on the board with 80% hp",動かない。20ティックごとに、盤上のどこかにHP80%の無限パターンを発生させる。
+
+score_holder,score holder,スコアトラッカー
+score_holder_bossDesc,"You will be judged. Every tick, the stronger half of your team will be hurt!",あなたは裁かれる。毎ティックごとに、あなたの強力なユニットはすべてダメージを受ける。
+score_holder_desc,"Doesn't move. Every tick, the stronger half of the enemy team takes damage.",動きません。毎ティックごとに、敵チームの強い方の半分がダメージを受けます。
+
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 
 QUOTE_START,',「
@@ -176,6 +186,8 @@ CHANGELETTER,{UP_CONTROL} and {DOWN_CONTROL} to change letter,{UP_CONTROL}と{DO
 NEXTLETTER,{LEFT_CONTROL} and {RIGHT_CONTROL} to go to next letter,{LEFT_CONTROL} と {RIGHT_CONTROL} を押すと次の文字に進みます
 LEADERCONFIRM,Press {SELECT_CONTROL} to confirm,確認するには{SELECT_CONTROL}を押してください
 LEADERSKIP,Press {CANCEL_CONTROL} to skip,スキップするには{CANCEL_CONTROL}を押してください
+
+ENGRAMINVENTORY,ENGRAM INVENTORY:,エングラムインベントリ:
 
 ABILITY,[b]ABILITY[/b],[color=#FFCC00]魔法[/color]
 

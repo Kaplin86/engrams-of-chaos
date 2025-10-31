@@ -32,7 +32,7 @@ void fragment() {
 	if (color == vec4(0,0,0,0)) {
 		color = origColor;
 	}
-	if (origColor != outlinecolor) {
+	if (!all(lessThan(abs(origColor - outlinecolor), vec4(0.001)))) {
 		color = origColor;
 	}
 	

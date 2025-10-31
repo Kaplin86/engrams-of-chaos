@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpqjjrondeyq5"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_a0qgh"]
+[ext_resource type="Script" uid="uid://bvbw53a6pyr6f" path="res://units/_bosses/score_holder/score_holder.gd" id="2_g0p4l"]
+[ext_resource type="Texture2D" uid="uid://blfpe2f4qf1iv" path="res://units/_bosses/score_holder/score_holder.svg" id="2_rovif"]
+
+[node name="Unit" instance=ExtResource("1_a0qgh")]
+script = ExtResource("2_g0p4l")
+maxHP = 700
+damage = 0
+defense = 12
+type = "score_holder"
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+texture = ExtResource("2_rovif")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+color = Color(0.54874, 0.856423, 0.854703, 1)

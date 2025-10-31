@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_y6gx0"]
 [ext_resource type="Script" uid="uid://b1ntiltapmp00" path="res://units/_bosses/infinite_pattern/infinite_pattern.gd" id="2_kn518"]
 [ext_resource type="Shader" uid="uid://duaqxrgveo60u" path="res://units/_bosses/infinite_pattern/infinite_pattern2.gdshader" id="2_nstbp"]
-[ext_resource type="Texture2D" uid="uid://bejpes6ao0l2y" path="res://units/_bosses/infinite_pattern/infinite_pattern.svg" id="3_kn518"]
+[ext_resource type="Texture2D" uid="uid://cgonchji1tqye" path="res://units/_bosses/infinite_pattern/infinite_pattern.svg" id="3_kn518"]
 
 [sub_resource type="Shader" id="Shader_nstbp"]
 code = "shader_type canvas_item;
@@ -83,3 +83,7 @@ texture = ExtResource("3_kn518")
 material = SubResource("ShaderMaterial_w4hck")
 scale = Vector2(0.078877, 0.078877)
 texture = ExtResource("3_kn518")
+region_rect = Rect2(0, 0, 603, 581)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+color = Color(0.42471, 0.619689, 1, 1)

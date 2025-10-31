@@ -6,7 +6,7 @@ void vertex() {
 }
 
 void fragment() {
-	
+
 	COLOR = texture(TEXTURE, UV + vec2(sin(TIME * strength) * 0.01, sin(TIME * 2.0 * strength) * 0.01));
 }
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgonchji1tqye"
-path="res://.godot/imported/infinite_pattern.svg-478e3220cacb8554f11ea0a416b376d3.ctex"
+uid="uid://blfpe2f4qf1iv"
+path="res://.godot/imported/score_holder.svg-338f4f3aa23cc267013738e62a68a4aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://units/_bosses/infinite_pattern/infinite_pattern.svg"
-dest_files=["res://.godot/imported/infinite_pattern.svg-478e3220cacb8554f11ea0a416b376d3.ctex"]
+source_file="res://units/_bosses/score_holder/score_holder.svg"
+dest_files=["res://.godot/imported/score_holder.svg-338f4f3aa23cc267013738e62a68a4aa.ctex"]
 
 [params]
 
