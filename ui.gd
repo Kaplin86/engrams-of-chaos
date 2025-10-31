@@ -18,9 +18,14 @@ func viewUnit(unit : BaseUnit):
 	$SynergyUI.visible = false
 	$Tutorial.visible = false
 	
+	
+	
 	$UnitUI/Damage.text = str(unit.damage)
 	$UnitUI/Defense.text = str(unit.defense)
 	$UnitUI/Health.text = str(unit.hp)
+	
+	
+	
 	if unit.maxMana == 0:
 		$UnitUI/Mana.visible = false
 	else:
@@ -40,6 +45,8 @@ func viewUnit(unit : BaseUnit):
 			unitTypeSprite[unit.type] = load("res://units/"+unit.type+"/" +unit.type+ ".svg")
 	
 	
+	
+	
 	$UnitUI/Description.text = tr(unit.type + "_desc").format({"ABILITY":tr("ABILITY")})
 	$Name.size.x = 334
 	$Name.position.x = 812
@@ -51,14 +58,10 @@ func viewUnit(unit : BaseUnit):
 	
 	if $UnitUI/UnitSelectedImage.texture:
 		if !unit.has_meta("color"):
-			$Name.set_meta("color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
+			unit.set_meta("color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
 		else:
 			$Name.add_theme_color_override("font_color",unit.get_meta("color"))
-	
-	if $UnitUI/UnitSelectedImage.texture:
-		$Name.add_theme_color_override("font_color",getColorOfImage($UnitUI/UnitSelectedImage.texture))
-	
-	
+			
 	for E in $UnitUI/Synergies.get_children():
 		E.queue_free()
 	

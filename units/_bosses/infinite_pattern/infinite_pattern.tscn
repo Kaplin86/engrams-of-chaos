@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3a15bcjwpabq"]
+
+[ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_y6gx0"]
+[ext_resource type="Shader" uid="uid://duaqxrgveo60u" path="res://units/_bosses/infinite_pattern/infinite_pattern2.gdshader" id="2_nstbp"]
+[ext_resource type="Texture2D" uid="uid://bejpes6ao0l2y" path="res://units/_bosses/infinite_pattern/infinite_pattern.svg" id="3_kn518"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4hck"]
+shader = ExtResource("2_nstbp")
+
+[node name="Unit" instance=ExtResource("1_y6gx0")]
+
+[node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+material = SubResource("ShaderMaterial_w4hck")
+texture = ExtResource("3_kn518")

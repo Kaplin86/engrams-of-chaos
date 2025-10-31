@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tkhjbh55c4t7"
-path="res://.godot/imported/endless_pattern.svg-10a4505da63e8b32dbb423103b6894a1.ctex"
+uid="uid://bejpes6ao0l2y"
+path="res://.godot/imported/infinite_pattern.svg-478e3220cacb8554f11ea0a416b376d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cradleUnitArtlog/endless_pattern.svg"
-dest_files=["res://.godot/imported/endless_pattern.svg-10a4505da63e8b32dbb423103b6894a1.ctex"]
+source_file="res://units/_bosses/infinite_pattern/infinite_pattern.svg"
+dest_files=["res://.godot/imported/infinite_pattern.svg-478e3220cacb8554f11ea0a416b376d3.ctex"]
 
 [params]
 

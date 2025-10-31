@@ -177,6 +177,8 @@ NEXTLETTER,{LEFT_CONTROL} and {RIGHT_CONTROL} to go to next letter,{LEFT_CONTROL
 LEADERCONFIRM,Press {SELECT_CONTROL} to confirm,確認するには{SELECT_CONTROL}を押してください
 LEADERSKIP,Press {CANCEL_CONTROL} to skip,スキップするには{CANCEL_CONTROL}を押してください
 
+ENGRAMINVENTORY,ENGRAM INVENTORY:,エングラムインベントリ:
+
 ABILITY,[b]ABILITY[/b],[color=#FFCC00]魔法[/color]
 
 pepper,pepper,胡椒
