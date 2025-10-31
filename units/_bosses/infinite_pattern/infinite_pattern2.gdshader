@@ -1,5 +1,9 @@
 shader_type canvas_item;
 
+uniform vec4 outlinecolor : source_color;
+uniform float speed = 1;
+uniform float time = 0;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -10,7 +14,7 @@ vec4 colorFromUvScale(vec2 uv, sampler2D Tex, vec2 scale, vec2 offset) {
 }
 
 void fragment() {
-	float newTime = mod(TIME * -1.0,1);
+	float newTime = mod(TIME * speed,1.0001);
 	vec4 color = texture(TEXTURE,UV + vec2(newTime,0));
 	vec4 otherColor = texture(TEXTURE,UV + vec2(newTime - 1.0,0));
 	if (otherColor.a != 0.0){
@@ -28,7 +32,9 @@ void fragment() {
 	if (color == vec4(0,0,0,0)) {
 		color = origColor;
 	}
-	
+	if (origColor != outlinecolor) {
+		color = origColor;
+	}
 	
 	vec4 actualColor = color;
 	actualColor.a = texture(TEXTURE,UV).a;

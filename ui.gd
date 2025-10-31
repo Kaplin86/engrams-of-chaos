@@ -13,6 +13,9 @@ var synergyRectScene = preload("res://ui/synergy_rect.tscn")
 var selectedButton = "play"
 var unitTypeSprite = {}
 
+func displayMetronomeNumber(num):
+	$Metronome.displayTickNumber(num)
+
 func viewUnit(unit : BaseUnit):
 	$UnitUI.visible = true
 	$SynergyUI.visible = false

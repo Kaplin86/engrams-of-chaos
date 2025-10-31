@@ -158,6 +158,11 @@ piggy_bank,piggy bank,貯金箱
 piggy_bank_bossDesc,"Oink! Every tick, the units with the most-used synergy will take some damage!",ブーー！毎ティックごとに、最も多く使用されているシナジーを持つユニットがダメージを受けます！
 piggy_bank_desc,"Doesn't move. Every tick all enemies that have the most-used-synergy take damage",動かない。毎ティック、最も多く使われているシナジーを持つすべての敵がダメージを受ける。
 
+infinite_pattern,infinite pattern, 無限のパターン
+infinite_pattern_bossDesc,"Every 20 ticks, It repeats itself! It repeats itself! It repeats itself! It repeats itself!",20 ティックごとに、繰り返されます。繰り返されます。繰り返されます。繰り返されます。
+infinite_pattern_desc,"Doesn't move. Every 20 ticks, spawns another infinite pattern somewhere on the board with 80% hp",動かない。20ティックごとに、盤上のどこかにHP80%の無限パターンを発生させる。
+
+
 bossFlavorTextIntro,Oh no! A boss!,やばい！ボスだ！
 
 QUOTE_START,',「

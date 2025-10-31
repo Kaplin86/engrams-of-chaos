@@ -1,14 +1,85 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3a15bcjwpabq"]
+[gd_scene load_steps=8 format=3 uid="uid://b3a15bcjwpabq"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_y6gx0"]
+[ext_resource type="Script" uid="uid://b1ntiltapmp00" path="res://units/_bosses/infinite_pattern/infinite_pattern.gd" id="2_kn518"]
 [ext_resource type="Shader" uid="uid://duaqxrgveo60u" path="res://units/_bosses/infinite_pattern/infinite_pattern2.gdshader" id="2_nstbp"]
 [ext_resource type="Texture2D" uid="uid://bejpes6ao0l2y" path="res://units/_bosses/infinite_pattern/infinite_pattern.svg" id="3_kn518"]
 
+[sub_resource type="Shader" id="Shader_nstbp"]
+code = "shader_type canvas_item;
+
+uniform vec4 outlinecolor : source_color;
+uniform float speed = 1;
+uniform float time = 0;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+vec4 colorFromUvScale(vec2 uv, sampler2D Tex, vec2 scale, vec2 offset) {
+	vec2 newUV = (uv - 0.5) * scale + 0.5;
+	return texture(Tex,newUV + offset);
+}
+
+void fragment() {
+	float newTime = mod(TIME * speed,1.0001);
+	vec4 color = texture(TEXTURE,UV + vec2(newTime,0));
+	vec4 otherColor = texture(TEXTURE,UV + vec2(newTime - 1.0,0));
+	if (otherColor.a != 0.0){
+		color = otherColor;
+	}
+	vec4 otherColor3 = texture(TEXTURE,UV + vec2(0,newTime));
+	if (otherColor3.a != 0.0){
+		color = otherColor3;
+	}
+	vec4 otherColor2 = texture(TEXTURE,UV + vec2(0,newTime - 1.0));
+	if (otherColor2.a != 0.0){
+		color = otherColor2;
+	}
+	vec4 origColor = texture(TEXTURE,UV);
+	if (color == vec4(0,0,0,0)) {
+		color = origColor;
+	}
+	if (origColor != outlinecolor) {
+		color = origColor;
+	}
+	
+	vec4 actualColor = color;
+	actualColor.a = texture(TEXTURE,UV).a;
+	COLOR = actualColor;
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kn518"]
+shader = SubResource("Shader_nstbp")
+shader_parameter/outlinecolor = Color(0, 0.239216, 0.741176, 1)
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4hck"]
 shader = ExtResource("2_nstbp")
+shader_parameter/outlinecolor = Color(0, 0.239216, 0.741176, 1)
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
 
 [node name="Unit" instance=ExtResource("1_y6gx0")]
+script = ExtResource("2_kn518")
+maxHP = 800
+damage = 0
+defense = 11
+type = "infinite_pattern"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+visible = false
+material = SubResource("ShaderMaterial_kn518")
+texture = ExtResource("3_kn518")
+
+[node name="Visual2" type="Sprite2D" parent="VisualHolder/YetAnotherHolder" index="1"]
 material = SubResource("ShaderMaterial_w4hck")
+scale = Vector2(0.078877, 0.078877)
 texture = ExtResource("3_kn518")

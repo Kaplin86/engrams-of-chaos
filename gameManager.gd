@@ -51,14 +51,14 @@ func _ready() -> void:
 	
 	generateEnemyTeam()
 	
-	printCoolTranslationTemplate()
+	#printCoolTranslationTemplate()
 	
 	$CanvasLayer2/Control.modulate = Color(1,1,1,0)
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
 		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("lightbulb",Vector2i(7,14),2,true)
+		spawnUnit("infinite_pattern",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)
@@ -283,6 +283,8 @@ func tick(): ## Runs whenever the tickTimer reaches its end. Iterates through al
 		$AudioStreamPlayer.pitch_scale = 1.2 + (randf() * 0.05)
 	else:
 		$AudioStreamPlayer.pitch_scale = 1 + (randf() * 0.01)
+	
+	$CanvasLayer/UI.displayMetronomeNumber(ticksThisRound)
 	
 	units.shuffle()
 	var UnitsBySpeed = []

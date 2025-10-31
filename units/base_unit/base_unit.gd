@@ -46,6 +46,8 @@ var _sprite = null # This is for bosses!
 var healthAtTickStart := 0.0 ## Indicates HP of unit at the start of the tick. gets set to its value at pretick
 
 func _ready() -> void:
+	if !board:
+		return
 	visualPosition = board.map_to_local(board_position)
 	if team == 1:
 		$VisualHolder/HealthBar.tint_progress = Color(0,0,0,1)
@@ -336,6 +338,7 @@ func deathOnBoard(unitData : BaseUnit): ##Calls when a unit is dying. wont run i
 	if hp <= 0:
 		return
 	pass
+
 
 func _process(delta: float) -> void:
 	$VisualHolder.global_position.x += (visualPosition.x - $VisualHolder.global_position.x) * 0.5 * 0.3 * ((1 / 0.016) * delta)

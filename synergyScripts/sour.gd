@@ -7,9 +7,9 @@ func firstTick(team : int ,level): ## This fires at the first tick of battle. Th
 			if E.team != team:
 				EnemyUnits.append(E)
 	
-	if manager.currentWave == 5 or manager.currentWave == 10:
-		return
 	var unitToTarget : BaseUnit = EnemyUnits.pick_random()
+	if unitToTarget.isBoss:
+		return
 	if level >= 6:
 		unitToTarget.hp *= 0.5
 		unitToTarget.speed *= 0.5

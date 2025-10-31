@@ -23,5 +23,6 @@ func _process(delta):
 			$Hammer.rotation_degrees = maxangle * TimePercent * hammerHalf
 		else:
 			$Hammer.rotation_degrees = maxangle * (1 - TimePercent)  * hammerHalf
-		
-		
+
+func displayTickNumber(ticknum):
+	$Label.text = str(ticknum)

@@ -27,6 +27,9 @@
 	"plate_pile":["chaos","umami"],
 	"trash_can": ["chaos","bitter"],
 	"kettle": ["chaos","sweet"],
+	"infinite_pattern": ["chaos","symbol"],
+	"piggy_bank": ["chaos","greed"],
+	"lightbulb": ["chaos","creativity"],
 	
 	"sweet_tooth":["sweet","greed"],
 	"blueprint":["sweet","creativity"],
