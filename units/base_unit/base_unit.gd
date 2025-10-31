@@ -124,7 +124,7 @@ func attemptToJump(targetPos : Vector2i): ## Tries to find a place to jump (aka 
 		if unit != self:
 			takenpositionArray.append(unit.board_position)
 	var NewDirections = directions.duplicate()
-	NewDirections.reverse()
+	NewDirections.shuffle()
 	for E in NewDirections:
 		var NeighborCell = board.get_neighbor_cell(targetPos,E)
 		if !takenpositionArray.has(NeighborCell):
@@ -237,6 +237,16 @@ func pathfind_and_move(targetPosition : Vector2i): ## This function attempts to 
 		if start_id == -1:
 			modulate = Color(0,1,0)
 			print("Cant get id")
+			var NewDirections = directions.duplicate()
+			NewDirections.shuffle()
+			var DistanceAlready = board.map_to_local(board_position).distance_to(board.map_to_local(targetPosition))
+			for E in NewDirections:
+				var PositionOfNeighbor=board.map_to_local(board.get_neighbor_cell(board_position,E))
+				
+				if board.map_to_local(PositionOfNeighbor).distance_to(board.map_to_local(targetPosition)) < DistanceAlready:
+					movePosition(board.get_neighbor_cell(board_position,E))
+					return
+				
 		elif start_id == -1:
 			print("Cant get id")
 		return

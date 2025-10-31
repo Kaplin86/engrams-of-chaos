@@ -195,7 +195,7 @@ pitch_scale = 0.95
 bus = &"sfx"
 
 [node name="Guy" type="Node2D" parent="TutorialPointer"]
-position = Vector2(348, -201.999)
+position = Vector2(348, -202.605)
 scale = Vector2(1.6, 1.6)
 
 [node name="BurntToastBody" type="Sprite2D" parent="TutorialPointer/Guy"]
@@ -489,8 +489,14 @@ visible = false
 
 [node name="Modulate" type="Node2D" parent="BossText"]
 
+[node name="Sprite2D" type="Sprite2D" parent="BossText/Modulate"]
+modulate = Color(1, 1, 1, 0.044)
+position = Vector2(576, 432)
+scale = Vector2(2.71059, 2.03294)
+texture = ExtResource("15_vivmo")
+
 [node name="ColorRect" type="ColorRect" parent="BossText/Modulate"]
-offset_right = 1150.4
+offset_right = 1152.0
 offset_bottom = 864.0
 color = Color(0, 0, 0, 0.403)
 

@@ -9,3 +9,13 @@ func _ready():
 	maxHP = maxHP * ((gameManagerObject.currentWave + 1.0) / 5.0)
 	hp = maxHP
 	
+	
+	if team != 2:
+		var NewAnimPlayer = load("res://boss_fall.tscn").instantiate()
+		add_child(NewAnimPlayer)
+		NewAnimPlayer.get_child(0).position = visualPosition
+		get_child(0).visible = false
+		await get_tree().create_timer(1).timeout
+		get_child(0).visible  = true
+		NewAnimPlayer.play("fall")
+	
