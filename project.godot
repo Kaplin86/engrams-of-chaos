@@ -43,6 +43,10 @@ folder_colors={
 "res://units/blueprint/blueprint.tscn": "red"
 }
 
+[gui]
+
+theme/custom_font="uid://cproudok31o1g"
+
 [importer_defaults]
 
 texture={

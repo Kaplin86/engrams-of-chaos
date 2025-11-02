@@ -570,7 +570,8 @@ autowrap_mode = 2
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 45.0
+offset_top = -23.0
+offset_bottom = 78.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "Tutorial"
@@ -1015,10 +1016,10 @@ libraries = {
 }
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 875.0
-offset_top = 19.0
-offset_right = 1094.0
-offset_bottom = 42.0
+offset_left = 862.0
+offset_top = 22.0
+offset_right = 1134.0
+offset_bottom = 46.0
 text = "Press J to switch to japanese"
 
 [connection signal="changeButton" from="." to="ColorRect3/ScrollContainer" method="_on_main_menu_change_button"]
