@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=21 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://c0vtc21mup82j" path="res://sfx/button1.ogg" id="2_8qtwp"]
@@ -80,7 +80,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/path = NodePath("Base/Tutorial:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -88,6 +88,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Base:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_iotk1"]
@@ -143,7 +167,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/path = NodePath("Base/Tutorial:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -206,10 +230,37 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Tutorial:modulate")
+tracks/4/path = NodePath("Base/Tutorial:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0o4t1"]
+resource_name = "normal_to_extra"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Base:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -220,17 +271,20 @@ tracks/4/keys = {
 _data = {
 &"RESET": SubResource("Animation_j5v2v"),
 &"cradleToKitchen": SubResource("Animation_iotk1"),
-&"kitchenToCradle": SubResource("Animation_0k4wn")
+&"kitchenToCradle": SubResource("Animation_0k4wn"),
+&"normal_to_extra": SubResource("Animation_0o4t1")
 }
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons", "ExtraButtons")]
 script = ExtResource("1_fu7sn")
-Buttons = [NodePath("Tutorial"), NodePath("Easy"), NodePath("Normal"), NodePath("TurnedTables"), NodePath("CradleOfElements"), NodePath("Additional")]
+Buttons = [NodePath("Base/Tutorial"), NodePath("Base/Easy"), NodePath("Base/Normal"), NodePath("Base/EXTRA"), NodePath("Base/CradleOfElements"), NodePath("Additional")]
+ExtraButtons = [NodePath("Control/TurnedTables"), NodePath("Control/Hardcore"), NodePath("Control/ChaosCore"), NodePath("Control/BossRush"), NodePath("Control/Back")]
 
 [node name="Button1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8qtwp")
 
 [node name="Logo" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(574.4, 196.8)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_jix8l")
@@ -254,6 +308,7 @@ color_ramp = SubResource("Gradient_nlkkf")
 
 [node name="Logo2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 position = Vector2(574.4, 196.8)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("5_0o4t1")
@@ -297,6 +352,189 @@ offset_bottom = 842.0
 theme_override_font_sizes/font_size = 32
 text = "USE WASD, Z, AND X"
 
+[node name="Control" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -12.0
+offset_right = 40.0
+offset_bottom = 28.0
+
+[node name="TurnedTables" type="ColorRect" parent="Control"]
+offset_left = 33.0
+offset_top = 322.0
+offset_right = 351.4
+offset_bottom = 413.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "TURNTABLE_DESC"
+
+[node name="ColorRect3" type="ColorRect" parent="Control/TurnedTables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Control/TurnedTables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "TURNTABLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Hardcore" type="ColorRect" parent="Control"]
+offset_left = 80.0
+offset_top = 423.0
+offset_right = 398.4
+offset_bottom = 514.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "HC_DESC"
+
+[node name="ColorRect3" type="ColorRect" parent="Control/Hardcore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Control/Hardcore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "HC"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ChaosCore" type="ColorRect" parent="Control"]
+offset_left = 121.0
+offset_top = 524.0
+offset_right = 439.4
+offset_bottom = 615.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "CHAOSCORE_DESC"
+
+[node name="ColorRect3" type="ColorRect" parent="Control/ChaosCore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Control/ChaosCore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "CHAOSCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BossRush" type="ColorRect" parent="Control"]
+offset_left = 81.0
+offset_top = 627.0
+offset_right = 399.4
+offset_bottom = 718.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "BR_DESC"
+
+[node name="ColorRect3" type="ColorRect" parent="Control/BossRush"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Control/BossRush"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "BR"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="ColorRect" parent="Control"]
+offset_left = 40.0
+offset_top = 732.0
+offset_right = 358.4
+offset_bottom = 823.2
+color = Color(0.389287, 0.389287, 0.389286, 1)
+metadata/desc = "BACK_DESC"
+
+[node name="ColorRect3" type="ColorRect" parent="Control/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.096)
+
+[node name="Label" type="Label" parent="Control/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 36
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="DescBox" type="ColorRect" parent="."]
 offset_left = 454.0
 offset_top = 530.0
@@ -333,15 +571,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Tutorial" type="ColorRect" parent="."]
+[node name="Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 34.0
 offset_top = 297.0
-offset_right = 352.4
-offset_bottom = 388.2
+offset_right = 74.0
+offset_bottom = 337.0
+
+[node name="Tutorial" type="ColorRect" parent="Base"]
+offset_right = 318.4
+offset_bottom = 91.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
 metadata/desc = "TUT_DESC"
 
-[node name="ColorRect3" type="ColorRect" parent="Tutorial"]
+[node name="ColorRect3" type="ColorRect" parent="Base/Tutorial"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -354,7 +598,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
-[node name="Label" type="Label" parent="Tutorial"]
+[node name="Label" type="Label" parent="Base/Tutorial"]
 auto_translate_mode = 1
 layout_mode = 1
 anchors_preset = 15
@@ -368,15 +612,15 @@ text = "TUT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Easy" type="ColorRect" parent="."]
-offset_left = 47.0
-offset_top = 405.0
-offset_right = 365.4
-offset_bottom = 496.2
+[node name="Easy" type="ColorRect" parent="Base"]
+offset_left = 13.0
+offset_top = 108.0
+offset_right = 331.4
+offset_bottom = 199.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
 metadata/desc = "EASY_DESC"
 
-[node name="ColorRect3" type="ColorRect" parent="Easy"]
+[node name="ColorRect3" type="ColorRect" parent="Base/Easy"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -389,7 +633,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
-[node name="Label" type="Label" parent="Easy"]
+[node name="Label" type="Label" parent="Base/Easy"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -402,15 +646,15 @@ text = "EASY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Normal" type="ColorRect" parent="."]
-offset_left = 67.0
-offset_top = 508.0
-offset_right = 385.4
-offset_bottom = 599.2
+[node name="Normal" type="ColorRect" parent="Base"]
+offset_left = 33.0
+offset_top = 211.0
+offset_right = 351.4
+offset_bottom = 302.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
 metadata/desc = "NORMAL_DESC"
 
-[node name="ColorRect3" type="ColorRect" parent="Normal"]
+[node name="ColorRect3" type="ColorRect" parent="Base/Normal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -423,7 +667,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
-[node name="Label" type="Label" parent="Normal"]
+[node name="Label" type="Label" parent="Base/Normal"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -436,15 +680,15 @@ text = "NORMAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TurnedTables" type="ColorRect" parent="."]
-offset_left = 84.0
-offset_top = 615.0
-offset_right = 402.4
-offset_bottom = 706.2
+[node name="EXTRA" type="ColorRect" parent="Base"]
+offset_left = 50.0
+offset_top = 318.0
+offset_right = 368.4
+offset_bottom = 409.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
-metadata/desc = "TURNTABLE_DESC"
+metadata/desc = "EXTRA_DESC"
 
-[node name="ColorRect3" type="ColorRect" parent="TurnedTables"]
+[node name="ColorRect3" type="ColorRect" parent="Base/EXTRA"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -457,7 +701,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.096)
 
-[node name="Label" type="Label" parent="TurnedTables"]
+[node name="Label" type="Label" parent="Base/EXTRA"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -466,20 +710,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 36
-text = "TURNTABLE"
+text = "EXTRA"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="CradleOfElements" type="ColorRect" parent="."]
-offset_left = 110.0
-offset_top = 721.0
-offset_right = 428.4
-offset_bottom = 812.2
+[node name="CradleOfElements" type="ColorRect" parent="Base"]
+offset_left = 76.0
+offset_top = 424.0
+offset_right = 394.4
+offset_bottom = 515.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
 metadata/desc = "CRADLE_DESC"
 
-[node name="ColorRect3" type="ColorRect" parent="CradleOfElements"]
+[node name="ColorRect3" type="ColorRect" parent="Base/CradleOfElements"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -492,7 +736,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.846779, 0.940381, 1.54018e-06, 0.0941176)
 
-[node name="Label" type="Label" parent="CradleOfElements"]
+[node name="Label" type="Label" parent="Base/CradleOfElements"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -757,12 +1001,6 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 &"": SubResource("AnimationLibrary_w44g7")
 }
-
-[node name="ExtraGamemodes" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="changeButton" from="." to="ColorRect3/ScrollContainer" method="_on_main_menu_change_button"]
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]

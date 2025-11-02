@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var Buttons : Array[ColorRect] = []
+@export var ExtraButtons : Array[ColorRect] = []
+var currentButtons
 var buttonHover = 0
 var deltatimer = 0
 
@@ -8,11 +10,18 @@ var lastInputDeltatime = 0
 signal changeButton
 
 var mode = "kitchen"
+var showingExtra = false
 
-var NotGameButtons = ["Additional","CradleOfElements"]
+var NotGameButtons = ["Additional","CradleOfElements","EXTRA","Back"]
 var pressed = false
+
 func _process(delta: float) -> void:
 	deltatimer += delta
+	if !showingExtra:
+		currentButtons = Buttons
+	else:
+		currentButtons = ExtraButtons
+	
 	if Input.is_key_pressed(KEY_J):
 		if pressed == false:
 			pressed = true
@@ -24,18 +33,18 @@ func _process(delta: float) -> void:
 		pressed = false
 	
 	if mode == "kitchen":
-		if !Buttons.has($Tutorial):
-			Buttons.insert(0,$Tutorial)
+		if !Buttons.has($Base/Tutorial):
+			Buttons.insert(0,$Base/Tutorial)
 	else:
-		if Buttons.has($Tutorial):
-			Buttons.erase($Tutorial)
+		if Buttons.has($Base/Tutorial):
+			Buttons.erase($Base/Tutorial)
 	
 	$Logo.scale += (Vector2(1.6,1.6) - $Logo.scale) / 20
 	$FirstEngraMmaintheme.pitch_scale = 1 + (sin(deltatimer * 0.5) * 0.01)
 	
-	for E in Buttons.size():
+	for E in currentButtons.size():
 		
-		var buttonInQuestion = Buttons[E]
+		var buttonInQuestion = currentButtons[E]
 		if buttonHover == E:
 			if floor(deltatimer * 2) == round(deltatimer * 2):
 				buttonInQuestion.color =  Color("b2b2b2")
@@ -66,24 +75,33 @@ func _process(delta: float) -> void:
 		changeButton.emit()
 	
 	if Input.is_action_just_pressed("confirm"):
-		if Buttons[buttonHover].name not in NotGameButtons:
+		if currentButtons[buttonHover].name not in NotGameButtons:
 			DatastoreHolder.enemySynergy = true
 			DatastoreHolder.tutorial = false
-			if Buttons[buttonHover].name == "Tutorial":
+			if currentButtons[buttonHover].name == "Tutorial":
 				DatastoreHolder.tutorial = true
 				DatastoreHolder.enemySynergy = false
-			if Buttons[buttonHover].name == "Easy":
+			if currentButtons[buttonHover].name == "Easy":
 				DatastoreHolder.enemySynergy = false
 			
-			DatastoreHolder.difficulty = Buttons[buttonHover].name
+			DatastoreHolder.difficulty = currentButtons[buttonHover].name
 			DatastoreHolder.Mode = mode
 			if mode == "kitchen":
 				Transition.TransitionToScene("res://main.tscn")
 			else:
 				Transition.TransitionToScene("res://cradleEngramChooser.tscn")
-		elif Buttons[buttonHover].name == "Additional":
+		elif currentButtons[buttonHover].name == "Additional":
 			$AdvancedGuide.visible = !$AdvancedGuide.visible
-		elif Buttons[buttonHover].name == "CradleOfElements":
+		elif currentButtons[buttonHover].name == "EXTRA":
+			showingExtra = true
+			buttonHover = 0
+			$AnimationPlayer.play("normal_to_extra")
+		elif currentButtons[buttonHover].name == "Back":
+			showingExtra = false
+			buttonHover = 0
+			$AnimationPlayer.play("normal_to_extra",-1,-1,true)
+			
+		elif currentButtons[buttonHover].name == "CradleOfElements":
 			if mode == "kitchen":
 				mode = "Cradle"
 				buttonHover = 3
@@ -93,7 +111,7 @@ func _process(delta: float) -> void:
 				$AnimationPlayer.play("cradleToKitchen")
 				buttonHover = 4
 		
-	buttonHover = wrap(buttonHover,0,Buttons.size())
+	buttonHover = wrap(buttonHover,0,currentButtons.size())
 
 func _on_timer_timeout() -> void:
 	var newBody : RigidBody2D = $PhysicsBG/RigidBody2D6.duplicate()

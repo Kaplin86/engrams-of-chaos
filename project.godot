@@ -21,6 +21,7 @@ config/icon="uid://braxfc1u12b60"
 DatastoreHolder="*res://datastoreHolder.gd"
 Transition="*res://transition.tscn"
 LeaderboardAPI="*res://LeaderboardAPI.gd"
+AutoKill="*res://autoKill.gd"
 
 [display]
 
