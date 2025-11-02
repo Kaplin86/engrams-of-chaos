@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://crg0ow54udxln"]
+[gd_scene load_steps=7 format=3 uid="uid://crg0ow54udxln"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_q1pvr"]
 [ext_resource type="Script" uid="uid://qa0eo0s8m80r" path="res://units/_bosses/kettle/kettle.gd" id="2_7plo5"]
 [ext_resource type="AudioStream" uid="uid://x11nk5luwutw" path="res://sfx/switch1.mp3" id="3_4mamp"]
 [ext_resource type="Texture2D" uid="uid://cnkeg2ytsyp1" path="res://units/_bosses/kettle/kettle.svg" id="3_tl3v4"]
+[ext_resource type="Texture2D" uid="uid://cjyti0opmc8su" path="res://bullet.svg" id="5_ha1vn"]
+
+[sub_resource type="Gradient" id="Gradient_3ena5"]
+offsets = PackedFloat32Array(0, 0.946871, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Unit" instance=ExtResource("1_q1pvr")]
 script = ExtResource("2_7plo5")
@@ -19,5 +24,21 @@ texture = ExtResource("3_tl3v4")
 [node name="Switch1" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("3_4mamp")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+z_index = 99
+z_as_relative = false
+emitting = false
+amount = 40
+texture = ExtResource("5_ha1vn")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 23.97
+scale_amount_min = 0.0
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_3ena5")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="4"]
 color = Color(0.740921, 0.755292, 0.860699, 1)

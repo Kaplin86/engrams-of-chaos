@@ -10,7 +10,7 @@ func _ready():
 func loadTopScores():
 	var difficulty = ""
 	if Main.buttonHover >= 0 and Main.buttonHover < Main.Buttons.size():
-		difficulty = Main.Buttons[Main.buttonHover].name
+		difficulty = Main.currentButtons[Main.buttonHover].name
 	for E in $VBoxContainer.get_children():
 		E.queue_free()
 	var NewOrdering = []

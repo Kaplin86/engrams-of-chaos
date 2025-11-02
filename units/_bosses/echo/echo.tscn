@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdfklhbxqffri"]
+[gd_scene load_steps=5 format=3 uid="uid://bdfklhbxqffri"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ln5ep"]
 [ext_resource type="Script" uid="uid://dkeias8vetvpu" path="res://units/_bosses/echo/echo.gd" id="2_yyuvx"]
 [ext_resource type="Texture2D" uid="uid://bjurgtkfdo4hi" path="res://units/_bosses/echo/echo.svg" id="3_8vfkr"]
+[ext_resource type="AudioStream" uid="uid://ftm7e7tnhde" path="res://sfx/Perc_Can_hi.wav" id="4_o574p"]
 
 [node name="Unit" instance=ExtResource("1_ln5ep")]
 script = ExtResource("2_yyuvx")
@@ -12,3 +13,7 @@ type = "echo"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_8vfkr")
+
+[node name="FirstEngraMmaintheme" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_o574p")
+pitch_scale = 0.2

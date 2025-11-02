@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu7r1ldr4t4ec"]
+[gd_scene load_steps=5 format=3 uid="uid://bu7r1ldr4t4ec"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ypjl0"]
 [ext_resource type="Script" uid="uid://bphok6stoh3ew" path="res://units/_bosses/lightbulb/lightbulb.gd" id="2_jxsup"]
 [ext_resource type="Texture2D" uid="uid://dgwfd5kwqf7dk" path="res://units/_bosses/lightbulb/lightbulb.svg" id="3_pxm0u"]
+[ext_resource type="AudioStream" uid="uid://x11nk5luwutw" path="res://sfx/switch1.mp3" id="4_rlkuy"]
 
 [node name="Unit" instance=ExtResource("1_ypjl0")]
 script = ExtResource("2_jxsup")
@@ -14,5 +15,8 @@ type = "lightbulb"
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
 texture = ExtResource("3_pxm0u")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
+[node name="Switch1" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_rlkuy")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 color = Color(1, 0.913725, 0.65098, 1)

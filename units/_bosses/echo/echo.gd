@@ -12,4 +12,4 @@ func preTick():
 	NewUnit.hp *= 3
 	NewUnit.damage *= 3
 	hp = -999
-	
+	$FirstEngraMmaintheme.play()

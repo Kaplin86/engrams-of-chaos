@@ -17,6 +17,7 @@ func preTick():
 	tickNumber += 1
 	if tickNumber >= 20:
 		tickNumber = 0
+		$Bell.play()
 		var BoardPositions = board.get_used_cells()
 		for E in gameManagerObject.units:
 			BoardPositions.erase(E.board_position)

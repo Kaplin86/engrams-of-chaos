@@ -291,9 +291,12 @@ func showTutorial(roundnumber):
 	$Name.size.x = 23
 	$Name.text = tr("current_wave") +  str(roundnumber)
 
-func runCraftAnim(NewFusion):
+func runCraftAnim(NewFusion,isBoss = false):
 	$AnimationPlayer.play("craft")
-	$CraftingUI/CraftedUnit.texture = load("res://units/"+NewFusion+"/"+NewFusion+".svg")
+	if isBoss:
+		$CraftingUI/CraftedUnit.texture = load("res://units/_bosses/"+NewFusion+"/"+NewFusion+".svg")
+	else:
+		$CraftingUI/CraftedUnit.texture = load("res://units/"+NewFusion+"/"+NewFusion+".svg")
 	await $AnimationPlayer.animation_finished
 	craftAnimDone.emit()
 	$CraftingUI/LeftElement.position = Vector2(232,281)

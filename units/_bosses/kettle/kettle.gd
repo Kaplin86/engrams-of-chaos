@@ -25,3 +25,8 @@ func preTick():
 		
 		heal(ChosenOne.hp * 2)
 		ChosenOne.hp -= 999
+		var Newparticle = $CPUParticles2D.duplicate()
+		Newparticle.global_position = board.map_to_local(ChosenOne.board_position)
+		add_child(Newparticle)
+		Newparticle.speed_scale = 1 / timePerTick
+		Newparticle.emitting = true

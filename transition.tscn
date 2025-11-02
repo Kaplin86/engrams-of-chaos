@@ -250,7 +250,7 @@ offset_bottom = 345.0
 theme_override_colors/font_color = Color(0.144063, 0.144063, 0.144063, 1)
 theme_override_fonts/font = ExtResource("7_j7crc")
 theme_override_font_sizes/font_size = 91
-text = "Please Wait..."
+text = "PLZWAIT"
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

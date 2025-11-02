@@ -6,14 +6,14 @@ synergy,synergy,相乗効果
 EXTRA,Extra Modes,エクストラモード
 EXTRA_DESC,Some additional silly gamemodes!,いくつかの追加の面白いゲームモード！
 HC,Hardcore,ハードコア
-HC_DESC,"When A unit dies, it gets removed from your team!"
+HC_DESC,"When A unit dies, it gets removed from your team!",ユニットが死亡すると、チームから削除されます。
 CHAOSCORE,Chaos Core,カオスコア
 CHAOSCORE_DESC,Start the game with one chaos engram.,カオスエングラム 1 つでゲームを開始します。
 BR,Boss Rush,ボスラッシュ
-BR_DESC,"After round 5, all rounds are a boss round!",5ラウンド目以降は全ラウンドボスラウンドになります！
+BR_DESC,All rounds are boss rounds! You also have double the starting units.,全ラウンドがボスラウンド！開始時のユニットも2倍になります。
 BACK,Back,戻る
+PLZWAIT,Please Wait...,読み込み中...
 BACK_DESC,Goes back to normal modes,通常モードに戻る
-
 TUT,Tutorial,学習用
 TUT_DESC,Its tutorial time!,学習の時間です！
 EASY,Easy,簡単

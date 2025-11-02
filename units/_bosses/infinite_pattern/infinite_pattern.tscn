@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3a15bcjwpabq"]
+[gd_scene load_steps=9 format=3 uid="uid://b3a15bcjwpabq"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_y6gx0"]
 [ext_resource type="Script" uid="uid://b1ntiltapmp00" path="res://units/_bosses/infinite_pattern/infinite_pattern.gd" id="2_kn518"]
 [ext_resource type="Shader" uid="uid://duaqxrgveo60u" path="res://units/_bosses/infinite_pattern/infinite_pattern2.gdshader" id="2_nstbp"]
 [ext_resource type="Texture2D" uid="uid://cgonchji1tqye" path="res://units/_bosses/infinite_pattern/infinite_pattern.svg" id="3_kn518"]
+[ext_resource type="AudioStream" uid="uid://c2li7rthj2ck5" path="res://sfx/bell.wav" id="5_w4hck"]
 
 [sub_resource type="Shader" id="Shader_nstbp"]
 code = "shader_type canvas_item;
@@ -87,3 +88,7 @@ region_rect = Rect2(0, 0, 603, 581)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="2"]
 color = Color(0.42471, 0.619689, 1, 1)
+
+[node name="Bell" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("5_w4hck")
+pitch_scale = 5.0

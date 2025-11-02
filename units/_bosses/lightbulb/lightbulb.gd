@@ -17,6 +17,7 @@ func preTick():
 	super()
 	if !ability:
 		ability = true
+		$Switch1.play()
 		var PositionArray = {}
 		for E in gameManagerObject.units:
 			PositionArray[E.board_position] = E

@@ -57,14 +57,20 @@ func _ready() -> void:
 	$CanvasLayer2/Control.visible = true
 	
 	if DatastoreHolder.difficulty == "TurnedTables":
-		#spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
-		spawnUnit("score_holder",Vector2i(7,14),2,true)
+		spawnUnit(currentlyAvailableBosses.pick_random(),Vector2i(7,14),2,true)
+		#spawnUnit("score_holder",Vector2i(7,14),2,true)
 	else:
 		if !DatastoreHolder.tutorial:
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,14),2)
 			spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(7,13),2)
+			if DatastoreHolder.difficulty  == "BossRush":
+				spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(6,14),2)
+				spawnUnit( DatastoreHolder.getFusedUnit(currentAvailableEngrams.pick_random(),currentAvailableEngrams.pick_random()) ,Vector2i(6,13),2)
 		else:
 			spawnUnit("chicken_wing",Vector2i(7,14),2)
+	
+	if DatastoreHolder.difficulty == "ChaosCore":
+		engramInventory["chaos"] = 1
 	
 	$CanvasLayer/UI.visualizeSynergy(calculatesynergies(2))
 	#startFight()
@@ -125,7 +131,7 @@ func generateEnemyTeam():
 	if currentWave == 1 and $TutorialHandler.tutorialMode: 
 		spawnUnit("cake",Vector2i(7,1),1)
 		
-	elif currentWave == 5 or currentWave == 7:
+	elif currentWave == 5 or currentWave == 7 or (DatastoreHolder.difficulty == "BossRush"):
 		#spawnUnit("cutlery",Vector2(7,1),1,true)
 		var bossName = currentlyAvailableBosses.pick_random()
 		if currentWave == 7:
@@ -252,6 +258,11 @@ func spawnUnit(unitType : String, pos : Vector2i, team : int = 1, boss = false):
 		NewUnit.isBoss = boss
 		if randi_range(0,100) == 86:
 			NewUnit.scale = Vector2(-1,-1)
+		
+		if ticksThisRound >= 10 and team != 2:
+			NewUnit.maxHP += ticksThisRound
+			NewUnit.hp += ticksThisRound
+		
 		return NewUnit
 	else:
 		return FAILED

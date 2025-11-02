@@ -269,12 +269,16 @@ func _process(delta: float) -> void:
 						main.engramInventory.erase(E)
 				ui.showCraftingUi(main.engramInventory,true)
 				var NewFusion = DatastoreHolder.getFusedUnit(currentCrafting[0],currentCrafting[1])
+				var isBossFusion = "chaos" in currentCrafting
 				currentCrafting = []
 				CurrentState = "CraftingAnim"
-				ui.runCraftAnim(NewFusion)
+				ui.runCraftAnim(NewFusion,isBossFusion)
 				
 				if !main.isPlayerBoardFull():
-					main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2)
+					if isBossFusion:
+						main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2,true)
+					else:
+						main.spawnUnit(NewFusion,main.getFirstOpenPlayerBoardPosition(),2)
 					ui.visualizeSynergy(main.calculatesynergies(2))
 				
 				await ui.craftAnimDone

@@ -69,9 +69,11 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_up"):
 		buttonHover -= 1
+		buttonHover = wrap(buttonHover,0,currentButtons.size())
 		changeButton.emit()
 	elif Input.is_action_just_pressed("ui_down"):
 		buttonHover += 1
+		buttonHover = wrap(buttonHover,0,currentButtons.size())
 		changeButton.emit()
 	
 	if Input.is_action_just_pressed("confirm"):
