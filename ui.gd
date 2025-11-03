@@ -51,8 +51,6 @@ func viewUnit(unit : BaseUnit):
 	
 	
 	$UnitUI/Description.text = tr(unit.type + "_desc").format({"ABILITY":tr("ABILITY")})
-	$Name.size.x = 334
-	$Name.position.x = 812
 	if unit.team != 2:
 		$Name.text = tr("enemy_unit").format({"ENEMY":tr("enemy"),"UNIT":tr(unit.type)}).replace("_"," ")
 	else:
@@ -71,8 +69,13 @@ func viewUnit(unit : BaseUnit):
 	if DatastoreHolder.synergyUnitJson.has(unit.type):
 		for E in DatastoreHolder.synergyUnitJson[unit.type]:
 			var NewImage = TextureRect.new()
+			#var NewHolder = Control
 			NewImage.texture = load("res://ui/elements/"+E+".svg")
 			$UnitUI/Synergies.add_child(NewImage)
+			NewImage.custom_minimum_size = Vector2(400,400)
+			var newtween = get_tree().create_tween()
+			newtween.tween_property(NewImage,"custom_minimum_size",Vector2(400,400),1)
+			#newtween.set_trans(Tween.TRANS_ELASTIC)
 	
 	
 
@@ -119,8 +122,6 @@ func highlightSynergy(synergyname : String):
 		$Tutorial.visible = false
 		$SynergyUI/Description.text = Description
 		
-		$Name.size.x = 334
-		$Name.position.x = 812
 		var Key = {
 			"ENGRAM":tr(synergyname),
 			"SYNERGY":tr("synergy")
@@ -288,7 +289,6 @@ func showTutorial(roundnumber):
 	$UnitUI.visible = false
 	$SynergyUI.visible = false
 	$Name.remove_theme_color_override("font_color")
-	$Name.size.x = 23
 	$Name.text = tr("current_wave") +  str(roundnumber)
 
 func runCraftAnim(NewFusion,isBoss = false):

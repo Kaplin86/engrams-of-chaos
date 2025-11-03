@@ -6,6 +6,7 @@ synergy,synergy,相乗効果
 EXTRA,Extra Modes,エクストラモード
 EXTRA_DESC,Some additional silly gamemodes!,いくつかの追加の面白いゲームモード！
 HC,Hardcore,ハードコア
+HARDCORE,Hardcore,ハードコア
 HC_DESC,"When A unit dies, it gets removed from your team!",ユニットが死亡すると、チームから削除されます。
 CHAOSCORE,Chaos Core,カオスコア
 CHAOSCORE_DESC,Start the game with one chaos engram.,カオスエングラム 1 つでゲームを開始します。

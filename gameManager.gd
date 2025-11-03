@@ -381,12 +381,20 @@ func endRound(): ## This is called when the round ends
 		DatastoreHolder.UnitTypesUsed = battleLoadout
 		Transition.TransitionToScene("res://ui/leaderboard.tscn")
 		return
+	
+	
+	var UnitsHave = []
 	for E in units:
+		UnitsHave.append(E)
 		E.queue_free()
 	units.clear()
 	
 	for data in battleLoadout:
-		spawnUnit(data["type"], data["pos"], data["team"], data["boss"])
+		if DatastoreHolder.difficulty == "Hardcore":
+			if data["node"] in UnitsHave:
+				spawnUnit(data["type"], data["pos"], data["team"], data["boss"])
+		else:
+			spawnUnit(data["type"], data["pos"], data["team"], data["boss"])
 	battleLoadout.clear()
 	
 	battleState = "preround"
@@ -458,7 +466,8 @@ func startButtonHit(): ## When a particular ui button is hit
 					"type": E.type,
 					"pos": E.board_position,
 					"team": E.team,
-					"boss": E.isBoss
+					"boss": E.isBoss,
+					"node": E
 				})
 		
 		startFight()

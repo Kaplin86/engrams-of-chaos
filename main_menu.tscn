@@ -279,7 +279,7 @@ _data = {
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("Buttons", "ExtraButtons")]
 script = ExtResource("1_fu7sn")
 Buttons = [NodePath("Base/Tutorial"), NodePath("Base/Easy"), NodePath("Base/Normal"), NodePath("Base/EXTRA"), NodePath("Base/CradleOfElements"), NodePath("Additional")]
-ExtraButtons = [NodePath("Control/TurnedTables"), NodePath("Control/ChaosCore"), NodePath("Control/BossRush"), NodePath("Control/Back")]
+ExtraButtons = [NodePath("Control/TurnedTables"), NodePath("Control/Hardcore"), NodePath("Control/ChaosCore"), NodePath("Control/BossRush"), NodePath("Control/Back")]
 
 [node name="Button1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8qtwp")
@@ -364,9 +364,9 @@ offset_bottom = 28.0
 [node name="TurnedTables" type="ColorRect" parent="Control"]
 layout_mode = 0
 offset_left = 43.0
-offset_top = 413.0
+offset_top = 321.0
 offset_right = 361.4
-offset_bottom = 504.2
+offset_bottom = 412.2
 color = Color(0.389287, 0.389287, 0.389286, 1)
 metadata/desc = "TURNTABLE_DESC"
 
@@ -398,7 +398,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Hardcore" type="ColorRect" parent="Control"]
-visible = false
 layout_mode = 0
 offset_left = 80.0
 offset_top = 423.0
