@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0fa1fcw3ggsp"]
+[gd_scene load_steps=24 format=3 uid="uid://b0fa1fcw3ggsp"]
 
 [ext_resource type="PackedScene" uid="uid://c28224rc6p5um" path="res://ui/metronome.tscn" id="1_fyqef"]
 [ext_resource type="Script" uid="uid://c58tvl0g7cnua" path="res://ui.gd" id="1_nltto"]
 [ext_resource type="Texture2D" uid="uid://djxijbnjfmaby" path="res://ui/elements/spicy.svg" id="3_27fn8"]
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="3_e2l4f"]
+[ext_resource type="Script" uid="uid://coeinqcwoxafp" path="res://description.gd" id="4_nvb2n"]
 [ext_resource type="Texture2D" uid="uid://5avfop73khpx" path="res://ui/sword.svg" id="5_ibotj"]
 [ext_resource type="Script" uid="uid://j0s0bjih7bcp" path="res://textslowchange.gd" id="5_n5rqp"]
 [ext_resource type="Texture2D" uid="uid://cs01ii7jihxxb" path="res://ui/shield.svg" id="6_y4yjw"]
@@ -55,6 +56,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(232, 281.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CraftingUI/CraftedUnit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(616, 327)]
 }
 
 [sub_resource type="Animation" id="Animation_irxef"]
@@ -119,6 +132,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CraftingUI/CraftedUnit:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.01, 1.74, 2),
+"transitions": PackedFloat32Array(1, 4.92457, 2),
+"update": 0,
+"values": [Vector2(616, 327), Vector2(616, 327), Vector2(616, -295.945)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n5rqp"]
@@ -194,7 +219,6 @@ scale = Vector2(0.504706, 0.692941)
 texture = ExtResource("3_e2l4f")
 
 [node name="SynergyUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -214,11 +238,13 @@ text = "At the start of the round, remove an engram to buff all defense by chanc
 
 2 Units - (0 to 1) Defense
 
+
 [b]4 Units - (0 to 2) Defense[/b]
 
 6 Units - (0 to 4) Defense"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("4_nvb2n")
 
 [node name="SynergyIcon" type="TextureRect" parent="SynergyUI"]
 z_as_relative = false
@@ -232,6 +258,7 @@ texture = ExtResource("3_27fn8")
 stretch_mode = 4
 
 [node name="UnitUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -297,17 +324,17 @@ stretch_mode = 5
 
 [node name="Damage" type="Label" parent="UnitUI"]
 layout_mode = 2
-offset_left = 927.0
+offset_left = 926.0
 offset_top = 245.0
-offset_right = 966.0
-offset_bottom = 277.0
-theme_override_font_sizes/font_size = 23
+offset_right = 965.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 19
 text = "32"
 
 [node name="ColorRect" type="ColorRect" parent="UnitUI/Damage"]
 layout_mode = 0
-offset_left = -24.0
-offset_right = 29.0
+offset_left = -23.0
+offset_right = 30.0
 offset_bottom = 33.0
 color = Color(0, 0, 0, 0.121569)
 
@@ -323,7 +350,7 @@ offset_left = 981.0
 offset_top = 245.0
 offset_right = 1020.0
 offset_bottom = 277.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 19
 text = "32"
 
 [node name="ColorRect" type="ColorRect" parent="UnitUI/Defense"]
@@ -345,7 +372,7 @@ offset_left = 1035.0
 offset_top = 245.0
 offset_right = 1074.0
 offset_bottom = 277.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 19
 text = "100"
 
 [node name="ColorRect" type="ColorRect" parent="UnitUI/Health"]
@@ -366,7 +393,7 @@ offset_left = 936.0
 offset_top = 279.0
 offset_right = 996.0
 offset_bottom = 311.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 19
 text = "50%"
 horizontal_alignment = 1
 
@@ -388,7 +415,7 @@ offset_left = 1077.0
 offset_top = 279.0
 offset_right = 1137.0
 offset_bottom = 311.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 19
 text = "5.0"
 horizontal_alignment = 1
 
@@ -411,7 +438,7 @@ offset_left = 1103.0
 offset_top = 245.0
 offset_right = 1142.0
 offset_bottom = 277.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 19
 text = "100"
 
 [node name="ColorRect" type="ColorRect" parent="UnitUI/Mana"]
@@ -588,13 +615,6 @@ modulate = Color(1, 1, 1, 0.033)
 position = Vector2(980, 670.5)
 scale = Vector2(0.77647, 0.882353)
 texture = ExtResource("3_e2l4f")
-
-[node name="DEARPLAYTESTERS" type="Label" parent="."]
-offset_left = 80.0
-offset_top = 179.0
-offset_right = 498.0
-offset_bottom = 254.0
-theme_override_constants/outline_size = 9
 
 [node name="CraftingUI" type="TextureRect" parent="."]
 visible = false

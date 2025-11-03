@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1hvbupj4t4hn"]
+[gd_scene load_steps=24 format=3 uid="uid://b1hvbupj4t4hn"]
 
 [ext_resource type="Script" uid="uid://bpf6yepo3s2n2" path="res://main_menu.gd" id="1_fu7sn"]
 [ext_resource type="AudioStream" uid="uid://c0vtc21mup82j" path="res://sfx/button1.ogg" id="2_8qtwp"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cstd7txufmlqq" path="res://ui/pattern.svg" id="7_qe12f"]
 [ext_resource type="AudioStream" uid="uid://dybdrextqsmc1" path="res://sfx/FirstENGRAMmaintheme.mp3" id="9_dy7ct"]
 [ext_resource type="Script" uid="uid://cdjgcejo4bnr3" path="res://leaderboardContainer.gd" id="10_0o4t1"]
+[ext_resource type="Texture2D" uid="uid://dpnhwypro2p8k" path="res://units/point_token/point_token.svg" id="11_iotk1"]
+[ext_resource type="Texture2D" uid="uid://cgxlnnee42ung" path="res://units/gold/gold.svg" id="12_w44g7"]
+[ext_resource type="Texture2D" uid="uid://db074xsmfslb5" path="res://units/money_paper/money_paper.svg" id="13_cm266"]
 
 [sub_resource type="Gradient" id="Gradient_nlkkf"]
 offsets = PackedFloat32Array(0, 0.893333, 1)
@@ -1020,6 +1023,18 @@ offset_top = 22.0
 offset_right = 1134.0
 offset_bottom = 46.0
 text = "Press J to switch to japanese"
+
+[node name="PointToken" type="Sprite2D" parent="."]
+position = Vector2(1644, 277)
+texture = ExtResource("11_iotk1")
+
+[node name="Gold" type="Sprite2D" parent="."]
+position = Vector2(1804, 273)
+texture = ExtResource("12_w44g7")
+
+[node name="MoneyPaper" type="Sprite2D" parent="."]
+position = Vector2(1488, 307)
+texture = ExtResource("13_cm266")
 
 [connection signal="changeButton" from="." to="ColorRect3/ScrollContainer" method="_on_main_menu_change_button"]
 [connection signal="body_entered" from="PhysicsBG/Area2D" to="PhysicsBG" method="_on_area_2d_body_entered"]

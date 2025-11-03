@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://chr2equ0e4rea"]
+[gd_scene load_steps=4 format=3 uid="uid://chr2equ0e4rea"]
 
 [ext_resource type="PackedScene" uid="uid://dlce6rwtjimmm" path="res://units/base_unit/base_unit.tscn" id="1_ble3t"]
 [ext_resource type="Texture2D" uid="uid://3ft56uuayhbs" path="res://units/scribble/scribble.svg" id="2_4qonq"]
+[ext_resource type="Script" uid="uid://dm7u5587827rl" path="res://units/scribble/scribble.gd" id="2_boufn"]
 
 [node name="Unit" instance=ExtResource("1_ble3t")]
+script = ExtResource("2_boufn")
 description = "A amalgamation of lines. It is both nothing and everything at the same time."
 maxHP = 90
 damage = 8
@@ -11,4 +13,6 @@ defense = 7
 type = "scribble"
 
 [node name="Visual" parent="VisualHolder/YetAnotherHolder" index="0"]
+self_modulate = Color(1, 0, 0, 1)
+material = null
 texture = ExtResource("2_4qonq")

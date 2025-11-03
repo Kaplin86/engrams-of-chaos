@@ -95,6 +95,7 @@ func tick(time_per_tick : float): ## This is ran every ingame tick.
 				if mana >= maxMana and maxMana != 0:
 					# Spell Cast
 					castSpell(Target)
+					abilityVisual()
 					mana = 0
 				else:
 					# Normal attack

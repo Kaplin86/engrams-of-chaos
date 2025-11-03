@@ -6,8 +6,6 @@ func _ready() -> void:
 	
 	$CraftingUI.modulate = Color(1,1,1,0)
 	$CraftingUI.visible = true
-	await get_tree().create_timer(8).timeout
-	$DEARPLAYTESTERS.visible = false
 
 var synergyRectScene = preload("res://ui/synergy_rect.tscn")
 var selectedButton = "play"
@@ -16,6 +14,7 @@ var unitTypeSprite = {}
 func displayMetronomeNumber(num):
 	$Metronome.displayTickNumber(num)
 
+var lastUnitSeen = null
 func viewUnit(unit : BaseUnit):
 	$UnitUI.visible = true
 	$SynergyUI.visible = false
@@ -63,19 +62,31 @@ func viewUnit(unit : BaseUnit):
 		else:
 			$Name.add_theme_color_override("font_color",unit.get_meta("color"))
 			
+	
+	
+	if lastUnitSeen != unit:
+		lastUnitSeen = unit
+	else:
+		return
+	
 	for E in $UnitUI/Synergies.get_children():
 		E.queue_free()
 	
 	if DatastoreHolder.synergyUnitJson.has(unit.type):
 		for E in DatastoreHolder.synergyUnitJson[unit.type]:
 			var NewImage = TextureRect.new()
-			#var NewHolder = Control
+			var NewHolder = Control.new()
+			
 			NewImage.texture = load("res://ui/elements/"+E+".svg")
-			$UnitUI/Synergies.add_child(NewImage)
-			NewImage.custom_minimum_size = Vector2(400,400)
+			$UnitUI/Synergies.add_child(NewHolder)
+			NewHolder.add_child(NewImage)
+			NewHolder.custom_minimum_size = Vector2(311,311)
+			NewImage.scale = Vector2(1.1,1.1)
 			var newtween = get_tree().create_tween()
-			newtween.tween_property(NewImage,"custom_minimum_size",Vector2(400,400),1)
-			#newtween.set_trans(Tween.TRANS_ELASTIC)
+			newtween.tween_property(NewImage,"scale",Vector2.ONE,0.2)
+			newtween.tween_property(NewImage,"position",Vector2.ZERO,0.2)
+			newtween.set_trans(Tween.TRANS_BACK)
+			newtween.set_ease(Tween.EASE_OUT)
 	
 	
 
