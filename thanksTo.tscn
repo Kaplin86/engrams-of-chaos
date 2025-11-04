@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://mjt2sk4enr4c"]
+
+[ext_resource type="Script" uid="uid://cexthth1y3l23" path="res://thanks_to.gd" id="1_d77ds"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_d77ds")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 863.0
+color = Color(0, 0, 0, 0.458824)
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 29.0
+offset_top = 32.0
+offset_right = 528.0
+offset_bottom = 857.0
+text = "Thanks To:
+THE GOATS FROM THE #1250-yaps CHANNEL!!!
+Zac
+Mahim
+Raqeeb
+Swoth
+Ang
+Alice
+Yessa
+Leon
+Manav
+Pikachu
+Flush
+Noga
+Brody
+lopa
+Danny
+Frappie
+Jacio
+Pixi
+Isaac
+Calderon
+Kat
+onlyth3
+random
+scattercat
+tizzi
+xvcf
+yatharth
+julia
+Kuzui
+Stein
+And everyone else who was there for the journey!"
+
+[node name="Label2" type="RichTextLabel" parent="."]
+offset_left = 583.0
+offset_top = 46.0
+offset_right = 1082.0
+offset_bottom = 821.0
+text = "Actual Credits though:
+Art - Kaplin
+Programming - Kaplin
+Design - Kaplin
+Sound Design - Kaplin
+Music - Kaplin
+UI Design - Kaplin
+Procrastination - Kaplin
+Tutorial Writer - Kaplin
+Writer - Kaplin
+Author - Kaplin
+Marketing - Kaplin
+Cool - Kaplin
+CEO - Kaplin
+Credits writer - Kaplin
+Gambler - Kaplin
+Brought foods and drinks - Kaplin
+Participation Trophy - Kaplin
+Gave out trophies - Kaplin
+Scripting - Kaplin
+Shader creating - Kaplin
+Sound Design (again) - Kaplin
+Sleeping - Kaplin
+Balatro highscore achiever - Kaplin
+Number 1 employee - Kaplin
+Game studio - Kaplin
+Kaplin - Kaplin
+Honorable Mention: Kaplin
+Kap - Lin
+Made the game - Kaplin
+
+Organizer - Thomas, tongyu , Kai ling
+"
